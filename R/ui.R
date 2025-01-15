@@ -15,15 +15,18 @@ page_navbar(
   
   # -- theme
   theme = bs_theme(
-    bg = "#090909",
+    bg = "#2d3037",
     fg = "#FFF",
-    primary = "#ffeaa8",
+    primary = "#ffeaa8", # try A28E6A + blue
     secondary = "#ececec",
     base_font = font_google("Quicksand")),
   
   # -- title
   title = "Philippe Peret",
-  footer = div(class = "footer", "© 2024 TheKangarooFactory"),
+  
+  # -- footer
+  fillable = FALSE,
+  footer = p(style = "font-size:9pt;margin-top:20px;", "© 2025 TheKangarooFactory"),
  
   # -- portfolio
   nav_panel(title = "Portfolio", 

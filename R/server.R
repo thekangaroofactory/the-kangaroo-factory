@@ -23,7 +23,7 @@ function(input, output, session) {
 
   
   output$pdfviewer <- renderText({
-    return(paste('<iframe style="height:600px; width:100%" src="', pdfurl, '"></iframe>', sep = ""))
+    return(paste('<iframe style="height:600px; width:80%" src="', pdfurl, '"></iframe>', sep = ""))
   })
   
 }
