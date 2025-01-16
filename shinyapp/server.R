@@ -7,7 +7,11 @@ library(shiny)
 
 # Define server logic
 function(input, output, session) {
-
+  
+  if(DEBUG)
+    cat("[i] DEBUG mode is ON \n")
+  
+  
   pdfurl <- "./PERET_Philippe_2024_11_FR.pdf"
   
   
