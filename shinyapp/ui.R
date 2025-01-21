@@ -7,10 +7,6 @@
 # -- Define UI
 page_navbar(
   
-  # -- Include css
-  tags$head(
-    tags$link(rel = "stylesheet", type = "text/css", href = "./css/tkf.css")),
-  
   # -- Theme
   theme = bs_theme(
     bg = "#2d3037",
@@ -21,9 +17,8 @@ page_navbar(
   
   # -- Title
   title = "Philippe Peret",
-  
-  # -- Footer
   fillable = FALSE,
+  header = tags$link(rel = "stylesheet", type = "text/css", href = "./css/tkf.css"),
   footer = p(style = "font-size:9pt;margin-top:20px;", "© 2025 TheKangarooFactory"),
  
   
@@ -43,9 +38,7 @@ page_navbar(
             img(src = "./img/career_path.png",
                 style = "width: 60%;"),
             
-            htmlOutput('pdfviewer'),
-            
-            p("My profile goes here.")),
+            htmlOutput('pdfviewer')),
   
   
   # -- Contact
