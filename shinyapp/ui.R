@@ -92,20 +92,6 @@ page_navbar(
             
             p("My profile goes here.")),
   
-  # -- wiki
-  # insert ui & outputs + backend server logic (module)
-  nav_panel(title = "Wiki", 
-            
-            card(
-              class = "portfolio",
-              fill = FALSE,
-              full_screen = FALSE,
-              
-              card_header(h2("Add css tag")),
-              
-              verbatimTextOutput("code")
-              
-            )),
   
   # -- contact
   nav_panel(title = "Contact", 
