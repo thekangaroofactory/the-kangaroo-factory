@@ -96,38 +96,18 @@ page_navbar(
   # -- contact
   nav_panel(title = "Contact", 
             
-            card(
-              class = "portfolio",
-              fill = FALSE,
-              full_screen = TRUE,
-              
-              # -- header
-              card_header(h2("Contacts")),
-              
-              # -- body
-              card_body(
-                
-                # -- nav
-                navset_underline(
-                  
-                  nav_panel(title = "LinkedIn",
-                            tags$a(href = "https://www.linkedin.com/in/philippeperet/", 
-                                   target = "_blank",
-                                   "LinkedIn")),
-                  
-                  nav_panel(title = "GitHub",
-                            tags$a(href = "https://github.com/thekangaroofactory",
-                                   target = "_blank",
-                                   "GitHub")),
-                  
-                  nav_panel(title = "ORCID", 
-                            tags$a(href = "https://orcid.org/0009-0003-9666-7490",
-                                   target = "_blank",
-                                   "ORCID"))
-                  
-                ))))
+            h1("Contacts"),
+            
+            tags$a(href = "https://www.linkedin.com/in/philippeperet/", 
+                   target = "_blank",
+                   "LinkedIn"),
+            
+            tags$a(href = "https://github.com/thekangaroofactory",
+                   target = "_blank",
+                   "GitHub"),
+            
+            tags$a(href = "https://orcid.org/0009-0003-9666-7490",
+                   target = "_blank",
+                   "ORCID"))
   
-  
-  
-  
-)
+) # page_navbar
