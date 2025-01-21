@@ -22,4 +22,3 @@ portfolio_server <- function(id, user = NULL) {
     
   })
 }
-
