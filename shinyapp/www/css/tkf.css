@@ -1,2 +1,11 @@
 
 
+/* -- buttons -- */
+.btn {
+  
+  /*width: 20%;*/
+  max-width: 150px;
+  
+  border-radius: 25px;
+  
+}
