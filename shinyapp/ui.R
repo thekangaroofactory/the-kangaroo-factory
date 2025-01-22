@@ -29,7 +29,14 @@ page_navbar(
   # -- Portfolio
   nav_panel(title = "Portfolio", 
             
-            h1("Portfolio")),
+            h1("Projects"),
+            
+            portfolio_ui("portfolio"),
+            
+            #project_ui("portfolio")
+            
+            
+            ),
   
   
   # -- Profile

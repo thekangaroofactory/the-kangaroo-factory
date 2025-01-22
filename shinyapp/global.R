@@ -27,10 +27,12 @@ rm(nm)
 # ------------------------------------------------------------------------------
 
 # -- path list
-path <- list()
+path <- list(data = file.path(Sys.getenv("PROJECT_HOME"), "data"))
 
 # -- filenames
 file <- list ()
 
-DEBUG <- ifelse(is.logical(Sys.getenv("DEBUG")), Sys.getenv("DEBUG"), FALSE)
+
+# -- Debug mode
+DEBUG <- ifelse(Sys.getenv("DEBUG") != "", as.logical(Sys.getenv("DEBUG")), FALSE)
 
