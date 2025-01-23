@@ -8,11 +8,11 @@ portfolio_ui <- function(id){
   # -- return ui
   tagList(
     
-    p("Browse and select a project, or use the filters below."),
+    p("Browse and open a project by clicking the expand button (lower right corner), or use the filters below."),
     
     uiOutput(ns("select_project")),
     
-    p("Maybe add some sort options and a bit of text here."),
+    h2("Projects"),
     
     uiOutput(ns("project_grid")))
   
