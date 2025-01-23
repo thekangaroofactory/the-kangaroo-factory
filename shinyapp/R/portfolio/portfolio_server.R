@@ -29,96 +29,52 @@ portfolio_server <- function(id, user = NULL, path) {
       # -- set path
       path_portfolio(file.path(path$data, user(), "portfolio"))
       
-      
-      
     })
     
     
     # --------------------------------------------------------------------------
-    # Project selector
+    # Projects
     # --------------------------------------------------------------------------
     
-    # -- strategy
-    # a partir du user, on scanne les répertoires du repository
-    # sections.csv
-    # img
-    
-    # -- build project list
+    # -- project list
     projects <- reactive({
       
-      # -- 
+      # -- read user file
       cat(MODULE, "Scan user repository \n")
       read.csv(file = file.path(path_portfolio(), "projects.csv"), header = TRUE)
       
     })
     
     
+    # -- output: select project
     output$select_project <- renderUI(
       
       selectInput(inputId = ns("project_type"), 
                   label = "Project type", 
                   choices = projects()$type,
-                  multiple = TRUE)
-      
-    )
+                  multiple = TRUE))
     
     
-    observe({
+    # -- output: project grid
+    output$project_grid <- renderUI({
       
-      cat(MODULE, "Update preview \n")
+      cat(MODULE, "Build project grid \n")
       
-      # -- 
-      helper <- function(x){
-        
-        # -- card
-        card(
-          id = ns(paste0("project_", x$id)),
-          class = "border border-light",
-          fill = FALSE,
-          full_screen = TRUE,
-          card_image(
-            file = file.path(path_portfolio(), paste0("p", x$id), "preview.jpg"),
-            alt = "Project preview image"),
-          card_body(
-            fill = FALSE,
-            card_title(x$name),
-            p(x$type, br(), x$summary),
-            actionButton(inputId = paste0("btn_", x$id),
-                         label = "View",
-                         onclick = paste0('Shiny.onInputChange("', ns("project_click"), '",', x$id, ')'))))
-        
-      }
+      # -- apply filter
+      idx <- if(is.null(input$project_type))
+        projects()$id
+      else
+        projects()[projects()$type %in% input$project_type, ]$id
       
-      # -- Build project grid output
-      output$project_grid <- renderUI(
-        
-        do.call(
-          layout_column_wrap,
-          c(
-            list(width = "400px",
-                 fixed_width = TRUE),
-            lapply(projects()[projects()$type %in% input$project_type, ]$id, function(x) helper(projects()[x, ])))))
+      # -- build & return ui
+      do.call(
+        layout_column_wrap,
+        c(
+          list(width = "400px",
+               fixed_width = TRUE),
+          lapply(idx, function(x) card_project(projects()[x, ], ns, input, path_portfolio()))))
       
-    })
-    
-    
-    # -- observe project card click (view button)
-    observeEvent(input$project_click, {
-      
-      cat(MODULE, "Project click =", input$project_click, "\n")
-      project <- projects()[projects()$id == as.integer(input$project_click), ]
-      
-      showModal(modalDialog(
-        size = "xl",
-        title = project$name,
-        p(project$type),
-        p(project$summary),
-        p("something")))
-                 
-      })
-    
-    observeEvent(input$project_1_full_screen,
-                 str(input$project_1_full_screen))
+    }) |> bindEvent(input$project_type, ignoreNULL = FALSE, ignoreInit = TRUE)
     
     
   })
