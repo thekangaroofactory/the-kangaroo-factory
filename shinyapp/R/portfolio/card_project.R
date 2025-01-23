@@ -23,32 +23,37 @@ card_project <- function(x, ns, input, path_portfolio){
     fill = FALSE,
     full_screen = TRUE,
     
-    # -- dynamic content (preview vs full screen)
-    renderUI({
+    # -- card content
+    # adding an explicit card_body with padding 0 otherwise an implicit one
+    # is added with some padding around the image.
+    card_body(
+      class = "p-0",
       
-      # -- check if card is full screen
-      if(isFALSE(input[[paste0("project_", x$id, "_full_screen")]]))
+      # -- dynamic content (preview vs full screen)
+      renderUI({
         
-        # -- preview
-        tagList(
-          card_image(
-            file = file.path(path_portfolio, paste0("p", x$id), "preview.jpg"),
-            alt = "Project preview image"),
-          card_body(
-            fill = FALSE,
-            card_title(x$name),
-            p(x$type, br(), x$summary)))
-      
-      else
+        # -- check if card is full screen
+        if(isFALSE(input[[paste0("project_", x$id, "_full_screen")]]))
+          
+          # -- preview
+          tagList(
+            card_image(
+              file = file.path(path_portfolio, paste0("p", x$id), "preview.jpg"),
+              alt = "Project preview image"),
+            card_body(
+              card_title(x$name),
+              p(x$type, br(), x$summary)))
         
-        # -- full screen
-        tagList(
-          h1(x$name),
+        else
+          
+          # -- full screen
+          tagList(
+            h1(x$name),
             p("This is the full screen mode content."),
             p(x$type, br(), x$summary))
-      
-    }) # renderUI
-    
+        
+      }) # renderUI
+    ) # card_body
   ) # card
   
 }
