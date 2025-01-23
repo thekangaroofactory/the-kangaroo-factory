@@ -11,7 +11,7 @@ page_navbar(
   theme = bs_theme(
     bg = "#2d3037",
     fg = "#FFF",
-    primary = "#ffeaa8", # try A28E6A + blue
+    primary = "#e9dfc7", # try A28E6A + blue #f4efe3 ffeaa8
     secondary = "#ececec",
     base_font = font_google("Quicksand")),
   
@@ -27,20 +27,28 @@ page_navbar(
   # ----------------------------------------------------------------------------
   
   # -- Portfolio
-  nav_panel(title = "Portfolio", 
+  nav_panel(class = "p-5",
+            title = "Portfolio", 
             
-            h1("Projects"),
+            h1("Portfolio"),
             
-            portfolio_ui("portfolio"),
-            
-            #project_ui("portfolio")
-            
+            portfolio_ui("portfolio")
             
             ),
   
   
+  # -- Portfolio
+  nav_panel(class = "p-5",
+            title = "Project", 
+    
+           tmp_project_ui()
+                    
+  ),
+  
+  
   # -- Profile
-  nav_panel(title = "Profile", 
+  nav_panel(class = "p-5",
+            title = "Profile", 
             
             img(src = "./img/career_path.png",
                 style = "width: 60%;"),
@@ -49,7 +57,8 @@ page_navbar(
   
   
   # -- Contact
-  nav_panel(title = "Contact", 
+  nav_panel(class = "p-5",
+            title = "Contact", 
             
             h1("Contacts"),
             
