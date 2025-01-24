@@ -3,9 +3,16 @@
 /* -- buttons -- */
 .btn {
   
-  /*width: 20%;*/
   max-width: 150px;
-  
   border-radius: 25px;
+  
+}
+
+
+/* -- modal dialog -- */
+.modal-dialog {
+  
+  max-width: 90vw;
+  margin: 10vh auto 10vh auto;
   
 }
