@@ -77,5 +77,24 @@ portfolio_server <- function(id, user = NULL, path) {
     }) |> bindEvent(input$project_type, ignoreNULL = FALSE, ignoreInit = TRUE)
     
     
+    # -- observe: open project
+    observeEvent(input$open_project, {
+     
+      # -- get project [p*]
+      unlist(strsplit(input$open_project, "_"))[2]
+      
+      showModal(
+        modalDialog(
+          easyClose = T,
+          title = "Project Explorer",
+          tmp_project_ui()
+        )
+      )
+      
+      
+      
+    })
+    
+    
   })
 }
