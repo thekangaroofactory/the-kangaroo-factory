@@ -1,6 +1,8 @@
 
 
-project_explorer <- function(){
+project_explorer <- function(sections){
+  
+  cat("[project_explorer] Buidling project explorer content... \n")
   
   # path_portfolio <- "E:/Portfolio/R/Projects/the-kangaroo-factory/data/philippeperet/portfolio/p1"
   
@@ -13,32 +15,34 @@ project_explorer <- function(){
   tagList(
     
     # -- Project header section
-    h1("Rain Forecast Dashboard"),
-    p("Data Exploration & ML Monitoring Dashboard"),
+    header_section(sections$header),
+    
+    # -- 
+    value_section(sections$values),
     
     # -- Project info section
-    layout_column_wrap(class = "mt-5",
-      value_box(class = "border border-light",
-                showcase = icon("chart-line"),
-                theme = "purple",
-                title = "Project Type",
-                value = "Dashboard",
-                p("Web application & API containers deployed on the cloud")),
-      
-      value_box(class = "border border-light",
-                showcase = icon("hourglass"),
-                theme = "purple",
-                title = "Workload",
-                value = "40 days",
-                p("Excl. AI model training")),
-      
-      value_box(class = "border border-light",
-                showcase = icon("unlock"),
-                theme = "purple",
-                title = "Visibility",
-                value = "Public",
-                p("Dashboard & repositories are open"),
-                p("API is private ;)"))),
+    # layout_column_wrap(class = "mt-5",
+    #   value_box(class = "border border-light",
+    #             showcase = icon("chart-line"),
+    #             theme = "purple",
+    #             title = "Project Type",
+    #             value = "Dashboard",
+    #             p("Web application & API containers deployed on the cloud")),
+    #   
+    #   value_box(class = "border border-light",
+    #             showcase = icon("hourglass"),
+    #             theme = "purple",
+    #             title = "Workload",
+    #             value = "40 days",
+    #             p("Excl. AI model training")),
+    #   
+    #   value_box(class = "border border-light",
+    #             showcase = icon("unlock"),
+    #             theme = "purple",
+    #             title = "Visibility",
+    #             value = "Public",
+    #             p("Dashboard & repositories are open"),
+    #             p("API is private ;)"))),
     
     
     # -- About section
