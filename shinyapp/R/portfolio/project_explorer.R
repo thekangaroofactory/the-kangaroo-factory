@@ -1,12 +1,13 @@
 
 
-tmp_project_ui <- function(){
+project_explorer <- function(){
   
-  path_portfolio <- "E:/Portfolio/R/Projects/the-kangaroo-factory/data/philippeperet/portfolio/p1"
-  pdfurl <- "E:/Portfolio/R/Projects/the-kangaroo-factory/data/philippeperet/portfolio/p1/Rain Forecast Dashboard Full.pdf"
+  # path_portfolio <- "E:/Portfolio/R/Projects/the-kangaroo-factory/data/philippeperet/portfolio/p1"
   
   my_path <- "E:/Portfolio/R/Projects/the-kangaroo-factory/data/philippeperet/portfolio/p1"
-  addResourcePath(prefix = "my_pdf_resource", directoryPath = my_path)
+  addResourcePath(prefix = "project_media", directoryPath = my_path)
+  
+  pdfurl <- "project_media/Rain Forecast Dashboard Full.pdf"
   
   # -- wrapper
   tagList(
@@ -60,14 +61,16 @@ tmp_project_ui <- function(){
       card(class = "border border-light",
            card_header(class = "card-header bg-primary",
                        "Observation dashboard"),
-           card_image(file = file.path(path_portfolio, "dashboard_observations.jpg"),
+           card_image(#file = file.path(path_portfolio, "dashboard_observations.jpg"),
+                      src = "project_media/dashboard_observations.jpg",
                       alt = "Project image"),
            p("It allows to explore the collected weather observations, using filters to select specific date range."),
            p("Dedicated data visualizations have been developped with a highly graphical approach.")),
       card(class = "border border-light",
            card_header(class = "card-header bg-primary",
                        "Prediction dashboard"),
-           card_image(file = file.path(path_portfolio, "dashboard_predictions.jpg"),
+           card_image(#file = file.path(path_portfolio, "dashboard_predictions.jpg"),
+                      src = "project_media/dashboard_predictions.jpg",
                       alt = "Project image"),
            p("This part of the dashboard displays the latest predictions and monitors the ML model performances."),
            p("A set of MLOps KPIs have been implemented with decicated code to fit with the dashboard design."))),
@@ -138,7 +141,7 @@ tmp_project_ui <- function(){
     # -- Document section
     card(class = "border border-light",
          card_header("Project Presentation"),
-         tags$iframe(style="height:600px; width:100%", src = "my_pdf_resource/Rain Forecast Dashboard Full.pdf")),
+         tags$iframe(style="height:600px; width:100%", src = pdfurl)),
     
     
     # -- Links section
