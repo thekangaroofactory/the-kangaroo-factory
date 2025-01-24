@@ -14,8 +14,6 @@ value_section <- function(values){
   
   # -- helper function
   helper <- function(x){
-
-    str(x)
     
     # -- cast to list (input is a vector)
     x <- as.list(x)
