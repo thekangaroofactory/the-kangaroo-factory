@@ -37,15 +37,6 @@ page_navbar(
             ),
   
   
-  # -- Portfolio
-  nav_panel(class = "p-5",
-            title = "Project", 
-    
-           tmp_project_ui()
-                    
-  ),
-  
-  
   # -- Profile
   nav_panel(class = "p-5",
             title = "Profile", 
