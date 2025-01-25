@@ -10,7 +10,7 @@
 
 text_section <- function(content){
   
-  cat("[text_section] input size =", nrow(values), "\n")
+  cat("[text_section] input size =", length(content), "\n")
   
   # -- return
   tagList(
