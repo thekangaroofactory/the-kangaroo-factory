@@ -17,7 +17,8 @@ project_explorer <- function(sections){
     # -- Project header section
     header_section(sections$header),
     
-    # -- 
+    
+    # -- Value box section
     value_section(sections$values),
     
     # -- Project info section
@@ -45,13 +46,17 @@ project_explorer <- function(sections){
     #             p("API is private ;)"))),
     
     
-    # -- About section
-    h2(class = "mt-5 mb-3",
-       "About the Project"),
-    p("The Rain Forecast Dashboard is part of a project that started in 2020.", br(),
-    "An AI model (Machine Learning) was then trained on a 140k dataset provided by the Australian Government BOM (Bureau of Meteorology)."),
-    p("Weather observation data have been collected continuously to keep monitoring the rain predictions."),
+    # -- Text section
+    text_section(sections$text),
     
+    
+    # -- About section
+    # h2(class = "mt-5 mb-3",
+    #    "About the Project"),
+    # p("The Rain Forecast Dashboard is part of a project that started in 2020.", br(),
+    # "An AI model (Machine Learning) was then trained on a 140k dataset provided by the Australian Government BOM (Bureau of Meteorology)."),
+    # p("Weather observation data have been collected continuously to keep monitoring the rain predictions."),
+    # 
     
     # -- Features section
     h2(class = "mt-5 mb-3",
