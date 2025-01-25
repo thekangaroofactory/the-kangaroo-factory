@@ -1,7 +1,7 @@
 
 
 project_modal_p2 <- function(){
-
+  
   # -- add resource path
   my_path <- "E:/Portfolio/R/Projects/the-kangaroo-factory/data/philippeperet/portfolio/p2"
   addResourcePath(prefix = "project_media", directoryPath = my_path)
@@ -11,67 +11,74 @@ project_modal_p2 <- function(){
     
     # -- Project header section
     h1("Kitems"),
-    p("Framework...."),
+    p("R Framework to Manage Dataframe Items"),
     
     
     # -- Project info section
     layout_column_wrap(class = "mt-5",
                        value_box(class = "border border-light",
-                                 showcase = icon("chart-line"),
+                                 showcase = icon("box-archive"),
                                  theme = "purple",
                                  title = "Project Type",
-                                 value = "Dashboard",
-                                 p("Web application & API containers deployed on the cloud")),
+                                 value = "Package",
+                                 p("R Package available on GitHub")),
                        
                        value_box(class = "border border-light",
-                                 showcase = icon("hourglass"),
+                                 showcase = icon("file-code"),
                                  theme = "purple",
-                                 title = "Workload",
-                                 value = "40 days",
-                                 p("Excl. AI model training")),
+                                 title = "Code",
+                                 value = "1,6k",
+                                 p("Lines of code")),
                        
                        value_box(class = "border border-light",
                                  showcase = icon("unlock"),
                                  theme = "purple",
                                  title = "Visibility",
                                  value = "Public",
-                                 p("Dashboard & repositories are open"),
-                                 p("API is private ;)"))),
+                                 p("Package & repository are open"))),
     
     
     # -- About section
     h2(class = "mt-5 mb-3",
-       "About the Project"),
-    p("The Rain Forecast Dashboard is part of a project that started in 2020.", br(),
-      "An AI model (Machine Learning) was then trained on a 140k dataset provided by the Australian Government BOM (Bureau of Meteorology)."),
-    p("Weather observation data have been collected continuously to keep monitoring the rain predictions."),
-    
+       "About the Project / Motivations"),
+    p("When working on a R Shiny project that performs operations based on tabular data, whether it is for data analysis or data visualization, the first milestone in the project is to enable standard data processing.", br(),
+      "In many cases, it involves to write code that allows to handle the same set of operations but for different objects, which makes this code hard to reuse in another project."),
+    p("The purpose of kitems is to wrap those standard operations into a package that is not dependent on the type of item -", tags$span(style = "font-style: italic;", "something that is part of a list or group of things"), "- to manage."),
     
     # -- Features section
     h2(class = "mt-5 mb-3",
        "Features"),
     layout_column_wrap(
       card(class = "border border-light",
+           fill = FALSE,
            card_header(class = "card-header bg-primary",
-                       "Data engineering"),
-           p("Observations are collected from an external data source, then cleaned, prepared and stored into a database."),
-           p("The prepared data (observations & predictions) are served by an API to support the dashboard.")),
+                       "Data model"),
+           p("The data model contains the specifications of the items to manage."),
+           p("For each attribute, the data model carries information like its name and type, but also a method to determine its default value and logical values to indicate if it should be skipped in forms, filtered from the table view or used to sort the data.")),
+      
       card(class = "border border-light",
+           fill = FALSE,
            card_header(class = "card-header bg-primary",
-                       "Observation dashboard"),
-           card_image(
-             src = "project_media/dashboard_observations.jpg",
-             alt = "Project image"),
-           p("It allows to explore the collected weather observations, using filters to select specific date range."),
-           p("Dedicated data visualizations have been developped with a highly graphical approach.")),
+                       "Items"),
+           p("Items are stored in a data frame that fits with the data model rules."),
+           p("That means the data model is implemented in all functions related to item management.")),
+      
       card(class = "border border-light",
+           fill = FALSE,
            card_header(class = "card-header bg-primary",
-                       "Prediction dashboard"),
-           card_image(
-             src = "project_media/dashboard_predictions.jpg",
-             alt = "Project image"),
-           p("This part of the dashboard displays the latest predictions and monitors the ML model performances."),
-           p("A set of MLOps KPIs have been implemented with decicated code to fit with the dashboard design."))),
+                       "Inputs & outputs"),
+           p("A set of UI components is avaible to interact with the framework directly from the app."),
+           tags$ul(
+             tags$li("Item view: it displays the items in a data table"), 
+             tags$li("Date slider: if a date attribute exists, an input it automatically generated"), 
+             tags$li("Standard buttons: create, update, delete (contextual to the selection in the data table)"))),
+      
+      card(class = "border border-light",
+           fill = FALSE,
+           card_header(class = "card-header bg-primary",
+                       "Admin console"),
+           p("An admin console is delivered as a standalone Shiny app."),
+           p("The reason is that in most cases, it’s not recommended to have the data model(s) management accessible from within the application."))),
     
     
     # -- Background section
@@ -80,45 +87,41 @@ project_modal_p2 <- function(){
     
     # -- Architecture sub-section
     h3("Architecture"),
-    p("The project architecture has different layers to encapsulate dedicated tasks inside independant components."),
-    p("- A data layer stores the database as well as other resources (raw files, schemas, models)", br(),
-      "- An API layer performs all the data engineering operations through individual components (collection, cleaning, transformation, prediction)", br(),
-      "- Finally, the dashboard layer itself is built with a server / client web application to get the data visualization computations done in the background"),
+    p("The framework is delivered as a Shiny module that can be instanciated inside a Shiny server (or even as sub-module of a Shiny module server).", br(),
+    "It makes it very flexible to use & allows multiple implementations since the module server returns a list of objects that can be used outside of it."),
+  
     
     # -- Technical stack sub-section
     h3(class = "mt-5 mb-3",
        "Technical Stack"),
     layout_column_wrap(
       card(class = "border border-light",
+           fill = FALSE,
            card_header(class = "card-header bg-primary",
-                       "Dashboard"),
-           p("Server & Client"),
+                       "Framework"),
+           p("R Package"),
            tags$ul(
              tags$li("R"),
-             tags$li("Shiny, bslib"),
-             tags$li("Ggplot2, dplyr"),
-             tags$li("Docker, GCP"))),
+             tags$li("Shiny"),
+             tags$li("Shinydashboard, ShinyWidgets"),
+             tags$li("DT, dplyr, ..."))),
       card(class = "border border-light",
+           fill = FALSE,
            card_header(class = "card-header bg-primary",
-                       "Data Engineering"),
-           p("API & Database"),
+                       "Admin console"),
+           p("Standelone shiny app"),
            tags$ul(
-             tags$li("R, Plumber"),
-             tags$li("RCurl"),
-             tags$li("Keras, Reticulate"),
-             tags$li("DBI, PostgreSQL (Supabase)"),
-             tags$li("Docker, GCP"))),
+             tags$li("R"),
+             tags$li("Shiny"),
+             tags$li("Shinydashboard, ShinyWidgets"))),
       card(class = "border border-light",
+           fill = FALSE,
            card_header(class = "card-header bg-primary",
-                       "Model & Predictions"),
-           p("AI / Machine Learning"),
+                       "CI / CD"),
+           p("Documentation & testing"),
            tags$ul(
-             tags$li("Python"),
-             tags$li("Tensorflow")))),
-    
-    # -- Methodology sub-section
-    h3("Methodology"),
-    p("The methodology is based on the Agile mindset and 25 years of experience around data project convergence & deployments."),
+             tags$li("Testing: Testthat, Codecov, GitHub actions"),
+             tags$li("Documentation: Quarto, GitHub Pages")))),
     
     
     # -- Deliverable section
@@ -126,20 +129,27 @@ project_modal_p2 <- function(){
        "Deliverables"),
     layout_column_wrap(
       card(class = "border border-light",
+           fill = FALSE,
            card_header(class = "card-header bg-primary",
-                       "API"),
-           p("The API is delivered as a Docker container deployed on GCP (Cloud Run)"),
-           p("The underlying database is hosted on Supabase.")),
+                       "Package"),
+           p("The package is published on GitHub."),
+           p("It can be installed using the install_github function from devtools package")),
       card(class = "border border-light",
+           fill = FALSE,
            card_header(class = "card-header bg-primary",
-                       "Dashboard"),
-           p("The Dashboard is also delivered as a Docker container deployed on GCP (Cloud Run)"))),
+                       "Documentation"),
+           p("Documentation & articles are delivered through the GitHub pages mechanism (with automation).")),
+      card(class = "border border-light",
+           fill = FALSE,
+           card_header(class = "card-header bg-primary",
+                       "Communication"),
+           p("A visual identity (logo & color scheme) as well as a set of presentations have been delivered to support the communication around the package (LinkedIn posts)."))),
     
     
     # -- Document section
     card(class = "border border-light",
-         card_header("Project Presentation"),
-         tags$iframe(style="height:600px; width:100%", src = "project_media/Rain Forecast Dashboard Full.pdf")),
+         card_header("Project Presentation (one out of seven)"),
+         tags$iframe(style="height:600px; width:100%", src = "project_media/motivations.pdf")),
     
     
     # -- Links section
@@ -147,27 +157,22 @@ project_modal_p2 <- function(){
        "Links"),
     layout_column_wrap(
       card(class = "border border-light",
-           card_header("Dashboard"),
-           p("A public instance of the web application is accessible", br(),
-             "(cold start creates a delay at startup)"),
-           tags$a(
-             "Rain Forecast Dashboard",
-             target = "_blank",
-             href = "https://rain-forecast-dashboard-902168338454.europe-west9.run.app/")),
-      card(class = "border border-light",
+           fill = FALSE,
            card_header("Repository"),
-           p("The GitHub repository of the API"),
+           p("The GitHub", icon("github"), "repository of the project"),
            tags$a(
-             "rain-forecast-data-pipeline",
+             "kitems",
              target = "_blank",
-             href = "https://github.com/thekangaroofactory/rain-forecast-data-pipeline")),
+             href = "https://github.com/thekangaroofactory/kitems")),
+      
       card(class = "border border-light",
-           card_header("Repository"),
-           p("The GitHub repository of the Dashboard"),
+           fill = FALSE,
+           card_header("Documentation & articles"),
+           p("The GitHub page of the package"),
            tags$a(
-             "rain-forecast-dashboard",
+             "kitems",
              target = "_blank",
-             href = "https://github.com/thekangaroofactory/rain-forecast-dashboard")))
+             href = "https://thekangaroofactory.github.io/kitems/")))
     
   )
   
