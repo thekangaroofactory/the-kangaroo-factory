@@ -46,9 +46,12 @@ page_navbar(
   
   # -- Contact
   nav_panel(class = "p-5",
-            title = "Contact", 
+            title = "Contacts & Links", 
             
             h1("Contacts"),
-            contact_ui("contact"))
+            contact_ui("contact"),
+            
+            h1("Links"),
+            link_ui("contact"))
   
 ) # page_navbar

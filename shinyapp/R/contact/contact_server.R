@@ -36,7 +36,7 @@ contact_server <- function(id, user = NULL, path) {
     # Outputs
     # --------------------------------------------------------------------------
     
-    # -- Grid
+    # -- Contact grid
     output$contact_grid <- renderUI({
       
       # -- read user contact file
@@ -62,6 +62,42 @@ contact_server <- function(id, user = NULL, path) {
       
       # -- apply helper & return
       cards <- apply(contacts, MARGIN = 1, helper)
+      
+      # -- wrap & return
+      if(length(cards) > 1)
+        do.call(layout_column_wrap, c(list(class = "mt-5"), unname(cards)))
+      else
+        cards
+      
+    })
+    
+    
+    # -- Links grid
+    output$link_grid <- renderUI({
+      
+      # -- read user link file
+      cat(MODULE, "Build link grid \n")
+      links <- read.csv(file = file.path(path_contact(), "links.csv"), header = T)
+      
+      # -- helper function
+      helper <- function(x){
+        
+        # -- cast to list (to use $)
+        x <- as.list(x)
+        
+        # -- return
+        card(
+          class = "border border-light",
+          card_header(
+            class = "bg-primary",
+            x$name),
+          x$description,
+          tags$a(href = x$link, 
+                 target = "_blank",
+                 x$name))}
+      
+      # -- apply helper & return
+      cards <- apply(links, MARGIN = 1, helper)
       
       # -- wrap & return
       if(length(cards) > 1)
