@@ -31,10 +31,7 @@ page_navbar(
             title = "Portfolio", 
             
             h1("Portfolio"),
-            
-            portfolio_ui("portfolio")
-            
-            ),
+            portfolio_ui("portfolio")),
   
   
   # -- Profile
@@ -42,7 +39,7 @@ page_navbar(
             title = "Profile", 
             
             img(src = "./img/career_path.png",
-                style = "width: 60%;"),
+                style = "width: 20%;"),
             
             htmlOutput('pdfviewer')),
   
@@ -52,17 +49,6 @@ page_navbar(
             title = "Contact", 
             
             h1("Contacts"),
-            
-            tags$a(href = "https://www.linkedin.com/in/philippeperet/", 
-                   target = "_blank",
-                   "LinkedIn"),
-            
-            tags$a(href = "https://github.com/thekangaroofactory",
-                   target = "_blank",
-                   "GitHub"),
-            
-            tags$a(href = "https://orcid.org/0009-0003-9666-7490",
-                   target = "_blank",
-                   "ORCID"))
+            contact_ui("contact"))
   
 ) # page_navbar
