@@ -26,6 +26,9 @@ function(input, output, session) {
   # -- contact
   contact_server(id = "contact", user, path)
   
+  # -- stack
+  stack_server(id = "stack", user, path)
+  
   
   # ----------------------------------------------------------------------------
   # Manage user

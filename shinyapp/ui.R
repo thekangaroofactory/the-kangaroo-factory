@@ -44,6 +44,14 @@ page_navbar(
             htmlOutput('pdfviewer')),
   
   
+  # -- Stack
+  nav_panel(class = "p-5",
+            title = "Technical Stack", 
+            
+            h1("Technical Stack"),
+            stack_ui("stack")),
+  
+  
   # -- Contact
   nav_panel(class = "p-5",
             title = "Contacts & Links", 
