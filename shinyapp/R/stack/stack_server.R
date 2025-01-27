@@ -57,7 +57,7 @@ stack_server <- function(id, user = NULL, path) {
         
         # -- key figures
         card(
-          class = "border-radius bg-light p-3",
+          class = "border-radius bg-light p-3 mt-5",
           
           h3("Key figures"),
           
