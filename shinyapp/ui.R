@@ -38,8 +38,7 @@ page_navbar(
   nav_panel(class = "p-5",
             title = "Profile", 
             
-            img(src = "./img/career_path.png",
-                style = "width: 20%;"),
+            profile_ui("profile"),
             
             htmlOutput('pdfviewer')),
   

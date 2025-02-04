@@ -52,22 +52,37 @@ contact_server <- function(id, user = NULL, path) {
         # -- return
         card(
           class = "border border-light",
-          card_header(
-            class = "bg-primary",
-            x$name),
+          card_header(x$name),
           x$description,
           tags$a(href = x$link, 
                  target = "_blank",
                  x$name))}
       
-      # -- apply helper & return
+      # -- apply helper
       cards <- apply(contacts, MARGIN = 1, helper)
       
-      # -- wrap & return
-      if(length(cards) > 1)
+      # -- wrap
+      contact_wrapper <- if(length(cards) > 1)
         do.call(layout_column_wrap, c(list(class = "mt-5"), unname(cards)))
       else
         cards
+      
+      # -- key figures
+      card(
+        class = "border-radius bg-light p-3",
+        
+        layout_columns(
+          col_widths = c(4, 8),
+          
+          # -- text
+          tagList(
+            p("You can contact me blablablablabla")),
+          
+          # -- cards
+          contact_wrapper
+      
+        ))
+      
       
     })
     
