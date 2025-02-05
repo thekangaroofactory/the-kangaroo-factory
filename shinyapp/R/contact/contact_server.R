@@ -69,20 +69,18 @@ contact_server <- function(id, user = NULL, path) {
       
       # -- key figures
       card(
-        class = "border-radius bg-light p-3",
+        class = "border-radius bg-light p-3 section",
         
         layout_columns(
           col_widths = c(4, 8),
           
           # -- text
-          tagList(
-            p("You can contact me blablablablabla")),
+          p("You can contact me with an email or a message on LinkedIn."),
           
           # -- cards
           contact_wrapper
       
         ))
-      
       
     })
     
@@ -101,25 +99,14 @@ contact_server <- function(id, user = NULL, path) {
         x <- as.list(x)
         
         # -- return
-        card(
-          class = "border border-light",
-          card_header(
-            class = "bg-primary",
-            x$name),
-          x$description,
-          tags$a(href = x$link, 
-                 target = "_blank",
-                 x$name))}
+        actionButton(
+          inputId = x$name,
+          label = x$name,
+          onclick = paste0("window.open('", x$link, "', '_blank')"))}
       
       # -- apply helper & return
-      cards <- apply(links, MARGIN = 1, helper)
-      
-      # -- wrap & return
-      if(length(cards) > 1)
-        do.call(layout_column_wrap, c(list(class = "mt-5"), unname(cards)))
-      else
-        cards
-      
+      tags <- apply(links, MARGIN = 1, helper)
+
     })
     
   })
