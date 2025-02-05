@@ -4,16 +4,20 @@
 # This is the user-interface definition of the Shiny web application.
 # ------------------------------------------------------------------------------
 
+# -- Declare app theme
+app_theme <- bs_theme(
+  bg = "#2d3037",
+  fg = "#fff",
+  primary = "#e9dfc7",
+  secondary = "#ececec",
+  base_font = font_google("Quicksand"))
+
+
 # -- Define UI
 page_navbar(
   
   # -- Theme
-  theme = bs_theme(
-    bg = "#2d3037",
-    fg = "#fff",
-    primary = "#e9dfc7",
-    secondary = "#ececec",
-    base_font = font_google("Quicksand")),
+  theme = app_theme,
   
   # -- Title
   title = "Philippe Peret",
