@@ -7,11 +7,11 @@ experience_ds_qa <- function(){
     
     # -- header card
     card(
-      class = "bg-light",
+      class = "bg-contrast",
       div(
         h3("QA Leader & Transition Manager"),
-        p("2016 - 2019"),
-        p(style ="font-style: italic;", "Within the R&D organization, as a QA Leader for Legacy Servers, Data Transition & Exchanges products and Team Manager."),
+        p(style ="font-style: italic;", "2016 - 2019"),
+        p("Within the R&D organization, as a QA Leader for Legacy Servers, Data Transition & Exchanges products and Team Manager."),
         div(class = "badge tag", "Data Management"),
         div(class = "badge tag", "Data Exchange"),
         div(class = "badge tag", "Quality"))),

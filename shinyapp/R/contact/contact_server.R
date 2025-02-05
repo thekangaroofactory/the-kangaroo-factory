@@ -69,7 +69,7 @@ contact_server <- function(id, user = NULL, path) {
       
       # -- key figures
       card(
-        class = "border-radius bg-light p-3 section",
+        class = "border-radius bg-contrast p-3 section",
         
         layout_columns(
           col_widths = c(4, 8),

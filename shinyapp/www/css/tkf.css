@@ -1,5 +1,32 @@
 
 
+p {
+  
+  color: #d9cec2;
+  
+}
+
+li {
+  
+  color: #d9cec2;
+  
+}
+
+
+/* To select h2 elements that are directly before ul element */
+p:has(+ul) {
+  
+  color: var(--bs-secondary);
+  
+}
+
+
+.bg-contrast {
+  
+  background-color: #726d67;
+  
+}
+
 /* -- section -- */
 .section {
   
@@ -37,7 +64,7 @@
 .tag {
   
   border-radius: 25px;
-  background-color: var(--bs-primary);
+  background-color: #bf906c;
   width: fit-content;
   display: inline-block;
   

@@ -7,11 +7,11 @@ experience_freelance <- function(){
     
     # -- header card
     card(
-      class = "bg-light",
+      class = "bg-contrast",
       div(
         h3("Technical Data Expert"),
-        p("Since 2020"),
-        p(style ="font-style: italic;", "As a freelance worker, to maintain a transversal data knowledge that can support both functional & technical sides of complex data projects."),
+        p(style ="font-style: italic;", "Since 2020"),
+        p("As a freelance worker, to maintain a transversal data knowledge that can support both functional & technical sides of complex data projects."),
         div(class = "badge tag", "data quality"),
         div(class = "badge tag", "data analysis"),
         div(class = "badge tag", "data visualization"),
@@ -82,7 +82,7 @@ experience_freelance <- function(){
             tags$ul(
               tags$li("Datalake validation scripts"),
               tags$li("Monitoring tool"),
-              tags$li("CO2 computation flow analysis")),
+              tags$li("CO",tags$sub("2", , .noWS = c("before")),"computation flow analysis")),
             p("Tools & Apps"),
             tags$ul(
               tags$li("Election data visualization tool"),

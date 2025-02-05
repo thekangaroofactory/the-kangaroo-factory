@@ -36,6 +36,13 @@ profile_server <- function(id, user = NULL, path) {
     # Outputs
     # --------------------------------------------------------------------------
     
+    # -- pdf resume
+    pdfurl <- "./PERET_Philippe_2024_11_FR.pdf"
+    
+    output$pdfviewer <- renderText(
+      return(paste('<iframe style="height:80vh; width:100%" src="', pdfurl, '"></iframe>', sep = "")))
+    
+    
     # -- user profile
     output$user_profile <- renderUI({
       
@@ -53,15 +60,15 @@ profile_server <- function(id, user = NULL, path) {
         
         # -- one pager
         card(
-          class = "border-radius bg-light p-3 mt-2",
+          class = "border-radius bg-contrast p-3 mt-2",
           
           # -- title
           card_header(
-            class = "d-flex",
+            class = "d-flex border-bottom-0",
             div(
               class = "flex-column",
             h2("Key Takeways"),
-            p(style ="font-style: italic;", "One-page profile summary")),
+            p(style ="font-style: italic; font-weight: normal;", "One-page profile summary")),
             shiny::downloadLink(
               class = "ms-auto",
               outputId="download",
@@ -76,63 +83,65 @@ profile_server <- function(id, user = NULL, path) {
             col_widths = c(6, 3, 3),
             
             # -- left
-            tagList(
+            card(
               
-              h3("Presentation"),
+              h4("Presentation"),
               p("Since 2001, it has always been about data projects and technico-functional roles.", br(),
                 "I enjoy working with complex data pipelines & carefully designed dashboards."),
               
-              h3("Career path (20+ XP)"),
+              h4("Career path (20+ XP)"),
               card(
+                fill = FALSE,
                 img(src = "img/career_path_en.png"))),
-
             
+            
+            # -- middle
             tagList(
-              h3("Specific skills"),
+              
+              h4("Specific skills"),
               tags$ul(
                 tags$li("Collect & advocate business needs"),
                 tags$li("Full-Stack data approach"),
                 tags$li("Speak same language as tech. teams"),
                 tags$li("Problem solver")),
-              h3("Specific domains"),
+              
+              h4("Specific domains"),
               tags$ul(
                 tags$li("Transportation & logistics"),
-                tags$li("CSR")),             
-              h3("Team management"),
+                tags$li("CSR")),
+              
+              h4("Team management"),
               tags$ul(
-                tags$li("35 people (France & India)")), 
-              h3("Latest training"),
+                tags$li("35 people")),
+              
+              h4("Latest training"),
               tags$ul(
                 tags$li("Generative AI with LLMs"))),
             
+            # -- right
             tagList(
-              h3("Key stack"),
+              
+              h4("Key stack"),
               tags$ul(
                 tags$li("R / Python"),
                 tags$li("SQL")),
-              h3("Key tools"),
+              
+              h4("Key tools"),
               tags$ul(
                 tags$li("Power.BI"),
                 tags$li("Data Galaxy")),
-              h3("Certifications & Degrees"),
+              
+              h4("Certifications & Degrees"),
               tags$ul(
                 tags$li("Data Science & AI"),
                 tags$li("Automotive Engineer (ESTACA)")),
-              h3("Languages"),
+              
+              h4("Languages"),
               tags$ul(
                 tags$li("French (native)"),
                 tags$li("English (fluent)")))
             
           )),
-        
-        
-        
-        # -- temporary career path
-        # h2("Career path (20+ XP)"),
-        # layout_columns(
-        #   col_widths = c(6, 6),
-        #   ,
-        #   ""),
         
         
         # -- Experiences
@@ -168,30 +177,43 @@ profile_server <- function(id, user = NULL, path) {
            "Certifications & Degree"),
         
         card(
-          class = "border-radius bg-light p-3",
+          class = "border-radius bg-contrast p-3",
           
-          p("2024"),
-          tags$ul(
-            tags$li("Generative AI with LLMs")),
+          layout_column_wrap(
           
-          p("2023"),
-          tags$ul(
-            tags$li("AI For Good (Public Health & Climate Change)")),
+          card(
+            card_header("2024"),
+            tags$ul(
+              tags$li("Generative AI with LLMs"))),
           
-          p("2020 / 2021 (660h)"),
-          tags$ul(
-            tags$li("Data Science | Johns Hopkins University"),
-            tags$li("Machine Learning | Stanford University"),
-            tags$li("Deep Learning & MLOps | DeepLearning.AI")),
+          card(
+            card_header("2023"),
+            tags$ul(
+              tags$li("AI For Good (Public Health & Climate Change)"))),
           
-          p("2000"),
-          tags$ul(
-            tags$li("Automotive Engineer | ESTACA"))),
+          card(
+            card_header("2020 / 2021 (660h)"),
+            tags$ul(
+              tags$li("Data Science | Johns Hopkins University"),
+              tags$li("Machine Learning | Stanford University"),
+              tags$li("Deep Learning & MLOps | DeepLearning.AI"))),
+          
+          card(
+            card_header("2000"),
+            tags$ul(
+              tags$li("Automotive Engineer | ESTACA"))))),
         
         
         # -- Misc
         h2(class = "section",
-           "Download Resume")
+           "Download Resume"),
+        
+        # -- resume pdf viewer
+        accordion(
+          open = FALSE,
+          accordion_panel(
+            title = "Click to expand / collapse viewer",
+            htmlOutput(ns("pdfviewer"))))
         
       )
       

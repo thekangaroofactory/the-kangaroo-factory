@@ -7,7 +7,7 @@ experience_template <- function(){
     
     # -- header card
     card(
-      class = "bg-light",
+      class = "bg-contrast",
       div(
         h3("xxx"),
         p("2016 - 2019"),

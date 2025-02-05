@@ -10,8 +10,8 @@ page_navbar(
   # -- Theme
   theme = bs_theme(
     bg = "#2d3037",
-    fg = "#FFF",
-    primary = "#e9dfc7", # try A28E6A + blue #f4efe3 ffeaa8
+    fg = "#fff",
+    primary = "#e9dfc7",
     secondary = "#ececec",
     base_font = font_google("Quicksand")),
   
@@ -38,9 +38,7 @@ page_navbar(
   nav_panel(class = "p-5",
             title = "Profile", 
             
-            profile_ui("profile"),
-            
-            htmlOutput('pdfviewer')),
+            profile_ui("profile")),
   
   
   # -- Stack

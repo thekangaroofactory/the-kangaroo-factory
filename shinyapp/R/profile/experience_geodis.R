@@ -7,12 +7,12 @@ experience_geodis <- function(){
     
     # -- header card
     card(
-      class = "bg-light",
+      class = "bg-contrast",
       div(
         h3("CSR Data Project Manager"),
-        p("Oct.2022 - 2023"),
-        p(style ="font-style: italic;", "Within the Corporate Digital & Technology organization, dedicated to
-          the strategic CSR activities around the CO2 emission calculation & Science Based Target Initiative."),
+        p(style ="font-style: italic;", "Oct.2022 - 2023"),
+        p("Within the Corporate Digital & Technology organization, dedicated to
+          the strategic CSR activities around the CO", tags$sub("2", , .noWS = c("before")), "emission calculation & Science Based Target Initiative."),
         div(class = "badge tag", "CSR"),
         div(class = "badge tag", "Logistic"))),
     
@@ -26,14 +26,14 @@ experience_geodis <- function(){
         p("Functional"),
         tags$ul(
           tags$li("Support CSR & Business Teams around the technical usage of the APIs"),
-          tags$li("Monitor data flow & CO2 emission calculation infrastructure"),
+          tags$li("Monitor data flow & CO", tags$sub("2", , .noWS = c("before")), "emission calculation infrastructure"),
           tags$li("Capture technical needs around emission calculation (ex: low carbon offers)"),
           tags$li("Follow-up meetings with the teams & external supplier")),
         p("Project Management"),
         tags$ul(
-          tags$li("Catpure the CO2 calculation flow into the Datalake"),
-          tags$li("Deliver a dashboard to monitor the quality of the CO2 computations"),
-          tags$li("Define and implement a common architecture around the CO2 calculation services"),
+          tags$li("Catpure the CO", tags$sub("2", , .noWS = c("before")), "calculation flow into the Datalake"),
+          tags$li("Deliver a dashboard to monitor the quality of the CO", tags$sub("2", , .noWS = c("before")), "computations"),
+          tags$li("Define and implement a common architecture around the CO", tags$sub("2", , .noWS = c("before")), "calculation services"),
           tags$li("Build roadmap & budget, organize follow-up meetings, streering comittees, workshops")),
         p("Data & Analysis"),
         tags$ul(
@@ -60,7 +60,7 @@ experience_geodis <- function(){
             card_header("Key figures"),
             card_body(
               tags$span(
-                div(class = "badge tag", "56M CO2 calculation / year"),
+                div(class = "badge tag", "56M CO", tags$sub("2", , .noWS = c("before")), "calculation / year"),
                 div(class = "badge tag", "5 lines of Business"),
                 div(class = "badge tag", "4 regions"),
                 div(class = "badge tag", "10 systems connected"),
