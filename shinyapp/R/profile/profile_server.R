@@ -48,12 +48,12 @@ profile_server <- function(id, user = NULL, path) {
         
         # -- title / subtitle
         h1("Senior Data Project Manager"),
-        p(style ="font-style: italic;", "Technico-functional data project expert"),
+        p(style ="font-style: italic; margin-bottom: 5vh;", "Technico-functional data project expert"),
 
         
         # -- one pager
         card(
-          class = "border-radius bg-light p-3",
+          class = "border-radius bg-light p-3 mt-2",
           
           # -- title
           card_header(
@@ -72,7 +72,8 @@ profile_server <- function(id, user = NULL, path) {
               ))),
           
           # -- content
-          layout_column_wrap(
+          layout_columns(
+            col_widths = c(6, 3, 3),
             
             # -- left
             tagList(
@@ -80,17 +81,19 @@ profile_server <- function(id, user = NULL, path) {
               h3("Presentation"),
               p("Since 2001, it has always been about data projects and technico-functional roles.", br(),
                 "I enjoy working with complex data pipelines & carefully designed dashboards."),
-            
+              
               h3("Career path (20+ XP)"),
-              img(src = "img/career_path.png")),
+              card(
+                img(src = "img/career_path_en.png"))),
+
             
             tagList(
               h3("Specific skills"),
               tags$ul(
-                tags$li("Collect & advocate business need"),                
-                tags$li("Full-Stack data approach"),                
-                tags$li("Problem solver"),
-                tags$li("Speak same language as tech. teams")),
+                tags$li("Collect & advocate business needs"),
+                tags$li("Full-Stack data approach"),
+                tags$li("Speak same language as tech. teams"),
+                tags$li("Problem solver")),
               h3("Specific domains"),
               tags$ul(
                 tags$li("Transportation & logistics"),
@@ -109,32 +112,86 @@ profile_server <- function(id, user = NULL, path) {
                 tags$li("SQL")),
               h3("Key tools"),
               tags$ul(
-                tags$li("Power.BI")),
-              h3("Degrees & certifications"),
+                tags$li("Power.BI"),
+                tags$li("Data Galaxy")),
+              h3("Certifications & Degrees"),
               tags$ul(
-                tags$li("Engineer (ESTACA)")),
+                tags$li("Data Science & AI"),
+                tags$li("Automotive Engineer (ESTACA)")),
               h3("Languages"),
               tags$ul(
-                tags$li("French"),
-                tags$li("English")))
+                tags$li("French (native)"),
+                tags$li("English (fluent)")))
             
           )),
         
         
+        
+        # -- temporary career path
+        # h2("Career path (20+ XP)"),
+        # layout_columns(
+        #   col_widths = c(6, 6),
+        #   ,
+        #   ""),
+        
+        
         # -- Experiences
-        h2("Experiences"),
+        h2(class = "section",
+           "Experiences"),
         
         accordion(
+          
+          # -- GEODIS
           accordion_panel(
-            title = "kjkjjk",
-            template_experience()),
+            title = "GEODIS | CSR Data Project Manager",
+            experience_geodis()),
+          
+          # -- Freelance
           accordion_panel(
-            title = "kjkjjk",
-            template_experience())),
+            title = "Freelance | Technical Data Expert",
+            experience_freelance()),
+          
+          # -- DS QA
+          accordion_panel(
+            title = "Dassault Systèmes | QA Leader, Senior Manager",
+            experience_ds_qa()),
+          
+          # -- DS Support
+          accordion_panel(
+            title = "Dassault Systèmes | L2 Technical Support, Engineer & Manager",
+            experience_ds_support())),
+        
+        
+        
+        # -- Certifications & Degrees
+        h2(class = "section",
+           "Certifications & Degree"),
+        
+        card(
+          class = "border-radius bg-light p-3",
+          
+          p("2024"),
+          tags$ul(
+            tags$li("Generative AI with LLMs")),
+          
+          p("2023"),
+          tags$ul(
+            tags$li("AI For Good (Public Health & Climate Change)")),
+          
+          p("2020 / 2021 (660h)"),
+          tags$ul(
+            tags$li("Data Science | Johns Hopkins University"),
+            tags$li("Machine Learning | Stanford University"),
+            tags$li("Deep Learning & MLOps | DeepLearning.AI")),
+          
+          p("2000"),
+          tags$ul(
+            tags$li("Automotive Engineer | ESTACA"))),
         
         
         # -- Misc
-        h2("Download Resume")
+        h2(class = "section",
+           "Download Resume")
         
       )
       
