@@ -45,16 +45,6 @@ stack_server <- function(id, user = NULL, path) {
       # -- return tags
       tagList(
         
-        p("My technical stack relies on different roles and experiences around data projects & products:"),
-        tags$ul(
-          tags$li("L2 / Back-end Technical Support"),
-          tags$li("Software Quality Assessment"),
-          tags$li("Data Analyst Mentorship"),
-          tags$li("Data Project Management and/or Development")),
-        
-        # -- development section
-        #h2("Development"),
-        
         # -- key figures
         card(
           class = "border-radius bg-light p-3 mt-5",
