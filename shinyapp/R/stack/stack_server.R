@@ -81,7 +81,8 @@ stack_server <- function(id, user = NULL, path) {
         
         
         # -- R section
-        h3("R"),
+        h2(class = "section",
+           "R"),
         
         # -- wrapper
         layout_columns(
@@ -176,7 +177,8 @@ stack_server <- function(id, user = NULL, path) {
         
         
         # -- Python section ----------------------------------------------------
-        h3("Python"),
+        h2(class = "section",
+           "Python"),
         
         # -- wrapper
         layout_columns(
@@ -230,7 +232,7 @@ stack_server <- function(id, user = NULL, path) {
         
         # -- key figures
         card(
-          class = "border-radius bg-light p-3",
+          class = "border-radius bg-light p-3 section",
           
           h3("Data Management"),
           
@@ -267,7 +269,8 @@ stack_server <- function(id, user = NULL, path) {
         
         # -- Integration section -----------------------------------------------
         
-        h2("Integration & QA"),
+        h2(class = "section",
+           "Integration & QA"),
         
         # -- Section
         layout_columns(
@@ -311,7 +314,8 @@ stack_server <- function(id, user = NULL, path) {
         
         # -- Deployment section ------------------------------------------------
         
-        h2("Deployment & Cloud"),
+        h2(class = "section",
+           "Deployment & Cloud"),
         
         # -- Section
         layout_columns(

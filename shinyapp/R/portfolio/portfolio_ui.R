@@ -12,7 +12,8 @@ portfolio_ui <- function(id){
     
     uiOutput(ns("select_project")),
     
-    h2("Projects"),
+    h2(class = "section",
+       "Projects"),
     
     uiOutput(ns("project_grid")))
   
