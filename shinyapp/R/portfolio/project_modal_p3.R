@@ -42,25 +42,36 @@ project_modal_p3 <- function(){
     h2(class = "section",
        "About the Project"),
     
-    # -- columns
-    layout_columns(
-      col_widths = c(7,5),
+    # -- text
+    tagList(
+      p("The application displays the performances of a candidate / list on a map.", br(),
+        "User can select the election type, year, turn and the electoral boundaries on which the data should be projected."),
+      p("The datasets have been collected on the", 
+        tags$a(
+          "data.gouv.fr",
+          target = "_blank",
+          href = "https://data.gouv.fr"),
+        "platform on which the official election results are published by the French Government.")),
+    
+    card(
+      class = "bg-contrast mt-5",
+      h3("Screenshots"),
       
-      tagList(
-        p("The application displays the performances of a candidate / list on a map.", br(),
-          "User can select the election type, year, turn and the electoral boundaries on which the data should be projected."),
-        p("The datasets have been collected on the", 
-          tags$a(
-            "data.gouv.fr",
-            target = "_blank",
-            href = "https://data.gouv.fr"),
-          "platform on which the official election results are published by the French Government.")),
-      
-      card(class = "border border-light",
-           card_header("Data.gouv.fr Page"),
-           card_image(
-             src = "project_media/screenshot_datagouv.png",
-             alt = "Project image"))),
+      layout_column_wrap(
+        
+        card(
+          fill = FALSE,
+          card_header("Election results"),
+          card_image(
+            src = "project_media/mozaique_idf.jpg",
+            alt = "Project image")),
+        
+        card(
+          fill = FALSE,
+          card_header("Data.gouv.fr Page"),
+          card_image(
+            src = "project_media/screenshot_datagouv.png",
+            alt = "Project image")))),
     
     
     # -- Features section
