@@ -10,7 +10,7 @@ experience_geodis <- function(){
       class = "bg-contrast",
       div(
         h3("CSR Data Project Manager"),
-        p(style ="font-style: italic;", "Oct.2022 - 2023"),
+        p(style ="font-style: italic;", "GEODIS / Oct.2022 - 2023"),
         p("Within the Corporate Digital & Technology organization, dedicated to
           the strategic CSR activities around the CO", tags$sub("2", , .noWS = c("before")), "emission calculation & Science Based Target Initiative."),
         div(class = "badge tag", "CSR"),

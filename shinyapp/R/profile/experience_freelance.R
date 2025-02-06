@@ -10,7 +10,7 @@ experience_freelance <- function(){
       class = "bg-contrast",
       div(
         h3("Technical Data Expert"),
-        p(style ="font-style: italic;", "Since 2020"),
+        p(style ="font-style: italic;", "Freelance / Since 2020"),
         p("As a freelance worker, to maintain a transversal data knowledge that can support both functional & technical sides of complex data projects."),
         div(class = "badge tag", "data quality"),
         div(class = "badge tag", "data analysis"),
@@ -26,7 +26,7 @@ experience_freelance <- function(){
         h4("Mission & Responsibilities"),
         p("Coaching & Training"),
         tags$ul(
-          tags$li("Mentorship on the Data Analyst program"),
+          tags$li("Mentorship @OpenClassrooms on the Data Analyst program"),
           tags$li("Support students with projects & exams"),
           tags$li("Advocate data culture within business organizations")),
         p("Data pipelines"),

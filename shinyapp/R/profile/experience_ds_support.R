@@ -10,7 +10,7 @@ experience_ds_support <- function(){
       class = "bg-contrast",
       div(
         h3("Technical Support (Engineer, then Manager)"),
-        p(style ="font-style: italic;", "2002 - 2015"),
+        p(style ="font-style: italic;", "Dassault Systèmes / 2002 - 2015"),
         p("Within the R&D L2 Customer Support, dedicated to Data Management (as an Engineer), 
         then Data Transition & Exchanges products (as a Manager) and assigned to production deployment projects."),
         div(class = "badge tag", "Data Management"),
