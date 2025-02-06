@@ -23,6 +23,9 @@ function(input, output, session) {
   # -- portfolio
   portfolio_server(id = "portfolio", user, path)
   
+  # -- service
+  service_server(id = "service", user, path)
+  
   # -- profile
   profile_server(id = "profile", user, path)
   

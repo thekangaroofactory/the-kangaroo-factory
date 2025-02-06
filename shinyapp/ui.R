@@ -38,6 +38,13 @@ page_navbar(
             portfolio_ui("portfolio")),
   
   
+  # -- Service
+  nav_panel(class = "p-5",
+            title = "Services", 
+            
+            service_ui("service")),
+  
+  
   # -- Profile
   nav_panel(class = "p-5",
             title = "Profile", 
