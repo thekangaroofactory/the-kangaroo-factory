@@ -7,6 +7,8 @@
 # -- Define server logic
 function(input, output, session) {
   
+  cat("Starting application server... \n")
+  
   # -- Check DEBUG mode
   if(DEBUG)
     cat("[i] DEBUG mode is ON \n")
@@ -58,6 +60,11 @@ function(input, output, session) {
   }) |>
     
     bindEvent(session$clientData$url_search)
+  
+  
+  # -- Observer active nav_panel
+  observeEvent(input$navbar,
+               cat("Active tab =", input$navbar, "\n"))
   
   
 }
