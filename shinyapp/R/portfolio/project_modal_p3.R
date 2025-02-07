@@ -1,9 +1,9 @@
 
 
-project_modal_p3 <- function(){
+project_modal_p3 <- function(path){
 
   # -- add resource path
-  my_path <- "E:/Portfolio/R/Projects/the-kangaroo-factory/data/philippeperet/portfolio/p3"
+  my_path <- file.path(path, "philippeperet/portfolio/p3")
   addResourcePath(prefix = "project_media", directoryPath = my_path)
   
   # -- return wrapper

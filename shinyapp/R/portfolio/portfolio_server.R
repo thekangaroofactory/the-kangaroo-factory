@@ -83,14 +83,10 @@ portfolio_server <- function(id, user = NULL, path) {
       # -- get project [p*]
       p_nb <- unlist(strsplit(input$open_project, "_"))[2]
       
-      # -- read project json file
-      # foo <- jsonlite::fromJSON(txt = "E:/Portfolio/R/Projects/the-kangaroo-factory/data/philippeperet/portfolio/p1/sections.json")
-      
       showModal(
         modalDialog(
           easyClose = T,
-          #title = "Project Explorer",
-          match.fun(paste0("project_modal_", p_nb))()
+          match.fun(paste0("project_modal_", p_nb))(path$data)
         )
       )
       
