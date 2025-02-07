@@ -141,18 +141,21 @@ project_modal_p1 <- function(path){
              p("A public instance of the web application is accessible", br(),
                "cold start may create a delay at startup"),
              tags$a(
+               'data-value' = "link_p1_dashboard_gcp",
                "Rain Forecast Dashboard",
                target = "_blank",
                href = "https://rain-forecast-dashboard-902168338454.europe-west9.run.app/")),
         card(card_header("Repository"),
              p("The GitHub repository of the API"),
              tags$a(
+               'data-value' = "link_p1_github_api",
                "rain-forecast-data-pipeline",
                target = "_blank",
                href = "https://github.com/thekangaroofactory/rain-forecast-data-pipeline")),
         card(card_header("Repository"),
              p("The GitHub", icon("github"), "repository of the Dashboard"),
              tags$a(
+               'data-value' = "link_p1_github_dashboard",
                "rain-forecast-dashboard",
                target = "_blank",
                href = "https://github.com/thekangaroofactory/rain-forecast-dashboard"))))

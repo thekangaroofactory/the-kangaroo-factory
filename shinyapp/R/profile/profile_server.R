@@ -32,6 +32,10 @@ profile_server <- function(id, user = NULL, path) {
     })
     
     
+    observeEvent(input$experience,
+                 cat("Accordion =", input$experience, "\n"), ignoreInit = F, ignoreNULL = F)
+    
+    
     # --------------------------------------------------------------------------
     # Outputs
     # --------------------------------------------------------------------------
@@ -65,25 +69,30 @@ profile_server <- function(id, user = NULL, path) {
            "Experiences"),
         
         accordion(
+          id = ns("experience"),
           
           # -- GEODIS
           accordion_panel(
             title = "GEODIS | CSR Data Project Manager",
+            value = "exp_geodis",
             experience_geodis()),
           
           # -- Freelance
           accordion_panel(
             title = "Freelance | Technical Data Expert",
+            value = "exp_freelance",
             experience_freelance()),
           
           # -- DS QA
           accordion_panel(
             title = "Dassault Systèmes | QA Leader, Senior Manager",
+            value = "exp_ds_qa",
             experience_ds_qa()),
           
           # -- DS Support
           accordion_panel(
             title = "Dassault Systèmes | L2 Technical Support, Engineer & Manager",
+            value = "exp_ds_support",
             experience_ds_support())),
         
         
@@ -126,6 +135,7 @@ profile_server <- function(id, user = NULL, path) {
         
         # -- resume pdf viewer
         accordion(
+          id = "download_resume",
           open = FALSE,
           accordion_panel(
             title = "Click to expand / collapse viewer",

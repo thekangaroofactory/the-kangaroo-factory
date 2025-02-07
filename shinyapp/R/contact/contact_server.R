@@ -54,9 +54,11 @@ contact_server <- function(id, user = NULL, path) {
           class = "border border-light",
           card_header(x$name),
           x$description,
-          tags$a(href = x$link, 
-                 target = "_blank",
-                 x$name))}
+          tags$a(
+            'data-value' = x$name,
+            href = x$link,
+            target = "_blank",
+            x$name))}
       
       # -- apply helper
       cards <- apply(contacts, MARGIN = 1, helper)
@@ -99,8 +101,10 @@ contact_server <- function(id, user = NULL, path) {
         x <- as.list(x)
         
         # -- return
+        # adding gtag class to trigger google_tag.js
         actionButton(
           inputId = x$name,
+          class = "gtag",
           label = x$name,
           onclick = paste0("window.open('", x$link, "', '_blank')"))}
       

@@ -34,10 +34,12 @@ card_project <- function(x, ns, input, path_portfolio){
     # -- expand
     card_footer(
       tooltip(
+        # -- button
+        # add gtag to trigger google analytics js
         actionButton(inputId = paste0("open_p", x$id),
                      label = NULL,
                      icon = icon("up-right-and-down-left-from-center"),
-                     class = "rounded-pill btn-sm btn-outline-light float-end",
+                     class = "rounded-pill btn-sm btn-outline-light float-end gtag",
                      onclick = sprintf('Shiny.setInputValue(\"%s\", this.id, {priority: \"event\"})', 
                                        ns("open_project"))),
         "Open project",

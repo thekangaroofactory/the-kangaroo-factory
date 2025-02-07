@@ -172,6 +172,7 @@ project_modal_p3 <- function(path){
           card_header("Page"),
           p("The description page of the application on the data.gouv.fr platform"),
           tags$a(
+            'data-value' = "link_p3_data_gouv_page",
             "carte-interactive-des-resultats-des-elections",
             target = "_blank",
             href = "https://www.data.gouv.fr/fr/reuses/carte-interactive-des-resultats-des-elections/")),
@@ -180,6 +181,7 @@ project_modal_p3 <- function(path){
           p("A public instance of the application", br(),
             "(cold start may create a delay at startup)"),
           tags$a(
+            'data-value' = "link_p3_app_shinyio",
             "election-map",
             target = "_blank",
             href = "https://kangaroo-ai.shinyapps.io/election-map/")),
@@ -187,6 +189,7 @@ project_modal_p3 <- function(path){
           card_header("Repository"),
           p("The GitHub", icon("github"), "repository of the Application"),
           tags$a(
+            'data-value' = "link_p3_github",
             "france-elections",
             target = "_blank",
             href = "https://github.com/thekangaroofactory/france-elections"))))

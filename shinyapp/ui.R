@@ -16,13 +16,22 @@ app_theme <- bs_theme(
 # -- Define UI
 page_navbar(
   
+  # -- id to observe
+  id = "navbar",
+  
   # -- Theme
   theme = app_theme,
   
   # -- Title
   title = "Philippe Peret",
   fillable = FALSE,
-  header = tags$link(rel = "stylesheet", type = "text/css", href = "./css/tkf.css"),
+  
+  # -- header
+  header = tags$head(
+    tags$link(rel = "stylesheet", type = "text/css", href = "./css/tkf.css"),
+    tags$script(src = "./js/google_tag.js")),
+  
+  # -- footer
   footer = p(style = "font-size:9pt;margin-top:20px;", "© 2025 TheKangarooFactory"),
  
   
@@ -33,7 +42,7 @@ page_navbar(
   # -- Portfolio
   nav_panel(class = "p-5",
             title = "Portfolio", 
-            
+
             h1("Portfolio"),
             portfolio_ui("portfolio")),
   

@@ -153,6 +153,7 @@ project_modal_p2 <- function(path){
              card_header("Repository"),
              p("The GitHub", icon("github"), "repository of the project"),
              tags$a(
+               'data-value' = "link_p2_github",
                "kitems",
                target = "_blank",
                href = "https://github.com/thekangaroofactory/kitems")),
@@ -161,6 +162,7 @@ project_modal_p2 <- function(path){
              card_header("Documentation & articles"),
              p("The GitHub page of the package"),
              tags$a(
+               'data-value' = "link_p2_github_page",
                "kitems",
                target = "_blank",
                href = "https://thekangaroofactory.github.io/kitems/"))))
