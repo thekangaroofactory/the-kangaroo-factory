@@ -1,6 +1,10 @@
 
 
-one_pager <- function(download = FALSE){
+one_pager <- function(path){
+  
+  # -- add resource path
+  my_path <- file.path(path, "philippeperet/profile")
+  addResourcePath(prefix = "profile_media", directoryPath = my_path)
   
   # -- return
   card(
@@ -12,18 +16,7 @@ one_pager <- function(download = FALSE){
       div(
         class = "flex-column",
         h2("Key Takeways"),
-        p(style ="font-style: italic; font-weight: normal;", "One-page profile summary")),
-      
-      if(download)
-        shiny::downloadLink(
-          class = "ms-auto",
-          outputId="download",
-          label=tooltip(
-            icon("file"),
-            "Click to download Chart",
-            placement = "right"))
-      
-      ),
+        p(style ="font-style: italic; font-weight: normal;", "One-page profile summary"))),
     
     # -- content
     layout_columns(
@@ -40,7 +33,7 @@ one_pager <- function(download = FALSE){
         h4("Career path (20+ XP)"),
         card(
           fill = FALSE,
-          img(src = "img/career_path_en.png"))),
+          img(src = "profile_media/career_path_en.png"))),
       
       
       # -- middle

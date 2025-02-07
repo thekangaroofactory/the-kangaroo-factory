@@ -18,7 +18,7 @@ profile_server <- function(id, user = NULL, path) {
     
     
     # --------------------------------------------------------------------------
-    # User
+    # Observers
     # --------------------------------------------------------------------------
     
     # -- Observe user
@@ -32,6 +32,7 @@ profile_server <- function(id, user = NULL, path) {
     })
     
     
+    # -- observe experiences
     observeEvent(input$experience,
                  cat("Accordion =", input$experience, "\n"), ignoreInit = F, ignoreNULL = F)
     
@@ -39,20 +40,12 @@ profile_server <- function(id, user = NULL, path) {
     # --------------------------------------------------------------------------
     # Outputs
     # --------------------------------------------------------------------------
-    
-    # -- pdf resume
-    pdfurl <- "./PERET_Philippe_2024_11_FR.pdf"
-    
-    output$pdfviewer <- renderText(
-      return(paste('<iframe style="height:80vh; width:100%" src="', pdfurl, '"></iframe>', sep = "")))
-    
-    
+
     # -- user profile
     output$user_profile <- renderUI({
       
       # -- read user contact file
       cat(MODULE, "Build user profile \n")
-      #profile <- read.csv(file = file.path(path_profile(), "profile.csv"), header = T)
 
       # -- return
       tagList(
@@ -61,7 +54,7 @@ profile_server <- function(id, user = NULL, path) {
         profile_title(),
         
         # -- one pager
-        one_pager(),
+        one_pager(path$data),
         
         
         # -- Experiences
@@ -96,7 +89,6 @@ profile_server <- function(id, user = NULL, path) {
             experience_ds_support())),
         
         
-        
         # -- Certifications & Degrees
         h2(class = "section",
            "Certifications & Degree"),
@@ -128,22 +120,8 @@ profile_server <- function(id, user = NULL, path) {
             tags$ul(
               tags$li("Automotive Engineer | ESTACA"))))),
         
-        
-        # -- Misc
-        h2(class = "section",
-           "Download Resume"),
-        
-        # -- resume pdf viewer
-        accordion(
-          id = "download_resume",
-          open = FALSE,
-          accordion_panel(
-            title = "Click to expand / collapse viewer",
-            htmlOutput(ns("pdfviewer"))))
-        
-      )
-      
-    })
+      ) # tagList
+    }) # renderUI
     
   })
 }

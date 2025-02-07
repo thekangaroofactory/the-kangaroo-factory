@@ -1,10 +1,13 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
 
+
+# ------------------------------------------------------------------------------
+# This is the ui / server logic of the Shiny web application.
+# ------------------------------------------------------------------------------
+
+# -- Dependencies
 library(shiny)
 library(bslib)
+
 
 # -- Declare app theme
 app_theme <- bs_theme(
@@ -16,17 +19,12 @@ app_theme <- bs_theme(
   base_font = font_google("Quicksand"))
 
 
-# -- set privacy level
+# -- Set privacy level
 anonymous <- F
 contact <- F
 
 
-# -- Add resource path
-# because the app is not at the root level
-addResourcePath(prefix = "img", directoryPath = "../www/img")
-
-
-# Define UI for application that draws a histogram
+# -- Define UI logic
 ui <- page_fluid(
   
   theme = app_theme,
@@ -54,7 +52,7 @@ ui <- page_fluid(
   ),
   
   # -- one pager ---------------------------------------------------------------
-  one_pager(),
+  one_pager(path = "../../data"),
   
   
   # -- Experiences -------------------------------------------------------------
@@ -87,14 +85,8 @@ ui <- page_fluid(
   # -- footer ------------------------------------------------------------------
   p(style = "font-size:9pt;margin-top:20px;", "© 2025 - This document has been generated with R"),
   
-  
 )
 
-# Define server logic required to draw a histogram
-server <- function(input, output) {
-  
-  
-}
 
-# Run the application 
-shinyApp(ui = ui, server = server)
+# -- Run the application (no server)
+shinyApp(ui = ui, server = function(input, output){})
