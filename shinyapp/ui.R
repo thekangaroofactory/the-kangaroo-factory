@@ -4,7 +4,7 @@
 # This is the user-interface definition of the Shiny web application.
 # ------------------------------------------------------------------------------
 
-# -- Declare app theme
+# -- Declare theme
 app_theme <- bs_theme(
   bg = "#2d3037",
   fg = "#fff",
@@ -13,10 +13,10 @@ app_theme <- bs_theme(
   base_font = font_google("Quicksand"))
 
 
-# -- Define UI
+# -- Define application UI
 page_navbar(
   
-  # -- id to observe
+  # -- To observe selected tab
   id = "navbar",
   
   # -- Theme
@@ -24,7 +24,6 @@ page_navbar(
   
   # -- Title
   title = "Philippe Peret",
-  fillable = FALSE,
   
   # -- header
   header = tags$head(
@@ -32,6 +31,7 @@ page_navbar(
     tags$script(src = "./js/google_tag.js")),
   
   # -- footer
+  fillable = FALSE,
   footer = p(style = "font-size:9pt;margin-top:20px;", "© 2025 TheKangarooFactory"),
  
   
@@ -75,6 +75,7 @@ page_navbar(
             
             h1("Contacts & Links"),
             contact_ui("contact"),
+            
             h4(class = "section",
                "Visit my profiles on other platforms"),
             link_ui("contact"))

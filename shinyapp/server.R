@@ -62,7 +62,11 @@ function(input, output, session) {
     bindEvent(session$clientData$url_search)
   
   
-  # -- Observer active nav_panel
+  # ----------------------------------------------------------------------------
+  # Observe
+  # ----------------------------------------------------------------------------
+  
+  # -- Observe active nav_panel
   observeEvent(input$navbar,
                cat("Active tab =", input$navbar, "\n"))
   
