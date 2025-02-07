@@ -37,29 +37,11 @@ profile_server <- function(id, user = NULL, path) {
                  cat("Accordion =", input$experience, "\n"), ignoreInit = F, ignoreNULL = F)
 
     
-    # -- observe downloadButton
-    output$download_resume <- downloadHandler(
-
-      # -- build file name
-      filename = function() {
-        paste0(ifelse(input$resume_privacy, "Philippe_", "Philippe_PERET_"), input$resume_type, ".pdf")},
-      
-      # -- build content
-      content = function(con) {
-        
-        cat(MODULE, "Prepare document to download \n")
-        cat(MODULE, "-- type = ", input$resume_type, "\n")
-        cat(MODULE, "-- privacy = ", input$resume_privacy, "\n")
-        
-        # -- build url
-        target_file <- paste0(ifelse(input$resume_privacy, "Philippe_", "Philippe_PERET_"), input$resume_type, ".pdf")
-        target_file <- file.path("../data/philippeperet/profile", target_file)
-        
-        # -- copy file to tmp con
-        file.copy(target_file, con)})
+    # --------------------------------------------------------------------------
+    # Manage Download
+    # --------------------------------------------------------------------------
     
-    
-    # -- observe download button
+    # -- observe main download button
     observeEvent(input$download,
                  
                  # -- display modal
@@ -79,6 +61,43 @@ profile_server <- function(id, user = NULL, path) {
                        downloadButton(
                          outputId = ns("download_resume"),
                          label = "Download")))))
+    
+    
+    # -- download handler
+    output$download_resume <- downloadHandler(
+
+      # -- build file name
+      filename = function()
+        download_filename(type = input$resume_type, privacy = input$resume_privacy),
+      
+      # -- build content
+      content = function(con) {
+        
+        cat(MODULE, "Prepare document to download \n")
+        cat(MODULE, "-- type = ", input$resume_type, "\n")
+        cat(MODULE, "-- privacy = ", input$resume_privacy, "\n")
+        
+        # -- build url
+        target_file <- download_filename(type = input$resume_type, privacy = input$resume_privacy)
+        target_file <- file.path("../data/philippeperet/profile", target_file)
+        
+        # -- copy file to tmp con
+        file.copy(target_file, con)})
+    
+    
+    # -- helper
+    download_filename <- function(type, privacy){
+      paste0(ifelse(privacy, "Philippe_", "Philippe_PERET_"), type, ".pdf")}
+    
+    
+    # -- download preview
+    output$download_preview <- renderUI({
+      
+      # -- build url
+      url <- download_filename(type = input$resume_type, privacy = input$resume_privacy)
+      
+      # -- return
+      tags$iframe(style="height:400px; width:100%", src = paste0("profile_media/", url))})
     
     
     # --------------------------------------------------------------------------
