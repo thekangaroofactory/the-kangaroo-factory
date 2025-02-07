@@ -1,9 +1,9 @@
 
 
-library(ggplot2)
-library(ggtext)
-library(ragg)
-library(RColorBrewer)
+# library(ggplot2)
+# library(ggtext)
+# library(ragg)
+# library(RColorBrewer)
 
 career_path_2 <- function(data, company, category, section, timeline){
 
