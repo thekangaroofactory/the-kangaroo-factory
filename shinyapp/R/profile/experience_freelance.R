@@ -14,8 +14,7 @@ experience_freelance <- function(){
         p("As a freelance worker, to maintain a transversal data knowledge that can support both functional & technical sides of complex data projects."),
         div(class = "badge tag", "data quality"),
         div(class = "badge tag", "data analysis"),
-        div(class = "badge tag", "data visualization"),
-        div(class = "badge tag", "BI"))),
+        div(class = "badge tag", "data visualization"))),
     
     
     # -- main content (2 columns)
@@ -31,7 +30,7 @@ experience_freelance <- function(){
           tags$li("Advocate data culture within business organizations")),
         p("Data pipelines"),
         tags$ul(
-          tags$li("Automate Data pipelines (collection, cleansing & transformation)"),
+          tags$li("Automate data pipelines (collection, cleaning & transformation)"),
           tags$li("Design & develop APIs")),
         p("Tools & Dashboards"),
         tags$ul(
@@ -43,11 +42,11 @@ experience_freelance <- function(){
       tagList(
         card(
           class = "border border-light",
-          card_header("Specific"),
+          card_header("Specificities"),
           card_body(
             tags$ul(
               tags$li("R / Shiny expert"),
-              tags$li("Full-Stack data")))),
+              tags$li("Full-Stack data approach")))),
         
         # -- sub-columns
         layout_column_wrap(
@@ -58,7 +57,8 @@ experience_freelance <- function(){
             card_body(
               tags$span(
                 div(class = "badge tag", "9.8K visits on data.gouv.fr"),
-                div(class = "badge tag", "Speak same language as Tech. Teams")))),
+                div(class = "badge tag", "1 graduated student"),
+                div(class = "badge tag", "40 GitHub repos.")))),
           
           card(
             class = "border border-light",
@@ -81,7 +81,7 @@ experience_freelance <- function(){
             p("GEODIS"),
             tags$ul(
               tags$li("Datalake validation scripts"),
-              tags$li("Monitoring tool"),
+              tags$li("Monitoring tool (webapp)"),
               tags$li("CO",tags$sub("2", , .noWS = c("before")),"computation flow analysis")),
             p("Tools & Apps"),
             tags$ul(
@@ -89,7 +89,7 @@ experience_freelance <- function(){
               tags$li("ML monitoring dashboard")),
             p("R Package"),
             tags$ul(
-              tags$li("Tabular data management framework (kitems)"),
+              tags$li("Tabular data management framework"),
               tags$li("Admin console, demo apps")))))))
   
 }

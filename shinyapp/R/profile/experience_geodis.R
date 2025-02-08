@@ -11,10 +11,12 @@ experience_geodis <- function(){
       div(
         h3("CSR Data Project Manager"),
         p(style ="font-style: italic;", "GEODIS / Oct.2022 - 2023"),
-        p("Within the Corporate Digital & Technology organization, dedicated to
-          the strategic CSR activities around the CO", tags$sub("2", , .noWS = c("before")), "emission calculation & Science Based Target Initiative."),
+        p("Within the Corporate Digital & Technology organization and dedicated to
+          the strategic CSR activities of the CO", tags$sub("2", , .noWS = c("before")), "emission calculation & Science Based Target Initiative."),
         div(class = "badge tag", "CSR"),
-        div(class = "badge tag", "Logistic"))),
+        div(class = "badge tag", "Logistic"),
+        div(class = "badge tag", "Datalake"),
+        div(class = "badge tag", "Dashboard"))),
     
     
     # -- main content (2 columns)
@@ -25,28 +27,28 @@ experience_geodis <- function(){
         h4("Mission & Responsibilities"),
         p("Functional"),
         tags$ul(
-          tags$li("Support CSR & Business Teams around the technical usage of the APIs"),
+          tags$li("Support CSR & Business Teams with the technical usage of the APIs"),
           tags$li("Monitor data flow & CO", tags$sub("2", , .noWS = c("before")), "emission calculation infrastructure"),
-          tags$li("Capture technical needs around emission calculation (ex: low carbon offers)"),
-          tags$li("Follow-up meetings with the teams & external supplier")),
+          tags$li("Capture technical needs linked to emission calculation (ex: low carbon offers)"),
+          tags$li("Follow-up meetings with the teams & external suppliers")),
         p("Project Management"),
         tags$ul(
           tags$li("Catpure the CO", tags$sub("2", , .noWS = c("before")), "calculation flow into the Datalake"),
           tags$li("Deliver a dashboard to monitor the quality of the CO", tags$sub("2", , .noWS = c("before")), "computations"),
-          tags$li("Define and implement a common architecture around the CO", tags$sub("2", , .noWS = c("before")), "calculation services"),
-          tags$li("Build roadmap & budget, organize follow-up meetings, streering comittees, workshops")),
+          tags$li("Define and implement a common architecture of the CO", tags$sub("2", , .noWS = c("before")), "calculation services"),
+          tags$li("Build roadmap & budget, manage priorities, organize streering comittees, workshops")),
         p("Data & Analysis"),
         tags$ul(
           tags$li("Act as a proxy Data Owner, on behalf of the CSR Organization"),
-          tags$li("Write datalake ingestion validation script"),
+          tags$li("Develop Datalake ingestion validation script"),
           tags$li("Perform data analysis to support the businesses and CSR teams"),
-          tags$li("Participate to governance data catalog initiative"))),
+          tags$li("Participate to governance Data Catalog initiative"))),
       
       # -- right column
       tagList(
         card(
           class = "border border-light",
-          card_header("Specific"),
+          card_header("Specificities"),
           card_body(
             tags$ul(
               tags$li("24 x 7 x 365 data flow"),
@@ -60,7 +62,7 @@ experience_geodis <- function(){
             card_header("Key figures"),
             card_body(
               tags$span(
-                div(class = "badge tag", "56M CO", tags$sub("2", , .noWS = c("before")), "calculation / year"),
+                div(class = "badge tag", "56M CO", tags$sub("2", , .noWS = c("before")), "calculations / year"),
                 div(class = "badge tag", "5 lines of Business"),
                 div(class = "badge tag", "4 regions"),
                 div(class = "badge tag", "10 systems connected"),

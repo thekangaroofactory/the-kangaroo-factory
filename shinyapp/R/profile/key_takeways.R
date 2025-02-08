@@ -1,6 +1,6 @@
 
 
-one_pager <- function(path){
+key_takeways <- function(path){
   
   # -- add resource path
   my_path <- file.path(path, "philippeperet/profile")
@@ -26,9 +26,9 @@ one_pager <- function(path){
       card(
         
         h4("Presentation"),
-        p("Since 2001, it has always been about data projects and technico-functional roles:", br(),
-          "From Data Management, then Data Exchanges & Transformation to Data Analysis & Visualization", br(),
-          "I enjoy working with complex data pipelines & carefully designed dashboards."),
+        p("Since 2001, it has always been about data projects and technical-functional roles:", br(),
+          "From Data Management, then Data Exchanges & Transformation to Data Analysis & Visualization"),
+        p("I enjoy working with complex data pipelines & carefully designed dashboards."),
         
         h4("Career path (20+ XP)"),
         card(

@@ -50,7 +50,7 @@ ui <- page_fluid(
       profile_links()),
   
   # -- One pager
-  one_pager(path = "../../data"),
+  key_takeways(path = "../../data"),
   
   # -- footer ------------------------------------------------------------------
   p(style = "font-size:9pt;margin-top:20px;", "© 2025 - This document has been generated with R"),

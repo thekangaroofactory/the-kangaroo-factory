@@ -11,10 +11,11 @@ experience_ds_qa <- function(){
       div(
         h3("QA Leader & Transition Manager"),
         p(style ="font-style: italic;", "Dassault Systèmes / 2016 - 2019"),
-        p("Within the R&D organization, as a QA Leader for Legacy Servers, Data Transition & Exchanges products and Team Manager."),
+        p("Within the R&D organization, as a QA Leader for Data Management & Exchanges products and Team Manager."),
         div(class = "badge tag", "Data Management"),
         div(class = "badge tag", "Data Exchange"),
-        div(class = "badge tag", "Quality"))),
+        div(class = "badge tag", "Quality"),
+        div(class = "badge tag", "Transformation"))),
     
     
     # -- main content (2 columns)
@@ -26,7 +27,7 @@ experience_ds_qa <- function(){
         p("QA Leader"),
         tags$ul(
           tags$li("Be responsible for the quality of Data Management & Exchanges products"),
-          tags$li("Build and deploy strategy to solve critical program convergence"),
+          tags$li("Build and deploy strategies to solve critical program convergence"),
           tags$li("Implement decision support tools to anticipate program drift"),
           tags$li("Plan and deploy test automation strategy (DevOps)")),
         p("Team Transformation"),
@@ -44,9 +45,10 @@ experience_ds_qa <- function(){
       tagList(
         card(
           class = "border border-light",
-          card_header("Specific"),
+          card_header("Specificities"),
           card_body(
             tags$ul(
+              tags$li("Team management"),
               tags$li("Transformation")))),
         
         # -- sub-columns
@@ -57,8 +59,8 @@ experience_ds_qa <- function(){
             card_header("Key figures"),
             card_body(
               tags$span(
-                div(class = "badge tag", "35 people (France & India)"),
-                div(class = "badge tag", "5 products")))),
+                div(class = "badge tag", "35 people organization"),
+                div(class = "badge tag", "5 data products")))),
           
           card(
             class = "border border-light",

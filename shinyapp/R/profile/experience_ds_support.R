@@ -11,7 +11,7 @@ experience_ds_support <- function(){
       div(
         h3("Technical Support (Engineer, then Manager)"),
         p(style ="font-style: italic;", "Dassault Systèmes / 2002 - 2015"),
-        p("Within the R&D L2 Customer Support, dedicated to Data Management (as an Engineer), 
+        p("Within the R&D Technical Customer Support, dedicated to Data Management (as an Engineer), 
         then Data Transition & Exchanges products (as a Manager) and assigned to production deployment projects."),
         div(class = "badge tag", "Data Management"),
         div(class = "badge tag", "Data Quality"),
@@ -48,7 +48,7 @@ experience_ds_support <- function(){
       tagList(
         card(
           class = "border border-light",
-          card_header("Specific"),
+          card_header("Specificities"),
           card_body(
             tags$ul(
               tags$li("Product convergence"),
@@ -62,8 +62,8 @@ experience_ds_support <- function(){
             card_header("Key figures"),
             card_body(
               tags$span(
-                div(class = "badge tag", "Engineer (7y)"),
-                div(class = "badge tag", "Manager (7y)")))),
+                div(class = "badge tag", "7 years as Engineer"),
+                div(class = "badge tag", "7 years as Manager")))),
           
           card(
             class = "border border-light",
