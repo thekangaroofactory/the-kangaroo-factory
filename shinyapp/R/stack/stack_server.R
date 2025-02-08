@@ -57,8 +57,8 @@ stack_server <- function(id, user = NULL, path) {
             # -- R
             tagList(
               p(icon("r-project"), "R"),
-              p("R defines itself as a", span(style = "font-style:italic;", "language and environment for statistical computing and graphics."), br(),
-                "It makes it very powerful at dealing with data transformation, analysis & visualization."),
+              p("R defines itself as a", span(style = "font-style:italic;", "language and environment for statistical computing and graphics.")),
+              p("It makes it very powerful at dealing with data transformation, analysis & visualization."),
               p("It's my first choice language because dataframes are native in R, as well as vectorized alternatives (faster compared to for loops).", br(),
                 "Also R has powerfull graphic systems for data visualization.")),
             
@@ -125,7 +125,8 @@ stack_server <- function(id, user = NULL, path) {
                   div(class = "badge tag", "data.table"),
                   div(class = "badge tag", "lubridate"),
                   div(class = "badge tag", "RCurl"),
-                  div(class = "badge tag", "jsonlite"),))),
+                  div(class = "badge tag", "jsonlite"),
+                  div(class = "badge tag", "geojson")))),
             
             # -- badge group
             card(
@@ -135,8 +136,7 @@ stack_server <- function(id, user = NULL, path) {
               card_body(
                 tags$span(
                   div(class = "badge tag", "ggplot2"),
-                  div(class = "badge tag", "leaflet"),
-                  div(class = "badge tag", "geojson")))),
+                  div(class = "badge tag", "leaflet")))),
             
             # -- badge group
             card(
@@ -202,7 +202,8 @@ stack_server <- function(id, user = NULL, path) {
               card_body(
                 tags$span(
                   div(class = "badge tag", "panda"),
-                  div(class = "badge tag", "numpy")))),
+                  div(class = "badge tag", "numpy"),
+                  div(class = "badge tag", "SQLAlchemy")))),
             
             # -- badge group
             card(
@@ -240,7 +241,7 @@ stack_server <- function(id, user = NULL, path) {
             col_widths = c(4, 4, 4),
             
             tagList(
-              p("I have actually started my carreer with roles in the Data Management, Integration, Migration & Exchanges domains.")
+              p("I have actually started my carreer with roles in the Data Management & Exchanges domains.")
             ),
             
             # -- badge group
@@ -293,9 +294,9 @@ stack_server <- function(id, user = NULL, path) {
               card_body(
                 tags$span(
                   div(class = "badge tag", "git"),
-                  div(class = "badge tag", "github"),
-                  div(class = "badge tag", "gitlab"),
-                  div(class = "badge tag", "actions")))),
+                  div(class = "badge tag", "GitHub"),
+                  div(class = "badge tag", "GitLab"),
+                  div(class = "badge tag", "GitHub actions")))),
             
             # -- badge group
             card(
@@ -304,8 +305,8 @@ stack_server <- function(id, user = NULL, path) {
               card_header("QA"),
               card_body(
                 tags$span(
-                  div(class = "badge tag", "actions"),
-                  div(class = "badge tag", "codecov"))))
+                  div(class = "badge tag", "GitHub actions"),
+                  div(class = "badge tag", "Codecov"))))
             
           ) # layout_column_wrap
         ), # layout_columns
@@ -348,7 +349,8 @@ stack_server <- function(id, user = NULL, path) {
                 tags$span(
                   div(class = "badge tag", "GCP"),
                   div(class = "badge tag", "Azure"),
-                  div(class = "badge tag", "AWS")))),
+                  div(class = "badge tag", "AWS"),
+                  div(class = "badge tag", "Supabase")))),
             
             # -- badge group
             card(
