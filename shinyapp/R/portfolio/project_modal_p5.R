@@ -11,7 +11,7 @@ project_modal_p5 <- function(path){
     
     # -- Project header section
     h1("The Diamond Bay"),
-    p("Website"),
+    p("Photography portfolio"),
     
     
     # -- Project info section
@@ -21,14 +21,14 @@ project_modal_p5 <- function(path){
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Project Type",
                                  value = "Website",
-                                 p("Static website")),
+                                 p("Static website deployed on the cloud")),
                        
                        value_box(class = "border border-light",
-                                 showcase = icon("check-to-slot"),
+                                 showcase = icon("file"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
-                                 title = "Views",
-                                 value = "9,8k",
-                                 p("Source: data.gouv.fr")),
+                                 title = "Page",
+                                 value = "1",
+                                 p("Single landing page")),
                        
                        value_box(class = "border border-light",
                                  showcase = icon("unlock"),
@@ -44,7 +44,8 @@ project_modal_p5 <- function(path){
     
     # -- text
     tagList(
-      p("The website is a photography portfolio. It's made of a unique landing page.")),
+      p("The project is a photography portfolio.", br(),
+        "It's made of a unique landing page (static website), but is meant to become a web application in a future version.")),
     
 
     # -- Features section
@@ -54,8 +55,13 @@ project_modal_p5 <- function(path){
       
       card(class = "border border-light",
            fill = FALSE,
-           card_header("Services"),
-           p("The service page shows available consultant services."))),
+           card_header("Landing page"),
+           p("The first version has been delivered as a single-page static website.")),
+      
+      card(class = "border border-light",
+           fill = FALSE,
+           card_header("Portfolio"),
+           p("The portfolio displays a grid of previews that can be opened in a modal window."))),
     
     
     # -- Background section
@@ -68,10 +74,11 @@ project_modal_p5 <- function(path){
       h3("Technical Stack"),
       layout_column_wrap(
         card(
-          card_header("UX"),
-          p("App design:"),
+          card_header("Website"),
+          p("Front-end"),
           tags$ul(
-            tags$li("HTML / css"),
+            tags$li("HTML"),
+            tags$li("css"),
             tags$li("Javascript"))))),
     
     
@@ -82,11 +89,11 @@ project_modal_p5 <- function(path){
       card(
         class = "border border-light",
         card_header("Website"),
-        p("The website is deployed on Render cloud plateform as a static website.")),
+        p("The website is deployed on Render cloud platform as a static website.")),
       card(
         class = "border border-light",
-        card_header("Design"),
-        p("The app look & feel document is published on Behance."))),
+        card_header("Domain"),
+        p("A domain name is registered at OVH and redirects to the cloud platform."))),
     
     
     # -- Links section
@@ -96,12 +103,12 @@ project_modal_p5 <- function(path){
       layout_column_wrap(
         card(
           card_header("Website"),
-          p("The Diamond Bay"),
+          p("Link to the website"),
           tags$a(
-            'data-value' = "link_p5_****",
-            "project",
+            'data-value' = "link_p5_website",
+            "www.thediamondbay.fr",
             target = "_blank",
-            href = "https://www.data.gouv.fr/fr/reuses/carte-interactive-des-resultats-des-elections/"))))
+            href = "https://www.thediamondbay.fr/"))))
     
   )
   

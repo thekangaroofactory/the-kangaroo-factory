@@ -36,7 +36,7 @@ project_modal_p1 <- function(path){
                                  title = "Visibility",
                                  value = "Public",
                                  p("Dashboard & repositories are open"),
-                                 p("API is private ;)"))),
+                                 p("API is private"))),
     
     
     # -- About section
@@ -44,7 +44,7 @@ project_modal_p1 <- function(path){
        "About the Project"),
     p("The Rain Forecast Dashboard is part of a project that started in 2020.", br(),
       "An AI model (Machine Learning) was then trained on a 140k dataset provided by the Australian Government BOM (Bureau of Meteorology)."),
-    p("Weather observation data have been collected continuously to keep monitoring the rain predictions."),
+    p("Since then, weather observation data have been collected continuously to keep monitoring the rain predictions."),
     
     
     # -- Features section
@@ -96,16 +96,14 @@ project_modal_p1 <- function(path){
              tags$ul(
                tags$li("R"),
                tags$li("Shiny, bslib"),
-               tags$li("Ggplot2, dplyr"),
-               tags$li("Docker, GCP"))),
+               tags$li("Ggplot2"))),
         card(card_header("Data Engineering"),
              p("API & Database"),
              tags$ul(
                tags$li("R, Plumber"),
                tags$li("RCurl"),
                tags$li("Keras, Reticulate"),
-               tags$li("DBI, PostgreSQL (Supabase)"),
-               tags$li("Docker, GCP"))),
+               tags$li("DBI, PostgreSQL"))),
         card(card_header("Model & Predictions"),
              p("AI / Machine Learning"),
              tags$ul(
@@ -120,16 +118,22 @@ project_modal_p1 <- function(path){
       card(class = "border border-light",
            card_header("API"),
            p("The API is delivered as a Docker container deployed on GCP.", br(),
-           "The underlying database is hosted on Supabase.")),
+           "The underlying PostgreSQL database is hosted on Supabase.")),
       card(class = "border border-light",
            card_header("Dashboard"),
-           p("The Dashboard is also delivered as a Docker container deployed on GCP"))),
+           p("The Dashboard web application is also delivered as a Docker container deployed on GCP."))),
     
     
     # -- Document section
     card(class = "border border-light",
-         card_header("Project Presentation"),
-         tags$iframe(style="height:600px; width:100%", src = "project_media/Rain Forecast Dashboard Full.pdf")),
+         card_header("Project documentation"),
+         p("Documentation has also been delivered to support communication about the project."),
+         accordion(
+           open = FALSE,
+           accordion_panel(
+             title = "Click to expand / collapse",
+             value = "p1_documentation",
+             tags$iframe(style="height:600px; width:100%", src = "project_media/Rain Forecast Dashboard Full.pdf")))),
     
     
     # -- Links section
@@ -138,22 +142,21 @@ project_modal_p1 <- function(path){
       h2("Links"),
       layout_column_wrap(
         card(card_header("Dashboard"),
-             p("A public instance of the web application is accessible", br(),
-               "cold start may create a delay at startup"),
+             p("A public instance of the web application is accessible (cold start may create a delay at startup)."),
              tags$a(
                'data-value' = "link_p1_dashboard_gcp",
                "Rain Forecast Dashboard",
                target = "_blank",
                href = "https://rain-forecast-dashboard-902168338454.europe-west9.run.app/")),
         card(card_header("Repository"),
-             p("The GitHub repository of the API"),
+             p("The GitHub", icon("github"), "repository of the API."),
              tags$a(
                'data-value' = "link_p1_github_api",
                "rain-forecast-data-pipeline",
                target = "_blank",
                href = "https://github.com/thekangaroofactory/rain-forecast-data-pipeline")),
         card(card_header("Repository"),
-             p("The GitHub", icon("github"), "repository of the Dashboard"),
+             p("The GitHub", icon("github"), "repository of the Dashboard."),
              tags$a(
                'data-value' = "link_p1_github_dashboard",
                "rain-forecast-dashboard",

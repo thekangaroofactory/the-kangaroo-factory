@@ -10,7 +10,8 @@ portfolio_ui <- function(id){
     
     card(
       class = "bg-contrast mt-5",
-      p("Browse and open a project by clicking the expand button (lower right corner), or use the filter below.")),
+      p("To open a project description, click the expand button (lower right corner).", br(),
+        "Use the filter below to select by project type.")),
     
     uiOutput(ns("select_project")),
     

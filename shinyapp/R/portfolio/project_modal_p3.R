@@ -1,7 +1,7 @@
 
 
 project_modal_p3 <- function(path){
-
+  
   # -- add resource path
   my_path <- file.path(path, "philippeperet/portfolio/p3")
   addResourcePath(prefix = "project_media", directoryPath = my_path)
@@ -82,25 +82,27 @@ project_modal_p3 <- function(path){
       card(class = "border border-light",
            fill = FALSE,
            card_header("Supported elections"),
-           p("The application supports different types of election (one or two-turn)."),
-           p("Election types"),
-           tags$ul(
-             tags$li("Presidential"),
-             tags$li("Legislative"),
-             tags$li("Municipal")),
-           p("Two electoral boundary types are available."),
-           p("Boundary types"),
-           tags$ul(
-             tags$li("Municipality"),
-             tags$li("Legislative district")),
-           p("User also selects the list of departements to display for better performances.")),
+           p("The application supports different types of election & electoral boundaries.", br(),
+             "User also selects a list of departements to display for better performances."),
+           layout_columns(
+             tagList(
+               p("Election types"),
+               tags$ul(
+                 tags$li("Presidential"),
+                 tags$li("Legislative"),
+                 tags$li("Municipal"))),
+             tagList(
+               p("Boundary types"),
+               tags$ul(
+                 tags$li("Municipality"),
+                 tags$li("Legislative district"))))),
       
       card(class = "border border-light",
            fill = FALSE,
-           card_header("Data cleaning & transformation"),
-           p("The raw datasets are quite clean (they are prepared by the team) but still require some cleaning."),
-           p("In particular, the department & city code formats are not homogenized through the different election types (this is even more true for the remote territories)."),
-           p("The transformation involves matching the election results with the selected electoral boundaries. This is done through the use of geographical data.")),
+           card_header("Data quality & transformation"),
+           p("The raw datasets are quite clean but still require some operations."),
+           p("In particular, department & city code formats are not homogenized through the different election types."),
+           p("The transformation also involves matching the election results with the electoral boundaries (geographical data).")),
       
       card(class = "border border-light",
            fill = FALSE,
@@ -109,8 +111,8 @@ project_modal_p3 <- function(path){
              src = "project_media/opacity_animation.gif",
              alt = "Project image"),
            p("The application projects the election results for a given candidate / list on selected electoral boundaries."),
-           p("Options are available to tune the performance color and opacity.", br(),
-             "Also a search input is available to navigate the map (it's plugged on the Google API)"))),
+           p("Options are available to tune the performance color and opacity."),
+           p("Also a search input is available to navigate the map (plugged on the OpenStreetMap API)"))),
     
     
     # -- Background section
@@ -120,7 +122,7 @@ project_modal_p3 <- function(path){
     # -- Technical stack sub-section
     h3(class = "mt-5 mb-3",
        "Architecture"),
-    p("The application has a standard client / server architecture which relies on several module servers (map, elections, boundaries...)."),
+    p("The application has a standard client / server architecture which relies on several module servers (map, elections, boundaries)."),
     
     # -- Technical stack sub-section
     card(
@@ -129,20 +131,21 @@ project_modal_p3 <- function(path){
       layout_column_wrap(
         card(
           card_header("Data Engineering"),
-          p("Cleaning & transformation:"),
+          p("Cleaning & transformation"),
           tags$ul(
-            tags$li("R"))),
+            tags$li("R"),
+            tags$li("dplyr"),
+            tags$li("geojsonio"))),
         card(
           card_header("Web application"),
-          p("Client & server:"),
+          p("Client & server"),
           tags$ul(
             tags$li("R"),
             tags$li("Shiny"),
-            tags$li("Shinydashboard & ShinyWidgets"),
-            tags$li("Google Analytics"))),
+            tags$li("Shinydashboard & ShinyWidgets"))),
         card(
           card_header("Map"),
-          p("Display & search:"),
+          p("Display & search"),
           tags$ul(
             tags$li("R"),
             tags$li("Leaflet"),
@@ -156,10 +159,10 @@ project_modal_p3 <- function(path){
       card(
         class = "border border-light",
         card_header("Application"),
-        p("The web application is deployed on the Shinyapps.io cloud platform.")),
+        p("The web application is deployed on a cloud platform.")),
       card(
         class = "border border-light",
-        card_header("Page"),
+        card_header("Visibility"),
         p("The application is registered on the data.gouv.fr plateform, so that it can be found from the list of reuses as well as the election and boundaries datasets."))),
     
     
@@ -170,7 +173,7 @@ project_modal_p3 <- function(path){
       layout_column_wrap(
         card(
           card_header("Page"),
-          p("The description page of the application on the data.gouv.fr platform"),
+          p("The page of the application on the data.gouv.fr platform."),
           tags$a(
             'data-value' = "link_p3_data_gouv_page",
             "carte-interactive-des-resultats-des-elections",
@@ -178,8 +181,7 @@ project_modal_p3 <- function(path){
             href = "https://www.data.gouv.fr/fr/reuses/carte-interactive-des-resultats-des-elections/")),
         card(
           card_header("Application"),
-          p("A public instance of the application", br(),
-            "(cold start may create a delay at startup)"),
+          p("A public instance of the application (cold start may create a delay at startup)."),
           tags$a(
             'data-value' = "link_p3_app_shinyio",
             "election-map",
@@ -187,7 +189,7 @@ project_modal_p3 <- function(path){
             href = "https://kangaroo-ai.shinyapps.io/election-map/")),
         card(
           card_header("Repository"),
-          p("The GitHub", icon("github"), "repository of the Application"),
+          p("The GitHub", icon("github"), "repository of the Application."),
           tags$a(
             'data-value' = "link_p3_github",
             "france-elections",

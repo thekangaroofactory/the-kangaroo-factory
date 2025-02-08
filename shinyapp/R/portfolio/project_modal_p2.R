@@ -53,7 +53,13 @@ project_modal_p2 <- function(path){
            fill = FALSE,
            card_header("Data model"),
            p("The data model contains the specifications of the items to manage."),
-           p("For each attribute, the data model carries information like its name and type, but also a method to determine its default value and logical values to indicate if it should be skipped in forms, filtered from the table view or used to sort the data.")),
+           p("Attribute information"),
+           tags$ul(
+             tags$li("name"),
+             tags$li("type"),
+             tags$li("default value"),
+             tags$li("visibility"),
+             tags$li("ordering"))),
       
       card(class = "border border-light",
            fill = FALSE,
@@ -64,18 +70,18 @@ project_modal_p2 <- function(path){
       card(class = "border border-light",
            fill = FALSE,
            card_header("Inputs & outputs"),
-           p("A set of UI components is avaible to interact with the framework directly from the app."),
+           p("A set of UI components is avaible to interact with the framework directly from an app."),
            p("Components"),
            tags$ul(
-             tags$li("Item view: it displays the items in a data table"), 
-             tags$li("Date slider: if a date attribute exists, an input it automatically generated"), 
-             tags$li("Standard buttons: create, update, delete (contextual to the selection in the data table)"))),
+             tags$li("Item table view"), 
+             tags$li("Date range input"), 
+             tags$li("Standard buttons (create, update, delete)"))),
       
       card(class = "border border-light",
            fill = FALSE,
            card_header("Admin console"),
            p("An admin console is delivered as a standalone Shiny app."),
-           p("The reason is that in most cases, it’s not recommended to have the data model(s) management accessible from within the application."))),
+           p("The reason is that in most cases, it’s not recommended to have the data model(s) management accessible from within an application."))),
     
     
     # -- Background section
@@ -84,8 +90,8 @@ project_modal_p2 <- function(path){
     
     # -- Architecture sub-section
     h3("Architecture"),
-    p("The framework is delivered as a Shiny module that can be instanciated inside a Shiny server (or even as sub-module of a Shiny module server).", br(),
-    "It makes it very flexible to use & allows multiple implementations since the module server returns a list of objects that can be used outside of it."),
+    p("The framework is delivered as a Shiny module that can be instanciated inside a Shiny server (or even a module server).", br(),
+    "It makes it very flexible to use & allows multiple implementations."),
   
     
     # -- Technical stack sub-section
@@ -99,9 +105,9 @@ project_modal_p2 <- function(path){
              p("R Package"),
              tags$ul(
                tags$li("R"),
-               tags$li("Shiny"),
-               tags$li("Shinydashboard, ShinyWidgets"),
-               tags$li("DT, dplyr, ..."))),
+               tags$li("Shiny, Shinydashboard"),
+               tags$li("ShinyWidgets, DT"),
+               tags$li("dplyr"))),
         card(class = "border border-light",
              fill = FALSE,
              card_header("Admin console"),
@@ -115,8 +121,8 @@ project_modal_p2 <- function(path){
              card_header("CI / CD"),
              p("Documentation & testing"),
              tags$ul(
-               tags$li("Testing: Testthat, Codecov, GitHub actions"),
-               tags$li("Documentation: Quarto, GitHub Pages"))))),
+               tags$li("Testthat"),
+               tags$li("Quarto"))))),
     
     
     # -- Deliverable section
@@ -127,21 +133,27 @@ project_modal_p2 <- function(path){
            fill = FALSE,
            card_header("Package"),
            p("The package is published on GitHub."),
-           p("It can be installed using the install_github function from devtools package")),
+           p("It can be installed using the install_github function from devtools package.")),
+      card(class = "border border-light",
+           fill = FALSE,
+           card_header("QA"),
+           p("QA automation has been delivered through GitHub actions & Codecov.")),
       card(class = "border border-light",
            fill = FALSE,
            card_header("Documentation"),
-           p("Documentation & articles are delivered through the GitHub pages mechanism (with automation).")),
-      card(class = "border border-light",
-           fill = FALSE,
-           card_header("Communication"),
-           p("A visual identity (logo & color scheme) as well as a set of presentations have been delivered to support the communication around the package (LinkedIn posts)."))),
+           p("Documentation & articles are delivered through the GitHub pages mechanism (with automation)."))),
     
     
     # -- Document section
     card(class = "border border-light",
-         card_header("Project Presentation (one out of seven)"),
-         tags$iframe(style="height:600px; width:100%", src = "project_media/motivations.pdf")),
+         card_header("Project documentation"),
+         p("A set of presentations has been delivered to support the communication around the package."),
+         accordion(
+           open = FALSE,
+           accordion_panel(
+             title = "Click to expand / collapse",
+             value = "p2_documentation",
+             tags$iframe(style="height:600px; width:100%", src = "project_media/motivations.pdf")))),
     
     
     # -- Links section
