@@ -46,7 +46,6 @@ p:has(+ul) {
 /* -- buttons -- */
 .btn {
   
-  max-width: 150px;
   border-radius: 25px;
   
 }
