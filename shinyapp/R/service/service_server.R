@@ -39,7 +39,7 @@ service_server <- function(id, user = NULL, path, parent_session) {
     # -- Contact button
     observeEvent(input$switch_contact, {
                  
-                 cat("Switch to contact tab")
+                 cat("Switch to contact tab \n")
                  
                  # -- Switch nav panel
                  nav_select(id = "navbar", 
