@@ -1,0 +1,36 @@
+{
+  "header": 
+  {
+    "title":"Rain Forecast Dashboard",
+    "subtitle":"Data Exploration & ML Monitoring Dashboard"
+  },
+  "values":
+  [
+    {
+      "showcase":"chart-line",
+      "theme":"purple",
+      "title":"Project Type",
+      "value":"Dashboard",
+      "...":"p('Web application & API containers deployed on the cloud')"
+    },
+    {
+      "showcase":"hourglass",
+      "theme":"purple",
+      "title":"Workload",
+      "value":"40 days",
+      "...":"p('Excl. AI model training')"
+    },
+    {
+      "showcase":"unlock",
+      "theme":"purple",
+      "title":"Visibility",
+      "value":"Public",
+      "...":"p('Dashboard & repositories are open', br(), 'API is private ;)')"
+    }
+  ],
+  "text":
+  {
+    "title":"About the Project",
+    "...":"tagList(p('The Rain Forecast Dashboard is part of a project that started in 2020.', br(), 'An AI model (Machine Learning) was then trained on a 140k dataset provided by the Australian Government BOM (Bureau of Meteorology).'), p('Weather observation data have been collected continuously to keep monitoring the rain predictions.'))"
+  }
+}

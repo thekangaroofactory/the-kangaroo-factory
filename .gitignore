@@ -34,5 +34,5 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
-# -- data folder
-data
+# -- data folder (needed for deploy)
+# data
