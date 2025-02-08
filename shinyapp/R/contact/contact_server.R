@@ -69,20 +69,19 @@ contact_server <- function(id, user = NULL, path) {
       else
         cards
       
-      # -- key figures
+      # -- return
       card(
         class = "border-radius bg-contrast p-3 mt-5",
         
+        # -- layout
         layout_columns(
           col_widths = c(4, 8),
           
           # -- text
-          p("You can contact me with an email or a message on LinkedIn."),
+          p("Contact me with an email or a message on LinkedIn."),
           
           # -- cards
-          contact_wrapper
-      
-        ))
+          contact_wrapper))
       
     })
     

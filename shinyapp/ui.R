@@ -77,7 +77,7 @@ page_navbar(
             contact_ui("contact"),
             
             h4(class = "section",
-               "Visit my profiles on other platforms"),
+               "Links to other platforms"),
             link_ui("contact"))
   
 ) # page_navbar
