@@ -41,6 +41,7 @@ page_navbar(
   
   # -- Portfolio
   nav_panel(class = "p-5",
+            value = "portfolio",
             title = "Portfolio", 
 
             h1("Portfolio"),
@@ -49,6 +50,7 @@ page_navbar(
   
   # -- Service
   nav_panel(class = "p-5",
+            value = "service",
             title = "Services", 
             
             service_ui("service")),
@@ -56,6 +58,7 @@ page_navbar(
   
   # -- Profile
   nav_panel(class = "p-5",
+            value = "profile",
             title = "Profile", 
             
             profile_ui("profile")),
@@ -63,6 +66,7 @@ page_navbar(
   
   # -- Stack
   nav_panel(class = "p-5",
+            value = "stack",
             title = "Technical Stack", 
             
             h1("Technical Stack"),
@@ -71,6 +75,7 @@ page_navbar(
   
   # -- Contact
   nav_panel(class = "p-5",
+            value = "contact",
             title = "Contacts & Links", 
             
             h1("Contacts & Links"),

@@ -4,7 +4,7 @@
 # Module Server logic
 # ------------------------------------------------------------------------------
 
-service_server <- function(id, user = NULL, path) {
+service_server <- function(id, user = NULL, path, parent_session) {
   moduleServer(id, function(input, output, session) {
     
     # -- get namespace
@@ -33,6 +33,21 @@ service_server <- function(id, user = NULL, path) {
     
     
     # --------------------------------------------------------------------------
+    # Observers
+    # --------------------------------------------------------------------------
+    
+    # -- Contact button
+    observeEvent(input$switch_contact, {
+                 
+                 cat("Switch to contact tab")
+                 
+                 # -- Switch nav panel
+                 nav_select(id = "navbar", 
+                            selected = "contact",
+                            session = parent_session)})
+    
+    
+    # --------------------------------------------------------------------------
     # Outputs
     # --------------------------------------------------------------------------
     
@@ -42,60 +57,81 @@ service_server <- function(id, user = NULL, path) {
       # -- return tags
       tagList(
         
-        h1("Services"),
+        h1("Technical-Functional Data Services"),
         
-        # -- key figures
+        p("Based on a full-stack data approach backed by 20+ years of solid data experience."),
+        
+        actionButton(
+          class = "mt-5",
+          inputId = ns("switch_contact"),
+          label = "Contact me"),
+        
+        # -- section
         card(
           class = "border-radius bg-contrast p-3 mt-5",
-          h3("Data Services"),
+          h3("Functional Services"),
           
           # -- layout
           layout_column_wrap(
             
-            # -- xxx
+            # -- project management
             card(
               fill = FALSE,
-              card_header("Project Management"),
-              p("Project Management dedicated to data driven applications..."),
+              card_header("Data Project Management"),
+              p("Technical-functional approach"),
               tags$ul(
                 tags$li("Understand & advocate business needs"),
-                tags$li("Collect data"))),
+                tags$li("Build strategy, roadmap, budget"),
+                tags$li("Converge developemnt backlog"),
+                tags$li("Manage priorities & arbitrations"),
+                tags$li("Organize operations & meetings"),
+                tags$li("Communicate with various audiences"))),
             
-            # -- xxx
+            # -- data management & governance
             card(
               fill = FALSE,
               card_header("Data Management & Governance"),
-              p("xxx"),
+              p("Product Data / Lifecycle Management"),
               tags$ul(
-                tags$li(""),
+                tags$li("Data management & lifecyle"),
+                tags$li("Data exchanges"),
                 tags$li("Data flow lineage"))),
             
-            # -- xxx
+            # -- data quality & pipelines
             card(
               fill = FALSE,
               card_header("Data Quality & Transformation"),
-              p("xxx"),
+              p("Build reliable systems"),
               tags$ul(
-                tags$li("Understand & advocate business needs"),
-                tags$li("Collect data"))),
+                tags$li("Setup data quality strategy & indicators"),
+                tags$li("Build data pipelines (collection, cleaning, transformation)"),
+                tags$li("Setup automation strategies"))))),
+        
+        
+        card(
+          class = "border-radius bg-contrast p-3 mt-5",
+          h3("Technical Services"),
+          
+          # -- layout
+          layout_column_wrap(
             
-            # -- xxx
+            # -- analysis & visualization
             card(
               fill = FALSE,
-              card_header("Data Analysis & Visualization"),
-              p("xxx"),
-              tags$ul(
-                tags$li("Produce data analysis & reports"),
-                tags$li("Build reproducinle data visualizations"),
-                tags$li("Design & develop dashboards"))),
-            
-            # -- xxx
-            card(
-              fill = FALSE,
-              card_header("R"),
+              card_header("Data Analysis & Visualizations"),
               p("Development using the R language"),
               tags$ul(
-                tags$li("Scripts"),
+                tags$li("Produce data analysis & reports"),
+                tags$li("Data analysis mentorship"),
+                tags$li("Build reproducible data visualizations"))),
+        
+            # -- apps & tools
+            card(
+              fill = FALSE,
+              card_header("Tools & Apps"),
+              p("Development using the R language"),
+              tags$ul(
+                tags$li("Scripts & APIs"),
                 tags$li("Dashboards & web applications"),
                 tags$li("Packages & documentation")))
             

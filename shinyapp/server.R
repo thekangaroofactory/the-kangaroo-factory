@@ -26,7 +26,7 @@ function(input, output, session) {
   portfolio_server(id = "portfolio", user, path)
   
   # -- service
-  service_server(id = "service", user, path)
+  service_server(id = "service", user, path, session)
   
   # -- profile
   profile_server(id = "profile", user, path)
