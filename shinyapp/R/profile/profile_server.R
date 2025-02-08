@@ -34,7 +34,7 @@ profile_server <- function(id, user = NULL, path) {
     
     # -- observe accordion_panel
     observeEvent(input$experience,
-                 cat("Accordion =", input$experience, "\n"), ignoreInit = F, ignoreNULL = F)
+                 cat("Accordion =", input$experience, "\n"))
 
     
     # --------------------------------------------------------------------------
