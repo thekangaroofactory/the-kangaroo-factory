@@ -56,20 +56,50 @@ service_server <- function(id, user = NULL, path) {
             card(
               fill = FALSE,
               card_header("Project Management"),
-              p("xxx")),
+              p("Project Management dedicated to data driven applications..."),
+              tags$ul(
+                tags$li("Understand & advocate business needs"),
+                tags$li("Collect data"))),
             
             # -- xxx
             card(
               fill = FALSE,
-              card_header("Data Quality"),
-              p("xxx")),
+              card_header("Data Management & Governance"),
+              p("xxx"),
+              tags$ul(
+                tags$li(""),
+                tags$li("Data flow lineage"))),
             
             # -- xxx
             card(
               fill = FALSE,
-              card_header("Data Pipelines"),
-              p("xxx")))),
-        
+              card_header("Data Quality & Transformation"),
+              p("xxx"),
+              tags$ul(
+                tags$li("Understand & advocate business needs"),
+                tags$li("Collect data"))),
+            
+            # -- xxx
+            card(
+              fill = FALSE,
+              card_header("Data Analysis & Visualization"),
+              p("xxx"),
+              tags$ul(
+                tags$li("Produce data analysis & reports"),
+                tags$li("Build reproducinle data visualizations"),
+                tags$li("Design & develop dashboards"))),
+            
+            # -- xxx
+            card(
+              fill = FALSE,
+              card_header("R"),
+              p("Development using the R language"),
+              tags$ul(
+                tags$li("Scripts"),
+                tags$li("Dashboards & web applications"),
+                tags$li("Packages & documentation")))
+            
+          ))
         
       ) # taglist / return
       
