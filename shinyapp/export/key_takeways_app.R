@@ -21,7 +21,7 @@ app_theme <- bs_theme(
 
 # -- Set privacy level
 anonymous <- F
-contact <- F
+contact <- T
 
 
 # -- Define UI logic
@@ -50,7 +50,7 @@ ui <- page_fluid(
       profile_links()),
   
   # -- One pager
-  key_takeways(path = "../../data"),
+  key_takeaways(path = "../../data"),
   
   # -- footer ------------------------------------------------------------------
   p(style = "font-size:9pt;margin-top:20px;", "© 2025 - This document has been generated with R"),

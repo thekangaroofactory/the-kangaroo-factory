@@ -21,7 +21,7 @@ app_theme <- bs_theme(
 
 # -- Set privacy level
 anonymous <- F
-contact <- F
+contact <- T
 
 
 # -- Define UI logic
@@ -52,7 +52,7 @@ ui <- page_fluid(
   ),
   
   # -- one pager ---------------------------------------------------------------
-  key_takeways(path = "../../data"),
+  key_takeaways(path = "../../data"),
   
   
   # -- Experiences -------------------------------------------------------------

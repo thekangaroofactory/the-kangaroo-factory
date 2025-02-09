@@ -20,12 +20,12 @@ download_ui <- function(ns){
         class = "border-light",
         fill = FALSE,
         card_header("Type"),
-        p("Key takeways will be a one-page document without detailed experiences."),
+        p("Key takeaways will be a one-page document without detailed experiences."),
         p("It may be useful to quickly share a profile and see if there is an interest for a more detailed resume."),
         radioButtons(
           inputId = ns("resume_type"),
           label = "Select",
-          choices = c("Key takeways" = "keyTakeways", 
+          choices = c("Key takeaways" = "keyTakeaways", 
                       "Full resume" = "full"))),
       
       # -- anonymous

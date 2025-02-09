@@ -127,7 +127,7 @@ profile_server <- function(id, user = NULL, path) {
             label = "download")),
         
         # -- one pager
-        key_takeways(path$data),
+        key_takeaways(path$data),
         
         
         # -- Experiences
