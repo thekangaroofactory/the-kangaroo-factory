@@ -24,17 +24,25 @@ page_navbar(
   
   # -- Title
   title = "Philippe Peret",
+  window_title = "Philippe PERET | TheKangarooFactory",
   
   # -- header
   header = tags$head(
+    
+    # -- favicon
+    tags$link(rel="shortcut icon", href="./img/favicon_196x196.png"),
+    
+    # -- css
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/tkf.css"),
+    
+    # -- Google Analytics
     includeHTML("./www/html/google-analytics.html"),
     tags$script(src = "./js/google_tag.js")),
   
   # -- footer
   fillable = FALSE,
   footer = p(style = "font-size:9pt;margin-top:20px;", "© 2025 TheKangarooFactory"),
- 
+
   
   # ----------------------------------------------------------------------------
   # Tabs (nav_panel)
