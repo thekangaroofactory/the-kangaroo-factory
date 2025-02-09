@@ -59,6 +59,8 @@ profile_server <- function(id, user = NULL, path) {
                      footer = tagList(
                        modalButton("Close"),
                        downloadButton(
+                         "data-value" = "confirm_download",
+                         class = "gtag",
                          outputId = ns("download_resume"),
                          label = "Download")))))
     
@@ -119,8 +121,10 @@ profile_server <- function(id, user = NULL, path) {
         # -- download
         div(
           class = "mb-5",
-          actionButton(inputId = ns("download"),
-                       label = "download")),
+          actionButton(
+            inputId = ns("download"),
+            class = "gtag",
+            label = "download")),
         
         # -- one pager
         key_takeways(path$data),

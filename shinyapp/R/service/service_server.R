@@ -61,10 +61,12 @@ service_server <- function(id, user = NULL, path, parent_session) {
         
         p("Based on a full-stack data approach backed by 20+ years of solid data experience."),
         
-        actionButton(
-          class = "mt-5 gtag",
-          inputId = ns("switch_contact"),
-          label = "Contact me"),
+        div(
+          class = "mt-5",
+          actionButton(
+            class = "gtag",
+            inputId = ns("switch_contact"),
+            label = "Contact me")),
         
         # -- section
         card(

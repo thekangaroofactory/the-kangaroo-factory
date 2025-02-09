@@ -28,7 +28,7 @@ page_navbar(
   # -- header
   header = tags$head(
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/tkf.css"),
-    includeHTML("./html/google-analytics.html"),
+    includeHTML("./www/html/google-analytics.html"),
     tags$script(src = "./js/google_tag.js")),
   
   # -- footer

@@ -19,7 +19,7 @@ Rules on behaviors:
 $(document).on('click', 'button.gtag', function(event) {
   
   console.log(event.currentTarget.id);
-  target = event.currentTarget.id;
+  var target = event.currentTarget.id;
   
   gtag('event', 'button', { click: target });
   
@@ -30,7 +30,7 @@ $(document).on('click', 'button.gtag', function(event) {
 $(document).on('click', 'a', function(event) {
   
   console.log($(event.currentTarget).data().value);
-  target <- $(event.currentTarget).data().value;
+  var target = $(event.currentTarget).data().value;
   
   gtag('event', 'link', { click: target });
   
@@ -44,7 +44,7 @@ $(document).on('click', 'button.accordion-button', function(event) {
   if(!$(event.currentTarget).hasClass("collapsed")){
     
     console.log($(event.currentTarget).closest("div.accordion-item").data().value)
-    target = $(event.currentTarget).closest("div.accordion-item").data().value
+    var target = $(event.currentTarget).closest("div.accordion-item").data().value
     
     gtag('event', 'accordion', { active: target });
   
@@ -57,7 +57,7 @@ $(document).on('click', 'button.accordion-button', function(event) {
 $(document).on('change', 'select', function(event) {
   
   console.log($(event.currentTarget).val());
-  target = $(event.currentTarget).val();
+  var target = $(event.currentTarget).val();
   
   gtag('event', 'select', { action: target });
   
