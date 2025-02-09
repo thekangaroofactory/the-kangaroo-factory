@@ -1,6 +1,6 @@
 
 
-key_takeways <- function(path){
+key_takeaways <- function(path){
   
   # -- add resource path
   my_path <- file.path(path, "philippeperet/profile")
@@ -15,7 +15,7 @@ key_takeways <- function(path){
       class = "d-flex border-bottom-0",
       div(
         class = "flex-column",
-        h2("Key Takeways"),
+        h2("Key Takeaways"),
         p(style ="font-style: italic; font-weight: normal;", "One-page profile summary"))),
     
     # -- content
