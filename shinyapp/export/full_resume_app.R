@@ -21,7 +21,7 @@ app_theme <- bs_theme(
 
 # -- Set privacy level
 anonymous <- F
-contact <- F
+contact <- T
 
 
 # -- Define UI logic
