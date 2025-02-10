@@ -6,6 +6,7 @@
 
 # -- Declare theme
 app_theme <- bs_theme(
+  version = 5,
   bg = "#2d3037",
   fg = "#fff",
   primary = "#e9dfc7",
@@ -18,7 +19,7 @@ page_navbar(
   
   # -- To observe selected tab
   id = "navbar",
-  
+
   # -- Theme
   theme = app_theme,
   
