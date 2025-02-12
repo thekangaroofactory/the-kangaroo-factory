@@ -30,6 +30,12 @@ page_navbar(
   # -- header
   header = tags$head(
     
+    # -- meta tags
+    tags$meta(charset="UTF-8"),
+    tags$meta(name="description", content="Data project portfolio and data science services. 
+              Power your business with automated data pipelines and carefully designed dashboards & apps."),
+    tags$meta(name="robots", content="all"),
+    
     # -- favicon
     tags$link(rel="shortcut icon", href="./img/favicon_196x196.png"),
     
