@@ -43,8 +43,10 @@ page_navbar(
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/tkf.css"),
     
     # -- Google Analytics
-    includeHTML("./www/html/google-analytics.html"),
-    tags$script(src = "./js/google_tag.js")),
+    if(GTAG){
+      tagList(
+        includeHTML("./www/html/google-analytics.html"),
+        tags$script(src = "./js/google_tag.js"))}),
   
   # -- footer
   fillable = FALSE,

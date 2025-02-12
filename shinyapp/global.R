@@ -16,6 +16,15 @@ library(bslib)
 
 
 # ------------------------------------------------------------------------------
+# Setup environment
+# ------------------------------------------------------------------------------
+
+# -- Debug mode
+DEBUG <- ifelse(Sys.getenv("DEBUG") != "", as.logical(Sys.getenv("DEBUG")), FALSE)
+GTAG <- ifelse(Sys.getenv("GTAG") != "", as.logical(Sys.getenv("GTAG")), FALSE)
+
+
+# ------------------------------------------------------------------------------
 # Source code
 # ------------------------------------------------------------------------------
 
@@ -34,8 +43,3 @@ path <- list(data = file.path(Sys.getenv("PROJECT_HOME"), "data"))
 
 # -- filenames
 file <- list ()
-
-
-# -- Debug mode
-DEBUG <- ifelse(Sys.getenv("DEBUG") != "", as.logical(Sys.getenv("DEBUG")), FALSE)
-
