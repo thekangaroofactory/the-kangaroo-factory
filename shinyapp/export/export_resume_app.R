@@ -19,12 +19,13 @@ app_theme <- bs_theme(
   base_font = font_google("Quicksand"))
 
 
-# -- Set privacy level
+# -- Set options & privacy level
+full_resume <- T
 anonymous <- F
 contact <- T
 
 
-# -- Define UI logic
+# -- Build UI
 ui <- page_fluid(
   
   theme = app_theme,
@@ -56,30 +57,33 @@ ui <- page_fluid(
   
   
   # -- Experiences -------------------------------------------------------------
-  
-  # -- geodis
-  div(
-    class = "pt-5",
-    style = "page-break-before: always;",
-    experience_geodis()),
-  
-  # -- Freelance
-  div(
-    class = "pt-5",
-    style = "page-break-before: always;",
-    experience_freelance()),
-  
-  # -- DS QA
-  div(
-    class = "pt-5",
-    style = "page-break-before: always;",
-    experience_ds_qa()),
-  
-  # -- DS Support
-  div(
-    class = "pt-5",
-    style = "page-break-before: always;",
-    experience_ds_support()),
+  if(full_resume)
+    
+    tagList(
+      
+      # -- Geodis
+      div(
+        class = "pt-5",
+        style = "page-break-before: always;",
+        experience_geodis()),
+      
+      # -- Freelance
+      div(
+        class = "pt-5",
+        style = "page-break-before: always;",
+        experience_freelance()),
+      
+      # -- DS QA
+      div(
+        class = "pt-5",
+        style = "page-break-before: always;",
+        experience_ds_qa()),
+      
+      # -- DS Support
+      div(
+        class = "pt-5",
+        style = "page-break-before: always;",
+        experience_ds_support())),
   
   
   # -- footer ------------------------------------------------------------------
