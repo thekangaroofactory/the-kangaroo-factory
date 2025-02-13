@@ -56,11 +56,11 @@ function(input, output, session) {
       url_parameters <- lapply(url_search, function(x) x[2])
       names(url_parameters) <- lapply(url_search, function(x) x[1])
       
-      # -- Update user
+      # -- user
       if("user" %in% names(url_parameters))
         user(url_parameters$portfolio)
       
-      # -- Update tab
+      # -- nav
       if("nav" %in% names(url_parameters))
         nav_select(id = "navbar", selected = url_parameters$nav)}
     
