@@ -51,11 +51,18 @@ function(input, output, session) {
       # -- Get url search key / value
       cat("New url search =", session$clientData$url_search, "\n")
       url_search <- substring(session$clientData$url_search, first = 2)
-      url_search <- unlist(strsplit(url_search, "="))
+      url_search <- unlist(strsplit(url_search, "&"))
+      url_search <- strsplit(url_search, "=")
+      url_parameters <- lapply(url_search, function(x) x[2])
+      names(url_parameters) <- lapply(url_search, function(x) x[1])
       
       # -- Update user
-      if(url_search[1] == "portfolio")
-        (url_search[2])}
+      if("user" %in% names(url_parameters))
+        user(url_parameters$portfolio)
+      
+      # -- Update tab
+      if("nav" %in% names(url_parameters))
+        nav_select(id = "navbar", selected = url_parameters$nav)}
     
   }) |>
     

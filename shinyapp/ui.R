@@ -68,7 +68,7 @@ page_navbar(
   
   # -- Service
   nav_panel(class = "p-5",
-            value = "service",
+            value = "services",
             title = "Services", 
             
             service_ui("service")),
