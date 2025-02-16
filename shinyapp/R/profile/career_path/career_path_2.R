@@ -8,7 +8,8 @@
 career_path_2 <- function(data, company, category, section, timeline){
 
   # -- colors
-  plot_background_fill <- "#2d3037"
+  # plot_background_fill <- "#2d3037"
+  plot_background_fill <- 'transparent'
   background_color <- "grey85"
   text_color <- "grey90"
   

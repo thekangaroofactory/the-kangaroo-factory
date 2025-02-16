@@ -2,8 +2,10 @@
 
 temporary_career_path <- function(){
   
+  target_path <- "E:/Portfolio/R/Projects/the-kangaroo-factory/data/philippeperet/profile"
+  
   # -- load data
-  data <- load_data(path = "E:/Portfolio/R/Projects/the-kangaroo-factory/data/philippeperet",
+  data <- load_data(path = target_path,
                     filename = "career_path_en.csv")
   
   # -- apply pipelines
@@ -16,7 +18,15 @@ temporary_career_path <- function(){
   
   # -- build plot & return
   p <- career_path_2(data_2, company, category, section, timeline)
-  
-  #renderPlot(p, bg = "transparent")
-  
+ 
+  # -- save plot
+  ggsave(
+    plot = p,
+    filename = file.path(target_path, "career_path_en.png"),
+    width = 1000, 
+    height = 500,
+    units = "px",
+    dpi = 96,
+    bg = "transparent")
+   
 }
