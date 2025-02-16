@@ -1,6 +1,6 @@
 
 
-temporary_career_path <- function(){
+temporary_career_path <- function(printable = FALSE){
   
   target_path <- "E:/Portfolio/R/Projects/the-kangaroo-factory/data/philippeperet/profile"
   
@@ -17,12 +17,12 @@ temporary_career_path <- function(){
   
   
   # -- build plot & return
-  p <- career_path_2(data_2, company, category, section, timeline)
+  p <- career_path_2(data_2, company, category, section, timeline, printable)
  
   # -- save plot
   ggsave(
     plot = p,
-    filename = file.path(target_path, "career_path_en.png"),
+    filename = file.path(target_path, paste0("career_path_en", ifelse(printable, "_printable", ''), ".png")),
     width = 1000, 
     height = 500,
     units = "px",

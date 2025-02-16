@@ -5,13 +5,12 @@
 # library(ragg)
 # library(RColorBrewer)
 
-career_path_2 <- function(data, company, category, section, timeline){
+career_path_2 <- function(data, company, category, section, timeline, printable = FALSE){
 
   # -- colors
-  # plot_background_fill <- "#2d3037"
   plot_background_fill <- 'transparent'
-  background_color <- "grey85"
-  text_color <- "grey90"
+  background_color <- ifelse(printable, "black", "grey85")
+  text_color <- ifelse(printable, "black", "grey90")
   
   # -- segments
   segment_contract_x <- 150
@@ -21,7 +20,7 @@ career_path_2 <- function(data, company, category, section, timeline){
   segment_text_nudge_y <- 0.1
   segment_text_nudge_x <- 200
   
-  # -- category & section
+  # -- category & section 
   section_nudge_x <- 1000
   
   # -- company

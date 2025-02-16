@@ -57,7 +57,7 @@ ui <- page_fluid(
   ),
   
   # -- one pager ---------------------------------------------------------------
-  key_takeaways(path = "../../data"),
+  key_takeaways(path = "../../data", printable),
   
   
   # -- Experiences -------------------------------------------------------------
