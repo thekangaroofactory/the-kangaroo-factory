@@ -9,20 +9,21 @@ library(shiny)
 library(bslib)
 
 
-# -- Declare app theme
-app_theme <- bs_theme(
-  version = 5,
-  bg = "#2d3037",
-  fg = "#fff",
-  primary = "#e9dfc7",
-  secondary = "#ececec",
-  base_font = font_google("Quicksand"))
-
-
 # -- Set options & privacy level
+printable <- F
 full_resume <- T
 anonymous <- F
 contact <- T
+
+
+# -- Declare app theme
+app_theme <- bs_theme(
+  version = 5,
+  bg = ifelse(printable, "#fff", "#2d3037"),
+  fg = ifelse(printable, "#000", "#fff"),
+  primary = ifelse(printable, "#000", "#e9dfc7"),
+  secondary = ifelse(printable, "#000", "#ececec"),
+  base_font = font_google("Quicksand"))
 
 
 # -- Build UI
@@ -30,6 +31,9 @@ ui <- page_fluid(
   
   theme = app_theme,
   class = "p-5",
+  
+  if(printable)
+    includeScript("../www/js/update_css_var.js"),
   
   # -- include shared css
   # because the app is not at the root level
@@ -87,10 +91,23 @@ ui <- page_fluid(
   
   
   # -- footer ------------------------------------------------------------------
-  p(style = "font-size:9pt;margin-top:20px;", "© 2025 - This document has been generated with R"),
+  p(class = "footer", "© 2025 - This document has been generated with R"),
   
 )
 
 
-# -- Run the application (no server)
-shinyApp(ui = ui, server = function(input, output){})
+# -- Server
+server <- function(input, output, session){
+  
+  # -- set printable
+  if(printable){
+    
+    cat("Set printable \n")
+    colors <- list(dark = "#000", light = "#fff")
+    session$sendCustomMessage("set_printable", colors)}
+  
+}
+
+
+# -- Run the application
+shinyApp(ui = ui, server = server)

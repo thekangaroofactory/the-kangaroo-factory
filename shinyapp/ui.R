@@ -50,7 +50,7 @@ page_navbar(
   
   # -- footer
   fillable = FALSE,
-  footer = p(style = "font-size:9pt;margin-top:20px;", "© 2025 TheKangarooFactory"),
+  footer = p(class = "footer", "© 2025 TheKangarooFactory"),
 
   
   # ----------------------------------------------------------------------------

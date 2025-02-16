@@ -10,6 +10,8 @@
   --tkf-color-light: #d9cec2;
   --tkf-color-contrast: #726d67;
   --tkf-color-accent: #bf906c;
+  --tkf-color-tag: #2d3037;
+  --tkf-color-icon: #726d67;
   
 }
 
@@ -91,7 +93,26 @@ p:has(+ul) {
   
   border-radius: 25px;
   background-color: var(--tkf-color-accent);
+  color: var(--tkf-color-tag);
   width: fit-content;
   display: inline-block;
+  
+}
+
+
+/* -- icons -- */
+.icon {
+  
+  font-size: 36px;
+  color: var(--tkf-color-icon);
+  
+}
+
+
+/* -- footer -- */
+.footer {
+  
+  font-size:9pt;
+  margin-top:20px;  
   
 }
