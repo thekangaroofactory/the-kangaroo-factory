@@ -6,6 +6,7 @@
 
 # -- Declare theme
 app_theme <- bs_theme(
+  version = 5,
   bg = "#2d3037",
   fg = "#fff",
   primary = "#e9dfc7",
@@ -18,7 +19,7 @@ page_navbar(
   
   # -- To observe selected tab
   id = "navbar",
-  
+
   # -- Theme
   theme = app_theme,
   
@@ -29,6 +30,12 @@ page_navbar(
   # -- header
   header = tags$head(
     
+    # -- meta tags
+    tags$meta(charset="UTF-8"),
+    tags$meta(name="description", content="Data project portfolio and data science services. 
+              Power your business with automated data pipelines and carefully designed dashboards & apps."),
+    tags$meta(name="robots", content="all"),
+    
     # -- favicon
     tags$link(rel="shortcut icon", href="./img/favicon_196x196.png"),
     
@@ -36,8 +43,10 @@ page_navbar(
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/tkf.css"),
     
     # -- Google Analytics
-    includeHTML("./www/html/google-analytics.html"),
-    tags$script(src = "./js/google_tag.js")),
+    if(GTAG){
+      tagList(
+        includeHTML("./www/html/google-analytics.html"),
+        tags$script(src = "./js/google_tag.js"))}),
   
   # -- footer
   fillable = FALSE,
@@ -59,7 +68,7 @@ page_navbar(
   
   # -- Service
   nav_panel(class = "p-5",
-            value = "service",
+            value = "services",
             title = "Services", 
             
             service_ui("service")),

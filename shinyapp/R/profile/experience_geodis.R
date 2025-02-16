@@ -33,10 +33,10 @@ experience_geodis <- function(){
           tags$li("Follow-up meetings with the teams & external suppliers")),
         p("Project Management"),
         tags$ul(
-          tags$li("Catpure the CO", tags$sub("2", , .noWS = c("before")), "calculation flow into the Datalake"),
+          tags$li("Capture the CO", tags$sub("2", , .noWS = c("before")), "calculation flow into the Datalake"),
           tags$li("Deliver a dashboard to monitor the quality of the CO", tags$sub("2", , .noWS = c("before")), "computations"),
           tags$li("Define and implement a common architecture of the CO", tags$sub("2", , .noWS = c("before")), "calculation services"),
-          tags$li("Build roadmap & budget, manage priorities, organize streering comittees, workshops")),
+          tags$li("Build roadmap & budget, manage priorities, organize steering committees, workshops")),
         p("Data & Analysis"),
         tags$ul(
           tags$li("Act as a proxy Data Owner, on behalf of the CSR Organization"),

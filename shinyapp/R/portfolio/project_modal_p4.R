@@ -131,7 +131,7 @@ project_modal_p4 <- function(path){
             'data-value' = "link_p4_behance",
             "TheKangarooFactory",
             target = "_blank",
-            href = "https://www.behance.net/philippe-peret"))))
+            href = "https://www.behance.net/gallery/218676055/TheKangarooFactory"))))
     
   )
   

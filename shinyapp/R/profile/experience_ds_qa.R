@@ -37,7 +37,7 @@ experience_ds_qa <- function(){
           tags$li("Turn team & network culture towards a proactive approach")),
         p("Data Project"),
         tags$ul(
-          tags$li("Analyse root causes why objectives and expectations were not met"),
+          tags$li("Analyze root causes why objectives and expectations were not met"),
           tags$li("Build and deploy a complete change of strategy"),
           tags$li("Setup a communication process to build support for the project"))),
       

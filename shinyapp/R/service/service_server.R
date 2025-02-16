@@ -95,7 +95,7 @@ service_server <- function(id, user = NULL, path, parent_session) {
               card_header("Data Management & Governance"),
               p("Product Data / Lifecycle Management"),
               tags$ul(
-                tags$li("Data management & lifecyle"),
+                tags$li("Data management & lifecycle"),
                 tags$li("Data exchanges"),
                 tags$li("Data flow lineage"))),
             

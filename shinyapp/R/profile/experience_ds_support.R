@@ -41,7 +41,7 @@ experience_ds_support <- function(){
         tags$ul(
           tags$li("Implement data extraction, preparation & processing (transfer & migration)"),
           tags$li("Setup data processing strategies"),
-          tags$li("Ensure data quality & lifecyle"),
+          tags$li("Ensure data quality & lifecycle"),
           tags$li("Analyze and improve performances of the data pipelines"))),
       
       # -- right column
