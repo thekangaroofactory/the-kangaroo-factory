@@ -29,7 +29,7 @@ GTAG <- ifelse(Sys.getenv("GTAG") != "", as.logical(Sys.getenv("GTAG")), FALSE)
 # ------------------------------------------------------------------------------
 
 # -- init & source code
-for(nm in list.files("R", full.names = T, recursive = T))
+for(nm in list.files("R", pattern = "*.R", full.names = T, recursive = T))
   source(nm)
 rm(nm)
 
