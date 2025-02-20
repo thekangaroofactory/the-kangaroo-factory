@@ -1,0 +1,79 @@
+{
+  "person": {
+    "lastname": "peret",
+    "firstname": "philippe",
+    "location": "Paris, France",
+    "phone": "+33.6.10.48.30.14",
+    "email": "philippe.peret@hotmail.com"
+  },
+  "title": {
+    "main": "senior data project manager",
+    "subtitle": "technical-functional data project expert"
+  },
+  "links": [
+    {"name": "linkedin", "icon": "file", "href": "https://www.linkedin.com/in/philippeperet/", "label": "See online version"}
+    ],
+  "summary": [
+    {"p": "Since 2001, it has always been about data projects and technical-functional roles:<br>From Data Management, Exchanges & Transformation to Data Analysis & BI."},
+    {"p": "I enjoy working with complex data pipelines & carefully designed dashboards."}
+    ],
+  "takeaways" : {
+    "Specific skills" : [
+        {"item" : "Collect & advocate business needs"},
+        {"item" : "Full-Stack data approach (from collect to BI)"},
+        {"item" : "Speak same language as tech. teams"},
+        {"item" : "Agile & problem solver mindset"}
+      ],
+    "Key stack & tools" : [
+        {"item" : "R / Python"},
+        {"item" : "SQL"},
+        {"item" : "Power.BI"},
+        {"item" : "Data Galaxy"}
+      ],
+    "Specific domains" : [
+        {"item" : "Transportation & logistic"},
+        {"item" : "CSR"}
+      ],
+    "Education & Certifications" : [
+        {"item" : "Data Science (Johns Hopkins University)"},
+        {"item" : "Automotive Engineer (ESTACA)"}
+      ],
+    "Team management" : [
+        {"item" : "35 people"}
+      ],
+    "Languages" : [
+        {"item" : "French (native)"},
+        {"item" : "English (fluent)"}
+      ]
+  },
+  "experiences" : {
+    "geodis_csr" : {
+      "role": "CSR Data Project Manager",
+      "company" : "GEODIS",
+      "start" : "2022/10",
+      "end" : "2023/12",
+      "summary" : "Collect CO2 computation data into a datalake<br>Deliver quality dashboard, APIs and data tools<br>Participate to Data Governance."
+    },
+    "freelance" : {
+      "role": "Technical-functional Data Project Expert",
+      "company" : "Freelance",
+      "start" : "2020/01",
+      "end" : "NA",
+      "summary" : "Data Project Management<br>Data Analysis Mentorship<br>Develop APIs, Scripts & Tools."
+    },
+    "ds_qa" : {
+      "role": "QA Leader & Transition Manager",
+      "company" : "Dassault Systèmes",
+      "start" : "2016/01",
+      "end" : "2019/12",
+      "summary" : "Deliver QA for Data Management & Exchanges products<br>Setup test automation (DevOps)<br>Manage and transform organization."
+    },
+    "ds_support" : {
+      "role": "Technical Support (Engineer, then Manager)",
+      "company" : "Dassault Systèmes",
+      "start" : "2002/01",
+      "end" : "2015/12",
+      "summary" : "Support Customer deployment projects<br>Converge Data Management products (as an Engineer)<br>Converge Data Transition & Exchanges products (as a Manager)."
+    }
+  }
+}

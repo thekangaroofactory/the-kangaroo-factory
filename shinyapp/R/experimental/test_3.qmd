@@ -1,0 +1,38 @@
+---
+format: 
+  html:
+    fontsize: 12pt
+column: screen-inset
+---
+
+```{r}
+#| echo: false
+library(shiny, quietly = T, warn.conflicts = F)
+library(bslib, quietly = T, warn.conflicts = F)
+
+source("../profile/key_takeways.R")
+source("../profile/key_takeways_portrait.R")
+source("../profile/profile_title.R")
+source("../profile/profile_identity.R")
+source("../profile/profile_links.R")
+
+source("../profile/experience_geodis.R")
+source("../profile/experience_freelance.R")
+source("../profile/experience_ds_qa.R")
+source("../profile/experience_ds_support.R")
+
+source("./firstup.R")
+
+source("./read_profile.R")
+source("./build_resume.R")
+
+source("./profile_summary.R")
+source("./profile_career_path.R")
+source("./profile_itemize.R")
+
+
+profile <- read_profile("E:/Portfolio/R/Projects/the-kangaroo-factory/shinyapp/R/experimental")
+
+build_resume(profile, full = T)
+
+```
