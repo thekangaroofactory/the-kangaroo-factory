@@ -1,9 +1,22 @@
 
 
-profile_title <- function(){
+#' Profile Title
+#'
+#' @param title a character string 
+#' @param subtitle an optional character string
+#'
+#' @returns a list of html tags
+#'
+#' @examples
+
+profile_title <- function(title, subtitle = NULL){
   
+  # -- return
   tagList(
-    h1("Senior Data Project Manager"),
-    p(style ="font-style: italic; margin-bottom: 5vh;", "Technical-functional data project expert"))
+    
+    h1(tools::toTitleCase(title)),
+    
+    if(!is.null(subtitle))
+      p(class = "subtitle", firstup(subtitle)))
   
 }
