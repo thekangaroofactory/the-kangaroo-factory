@@ -55,6 +55,14 @@ p:has(+ul) {
    Custom classes
 ------------------------------------------------------------------------------*/
 
+/* -- profile title -- */
+.subtitle {
+  
+  font-style: italic; 
+  margin-bottom: 5vh;
+  
+}
+
 /* -- mostly to apply on cards */
 .bg-contrast {
   
