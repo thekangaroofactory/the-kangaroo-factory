@@ -1,0 +1,70 @@
+
+
+#' Profile Experience
+#'
+#' @param experience a list of objects
+#'
+#' @returns a list of tags
+#'
+#' @examples
+
+profile_experience <- function(experience){
+  
+  # -- return
+  tagList(
+    
+    # -- header section
+    card(
+      class = "bg-contrast",
+      div(
+        
+        # -- header content
+        h3(experience$role),
+        p(class = "subtitle", experience_subtitle(experience)),
+        p(HTML(experience$pitch)),
+        keywords(experience$tags))),
+    
+    
+    # -- body section (2 columns)
+    layout_column_wrap(
+      
+      # -- left column
+      tagList(
+        h4("Mission & Responsibilities"),
+        profile_itemize(experience$details)),
+      
+      # -- right column
+      tagList(
+        
+        # -- 1st row
+        card(
+          class = "border border-light",
+          card_header(ktools::toupperfirst(names(experience$frames[1]))),
+          card_body(
+            profile_itemize(experience$frames[1], skip = T))),
+        
+        # -- 2nd row (sub-columns)
+        layout_column_wrap(
+          
+          # -- left
+          card(
+            class = "border border-light",
+            card_header(ktools::toupperfirst(names(experience$frames[2]))),
+            card_body(
+              tags$span(keywords(experience$frames[[2]])))),
+          
+          # -- right
+          card(
+            class = "border border-light",
+            card_header(ktools::toupperfirst(names(experience$frames[3]))),
+            card_body(
+              tags$span(keywords(experience$frames[[3]]))))),
+        
+        # -- 3rd row
+        card(
+          class = "border border-light",
+          card_header(ktools::toupperfirst(names(experience$frames[4]))),
+          card_body(
+            profile_itemize(experience$frames[[4]]))))))
+  
+}
