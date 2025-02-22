@@ -17,6 +17,6 @@ profile_title <- function(title, subtitle = NULL){
     h1(tools::toTitleCase(title)),
     
     if(!is.null(subtitle))
-      p(class = "subtitle", firstup(subtitle)))
+      p(class = "subtitle", ktools::toupperfirst(subtitle)))
   
 }

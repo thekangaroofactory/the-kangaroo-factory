@@ -1,22 +1,36 @@
 
 
-profile_itemize <- function(content){
+#' Itemize Tag List
+#'
+#' @param content a list of data.frame objects (with an item column)
+#' @param skip whether the title should be skipped
+#'
+#' @returns a list of html tags
+#'
+#' @details
+#' When skip is FALSE (default), the names of the list are used
+#' to put a title above the ul html tag.
+#'
+#' @examples
+
+profile_itemize <- function(content, skip = FALSE){
   
   # -- helper
-  helper <- function(x){
-
+  helper <- function(x, title = NULL){
+    
     # -- return
     tagList(
       
       # -- title
-      h4(style = "margin-top: 0.5rem;", names(x)),
+      if(!skip)
+        h4(style = "margin-top: 0.5rem;", ktools::toupper_words(title)),
       
       # -- list
       tags$ul(
-        lapply(x[[1]]$item, tags$li)))}
+        lapply(x$item, tags$li)))}
   
   
   # -- apply helper & return
-  lapply(1:length(content), function(x) helper(content[x]))
+  lapply(names(content), function(x) helper(content[[x]], title = x))
   
 }
