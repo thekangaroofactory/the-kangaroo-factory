@@ -3,6 +3,8 @@ format:
   html:
     fontsize: 12pt
 column: screen-inset
+params:
+  path: "./"
 ---
 
 ```{r}
@@ -10,10 +12,10 @@ column: screen-inset
 library(shiny, quietly = T, warn.conflicts = F)
 library(bslib, quietly = T, warn.conflicts = F)
 
-source("../profile/key_takeways.R")
-source("../profile/profile_title.R")
-source("../profile/profile_identity.R")
-source("../profile/profile_links.R")
+source("./key_takeways.R")
+source("./profile_title.R")
+source("./profile_identity.R")
+source("./profile_links.R")
 
 source("./read_profile.R")
 source("./build_resume.R")
@@ -26,9 +28,10 @@ source("./profile_experience.R")
 source("./experience_subtitle.R")
 source("./keywords.R")
 
+# -- read user profile
+profile <- read_profile(params$path)
 
-profile <- read_profile("E:/Portfolio/R/Projects/the-kangaroo-factory/shinyapp/R/experimental")
-
+# -- output
 build_resume(profile, full = T)
 
 ```
