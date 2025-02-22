@@ -1,9 +1,14 @@
 
 
-print_to_pdf <- function(scale = 0.75, landscape = FALSE){
+print_to_pdf <- function(filename, path = "./", scale = 0.75, landscape = FALSE){
   
-  pagedown::chrome_print(input = "E:/Portfolio/R/Projects/the-kangaroo-factory/shinyapp/R/experimental/test_3.html",
-                         output = "E:/Portfolio/R/Projects/the-kangaroo-factory/shinyapp/R/experimental/test_3.pdf",
+  # -- compute urls
+  input <- file.path(path, filename)
+  output <- file.path(path, paste0(tools::file_path_sans_ext(filename), ".pdf"))
+  
+  # -- call chrome_print
+  pagedown::chrome_print(input = input,
+                         output = output,
                          format = "pdf",
                          options = list(scale = scale,
                                         landscape = landscape,
