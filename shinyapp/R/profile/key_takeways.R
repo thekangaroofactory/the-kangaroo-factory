@@ -1,6 +1,6 @@
 
 
-key_takeaways <- function(path){
+key_takeaways <- function(path, printable = FALSE){
   
   # -- add resource path
   my_path <- file.path(path, "philippeperet/profile")
@@ -8,7 +8,7 @@ key_takeaways <- function(path){
   
   # -- return
   card(
-    class = "border-radius bg-contrast p-3 mt-2",
+    class = paste("p-3 mt-2", ifelse(printable, "", "border-radius bg-contrast")),
     
     # -- title
     card_header(
@@ -24,6 +24,7 @@ key_takeaways <- function(path){
       
       # -- left
       card(
+        class = ifelse(printable, "border-0", ''),
         
         h4("Presentation"),
         p("Since 2001, it has always been about data projects and technical-functional roles:", br(),
@@ -33,7 +34,7 @@ key_takeaways <- function(path){
         h4("Career path (20+ XP)"),
         card(
           fill = FALSE,
-          img(src = "profile_media/career_path_en.png"))),
+          img(src = paste0("profile_media/career_path_en", ifelse(printable, "_printable", ''), ".png")))),
       
       
       # -- middle
