@@ -14,8 +14,7 @@ build_resume <- function(profile, full = FALSE, anonymous = FALSE, contact = TRU
   page_fluid(
     
     # -- apply specific style
-    includeCSS(path = "./export.css"),
-    
+    includeCSS(path = "../../www/css/export.css"),
     
     # -- header ----------------------------------------------------------------
     
@@ -38,8 +37,7 @@ build_resume <- function(profile, full = FALSE, anonymous = FALSE, contact = TRU
     
     # -- Experiences -----------------------------------------------------------
     if(full)
-      lapply(profile$experiences, profile_experience),
+      lapply(profile$experiences, profile_experience)
       
-    
   )
 }
