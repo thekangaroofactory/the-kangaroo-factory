@@ -31,7 +31,6 @@ build_resume <- function(profile, full = FALSE, anonymous = FALSE, contact = TRU
     
     # -- one pager -------------------------------------------------------------
     key_takeaways(profile, export = TRUE),
-    #key_takeaways_portrait(profile),
 
     # -- footer 
     p(style = "font-size:9pt;margin-top:20px;", "This document has been generated with R"),
@@ -39,32 +38,8 @@ build_resume <- function(profile, full = FALSE, anonymous = FALSE, contact = TRU
     
     # -- Experiences -----------------------------------------------------------
     if(full)
+      lapply(profile$experiences, profile_experience),
       
-      tagList(
-        
-        # -- Geodis
-        div(
-          class = "pt-5",
-          style = "page-break-before: always;",
-          experience_geodis()),
-        
-        # -- Freelance
-        div(
-          class = "pt-5",
-          style = "page-break-before: always;",
-          experience_freelance()),
-        
-        # -- DS QA
-        div(
-          class = "pt-5",
-          style = "page-break-before: always;",
-          experience_ds_qa()),
-        
-        # -- DS Support
-        div(
-          class = "pt-5",
-          style = "page-break-before: always;",
-          experience_ds_support()))
     
   )
 }
