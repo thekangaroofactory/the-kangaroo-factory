@@ -109,6 +109,10 @@ profile_server <- function(id, user = NULL, path) {
     # -- user profile
     output$user_profile <- renderUI({
       
+      # -- read user profile
+      cat(MODULE, "Read user profile \n")
+      user_profile <- read_profile(path_profile())
+      
       # -- read user contact file
       cat(MODULE, "Build user profile \n")
       
@@ -116,7 +120,7 @@ profile_server <- function(id, user = NULL, path) {
       tagList(
         
         # -- title / subtitle
-        profile_title(),
+        profile_title(title = user_profile$title),
         
         # -- download
         div(
@@ -127,7 +131,7 @@ profile_server <- function(id, user = NULL, path) {
             label = "download")),
         
         # -- one pager
-        key_takeaways(path$data),
+        key_takeaways(profile = user_profile, path = path$data),
         
         
         # -- Experiences
@@ -144,25 +148,25 @@ profile_server <- function(id, user = NULL, path) {
           accordion_panel(
             title = "GEODIS | CSR Data Project Manager",
             value = "exp_geodis",
-            experience_geodis()),
+            profile_experience(user_profile$experiences$geodis_csr)),
           
           # -- Freelance
           accordion_panel(
             title = "Freelance | Technical Data Expert",
             value = "exp_freelance",
-            experience_freelance()),
+            profile_experience(user_profile$experiences$freelance)),
           
           # -- DS QA
           accordion_panel(
             title = "Dassault Systèmes | QA Leader, Senior Manager",
             value = "exp_ds_qa",
-            experience_ds_qa()),
+            profile_experience(user_profile$experiences$ds_qa)),
           
           # -- DS Support
           accordion_panel(
             title = "Dassault Systèmes | L2 Technical Support, Engineer & Manager",
             value = "exp_ds_support",
-            experience_ds_support())),
+            profile_experience(user_profile$experiences$ds_support))),
         
         
         # -- Certifications & Degrees
