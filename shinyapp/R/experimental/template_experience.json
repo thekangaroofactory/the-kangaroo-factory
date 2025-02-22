@@ -1,0 +1,48 @@
+"experience_name": {
+  "role": "xxx",
+  "company": "xxx",
+  "start": "yyyy/mm",
+  "end": "yyyy/mm",
+  "summary": "xxx",
+  "tags": "xxx",
+  "pitch": "xxx.",
+  "details": {
+    "xxx": [
+      {"item": "xxx"},
+      {"item": "xxx"},
+      {"item": "xxx"}
+    ],
+    "xxx": [
+      {"item": "xxx"},
+      {"item": "xxx"},
+      {"item": "xxx"}
+    ],
+    "xxx": [
+      {"item": "xxx"},
+      {"item": "xxx"},
+      {"item": "xxx"}
+    ]
+  },
+  "frames": {
+    "specificities": [
+      {"item": "xxx"},
+      {"item": "xxx"}
+    ],
+    "key figures": "xxx",
+    "stack & tools": "xxx",
+    "deliverables": {
+      "xxx": [
+        {"item": "xxx"},
+        {"item": "xxx"}
+      ],
+      "xxx": [
+        {"item": "xxx"},
+        {"item": "xxx"}
+      ],
+      "xxx": [
+        {"item": "xxx"},
+        {"item": "xxx"}
+      ]
+    }
+  }
+}
