@@ -11,7 +11,9 @@
 profile_experience <- function(experience){
   
   # -- return
-  tagList(
+  div(
+    class = "pt-5",
+    style = "page-break-before: always;",
     
     # -- header section
     card(
