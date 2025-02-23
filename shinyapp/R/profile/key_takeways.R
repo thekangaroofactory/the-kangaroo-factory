@@ -1,6 +1,7 @@
 
 
-key_takeaways <- function(profile, path = NULL, export = FALSE){
+
+key_takeaways <- function(profile, path = NULL, export = FALSE, printable = FALSE){
   
   # -- add resource path
   if(!export){
@@ -10,7 +11,7 @@ key_takeaways <- function(profile, path = NULL, export = FALSE){
   # -- return
   card(
     class = paste("border-radius bg-contrast", ifelse(export, "mt-5", "mt-5 p-3")),
-    
+
     # -- title
     card_header(
       class = "border-bottom-0",
@@ -30,9 +31,13 @@ key_takeaways <- function(profile, path = NULL, export = FALSE){
       
       # -- left
       card(
+        class = ifelse(printable, "border-0", ''),
         
         profile_summary(profile$summary),
-        
+
+      
+      # -- middle
+      tagList(
         
         if(export)
           profile_career_path(profile$experiences)
@@ -43,11 +48,11 @@ key_takeaways <- function(profile, path = NULL, export = FALSE){
             h4("Career path (20+ XP)"),  
             card(
               fill = FALSE,
-              img(src = "profile_media/career_path_en.png")
+              img(src = paste0("profile_media/career_path_en", ifelse(printable, "_printable", ''), ".png"))
   
             ))}
         
-      ),
+      )),
       
       if(export)
         profile_itemize(profile$takeaways)
@@ -55,6 +60,5 @@ key_takeaways <- function(profile, path = NULL, export = FALSE){
         layout_column_wrap(width = 1/2, !!!profile_itemize(profile$takeaways))
       
     ))
-  
   
 }

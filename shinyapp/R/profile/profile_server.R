@@ -70,17 +70,17 @@ profile_server <- function(id, user = NULL, path) {
 
       # -- build file name
       filename = function()
-        download_filename(type = input$resume_type, privacy = input$resume_privacy),
+        download_filename(type = input$resume_type, options = input$resume_options),
       
       # -- build content
       content = function(con) {
         
         cat(MODULE, "Prepare document to download \n")
         cat(MODULE, "-- type = ", input$resume_type, "\n")
-        cat(MODULE, "-- privacy = ", input$resume_privacy, "\n")
+        cat(MODULE, "-- options = ", input$resume_options, "\n")
         
         # -- build url
-        target_file <- download_filename(type = input$resume_type, privacy = input$resume_privacy)
+        target_file <- download_filename(type = input$resume_type, options = input$resume_options)
         target_file <- file.path("../data/philippeperet/profile", target_file)
         
         # -- copy file to tmp con
@@ -88,15 +88,15 @@ profile_server <- function(id, user = NULL, path) {
     
     
     # -- helper
-    download_filename <- function(type, privacy){
-      paste0(ifelse(privacy, "Philippe_", "Philippe_PERET_"), type, ".pdf")}
+    download_filename <- function(type, options){
+      paste0(ifelse("Anonymous" %in% options, "Philippe_", "Philippe_PERET_"), type, ifelse("Printable" %in% options, "_printable", ''), ".pdf")}
     
     
     # -- download preview
     output$download_preview <- renderUI({
       
       # -- build url
-      url <- download_filename(type = input$resume_type, privacy = input$resume_privacy)
+      url <- download_filename(type = input$resume_type, options = input$resume_options)
       
       # -- return
       tags$iframe(style="height:400px; width:100%", src = paste0("profile_media/", url))})
