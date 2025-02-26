@@ -37,7 +37,7 @@ ui <- page_fluid(
   
   # -- include shared css
   # because the app is not at the root level
-  includeCSS("../www/css/tkf.css"),
+  includeCSS("../www/css/base.css"),
   
   # -- header
   layout_columns(
