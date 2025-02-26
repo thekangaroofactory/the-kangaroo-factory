@@ -22,6 +22,7 @@ library(bslib)
 # -- Debug mode
 DEBUG <- ifelse(Sys.getenv("DEBUG") != "", as.logical(Sys.getenv("DEBUG")), FALSE)
 GTAG <- ifelse(Sys.getenv("GTAG") != "", as.logical(Sys.getenv("GTAG")), FALSE)
+EXPERIMENTAL <- ifelse(Sys.getenv("EXPERIMENTAL") != "", as.logical(Sys.getenv("EXPERIMENTAL")), FALSE)
 
 
 # ------------------------------------------------------------------------------
@@ -39,7 +40,11 @@ rm(nm)
 # ------------------------------------------------------------------------------
 
 # -- path list
-path <- list(data = file.path(Sys.getenv("PROJECT_HOME"), "data"))
+path <- list(data = file.path(Sys.getenv("PROJECT_HOME"), "data"),
+             temp = file.path(Sys.getenv("PROJECT_HOME"), "data/temp"),
+             template = file.path(Sys.getenv("PROJECT_HOME"), "shinyapp/templates"),
+             code = file.path(Sys.getenv("PROJECT_HOME"), "shinyapp/R"),
+             www = file.path(Sys.getenv("PROJECT_HOME"), "shinyapp/www"))
 
 # -- filenames
 file <- list ()
