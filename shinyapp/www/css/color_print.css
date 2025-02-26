@@ -1,15 +1,6 @@
 
 
-#ececec
-
-
 /* -----------------------------------------------------------------------------
-   Should only make export color same as interactive
+   Should only make export printable
 ------------------------------------------------------------------------------*/
 
-/* -- body background -- */
-body {
-  
-  background-color: var(--tkf-color-bg);
-  
-}

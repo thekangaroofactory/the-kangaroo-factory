@@ -31,7 +31,7 @@ key_takeaways <- function(profile, path = NULL, export = FALSE, printable = FALS
       
       # -- left
       card(
-        class = ifelse(printable, "border-0", ''),
+        class = ifelse(printable, "border-0", "bg-bg"),
         
         profile_summary(profile$summary),
 

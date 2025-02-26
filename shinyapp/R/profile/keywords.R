@@ -6,6 +6,6 @@ keywords <- function(tags){
   tags <- trimws(unlist(strsplit(tags, ",", fixed = TRUE)))
   
   # -- return
-  lapply(tags, div, class = "badge tag")
+  lapply(tags, div, class = "badge tag bg-accent color-bg")
   
 }
