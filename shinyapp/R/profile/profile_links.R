@@ -11,7 +11,7 @@ profile_links <- function(){
     tooltip(
       tags$a(
         'data-value' = "link_profile_tkf",
-        icon(class="icon", "file"),
+        icon(class="icon color-contrast", "file"),
         target = "_blank",
         href = "https://www.thekangaroofactory.com/?user=philippeperet&nav=profile"),
       "See online version"),
@@ -20,7 +20,7 @@ profile_links <- function(){
     tooltip(
       tags$a(
         'data-value' = "link_profile_linkedin",
-        icon(class="icon", "linkedin"),
+        icon(class="icon color-contrast", "linkedin"),
         target = "_blank",
         href = "https://www.linkedin.com/in/philippeperet/"),
       "Visit my LinkedIn profile"),
@@ -29,7 +29,7 @@ profile_links <- function(){
     tooltip(
       tags$a(
         'data-value' = "link_portfolio_tkf",
-        icon(class="icon", "briefcase"),
+        icon(class="icon color-contrast", "briefcase"),
         target = "_blank",
         href = "https://www.thekangaroofactory.com/?user=philippeperet&nav=portfolio"),
       "Visit my portfolio"),
@@ -38,7 +38,7 @@ profile_links <- function(){
     tooltip(
       tags$a(
         'data-value' = "link_profile_github",
-        icon(class="icon", "github"),
+        icon(class="icon color-contrast", "github"),
         target = "_blank",
         href = "https://github.com/thekangaroofactory"),
       "Explore my GitHub repository")
