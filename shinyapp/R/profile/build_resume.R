@@ -9,16 +9,10 @@
 #' @examples
 
 build_resume <- function(profile, full = FALSE, anonymous = FALSE, contact = TRUE, printable = FALSE, www = "./"){
-
+  
   # -- return
   page_fluid(
-    
-    # -- apply styles
-    includeCSS(path = file.path(www, "css", "base.css")),
-    includeCSS(path = file.path(www, "css", "export.css")),
-    includeCSS(path = file.path(www, "css", ifelse(printable, "color_print.css", "color_web.css"))),
-    
-    
+
     # -- header ----------------------------------------------------------------
     
     # -- identity
