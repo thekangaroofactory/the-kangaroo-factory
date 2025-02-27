@@ -12,7 +12,9 @@ print_to_pdf <- function(filename, path = "./", scale = 0.75, landscape = FALSE)
                          format = "pdf",
                          options = list(scale = scale,
                                         landscape = landscape,
-                                        marginTop = 0.2,
-                                        marginBottom = 0.2))
+                                        marginTop = 0,
+                                        marginBottom = 0,
+                                        marginLeft = 0,
+                                        marginRight = 0))
   
 }
