@@ -109,10 +109,10 @@ stack_server <- function(id, user = NULL, path) {
               card_header("App & dashboard"),
               card_body(
                 tags$span(
-                  div(class = "badge tag", "Shiny"),
-                  div(class = "badge tag", "shinydashboard"),
-                  div(class = "badge tag", "bslib"),
-                  div(class = "badge tag", "DT")))),
+                  div(class = "badge tag bg-accent color-bg", "Shiny"),
+                  div(class = "badge tag bg-accent color-bg", "shinydashboard"),
+                  div(class = "badge tag bg-accent color-bg", "bslib"),
+                  div(class = "badge tag bg-accent color-bg", "DT")))),
             
             # -- badge group
             card(
@@ -121,12 +121,12 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Data engineering"),
               card_body(
                 tags$span(
-                  div(class = "badge tag", "dplyr"),
-                  div(class = "badge tag", "data.table"),
-                  div(class = "badge tag", "lubridate"),
-                  div(class = "badge tag", "RCurl"),
-                  div(class = "badge tag", "jsonlite"),
-                  div(class = "badge tag", "geojson")))),
+                  div(class = "badge tag bg-accent color-bg", "dplyr"),
+                  div(class = "badge tag bg-accent color-bg", "data.table"),
+                  div(class = "badge tag bg-accent color-bg", "lubridate"),
+                  div(class = "badge tag bg-accent color-bg", "RCurl"),
+                  div(class = "badge tag bg-accent color-bg", "jsonlite"),
+                  div(class = "badge tag bg-accent color-bg", "geojson")))),
             
             # -- badge group
             card(
@@ -135,8 +135,8 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Data visualization"),
               card_body(
                 tags$span(
-                  div(class = "badge tag", "ggplot2"),
-                  div(class = "badge tag", "leaflet")))),
+                  div(class = "badge tag bg-accent color-bg", "ggplot2"),
+                  div(class = "badge tag bg-accent color-bg", "leaflet")))),
             
             # -- badge group
             card(
@@ -145,9 +145,9 @@ stack_server <- function(id, user = NULL, path) {
               card_header("API & database"),
               card_body(
                 tags$span(
-                  div(class = "badge tag", "plumber"),
-                  div(class = "badge tag", "DBI"),
-                  div(class = "badge tag", "RPostgres")))),
+                  div(class = "badge tag bg-accent color-bg", "plumber"),
+                  div(class = "badge tag bg-accent color-bg", "DBI"),
+                  div(class = "badge tag bg-accent color-bg", "RPostgres")))),
             
             # -- badge group
             card(
@@ -156,9 +156,9 @@ stack_server <- function(id, user = NULL, path) {
               card_header("AI"),
               card_body(
                 tags$span(
-                  div(class = "badge tag", "keras"),
-                  div(class = "badge tag", "tensorflow"),
-                  div(class = "badge tag", "reticulate")))),
+                  div(class = "badge tag bg-accent color-bg", "keras"),
+                  div(class = "badge tag bg-accent color-bg", "tensorflow"),
+                  div(class = "badge tag bg-accent color-bg", "reticulate")))),
             
             # -- badge group
             card(
@@ -167,9 +167,9 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Test & documentation"),
               card_body(
                 tags$span(
-                  div(class = "badge tag", "testthat"),
-                  div(class = "badge tag", "quarto"),
-                  div(class = "badge tag", "pkgdown"))))
+                  div(class = "badge tag bg-accent color-bg", "testthat"),
+                  div(class = "badge tag bg-accent color-bg", "quarto"),
+                  div(class = "badge tag bg-accent color-bg", "pkgdown"))))
             
           ) # layout_column_wrap
           
@@ -201,9 +201,9 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Data engineering"),
               card_body(
                 tags$span(
-                  div(class = "badge tag", "panda"),
-                  div(class = "badge tag", "numpy"),
-                  div(class = "badge tag", "SQLAlchemy")))),
+                  div(class = "badge tag bg-accent color-bg", "panda"),
+                  div(class = "badge tag bg-accent color-bg", "numpy"),
+                  div(class = "badge tag bg-accent color-bg", "SQLAlchemy")))),
             
             # -- badge group
             card(
@@ -212,8 +212,8 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Machine Learning"),
               card_body(
                 tags$span(
-                  div(class = "badge tag", "tensorflow"),
-                  div(class = "badge tag", "keras")))),
+                  div(class = "badge tag bg-accent color-bg", "tensorflow"),
+                  div(class = "badge tag bg-accent color-bg", "keras")))),
             
             # -- badge group
             card(
@@ -222,8 +222,8 @@ stack_server <- function(id, user = NULL, path) {
               card_header("App & API"),
               card_body(
                 tags$span(
-                  div(class = "badge tag", "Flask"),
-                  div(class = "badge tag", "FastAPI"))))
+                  div(class = "badge tag bg-accent color-bg", "Flask"),
+                  div(class = "badge tag bg-accent color-bg", "FastAPI"))))
             
           ) # layout_column_wrap
         ), # layout_columns
@@ -251,8 +251,8 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Database"),
               card_body(
                 tags$span(
-                  div(class = "badge tag", "PostgreSQL"),
-                  div(class = "badge tag", "Oracle")))),
+                  div(class = "badge tag bg-accent color-bg", "PostgreSQL"),
+                  div(class = "badge tag bg-accent color-bg", "Oracle")))),
             
             # -- badge group
             card(
@@ -261,8 +261,8 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Data warehouse"),
               card_body(
                 tags$span(
-                  div(class = "badge tag", "Cloudera"),
-                  div(class = "badge tag", "Hive"))))
+                  div(class = "badge tag bg-accent color-bg", "Cloudera"),
+                  div(class = "badge tag bg-accent color-bg", "Hive"))))
             
           )
         ),
@@ -293,10 +293,10 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Integration"),
               card_body(
                 tags$span(
-                  div(class = "badge tag", "git"),
-                  div(class = "badge tag", "GitHub"),
-                  div(class = "badge tag", "GitLab"),
-                  div(class = "badge tag", "GitHub actions")))),
+                  div(class = "badge tag bg-accent color-bg", "git"),
+                  div(class = "badge tag bg-accent color-bg", "GitHub"),
+                  div(class = "badge tag bg-accent color-bg", "GitLab"),
+                  div(class = "badge tag bg-accent color-bg", "GitHub actions")))),
             
             # -- badge group
             card(
@@ -305,8 +305,8 @@ stack_server <- function(id, user = NULL, path) {
               card_header("QA"),
               card_body(
                 tags$span(
-                  div(class = "badge tag", "GitHub actions"),
-                  div(class = "badge tag", "Codecov"))))
+                  div(class = "badge tag bg-accent color-bg", "GitHub actions"),
+                  div(class = "badge tag bg-accent color-bg", "Codecov"))))
             
           ) # layout_column_wrap
         ), # layout_columns
@@ -338,7 +338,7 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Containers"),
               card_body(
                 tags$span(
-                  div(class = "badge tag", "Docker")))),
+                  div(class = "badge tag bg-accent color-bg", "Docker")))),
             
             # -- badge group
             card(
@@ -347,10 +347,10 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Production"),
               card_body(
                 tags$span(
-                  div(class = "badge tag", "GCP"),
-                  div(class = "badge tag", "Azure"),
-                  div(class = "badge tag", "AWS"),
-                  div(class = "badge tag", "Supabase")))),
+                  div(class = "badge tag bg-accent color-bg", "GCP"),
+                  div(class = "badge tag bg-accent color-bg", "Azure"),
+                  div(class = "badge tag bg-accent color-bg", "AWS"),
+                  div(class = "badge tag bg-accent color-bg", "Supabase")))),
             
             # -- badge group
             card(
@@ -359,8 +359,8 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Exploration & prototypes"),
               card_body(
                 tags$span(
-                  div(class = "badge tag", "Render"),
-                  div(class = "badge tag", "Shinyapps"))))
+                  div(class = "badge tag bg-accent color-bg", "Render"),
+                  div(class = "badge tag bg-accent color-bg", "Shinyapps"))))
             
           ) # layout_column_wrap
         ) # layout_columns
