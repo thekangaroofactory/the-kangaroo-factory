@@ -1,6 +1,6 @@
 
 
-print_to_pdf <- function(filename, path = "./", scale = 0.75, landscape = FALSE){
+print_to_pdf <- function(filename, path = "./", scale = 1, landscape = FALSE){
   
   # -- compute urls
   input <- file.path(path, filename)
