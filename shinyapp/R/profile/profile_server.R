@@ -16,6 +16,9 @@ profile_server <- function(id, user = NULL, path) {
     # -- declare objects
     path_profile <- reactiveVal(NULL)
     
+    user <- list(firstname = "philippe",
+                 lastname = "peret")
+
     
     # --------------------------------------------------------------------------
     # Observers
@@ -41,7 +44,7 @@ profile_server <- function(id, user = NULL, path) {
     # Manage Download
     # --------------------------------------------------------------------------
     
-    # -- observe main download button
+    # -- display download ui (modal)
     observeEvent(input$download,
                  
                  # -- display modal
@@ -65,12 +68,57 @@ profile_server <- function(id, user = NULL, path) {
                          label = "Download")))))
     
     
+    # -- generate resume
+    observeEvent(input$generate_resume, {
+      
+      cat(MODULE, "Generate document preview \n")
+      cat("resume_type = ", input$resume_type, "\n")
+      if(!is.null(input$resume_options))
+        cat("resume_options = ", input$resume_options, "\n")
+      
+      # -- call quarto
+      tryCatch(
+        
+        # -- expr to try
+        {
+          
+          cat("[START] Render quarto document to html... \n")
+          
+          # -- generate html
+          quarto::quarto_render(input = file.path(path$template, "resume.qmd"),
+                                execute_params = list(code_path = file.path(path$code, "profile"),
+                                                      www_path = path$www,
+                                                      profile_path = path_profile(),
+                                                      full = ifelse(input$resume_type == "Full", TRUE, FALSE),
+                                                      anonymous = ifelse("Anonymous" %in% input$resume_options, TRUE, FALSE),
+                                                      contact = TRUE),
+                                quiet = T)
+          
+          # -- print html to pdf
+          cat("[START] Print html document to pdf... \n")
+          print_to_pdf(filename = "resume.html", path = path$template)
+          
+          # -- copy to user folder
+          cat("[START] Copy pdf document to user folder... \n")
+          file.copy(from = file.path(path$template, "resume.pdf"),
+                    to = file.path(path_profile(), download_filename(user, type = input$resume_type, options = input$resume_options)))
+          
+        },
+        
+        # -- in case of error
+        finally = cat(MODULE, "[END] pdf file generated finished \n")
+        
+      )
+      
+    })
+    
+    
     # -- download handler
     output$download_resume <- downloadHandler(
 
       # -- build file name
       filename = function()
-        download_filename(type = input$resume_type, options = input$resume_options),
+        download_filename(user, type = input$resume_type, options = input$resume_options),
       
       # -- build content
       content = function(con) {
@@ -80,26 +128,30 @@ profile_server <- function(id, user = NULL, path) {
         cat(MODULE, "-- options = ", input$resume_options, "\n")
         
         # -- build url
-        target_file <- download_filename(type = input$resume_type, options = input$resume_options)
+        target_file <- download_filename(user, type = input$resume_type, options = input$resume_options)
         target_file <- file.path("../data/philippeperet/profile", target_file)
         
         # -- copy file to tmp con
         file.copy(target_file, con)})
     
     
-    # -- helper
-    download_filename <- function(type, options){
-      paste0(ifelse("Anonymous" %in% options, "Philippe_", "Philippe_PERET_"), type, ifelse("Printable" %in% options, "_printable", ''), ".pdf")}
-    
-    
     # -- download preview
     output$download_preview <- renderUI({
+
+      # -- declare resource path
+      addResourcePath(prefix = "profile_media", directoryPath = path_profile())
+
+      # -- build filename
+      filename <- download_filename(user, type = input$resume_type, options = input$resume_options)
       
-      # -- build url
-      url <- download_filename(type = input$resume_type, options = input$resume_options)
+      # -- check file
+      # under the EXPERIMENTAL variable!
+      if(EXPERIMENTAL && !file.exists(file.path(path_profile(), filename)))
+        actionButton(inputId = ns("generate_resume"),
+                     label = "Build resume")
       
-      # -- return
-      tags$iframe(style="height:400px; width:100%", src = paste0("profile_media/", url))})
+      else
+        tags$iframe(style="height:400px; width:100%", src = paste0("profile_media/", filename))})
     
     
     # --------------------------------------------------------------------------
