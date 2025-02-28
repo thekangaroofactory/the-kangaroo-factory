@@ -10,13 +10,13 @@ library(bslib)
 
 
 # -- Set options & privacy level
-full_resume <- F
+full_resume <- T
 anonymous <- F
 contact <- T
 
 # -- set output options
-export <- T
-printable <- F
+export <- F
+printable <- T
 
 
 # -- Declare app theme
@@ -47,12 +47,6 @@ ui <- page_fluid(
   includeCSS("../www/css/base.css"),
   includeCSS("../www/css/color_web.css"),
   
-  # header = tags$head(
-  #   
-  #   # -- css
-  #   tags$link(rel = "stylesheet", type = "text/css", href = "./css/base.css"),
-  #   tags$link(rel = "stylesheet", type = "text/css", href = "./css/color_web.css")),
-  
   # -- header
   layout_columns(
     col_widths = c(6, 3, 3),
@@ -76,32 +70,7 @@ ui <- page_fluid(
   
   # -- Experiences -------------------------------------------------------------
   if(full_resume)
-    
-    tagList(
-      
-      # -- Geodis
-      div(
-        class = "pt-5",
-        style = "page-break-before: always;",
-        experience_geodis()),
-      
-      # -- Freelance
-      div(
-        class = "pt-5",
-        style = "page-break-before: always;",
-        experience_freelance()),
-      
-      # -- DS QA
-      div(
-        class = "pt-5",
-        style = "page-break-before: always;",
-        experience_ds_qa()),
-      
-      # -- DS Support
-      div(
-        class = "pt-5",
-        style = "page-break-before: always;",
-        experience_ds_support())),
+      lapply(profile$experiences, profile_experience),
   
   
   # -- footer ------------------------------------------------------------------
