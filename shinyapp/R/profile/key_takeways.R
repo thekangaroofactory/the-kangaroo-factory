@@ -27,7 +27,7 @@ key_takeaways <- function(profile, path = NULL, export = FALSE, printable = FALS
     
     # -- content
     layout_columns(
-      col_widths = ifelse(export, c(8, 4), c(6, 6)),
+      #col_widths = ifelse(export, c(8, 4), c(6, 6)),
       
       # -- left
       card(
