@@ -1,11 +1,7 @@
 
 
 download_ui <- function(ns){
-  
-  # -- add resource path
-  my_path <- file.path(path, "philippeperet/profile")
-  addResourcePath(prefix = "profile_media", directoryPath = my_path)
-  
+
   # -- return
   tagList(
     
@@ -32,12 +28,13 @@ download_ui <- function(ns){
       card(
         class = "border-light",
         fill = FALSE,
-        card_header("Privacy"),
+        card_header("Options"),
         p("Set anonymous ON if you want to get a document without the last name, contact info & links to other plateforms."),
-        checkboxInput(
-          inputId = ns("resume_privacy"),
-          label = "Anonymous",
-          value = F)),
+        p("Set printable to get a black & white version."),
+        checkboxGroupInput(
+          inputId = ns("resume_options"),
+          label = "Select options",
+          choices = c("Anonymous", "Printable"))),
       
       # -- preview
       card(
