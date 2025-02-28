@@ -1,37 +1,55 @@
 ---
 format: 
   html:
-    fontsize: 12pt
+    embed-resources: true
+    fontsize: 11pt
+    css: 
+       - "../www/css/base.css"
+       - "../www/css/color_web.css"
+       - "../www/css/export.css"
 column: screen-inset
 params:
-  path: "./"
+  code_path: "../R/profile"
+  www_path: "../www"
+  profile_path: "../../data/philippeperet/profile"
+  full: FALSE
+  anonymous: FALSE
+  contact: TRUE
+  printable: FALSE
+execute: 
+  error: TRUE
 ---
 
 ```{r}
 #| echo: false
+
+# -- load dependencies
 library(shiny, quietly = T, warn.conflicts = F)
 library(bslib, quietly = T, warn.conflicts = F)
 
-source("./key_takeways.R")
-source("./profile_title.R")
-source("./profile_identity.R")
-source("./profile_links.R")
+# -- source dependencies (feed dummy to avoid printing output)
+dummy <- sapply(file.path(params$code_path, c("read_profile.R",
+                                              "build_resume.R",
+                                              "key_takeways.R",
+                                              "profile_title.R",
+                                              "profile_identity.R",
+                                              "profile_links.R",
+                                              "profile_summary.R",
+                                              "profile_career_path.R",
+                                              "profile_experience.R",
+                                              "experience_subtitle.R",
+                                              "profile_itemize.R",
+                                              "keywords.R")), source)
 
-source("./read_profile.R")
-source("./build_resume.R")
-
-source("./profile_summary.R")
-source("./profile_career_path.R")
-source("./profile_itemize.R")
-
-source("./profile_experience.R")
-source("./experience_subtitle.R")
-source("./keywords.R")
 
 # -- read user profile
-profile <- read_profile(params$path)
+profile <- read_profile(params$profile_path)
 
 # -- output
-build_resume(profile, full = T)
+build_resume(profile, full = params$full, 
+             anonymous = params$anonymous, 
+             contact = params$contact,
+             printable = params$printable,
+             www = params$www_path)
 
 ```
