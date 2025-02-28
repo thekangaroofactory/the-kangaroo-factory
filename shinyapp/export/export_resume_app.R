@@ -10,10 +10,13 @@ library(bslib)
 
 
 # -- Set options & privacy level
-printable <- F
-full_resume <- T
+full_resume <- F
 anonymous <- F
 contact <- T
+
+# -- set output options
+export <- T
+printable <- F
 
 
 # -- Declare app theme
@@ -24,6 +27,10 @@ app_theme <- bs_theme(
   primary = ifelse(printable, "#000", "#e9dfc7"),
   secondary = ifelse(printable, "#000", "#ececec"),
   base_font = font_google("Quicksand"))
+
+
+# -- read user profile
+profile <- read_profile(path = file.path(path$data, "philippeperet", "profile"))
 
 
 # -- Build UI
@@ -38,6 +45,13 @@ ui <- page_fluid(
   # -- include shared css
   # because the app is not at the root level
   includeCSS("../www/css/base.css"),
+  includeCSS("../www/css/color_web.css"),
+  
+  # header = tags$head(
+  #   
+  #   # -- css
+  #   tags$link(rel = "stylesheet", type = "text/css", href = "./css/base.css"),
+  #   tags$link(rel = "stylesheet", type = "text/css", href = "./css/color_web.css")),
   
   # -- header
   layout_columns(
@@ -45,10 +59,10 @@ ui <- page_fluid(
     fillable = F,
     
     # -- title
-    profile_title(),
+    profile_title(title = profile$title),
     
     # -- identity
-    profile_identity(anonymous = anonymous, contact = contact),
+    profile_identity(person = profile$person, anonymous = anonymous, contact = contact),
     
     # -- links
     if(!anonymous)
@@ -57,7 +71,7 @@ ui <- page_fluid(
   ),
   
   # -- one pager ---------------------------------------------------------------
-  key_takeaways(path = "../../data", printable),
+  key_takeaways(profile = profile, path = "../../data",  export = export, printable = printable),
   
   
   # -- Experiences -------------------------------------------------------------
