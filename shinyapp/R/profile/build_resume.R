@@ -26,7 +26,7 @@ build_resume <- function(profile, full = FALSE, anonymous = FALSE, contact = TRU
 
     
     # -- one pager -------------------------------------------------------------
-    key_takeaways(profile, export = TRUE, printable = printable),
+    key_takeaways(profile, full = full, export = TRUE, printable = printable),
 
     # -- footer 
     p(style = "font-size:9pt;margin-top:20px;", "This document has been generated with R"),

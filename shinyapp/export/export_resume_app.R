@@ -16,7 +16,7 @@ contact <- T
 
 # -- set output options
 export <- F
-printable <- T
+printable <- F
 
 
 # -- Declare app theme
@@ -65,7 +65,7 @@ ui <- page_fluid(
   ),
   
   # -- one pager ---------------------------------------------------------------
-  key_takeaways(profile = profile, path = "../../data",  export = export, printable = printable),
+  key_takeaways(profile = profile, path = "../../data",  full = full_resume, export = export, printable = printable),
   
   
   # -- Experiences -------------------------------------------------------------

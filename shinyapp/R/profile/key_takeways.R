@@ -1,7 +1,7 @@
 
 
 
-key_takeaways <- function(profile, path = NULL, export = FALSE, printable = FALSE){
+key_takeaways <- function(profile, path = NULL, full = FALSE, export = FALSE, printable = FALSE){
   
   # -- add resource path
   if(!export){
@@ -39,7 +39,7 @@ key_takeaways <- function(profile, path = NULL, export = FALSE, printable = FALS
       # -- middle
       tagList(
         
-        if(export)
+        if(!full)
           profile_career_path(profile$experiences)
         
         else {
