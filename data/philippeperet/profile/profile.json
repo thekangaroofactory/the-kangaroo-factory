@@ -18,28 +18,32 @@
     {"p": "I enjoy working with complex data pipelines & carefully designed dashboards."}
     ],
   "takeaways": {
-    "Specific skills": [
+    "Specific skills & context": [
         {"item": "Collect & advocate business needs"},
-        {"item": "Full-Stack data approach (from collect to BI)"},
+        {"item": "Full-Stack data approach"},
         {"item": "Speak same language as tech. teams"},
         {"item": "Agile & problem solver mindset"}
       ],
     "Key stack & tools" : [
-        {"item": "R / Python"},
-        {"item": "SQL"},
+        {"item": "R / Python, REST API"},
+        {"item": "SQL, Hive, Cloudera"},
         {"item": "Power.BI"},
-        {"item": "Data Galaxy"}
+        {"item": "Data Galaxy"},
+        {"item": "Azure, GCP"}
       ],
     "Specific domains": [
         {"item": "Transportation & logistic"},
-        {"item": "CSR"}
+        {"item": "CSR"},
+        {"item": "References: PSA, BMW, Airbus, Alstom, Miele, Claas"}
       ],
     "Education & Certifications": [
+        {"item": "Lastest: Generative AI with LLMs"},
         {"item": "Data Science (Johns Hopkins University)"},
         {"item": "Automotive Engineer (ESTACA)"}
       ],
     "Team management": [
-        {"item": "35 people"}
+        {"item": "35 people"},
+        {"item": "Intl. context (France, India, USA)"}
       ],
     "Languages": [
         {"item": "French (native)"},
@@ -104,7 +108,7 @@
       "company": "Freelance",
       "start": "2020/01",
       "end": "NA",
-      "summary": "Data Project Management<br>Data Analysis Mentorship<br>Develop APIs, Scripts & Tools.",
+      "summary": "Data Project Management<br>Data Analysis Mentorship @OpenClassrooms<br>Develop APIs, Scripts & Tools.",
       "tags": "data quality, data analysis, data visualization",
       "pitch": "As a freelance worker, to maintain a transversal data knowledge that can support both functional & technical sides of complex data projects.",
       "details": {
