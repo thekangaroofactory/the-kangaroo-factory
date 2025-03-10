@@ -10,12 +10,12 @@ library(bslib)
 
 
 # -- Set options & privacy level
-full_resume <- T
+full_resume <- F
 anonymous <- F
 contact <- T
 
 # -- set output options
-export <- F
+export <- T
 printable <- F
 
 
@@ -74,7 +74,7 @@ ui <- page_fluid(
   
   
   # -- footer ------------------------------------------------------------------
-  p(class = "footer", "© 2025 - This document has been generated with R"),
+  # p(class = "footer", "© 2025 - This document has been generated with R"),
   
 )
 

@@ -12,8 +12,8 @@ profile_career_path <- function(experiences){
   helper <- function(x){
     tags$li(
       class = "mb-3",
-      span(style = "font-weight: bold;", x$role), br(),
-      span(style = "font-style: italic;", paste(x$company, "|", x$start, "-", x$end)), br(),
+      span(style = "font-weight: bold;", x$role),
+      span(paste("|", x$company, paste0("(", ifelse(x$end == "NA", paste("Since", x$start), paste(x$start, "-", x$end)), ")"))), br(),
       HTML(x$summary))}
   
   # -- return

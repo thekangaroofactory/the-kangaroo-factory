@@ -10,24 +10,23 @@ key_takeaways <- function(profile, path = NULL, full = FALSE, export = FALSE, pr
   
   # -- return
   card(
-    class = paste("border-radius bg-contrast", ifelse(export, "mt-5", "mt-5 p-3")),
+    class = paste("border-radius bg-contrast", ifelse(export, ifelse(full, "mt-5", "mt-0"), "mt-5 p-3")),
 
     # -- title
     card_header(
       class = "border-bottom-0",
       
-      if(export)
+      if(!export)
         profile_title(title = profile$title)
       
       else
         tagList(
           h3("Key Takeaways"),
-          p(style ="font-style: italic; font-weight: normal;", "One-page profile summary"))),
+          p(style ="font-style: italic; font-weight: normal; margin-bottom: 0rem", "One-page profile summary"))),
     
     
     # -- content
     layout_columns(
-      #col_widths = ifelse(export, c(8, 4), c(6, 6)),
       
       # -- left
       card(
@@ -54,7 +53,7 @@ key_takeaways <- function(profile, path = NULL, full = FALSE, export = FALSE, pr
         
       )),
       
-      if(export)
+      if(!export)
         profile_itemize(profile$takeaways)
       else
         layout_column_wrap(width = 1/2, !!!profile_itemize(profile$takeaways))
