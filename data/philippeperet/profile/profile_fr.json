@@ -7,56 +7,57 @@
     "email": "philippe.peret@hotmail.com"
   },
   "title": {
-    "main": "senior data project manager",
-    "subtitle": "technical-functional data project expert"
+    "main": "chef de projet data senior",
+    "subtitle": "expert data technico-functionnel"
   },
   "links": [
-    {"name": "linkedin", "icon": "file", "href": "https://www.linkedin.com/in/philippeperet/", "label": "See online version"}
+    {"name": "linkedin", "icon": "file", "href": "https://www.linkedin.com/in/philippeperet/", "label": "Voir mon profil LinkedIn"}
     ],
   "summary": [
-    {"p": "Since 2001, it has always been about data projects and technical-functional roles:<br>From Data Management, Exchanges & Transformation to Data Analysis & BI."},
-    {"p": "I enjoy working with complex data pipelines & carefully designed dashboards."}
+    {"p": "Depuis 2001, j'ai bâti mon expérience sur des projets data et des rôles technico-fonctionnels autour du Data Management, de la qualité et la transformation des données ainsi que la BI."},
+    {"p": "J'apprécie les pipelines de données complexes et des tableaux de bord soigneusement conçus."}
     ],
   "takeaways": {
-    "Specific skills & context": [
-        {"item": "Collect & advocate business needs"},
-        {"item": "Full-Stack data approach"},
-        {"item": "Speak same language as tech. teams"},
-        {"item": "Agile & problem solver mindset"}
+    "Compétences spécifiques": [
+        {"item": "Collecter et représenter les besoins métiers"},
+        {"item": "Approche data Full-Stack"},
+        {"item": "Parler le même language que les équipes techniques"},
+        {"item": "Agilité & résolution des problèmes"}
       ],
-    "Key stack & tools" : [
-        {"item": "R / Python, REST API"},
+    "Stack & outils clés" : [
+        {"item": "R / Python, API REST"},
         {"item": "SQL, Hive, Cloudera"},
         {"item": "Power.BI"},
         {"item": "Data Galaxy"},
         {"item": "Azure, GCP"}
       ],
-    "Specific domains": [
-        {"item": "Transportation & logistic"},
-        {"item": "CSR"},
-        {"item": "References: PSA, BMW, Airbus, Alstom, Miele, Claas"}
+    "Domaines Spécifiques": [
+        {"item": "Transports & logistique"},
+        {"item": "RSE"},
+        {"item": "Références clients : PSA, BMW, Airbus, Alstom, Miele, Claas"}
       ],
-    "Education & Certifications": [
-        {"item": "Lastest: Generative AI with LLMs"},
-        {"item": "Data Science (Johns Hopkins University)"},
-        {"item": "Automotive Engineer (ESTACA)"}
+    "Formation & Certifications": [
+        {"item": "La plus récente : Generative AI with LLMs"},
+        {"item": "Data Science (Université Johns Hopkins)"},
+        {"item": "Ingénieur ESTACA (Automobile)"}
       ],
-    "Team management": [
-        {"item": "35 people"},
-        {"item": "Intl. context (France, India, USA)"}
+    "Management": [
+        {"item": "35 personnes"},
+        {"item": "Contexte intl. (France, Inde, USA)"},
+        {"item": "Transition, développement de carrière"}
       ],
-    "Languages": [
-        {"item": "French (native)"},
-        {"item": "English (fluent)"}
+    "Langues": [
+        {"item": "Français (natif)"},
+        {"item": "Anglais (C1)"}
       ]
   },
   "experiences": {
     "geodis_csr": {
-      "role": "CSR Data Project Manager",
+      "role": "Chef de Projet Data / RSE",
       "company": "GEODIS",
-      "start": "2022/10",
-      "end": "2023/12",
-      "summary": "Collect CO2 computation data into a datalake<br>Deliver quality dashboard, APIs and data tools<br>Participate to Data Governance.",
+      "start": "10/2022",
+      "end": "12/2023",
+      "summary": "Livraison d'un datalake RSE (~150k ingestions / jour)<br>Déploiement d'un dashboard qualité, d'une architecture API et de 2 outils data<br>Participation à l'initiative de Data Gouvernance.",
       "tags": "CSR, Logistic, Datalake, Reporting",
       "pitch": "Within the Corporate Digital & Technology organization and dedicated to the strategic CSR activities of the CO emission calculation & Science Based Target Initiative.",
       "details": {
@@ -104,11 +105,11 @@
       }
     },
     "freelance": {
-      "role": "Technical-functional Data Project Expert",
+      "role": "Expert Data Technico-fonctionnel",
       "company": "Freelance",
-      "start": "2020/01",
+      "start": "01/2020",
       "end": "NA",
-      "summary": "Data Project Management<br>Data Analysis Mentorship @OpenClassrooms<br>Develop APIs, Scripts & Tools.",
+      "summary": "Management de Projet Data<br>Mentorat Data Analyse @OpenClassrooms<br>Developpement d'APIs, Scripts & Outils data.",
       "tags": "data quality, data analysis, data visualization",
       "pitch": "As a freelance worker, to maintain a transversal data knowledge that can support both functional & technical sides of complex data projects.",
       "details": {
@@ -152,11 +153,11 @@
       }
     },
     "ds_qa": {
-      "role": "QA Leader & Transition Manager",
+      "role": "Responsable QA & Senior Manager",
       "company": "Dassault Systèmes",
-      "start": "2016/01",
-      "end": "2019/12",
-      "summary": "Deliver QA for Data Management & Exchanges products<br>Setup test automation (DevOps)<br>Manage and transform organization.",
+      "start": "01/2016",
+      "end": "12/2019",
+      "summary": "Assurance Qualité d'un portfolio Data Management & Exchanges<br>Livraison d'un framework de tests automatisés (DevOps)<br>Manager et transformer l'organisation (35 pers.).",
       "tags": "data management, data exchange, quality, transformation",
       "pitch": "Within the R&D organization, as a QA Leader for Data Management & Exchanges products and Team Manager.",
       "details": {
@@ -200,11 +201,11 @@
       }
     },
     "ds_support": {
-      "role": "Technical Support (Engineer, then Manager)",
+      "role": "Support Technique (Ingénieur, puis Manager)",
       "company": "Dassault Systèmes",
-      "start": "2002/01",
-      "end": "2015/12",
-      "summary": "Support Customer deployment projects<br>Converge Data Management products (as an Engineer)<br>Converge Data Transition & Exchanges products (as a Manager).",
+      "start": "01/2002",
+      "end": "01/2015",
+      "summary": "Supporter les déploiement de projets clients<br>Converger la qualité de produits Data Management (en tant qu'ingénieur)<br>Converger la qualité de produits Data Exchanges (en tant que Manager).",
       "tags": "data management, data quality, data exchange, deployment",
       "pitch": "Within the R&D Technical Customer Support, dedicated to Data Management (as an Engineer), then Data Transition & Exchanges products (as a Manager) and assigned to production deployment projects.",
       "details": {

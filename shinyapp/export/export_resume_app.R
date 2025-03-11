@@ -13,6 +13,7 @@ library(bslib)
 full_resume <- F
 anonymous <- F
 contact <- T
+language <- "en"
 
 # -- set output options
 export <- T
@@ -30,7 +31,7 @@ app_theme <- bs_theme(
 
 
 # -- read user profile
-profile <- read_profile(path = file.path(path$data, "philippeperet", "profile"))
+profile <- read_profile(path = file.path(path$data, "philippeperet", "profile"), language = language)
 
 
 # -- Build UI
@@ -60,12 +61,12 @@ ui <- page_fluid(
     
     # -- links
     if(!anonymous)
-      profile_links()
+      profile_links(language = language)
     
   ),
   
   # -- one pager ---------------------------------------------------------------
-  key_takeaways(profile = profile, path = "../../data",  full = full_resume, export = export, printable = printable),
+  key_takeaways(profile = profile, path = "../../data", language = language, full = full_resume, export = export, printable = printable),
   
   
   # -- Experiences -------------------------------------------------------------

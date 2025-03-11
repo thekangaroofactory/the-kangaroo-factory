@@ -1,7 +1,6 @@
 
 
-
-profile_career_path <- function(experiences){
+profile_career_path <- function(experiences, language = c("en", "fr")){
   
   # -- compute xp
   xp <- unlist(lapply(profile$experiences, function(x) x$start))
@@ -13,14 +12,16 @@ profile_career_path <- function(experiences){
     tags$li(
       class = "mb-3",
       span(style = "font-weight: bold;", x$role),
-      span(paste("|", x$company, paste0("(", ifelse(x$end == "NA", paste("Since", x$start), paste(x$start, "-", x$end)), ")"))), br(),
+      span(paste("|", x$company, paste0("(", ifelse(x$end == "NA", paste(ifelse(language == "en", "Since", "Depuis"), x$start), paste(x$start, "-", x$end)), ")"))), br(),
       HTML(x$summary))}
   
   # -- return
   tagList(
     
     # -- title
-    h4(paste0("Career path (", xp, "y. XP)")),
+    h4(ifelse(language == "en", 
+              paste0("Career path (", xp, "y. XP)"),
+              paste0("Parcours professionnel (", xp, "ans d'expérience)"))),
     
     # -- list
     tags$ul(

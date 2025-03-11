@@ -8,11 +8,11 @@
 #'
 #' @examples
 
-read_profile <- function(path){
+read_profile <- function(path, language = c("en", "fr")){
   
   # -- check path & return
   if(dir.exists(path))
-    jsonlite::fromJSON(file.path(path, "profile.json"))
+    jsonlite::fromJSON(file.path(path, paste0("profile_", language, ".json")))
   else
     NULL
   

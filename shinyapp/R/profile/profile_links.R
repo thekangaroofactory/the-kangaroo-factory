@@ -1,6 +1,6 @@
 
 
-profile_links <- function(){
+profile_links <- function(language = c("en", "fr")){
   
   # -- layout
   layout_column_wrap(
@@ -23,7 +23,7 @@ profile_links <- function(){
         icon(class="icon color-contrast", "linkedin"),
         target = "_blank",
         href = "https://www.linkedin.com/in/philippeperet/"),
-      "Visit my LinkedIn profile"),
+      ifelse(language == "en", "Visit my LinkedIn profile", "Voir mon profil LinkedIn")),
     
     # # -- portfolio
     # tooltip(
@@ -41,7 +41,7 @@ profile_links <- function(){
         icon(class="icon color-contrast", "github"),
         target = "_blank",
         href = "https://github.com/thekangaroofactory"),
-      "Explore my GitHub repository")
+      ifelse(language == "en", "Explore my GitHub repository", "Explorer mon répertoire GitHub"))
     
   )
   

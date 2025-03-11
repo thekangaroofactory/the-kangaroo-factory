@@ -1,7 +1,7 @@
 
 
 
-key_takeaways <- function(profile, path = NULL, full = FALSE, export = FALSE, printable = FALSE){
+key_takeaways <- function(profile, path = NULL, language = c("en", "fr"), full = FALSE, export = FALSE, printable = FALSE){
   
   # -- add resource path
   if(!export){
@@ -11,7 +11,7 @@ key_takeaways <- function(profile, path = NULL, full = FALSE, export = FALSE, pr
   # -- return
   card(
     class = paste("border-radius bg-contrast", ifelse(export, ifelse(full, "mt-5", "mt-0"), "mt-5 p-3")),
-
+    
     # -- title
     card_header(
       class = "border-bottom-0",
@@ -21,8 +21,11 @@ key_takeaways <- function(profile, path = NULL, full = FALSE, export = FALSE, pr
       
       else
         tagList(
-          h3("Key Takeaways"),
-          p(style ="font-style: italic; font-weight: normal; margin-bottom: 0rem", "One-page profile summary"))),
+          h3(ifelse(language == "en", "Key Takeaways", "Points Clés")),
+          p(style ="font-style: italic; font-weight: normal; margin-bottom: 0rem", 
+            ifelse(language == "en", 
+                   "One-page profile summary", 
+                   "Résumé du profil en une page")))),
     
     
     # -- content
@@ -32,14 +35,14 @@ key_takeaways <- function(profile, path = NULL, full = FALSE, export = FALSE, pr
       card(
         class = ifelse(printable, "border-0", "bg-bg"),
         
-        profile_summary(profile$summary),
+        profile_summary(profile$summary, language = language),
 
       
       # -- middle
       tagList(
         
         if(!full)
-          profile_career_path(profile$experiences)
+          profile_career_path(profile$experiences, language = language)
         
         else {
           
