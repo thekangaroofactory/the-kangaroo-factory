@@ -58,48 +58,48 @@
       "start": "10/2022",
       "end": "12/2023",
       "summary": "Livraison d'un datalake RSE (~150k ingestions / jour)<br>Déploiement d'un dashboard qualité, d'une architecture API et de 2 outils data<br>Participation à l'initiative de Data Gouvernance.",
-      "tags": "CSR, Logistic, Datalake, Reporting",
-      "pitch": "Within the Corporate Digital & Technology organization and dedicated to the strategic CSR activities of the CO emission calculation & Science Based Target Initiative.",
+      "tags": "RSE, Logistique, Datalake, BI",
+      "pitch": "Au sein de l'organisation Corporate Digital & Technology et dédié aux activités métiers RSE.",
       "details": {
-        "Functional": [
-          {"item": "Support CSR & Business Teams with the technical usage of the APIs"},
-          {"item": "Monitor data flow & CO2 emission calculation infrastructure"},
-          {"item": "Capture technical needs linked to emission calculation (ex: low carbon offers)"},
-          {"item": "Follow-up meetings with the teams & external suppliers"}
+        "Fonctionnel": [
+          {"item": "Supporter les équipes RSE & métiers dans l'utilisation des APIs"},
+          {"item": "Monitorer le flux data & calcul des émissions de CO2"},
+          {"item": "Récolter les besoins liés au calcul d'émission (ex: offres bas carbone)"},
+          {"item": "Assurer les opérations avec les équipes et prestataires externes"}
         ],
-        "Project Management": [
-          {"item": "Capture the CO2 calculation flow into the Datalake"},
-          {"item": "Deliver a dashboard to monitor the quality of the CO2 computations"},
-          {"item": "Define and implement a common architecture of the CO2 calculation services"},
-          {"item": "Build roadmap & budget, manage priorities, organize steering committees, workshops"}
+        "Projet": [
+          {"item": "Capturer le flux de calcul CO2 dans le Datalake"},
+          {"item": "Délivrer un dashboard qualité des calculs d'émission"},
+          {"item": "Définir et implémenter une architecture des services autour du calcul d'émission"},
+          {"item": "Construire roadmap & budget, gérer les priorités, organiser comités de pilotage et ateliers métiers"}
         ],
-        "Data & Analysis": [
-          {"item": "Act as a proxy Data Owner, on behalf of the CSR Organization"},
-          {"item": "Develop Datalake ingestion validation script"},
-          {"item": "Perform data analysis to support the businesses and CSR teams"},
-          {"item": "Participate to governance Data Catalog initiative"}
+        "Data & Analyse": [
+          {"item": "Agir en tant que proxy Data Owner, au nom de l'organisation RSE"},
+          {"item": "Valider la complétude des ingestions dans le Datalake"},
+          {"item": "Fournir des analyses pour supporter les équipes métiers & RSE"},
+          {"item": "Participater à l'initiative Data Catalog"}
         ]
       },
       "frames": {
-        "specificities": [
-          {"item": "24 x 7 x 365 data flow"},
-          {"item": "High management attention (comex)"}
+        "specificités": [
+          {"item": "Flux data 24 x 7 x 365"},
+          {"item": "Visibilité comex"}
         ],
-        "key figures": "56M CO2 calculations / year, 5 lines of Business, 4 regions, 10 systems connected, 4 computation streams",
-        "stack & tools": "Cloudera, HIVE, SQL, Porwer.BI, Porwer.BI, Azure, API, R, Data Galaxy, EcoTransIT",
-        "deliverables": {
+        "chiffres clés": "56M de calculs CO2 / an, 5 lignes de métier, 4 régions, 10 systèmes connectés, 4 flux de calculs",
+        "stack & tools": "Cloudera, HIVE, SQL, Porwer.BI, Azure, API, R, Data Galaxy, EcoTransIT",
+        "livrables": {
           "datalake & dashboard": [
-            {"item": "CSR Datalake (100k to 300k ingestions daily)"},
-            {"item": "CSR Data Quality Dashboard (errors & anomalies)"}
+            {"item": "Datalake RSE (100k à 300k ingestions / jour)"},
+            {"item": "Dashboard Qualité RSE (erreurs & anomalies)"}
           ],
-          "architecture & tools": [
-            {"item": "Target Architecture (REST API Portal)"},
-            {"item": "2 Tools (Service monitoring, Carbon Compensation Cost)"},
-            {"item": "1 API (low carbon offers support)"}
+          "architecture & outils": [
+            {"item": "Architecture cible (Portail API REST / Azure)"},
+            {"item": "2 Outils (Monitoring, Coût de compensation carbone)"},
+            {"item": "1 API (support offres bas carbone)"}
           ],
-          "data analysis & governance": [
-            {"item": "Shipment calculation flow analysis (800k dataset)"},
-            {"item": "Data lineage in Data Galaxy"}
+          "data analyse & gouvernance": [
+            {"item": "Analyse du flux de calcul Shipments (dataset 800k lignes)"},
+            {"item": "Lignage Data dans Data Galaxy"}
           ]
         }
       }
@@ -110,44 +110,43 @@
       "start": "01/2020",
       "end": "NA",
       "summary": "Management de Projet Data<br>Mentorat Data Analyse @OpenClassrooms<br>Developpement d'APIs, Scripts & Outils data.",
-      "tags": "data quality, data analysis, data visualization",
-      "pitch": "As a freelance worker, to maintain a transversal data knowledge that can support both functional & technical sides of complex data projects.",
+      "tags": "automatisation, data analyse, data visualisation",
+      "pitch": "Activité freelance, pour maintenir une connaissance transversale qui peut soutenir les aspects fonctionnels et techniques de projets data.",
       "details": {
-        "Coaching & Training": [
-          {"item": "Mentorship @OpenClassrooms on the Data Analyst program"},
-          {"item": "Support students with projects & exams"},
-          {"item": "Advocate data culture within business organizations"}
+        "Coaching & Formation": [
+          {"item": "Mentorat @OpenClassrooms sur le parcours Data Analyste (RNCP Niveau 6)"},
+          {"item": "Promouvoir la culture des données au sein des organisations métiers"}
         ],
-        "Data pipelines": [
-          {"item": "Automate data pipelines (collection, cleaning & transformation)"},
-          {"item": "Design & develop APIs"}
+        "Flux Data": [
+          {"item": "Automatisation des flux de données (collecte, nettoyage & transformation)"},
+          {"item": "Conception et développement d'API"}
         ],
-        "Tools & Dashboards": [
-          {"item": "Produce data analysis & visualizations"},
-          {"item": "Design & develop tools (Dashboards, Maps, Web apps)"},
-          {"item": "Develop R packages"}
+        "Outils & Tableaux de bord": [
+          {"item": "Produire des analyses et des visualisations de données"},
+          {"item": "Concevoir et développer des outils (tableaux de bord, cartes, applications Web)"},
+          {"item": "Developpement de package R"}
         ]
       },
       "frames": {
-        "specificities": [
-          {"item": "R / Shiny expert"},
-          {"item": "Full-Stack data approach"}
+        "specificités": [
+          {"item": "Expert R / Shiny"},
+          {"item": "Approche data Full-Stack"}
         ],
-        "key figures": "9.8K visits on data.gouv.fr, 1 graduated student, 40 GitHub repos.",
-        "stack & tools": "R, Shiny, Python, SQL, Docker, GCP, AWS",
-        "deliverables": {
+        "chiffres clés": "10k visites sur data.gouv.fr, 1 étudiant diplômé",
+        "stack & outils": "R, Shiny, Python, SQL, Docker, GCP, AWS",
+        "livrables": {
           "GEODIS": [
-            {"item": "Datalake validation scripts"},
-            {"item": "Monitoring tool (webapp)"},
-            {"item": "CO2 computation flow analysis"}
+            {"item": "Scripts de validation du Datalake"},
+            {"item": "Outil de Monitoring (webapp)"},
+            {"item": "Analyse des flux de calculs CO2"}
           ],
-          "Tools & Apps": [
-            {"item": "Election data visualization tool"},
-            {"item": "ML monitoring dashboard"}
+          "Outils & Apps": [
+            {"item": "Outil de visualisation des données électorales"},
+            {"item": "Tableau de bord monitoring IA (sélectionné pour la ShinyConf 2025)"}
           ],
-          "R Package": [
-            {"item": "Tabular data management framework"},
-            {"item": "Admin console, demo apps"}
+          "Package R": [
+            {"item": "Framework de gestion des données tabulaires"},
+            {"item": "Console d'Admin, demo apps"}
           ]
         }
       }
@@ -158,44 +157,44 @@
       "start": "01/2016",
       "end": "12/2019",
       "summary": "Assurance Qualité d'un portfolio Data Management & Exchanges<br>Livraison d'un framework de tests automatisés (DevOps)<br>Manager et transformer l'organisation (35 pers.).",
-      "tags": "data management, data exchange, quality, transformation",
-      "pitch": "Within the R&D organization, as a QA Leader for Data Management & Exchanges products and Team Manager.",
+      "tags": "data management, échanges de données, QA, transformation",
+      "pitch": "Au sein de l'organisation R&D, en tant que responsable QA et chef d'équipes.",
       "details": {
-        "QA Leader": [
-          {"item": "Be responsible for the quality of Data Management & Exchanges products"},
-          {"item": "Build and deploy strategies to solve critical program convergence"},
-          {"item": "Implement decision support tools to anticipate program drift"},
-          {"item": "Plan and deploy test automation strategy (DevOps)"}
+        "Responsable QA": [
+          {"item": "Assurer la qualité des produits de gestion et d'échange de données"},
+          {"item": "Assurer la convergence des programmes"},
+          {"item": "Mettre en place des outils pour anticiper les dérives"},
+          {"item": "Planifier et déployer une stratégie d'automatisation des tests (DevOps)"}
         ],
-        "Team Transformation": [
-          {"item": "Transform mission & roles inside the team (to prepare for automation)"},
-          {"item": "Career development (delegate, coach on communication)"},
-          {"item": "Turn team & network culture towards a proactive approach"}
+        "Management & Transformation": [
+          {"item": "Transformer missions et rôles au sein des équipes (preparer à l'automatisation)"},
+          {"item": "Development de carrière (déléguer, coacher sur la communication)"},
+          {"item": "Orienter la culture d'équipe et de réseau vers une approche proactive"}
         ],
-        "Data Project": [
-          {"item": "Analyze root causes why objectives and expectations were not met"},
-          {"item": "Build and deploy a complete change of strategy"},
-          {"item": "Setup a communication process to build support for the project"}
+        "Projet Data": [
+          {"item": "Analyser les causes profondes de non atteinte des objectifs"},
+          {"item": "Construire et déployer un changement complet de stratégie"},
+          {"item": "Mettre en place une communication afin d'augmenter le soutien autour du projet"}
         ]
       },
       "frames": {
-        "specificities": [
-          {"item": "Team management"},
+        "specificités": [
+          {"item": "Management d'équipes"},
           {"item": "Transformation"}
         ],
-        "key figures": "35 people organization, 5 data products",
-        "stack & tools": "ENOVIA, BI, Python, SQL, Sikuli",
-        "deliverables": {
-          "QA Leader": [
-            {"item": "Product & data quality assessments"},
-            {"item": "GO/NOGO for product delivery"}
+        "chiffres clés": "organisation de 35 personnes, 5 produits data",
+        "stack & outils": "ENOVIA, BI, Python, SQL, Sikuli",
+        "livrables": {
+          "Responsable QA": [
+            {"item": "Evaluations de la qualité des produits & données"},
+            {"item": "Décisions GO/NOGO pour la livraison des produits"}
           ],
-          "Team & Operations": [
-            {"item": "2 Dashboards (Testers / Managers)"},
-            {"item": "Methodology and KPIs to detect activity drift"}
+          "Opérations": [
+            {"item": "2 tableaux de bord (Testeurs / Managers)"},
+            {"item": "Methodologie et KPIs pour détecter les dérapages"}
           ],
-          "Automation": [
-            {"item": "QA test automation framework"}
+          "Automatisation": [
+            {"item": "Framework d'automation des tests"}
           ]
         }
       }
@@ -206,47 +205,47 @@
       "start": "01/2002",
       "end": "01/2015",
       "summary": "Supporter les déploiement de projets clients<br>Converger la qualité de produits Data Management (en tant qu'ingénieur)<br>Converger la qualité de produits Data Exchanges (en tant que Manager).",
-      "tags": "data management, data quality, data exchange, deployment",
-      "pitch": "Within the R&D Technical Customer Support, dedicated to Data Management (as an Engineer), then Data Transition & Exchanges products (as a Manager) and assigned to production deployment projects.",
+      "tags": "data management, qualité, flux de données, déploiement en production",
+      "pitch": "Au sein du Support Technique R&D, dédié aux produits de gestion des données (en tant qu'ingénieur), puis d'échange de données (en tant que manager) et affecté à des projets de déploiement en production.",
       "details": {
-        "Functional": [
-          {"item": "Create customer references"},
-          {"item": "Participate in customer workshops to collect business needs"},
-          {"item": "Manage backlog to ensure technical convergence"},
-          {"item": "Participate, then lead a transversal task force to drive product convergence efforts"}
+        "Fonctionnel": [
+          {"item": "Créer des références clients"},
+          {"item": "Participer aux ateliers clients et recueillir leurs besoins"},
+          {"item": "Gérer les backlogs pour assurer la convergence technique"},
+          {"item": "Participer, puis diriger un groupe de travail transversal pour organiser les efforts de convergence"}
         ],
-        "Project & Deployment": [
-          {"item": "Participate, then lead follow-up meetings (internal and client)"},
-          {"item": "Manage customer critical situations"},
-          {"item": "Build convergence & recovery plans"},
-          {"item": "Advocate customer & user views to the development teams"}
+        "Projets & Déploiements": [
+          {"item": "Participer, puis animer les réunions de suivi (internes et avec les clients)"},
+          {"item": "Gérer les situations clients critiques"},
+          {"item": "Élaborer des plans de convergence et de reprise"},
+          {"item": "Représenter le point de vue client et utilisateur auprès des équipes techniques"}
         ],
         "Data Management": [
-          {"item": "Implement data extraction, preparation & processing (transfer & migration)"},
-          {"item": "Setup data processing strategies"},
-          {"item": "Ensure data quality & lifecycle"},
-          {"item": "Analyze and improve performances of the data pipelines"}
+          {"item": "Mettre en oeuvre l'extraction, la préparation et le traitement des données (transfert et migration)"},
+          {"item": "Déploiement de stratégies de traitement des données"},
+          {"item": "Assurer la qualité et le cycle de vie des données"},
+          {"item": "Analyser et améliorer la performance des flux de données"}
         ]
       },
       "frames": {
-        "specificities": [
-          {"item": "Product convergence"},
-          {"item": "High management attention (comex)"}
+        "specificités": [
+          {"item": "Convergence produit"},
+          {"item": "Forte attention hiérarchique (comex)"}
         ],
-        "key figures": "7 years as Engineer, 7 years as Manager",
-        "stack & tools": "ENOVIA, Oracle, SQL",
-        "deliverables": {
-          "Products": [
-            {"item": "Technical convergence (maturity)"},
-            {"item": "Documentation of best practices"}
+        "chiffres clés": "7 ans / Ingénieur, 7 ans / Manager",
+        "stack & outils": "ENOVIA, Oracle, SQL",
+        "livrables": {
+          "Produits": [
+            {"item": "Convergence technique (maturité)"},
+            {"item": "Documentation des bonnes pratiques"}
           ],
-          "Data Exchanges": [
-            {"item": "3 references (Alstom, Claas, Miele)"},
-            {"item": "Annual dashboard (areas for improvement)"}
+          "Echange de données": [
+            {"item": "3 références clients (Alstom, Claas, Miele)"},
+            {"item": "Tableau de bord annuel (domaines d'amélioration)"}
           ],
           "Data Management": [
-            {"item": "1 reference customer (BMW)"},
-            {"item": "Weekly code delivery"}
+            {"item": "1 référence client (BMW)"},
+            {"item": "Livraison de code hebdomadaire"}
           ]
         }
       }
