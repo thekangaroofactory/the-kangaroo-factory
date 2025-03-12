@@ -22,7 +22,7 @@ profile_experience <- function(experience, language = c("en", "fr")){
         
         # -- header content
         h3(experience$role),
-        p(class = "subtitle", experience_subtitle(experience)),
+        p(class = "subtitle", experience_subtitle(experience, language)),
         p(HTML(experience$pitch)),
         keywords(experience$tags))),
     
