@@ -4,7 +4,7 @@
 key_takeaways <- function(profile, path = NULL, language = c("en", "fr"), full = FALSE, export = FALSE, printable = FALSE){
   
   # -- add resource path
-  if(!export){
+  if(full){
     my_path <- file.path(path, "philippeperet/profile")
     addResourcePath(prefix = "profile_media", directoryPath = my_path)}
   
@@ -47,7 +47,7 @@ key_takeaways <- function(profile, path = NULL, language = c("en", "fr"), full =
         else {
           
           tagList(
-            h4("Career path (20+ XP)"),  
+            h4(ifelse(language == "en", "Career path (20+ XP)", "Parcours professionnel (20 ans d'expérience)")),  
             card(
               fill = FALSE,
               img(src = paste0("profile_media/career_path_en", ifelse(printable, "_printable", ''), ".png"))
