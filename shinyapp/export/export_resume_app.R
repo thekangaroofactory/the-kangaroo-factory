@@ -10,10 +10,10 @@ library(bslib)
 
 
 # -- Set options & privacy level
-full_resume <- F
+full_resume <- T
 anonymous <- F
 contact <- T
-language <- "en"
+language <- "fr"
 
 # -- set output options
 export <- T
@@ -71,7 +71,7 @@ ui <- page_fluid(
   
   # -- Experiences -------------------------------------------------------------
   if(full_resume)
-      lapply(profile$experiences, profile_experience),
+      lapply(profile$experiences, profile_experience, language),
   
   
   # -- footer ------------------------------------------------------------------

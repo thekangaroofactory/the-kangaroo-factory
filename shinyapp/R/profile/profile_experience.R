@@ -8,7 +8,7 @@
 #'
 #' @examples
 
-profile_experience <- function(experience){
+profile_experience <- function(experience, language = c("en", "fr")){
   
   # -- return
   div(
@@ -32,7 +32,7 @@ profile_experience <- function(experience){
       
       # -- left column
       tagList(
-        h4("Mission & Responsibilities"),
+        h4(ifelse(language == "en", "Mission & Responsibilities", "Mission & Responsabilités")),
         profile_itemize(experience$details)),
       
       # -- right column
