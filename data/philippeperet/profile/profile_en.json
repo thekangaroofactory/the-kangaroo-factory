@@ -86,7 +86,7 @@
           {"item": "High management attention (comex)"}
         ],
         "key figures": "56M CO2 calculations / year, 5 lines of Business, 4 regions, 10 systems connected, 4 computation streams",
-        "stack & tools": "Cloudera, HIVE, SQL, Porwer.BI, Porwer.BI, Azure, API, R, Data Galaxy, EcoTransIT",
+        "stack & tools": "Cloudera, HIVE, SQL, Porwer.BI, Azure, API, R, Data Galaxy, EcoTransIT",
         "deliverables": {
           "datalake & dashboard": [
             {"item": "CSR Datalake (100k to 300k ingestions daily)"},
