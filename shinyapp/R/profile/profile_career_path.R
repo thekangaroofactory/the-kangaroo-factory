@@ -3,7 +3,7 @@
 profile_career_path <- function(experiences, language = c("en", "fr")){
   
   # -- compute xp
-  xp <- unlist(lapply(profile$experiences, function(x) x$start))
+  xp <- unlist(lapply(experiences$experiences, function(x) x$start))
   xp <- min(as.Date(paste0(xp, "/01")))
   xp <- floor(as.numeric(difftime(Sys.Date(), xp, unit="weeks")) / 52.25)
   
