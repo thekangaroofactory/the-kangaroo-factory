@@ -10,6 +10,12 @@
 
 read_profile <- function(path, language = c("en", "fr")){
   
+  # -- check arguments
+  language <- match.arg(language)
+  if(DEBUG){
+    cat("- path =", path, "\n")
+    cat("- language =", language, "\n")}
+  
   # -- check path & return
   if(dir.exists(path))
     jsonlite::fromJSON(file.path(path, paste0("profile_", language, ".json")))
