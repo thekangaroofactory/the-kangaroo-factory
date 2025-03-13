@@ -47,7 +47,7 @@ key_takeaways <- function(profile, path = NULL, language = c("en", "fr"), full =
       # -- middle
       tagList(
         
-        if(!full)
+        if(!full && !isRunning())
           profile_career_path(profile$experiences, language = language)
         
         else {
@@ -62,7 +62,7 @@ key_takeaways <- function(profile, path = NULL, language = c("en", "fr"), full =
         
       )),
       
-      if(!export)
+      if(!export && !isRunning())
         profile_itemize(profile$takeaways)
       else
         layout_column_wrap(width = 1/2, !!!profile_itemize(profile$takeaways))
