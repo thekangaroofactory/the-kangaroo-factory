@@ -3,8 +3,8 @@
 profile_career_path <- function(experiences, language = c("en", "fr")){
   
   # -- compute xp
-  xp <- unlist(lapply(experiences$experiences, function(x) x$start))
-  xp <- min(as.Date(paste0(xp, "/01")))
+  xp <- unlist(lapply(experiences, function(x) x$start))
+  xp <- min(as.Date(if(language == "en") paste0(xp, "/01") else paste0("01/", xp), format = ifelse(language == "en", "%Y/%m/%d", "%d/%m/%Y")))
   xp <- floor(as.numeric(difftime(Sys.Date(), xp, unit="weeks")) / 52.25)
   
   # -- helper
