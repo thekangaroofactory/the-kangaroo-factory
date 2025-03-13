@@ -58,8 +58,8 @@
       "start": "10/2022",
       "end": "12/2023",
       "summary": "Livraison d'un datalake RSE (~150k ingestions / jour)<br>Déploiement d'un dashboard qualité, d'une architecture API et de 2 outils data<br>Participation à l'initiative de Data Gouvernance.",
-      "tags": "RSE, Logistique, Datalake, BI",
-      "pitch": "Au sein de l'organisation Corporate Digital & Technology et dédié aux activités métiers RSE.",
+      "tags": "AMOA, MOE, Logistique, RSE, Datalake, BI",
+      "pitch": "Mission AMOA / MOE au sein de l'organisation Corporate Digital & Technology, dédiée aux activités métiers RSE.",
       "details": {
         "Fonctionnel": [
           {"item": "Supporter les équipes RSE & métiers dans l'utilisation des APIs"},
