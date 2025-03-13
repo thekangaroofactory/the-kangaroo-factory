@@ -3,6 +3,12 @@
 
 key_takeaways <- function(profile, path = NULL, language = c("en", "fr"), full = FALSE, export = FALSE, printable = FALSE){
   
+  if(DEBUG)
+    cat("[key_takeaways] \n")
+  
+  # -- check argument
+  language <- match.arg(language)
+  
   # -- add resource path
   if(full){
     my_path <- file.path(path, "philippeperet/profile")

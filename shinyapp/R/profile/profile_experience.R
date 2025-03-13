@@ -9,6 +9,12 @@
 #' @examples
 
 profile_experience <- function(experience, language = c("en", "fr")){
+
+  if(DEBUG)
+    cat("[key_takeaways] \n")
+    
+  # -- check argument
+  language <- match.arg(language)
   
   # -- return
   div(

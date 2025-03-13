@@ -2,6 +2,12 @@
 
 profile_career_path <- function(experiences, language = c("en", "fr")){
   
+  # -- check argument
+  language <- match.arg(language)
+  
+  if(DEBUG)
+    cat("[profile_career_path] \n")
+  
   # -- compute xp
   xp <- unlist(lapply(experiences, function(x) x$start))
   xp <- min(as.Date(if(language == "en") paste0(xp, "/01") else paste0("01/", xp), format = ifelse(language == "en", "%Y/%m/%d", "%d/%m/%Y")))
