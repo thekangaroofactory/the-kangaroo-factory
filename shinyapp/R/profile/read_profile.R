@@ -8,7 +8,7 @@
 #'
 #' @examples
 
-read_profile <- function(path, language = c("en", "fr")){
+read_profile <- function(path, language = c("en", "fr"), DEBUG = FALSE){
   
   # -- check arguments
   language <- match.arg(language)

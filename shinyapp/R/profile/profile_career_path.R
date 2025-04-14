@@ -1,6 +1,6 @@
 
 
-profile_career_path <- function(experiences, language = c("en", "fr")){
+profile_career_path <- function(experiences, language = c("en", "fr"), DEBUG = FALSE){
   
   # -- check argument
   language <- match.arg(language)

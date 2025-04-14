@@ -1,7 +1,7 @@
 
 
 
-key_takeaways <- function(profile, path = NULL, language = c("en", "fr"), full = FALSE, export = FALSE, printable = FALSE){
+key_takeaways <- function(profile, path = NULL, language = c("en", "fr"), full = FALSE, export = FALSE, printable = FALSE, DEBUG = FALSE){
   
   if(DEBUG)
     cat("[key_takeaways] \n")
