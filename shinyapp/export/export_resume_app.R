@@ -13,7 +13,7 @@ library(bslib)
 full_resume <- T
 anonymous <- F
 contact <- T
-language <- "fr"
+language <- "en"
 
 # -- set output options
 export <- T
