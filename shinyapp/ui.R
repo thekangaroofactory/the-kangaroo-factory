@@ -92,6 +92,14 @@ page_navbar(
             stack_ui("stack")),
   
   
+  # -- Blog
+  nav_panel(class = "p-5",
+            value = "blog",
+            title = "Blog", 
+            
+            blog_ui()),
+  
+  
   # -- Contact
   nav_panel(class = "p-5",
             value = "contact",
