@@ -8,7 +8,7 @@
   },
   "title": {
     "main": "chef de projet data senior",
-    "subtitle": "expert data technico-functionnel"
+    "subtitle": "expert data technico-fonctionnel"
   },
   "links": [
     {"name": "linkedin", "icon": "file", "href": "https://www.linkedin.com/in/philippeperet/", "label": "Voir mon profil LinkedIn"}
@@ -21,7 +21,7 @@
     "Compétences spécifiques": [
         {"item": "Collecter et représenter les besoins métiers"},
         {"item": "Approche data Full-Stack"},
-        {"item": "Parler le même language que les équipes techniques"},
+        {"item": "Parler le même langage que les équipes techniques"},
         {"item": "Agilité & résolution des problèmes"}
       ],
     "Stack & outils clés" : [
@@ -109,7 +109,7 @@
       "company": "Freelance",
       "start": "01/2020",
       "end": "NA",
-      "summary": "Management de Projet Data<br>Mentorat Data Analyse @OpenClassrooms<br>Developpement d'APIs, Scripts & Outils data.",
+      "summary": "Management de Projet Data<br>Mentorat Data Analyse @OpenClassrooms<br>Développement d'APIs, Scripts & Outils data.",
       "tags": "automatisation, data analyse, data visualisation",
       "pitch": "Activité freelance, pour maintenir une connaissance transversale qui peut soutenir les aspects fonctionnels et techniques de projets data.",
       "details": {
@@ -204,7 +204,7 @@
       "company": "Dassault Systèmes",
       "start": "01/2002",
       "end": "01/2015",
-      "summary": "Supporter les déploiement de projets clients<br>Converger la qualité de produits Data Management (en tant qu'ingénieur)<br>Converger la qualité de produits Data Exchanges (en tant que Manager).",
+      "summary": "Supporter les déploiements de projets clients<br>Converger la qualité de produits Data Management (en tant qu'ingénieur)<br>Converger la qualité de produits Data Exchanges (en tant que Manager).",
       "tags": "data management, qualité, flux de données, déploiement en production",
       "pitch": "Au sein du Support Technique R&D, dédié aux produits de gestion des données (en tant qu'ingénieur), puis d'échange de données (en tant que manager) et affecté à des projets de déploiement en production.",
       "details": {
