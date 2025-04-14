@@ -183,7 +183,7 @@ profile_server <- function(id, user = NULL, path) {
             label = "download")),
         
         # -- one pager
-        key_takeaways(profile = user_profile, path = path$data, language = "en"),
+        key_takeaways(profile = user_profile, path = path$data, language = "en", full = TRUE),
         
         
         # -- Experiences
