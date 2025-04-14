@@ -1,0 +1,55 @@
+---
+format: 
+  html:
+    embed-resources: true
+    fontsize: 11pt
+    css: 
+       - "../www/css/base.css"
+       - "../www/css/color_web.css"
+       - "../www/css/export.css"
+column: screen-inset
+params:
+  code_path: "../R/profile"
+  www_path: "../www"
+  profile_path: "../../data/philippeperet/profile"
+  full: FALSE
+  anonymous: FALSE
+  contact: TRUE
+  printable: FALSE
+execute: 
+  error: TRUE
+---
+
+```{r}
+#| echo: false
+
+# -- load dependencies
+library(shiny, quietly = T, warn.conflicts = F)
+library(bslib, quietly = T, warn.conflicts = F)
+
+# -- source dependencies (feed dummy to avoid printing output)
+dummy <- sapply(file.path(params$code_path, c("read_profile.R",
+                                              "build_resume.R",
+                                              "key_takeways.R",
+                                              "profile_title.R",
+                                              "profile_identity.R",
+                                              "profile_links.R",
+                                              "profile_summary.R",
+                                              "profile_career_path.R",
+                                              "profile_experience.R",
+                                              "experience_subtitle.R",
+                                              "profile_itemize.R",
+                                              "keywords.R")), source)
+
+
+# -- read user profile
+profile <- read_profile(params$profile_path)
+
+# -- output
+build_resume(profile, full = params$full, 
+             anonymous = params$anonymous, 
+             contact = params$contact,
+             printable = params$printable,
+             www = params$www_path)
+
+```

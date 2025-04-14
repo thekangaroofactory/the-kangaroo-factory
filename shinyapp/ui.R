@@ -40,7 +40,8 @@ page_navbar(
     tags$link(rel="shortcut icon", href="./img/favicon_196x196.png"),
     
     # -- css
-    tags$link(rel = "stylesheet", type = "text/css", href = "./css/tkf.css"),
+    tags$link(rel = "stylesheet", type = "text/css", href = "./css/base.css"),
+    tags$link(rel = "stylesheet", type = "text/css", href = "./css/color_web.css"),
     
     # -- Google Analytics
     if(GTAG){

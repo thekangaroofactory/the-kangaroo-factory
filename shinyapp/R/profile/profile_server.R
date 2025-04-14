@@ -16,6 +16,9 @@ profile_server <- function(id, user = NULL, path) {
     # -- declare objects
     path_profile <- reactiveVal(NULL)
     
+    user <- list(firstname = "philippe",
+                 lastname = "peret")
+
     
     # --------------------------------------------------------------------------
     # Observers
@@ -41,7 +44,7 @@ profile_server <- function(id, user = NULL, path) {
     # Manage Download
     # --------------------------------------------------------------------------
     
-    # -- observe main download button
+    # -- display download ui (modal)
     observeEvent(input$download,
                  
                  # -- display modal
@@ -65,12 +68,57 @@ profile_server <- function(id, user = NULL, path) {
                          label = "Download")))))
     
     
+    # -- generate resume
+    observeEvent(input$generate_resume, {
+      
+      cat(MODULE, "Generate document preview \n")
+      cat("resume_type = ", input$resume_type, "\n")
+      if(!is.null(input$resume_options))
+        cat("resume_options = ", input$resume_options, "\n")
+      
+      # -- call quarto
+      tryCatch(
+        
+        # -- expr to try
+        {
+          
+          cat("[START] Render quarto document to html... \n")
+          
+          # -- generate html
+          quarto::quarto_render(input = file.path(path$template, "resume.qmd"),
+                                execute_params = list(code_path = file.path(path$code, "profile"),
+                                                      www_path = path$www,
+                                                      profile_path = path_profile(),
+                                                      full = ifelse(input$resume_type == "Full", TRUE, FALSE),
+                                                      anonymous = ifelse("Anonymous" %in% input$resume_options, TRUE, FALSE),
+                                                      contact = TRUE),
+                                quiet = T)
+          
+          # -- print html to pdf
+          cat("[START] Print html document to pdf... \n")
+          print_to_pdf(filename = "resume.html", path = path$template)
+          
+          # -- copy to user folder
+          cat("[START] Copy pdf document to user folder... \n")
+          file.copy(from = file.path(path$template, "resume.pdf"),
+                    to = file.path(path_profile(), download_filename(user, type = input$resume_type, options = input$resume_options)))
+          
+        },
+        
+        # -- in case of error
+        finally = cat(MODULE, "[END] pdf file generated finished \n")
+        
+      )
+      
+    })
+    
+    
     # -- download handler
     output$download_resume <- downloadHandler(
 
       # -- build file name
       filename = function()
-        download_filename(type = input$resume_type, options = input$resume_options),
+        download_filename(user, type = input$resume_type, options = input$resume_options),
       
       # -- build content
       content = function(con) {
@@ -80,26 +128,30 @@ profile_server <- function(id, user = NULL, path) {
         cat(MODULE, "-- options = ", input$resume_options, "\n")
         
         # -- build url
-        target_file <- download_filename(type = input$resume_type, options = input$resume_options)
+        target_file <- download_filename(user, type = input$resume_type, options = input$resume_options)
         target_file <- file.path("../data/philippeperet/profile", target_file)
         
         # -- copy file to tmp con
         file.copy(target_file, con)})
     
     
-    # -- helper
-    download_filename <- function(type, options){
-      paste0(ifelse("Anonymous" %in% options, "Philippe_", "Philippe_PERET_"), type, ifelse("Printable" %in% options, "_printable", ''), ".pdf")}
-    
-    
     # -- download preview
     output$download_preview <- renderUI({
+
+      # -- declare resource path
+      addResourcePath(prefix = "profile_media", directoryPath = path_profile())
+
+      # -- build filename
+      filename <- download_filename(user, type = input$resume_type, options = input$resume_options)
       
-      # -- build url
-      url <- download_filename(type = input$resume_type, options = input$resume_options)
+      # -- check file
+      # under the EXPERIMENTAL variable!
+      if(EXPERIMENTAL && !file.exists(file.path(path_profile(), filename)))
+        actionButton(inputId = ns("generate_resume"),
+                     label = "Build resume")
       
-      # -- return
-      tags$iframe(style="height:400px; width:100%", src = paste0("profile_media/", url))})
+      else
+        tags$iframe(style="height:400px; width:100%", src = paste0("profile_media/", filename))})
     
     
     # --------------------------------------------------------------------------
@@ -109,6 +161,10 @@ profile_server <- function(id, user = NULL, path) {
     # -- user profile
     output$user_profile <- renderUI({
       
+      # -- read user profile
+      cat(MODULE, "Read user profile \n")
+      user_profile <- read_profile(path_profile())
+      
       # -- read user contact file
       cat(MODULE, "Build user profile \n")
       
@@ -116,7 +172,7 @@ profile_server <- function(id, user = NULL, path) {
       tagList(
         
         # -- title / subtitle
-        profile_title(),
+        profile_title(title = user_profile$title),
         
         # -- download
         div(
@@ -127,7 +183,7 @@ profile_server <- function(id, user = NULL, path) {
             label = "download")),
         
         # -- one pager
-        key_takeaways(path$data),
+        key_takeaways(profile = user_profile, path = path$data, language = "en", full = TRUE),
         
         
         # -- Experiences
@@ -144,25 +200,25 @@ profile_server <- function(id, user = NULL, path) {
           accordion_panel(
             title = "GEODIS | CSR Data Project Manager",
             value = "exp_geodis",
-            experience_geodis()),
+            profile_experience(user_profile$experiences$geodis_csr)),
           
           # -- Freelance
           accordion_panel(
             title = "Freelance | Technical Data Expert",
             value = "exp_freelance",
-            experience_freelance()),
+            profile_experience(user_profile$experiences$freelance)),
           
           # -- DS QA
           accordion_panel(
             title = "Dassault Systèmes | QA Leader, Senior Manager",
             value = "exp_ds_qa",
-            experience_ds_qa()),
+            profile_experience(user_profile$experiences$ds_qa)),
           
           # -- DS Support
           accordion_panel(
             title = "Dassault Systèmes | L2 Technical Support, Engineer & Manager",
             value = "exp_ds_support",
-            experience_ds_support())),
+            profile_experience(user_profile$experiences$ds_support))),
         
         
         # -- Certifications & Degrees

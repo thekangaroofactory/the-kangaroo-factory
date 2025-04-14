@@ -1,0 +1,79 @@
+
+
+/* -----------------------------------------------------------------------------
+   Rules on elements
+------------------------------------------------------------------------------*/
+
+/* -- buttons -- */
+.btn {
+  
+  border-radius: 25px;
+  
+}
+
+
+/* -- icons -- */
+.icon {
+  
+  font-size: 36px;
+  
+}
+
+
+
+/* -----------------------------------------------------------------------------
+   Custom classes
+------------------------------------------------------------------------------*/
+
+/* -- subtitle -- */
+.subtitle {
+  
+  font-style: italic; 
+  
+}
+
+
+/* -- to create tags -- */
+.tag {
+  
+  border-radius: 25px;
+  width: fit-content;
+  display: inline-block;
+  
+}
+
+
+/* -- footer -- */
+.footer {
+  
+  font-size:9pt;
+  margin-top:20px;  
+  
+}
+
+/* -----------------------------------------------------------------------------
+   Custom classes (padding)
+------------------------------------------------------------------------------*/
+
+/* -- to add space between topics -- */
+.section {
+  
+  margin-top: 7vh;
+  margin-bottom: 5vh;
+  
+}
+
+
+/* -- to tune modal window & content -- */
+.modal-dialog {
+  
+  max-width: 90vw;
+  margin: 10vh auto 10vh auto;
+  
+}
+
+.modal-content {
+  
+  padding: 5vw;
+  
+}

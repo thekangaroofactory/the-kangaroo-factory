@@ -9,10 +9,10 @@ FROM rocker/r-base
 # -- Install R dependencies
 # Shiny is already included in base image
 # remotes needed at next step
-RUN R -e "install.packages(c('shiny', 'bslib'))"
+RUN R -e "install.packages(c('shiny', 'bslib', 'remotes', 'quarto', 'pagedown'))"
 
 # -- Install dependencies from GitHub (requires remotes)
-# RUN R -e 'remotes::install_github("thekangaroofactory/ktools")'
+RUN R -e 'remotes::install_github("thekangaroofactory/ktools")'
 
 # -- Make a directory in the container
 RUN mkdir /home/shinyapp

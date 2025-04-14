@@ -1,0 +1,255 @@
+{
+  "person": {
+    "lastname": "peret",
+    "firstname": "philippe",
+    "location": "Paris, France",
+    "phone": "+33.6.10.48.30.14",
+    "email": "philippe.peret@hotmail.com"
+  },
+  "title": {
+    "main": "senior data project manager",
+    "subtitle": "technical-functional data project expert"
+  },
+  "links": [
+    {"name": "linkedin", "icon": "file", "href": "https://www.linkedin.com/in/philippeperet/", "label": "Visit my LinkedIn profile"}
+    ],
+  "summary": [
+    {"p": "Since 2001, it has always been about data projects and technical-functional roles:<br>From Data Management, Exchanges & Transformation to Data Analysis & BI."},
+    {"p": "I enjoy working with complex data pipelines & carefully designed dashboards."}
+    ],
+  "takeaways": {
+    "Specific skills": [
+        {"item": "Collect & advocate business needs"},
+        {"item": "Full-Stack data approach"},
+        {"item": "Speak same language as tech. teams"},
+        {"item": "Agile & problem solver mindset"}
+      ],
+    "Key stack & tools" : [
+        {"item": "R / Python, REST API"},
+        {"item": "SQL, Hive, Cloudera"},
+        {"item": "Power.BI"},
+        {"item": "Data Galaxy"},
+        {"item": "Azure, GCP"}
+      ],
+    "Specific domains": [
+        {"item": "Transportation & logistic"},
+        {"item": "CSR"},
+        {"item": "References: PSA, BMW, Airbus, Alstom, Miele, Claas"}
+      ],
+    "Education & Certifications": [
+        {"item": "Lastest: Generative AI with LLMs"},
+        {"item": "Data Science (Johns Hopkins University)"},
+        {"item": "Automotive Engineer (ESTACA)"}
+      ],
+    "Team management": [
+        {"item": "35 people"},
+        {"item": "Intl. context (France, India, USA)"},
+        {"item": "Transition, career development"}
+      ],
+    "Languages": [
+        {"item": "French (native)"},
+        {"item": "English (fluent)"}
+      ]
+  },
+  "experiences": {
+    "geodis_csr": {
+      "role": "CSR Data Project Manager",
+      "company": "GEODIS",
+      "start": "2022/10",
+      "end": "2023/12",
+      "summary": "Collect CO2 computation data into a datalake<br>Deliver quality dashboard, APIs and data tools<br>Participate to Data Governance.",
+      "tags": "CSR, Logistic, Datalake, Reporting",
+      "pitch": "Within the Corporate Digital & Technology organization and dedicated to CSR activities.",
+      "details": {
+        "Functional": [
+          {"item": "Support CSR & Business Teams with the technical usage of the APIs"},
+          {"item": "Monitor data flow & CO2 emission calculation infrastructure"},
+          {"item": "Capture technical needs linked to emission calculation (ex: low carbon offers)"},
+          {"item": "Follow-up meetings with the teams & external suppliers"}
+        ],
+        "Project Management": [
+          {"item": "Capture the CO2 calculation flow into the Datalake"},
+          {"item": "Deliver a dashboard to monitor the quality of the CO2 computations"},
+          {"item": "Define and implement a common architecture of the CO2 calculation services"},
+          {"item": "Build roadmap & budget, manage priorities, organize steering committees, workshops"}
+        ],
+        "Data & Analysis": [
+          {"item": "Act as a proxy Data Owner, on behalf of the CSR Organization"},
+          {"item": "Develop Datalake ingestion validation script"},
+          {"item": "Perform data analysis to support the businesses and CSR teams"},
+          {"item": "Participate to governance Data Catalog initiative"}
+        ]
+      },
+      "frames": {
+        "specificities": [
+          {"item": "24 x 7 x 365 data flow"},
+          {"item": "High management attention (comex)"}
+        ],
+        "key figures": "56M CO2 calculations / year, 5 lines of Business, 4 regions, 10 systems connected, 4 computation streams",
+        "stack & tools": "Cloudera, HIVE, SQL, Porwer.BI, Azure, API, R, Data Galaxy, EcoTransIT",
+        "deliverables": {
+          "datalake & dashboard": [
+            {"item": "CSR Datalake (100k to 300k ingestions daily)"},
+            {"item": "CSR Data Quality Dashboard (errors & anomalies)"}
+          ],
+          "architecture & tools": [
+            {"item": "Target Architecture (REST API Portal)"},
+            {"item": "2 Tools (Service monitoring, Carbon Compensation Cost)"},
+            {"item": "1 API (low carbon offers support)"}
+          ],
+          "data analysis & governance": [
+            {"item": "Shipment calculation flow analysis (800k dataset)"},
+            {"item": "Data lineage in Data Galaxy"}
+          ]
+        }
+      }
+    },
+    "freelance": {
+      "role": "Technical-functional Data Project Expert",
+      "company": "Freelance",
+      "start": "2020/01",
+      "end": "NA",
+      "summary": "Data Project Management<br>Data Analysis Mentorship @OpenClassrooms<br>Develop APIs, Scripts & Tools.",
+      "tags": "data quality, data analysis, data visualization",
+      "pitch": "As a freelance worker, to maintain a transversal data knowledge that can support both functional & technical sides of complex data projects.",
+      "details": {
+        "Coaching & Training": [
+          {"item": "Mentorship @OpenClassrooms on the Data Analyst program"},
+          {"item": "Support students with projects & exams"},
+          {"item": "Advocate data culture within business organizations"}
+        ],
+        "Data pipelines": [
+          {"item": "Automate data pipelines (collection, cleaning & transformation)"},
+          {"item": "Design & develop APIs"}
+        ],
+        "Tools & Dashboards": [
+          {"item": "Produce data analysis & visualizations"},
+          {"item": "Design & develop tools (Dashboards, Maps, Web apps)"},
+          {"item": "Develop R packages"}
+        ]
+      },
+      "frames": {
+        "specificities": [
+          {"item": "R / Shiny expert"},
+          {"item": "Full-Stack data approach"}
+        ],
+        "key figures": "9.8K visits on data.gouv.fr, 1 graduated student, 40 GitHub repos.",
+        "stack & tools": "R, Shiny, Python, SQL, Docker, GCP, AWS",
+        "deliverables": {
+          "GEODIS": [
+            {"item": "Datalake validation scripts"},
+            {"item": "Monitoring tool (webapp)"},
+            {"item": "CO2 computation flow analysis"}
+          ],
+          "Tools & Apps": [
+            {"item": "Election data visualization tool"},
+            {"item": "ML monitoring dashboard"}
+          ],
+          "R Package": [
+            {"item": "Tabular data management framework"},
+            {"item": "Admin console, demo apps"}
+          ]
+        }
+      }
+    },
+    "ds_qa": {
+      "role": "QA Leader & Transition Manager",
+      "company": "Dassault Systèmes",
+      "start": "2016/01",
+      "end": "2019/12",
+      "summary": "Deliver QA for Data Management & Exchanges products<br>Setup test automation (DevOps)<br>Manage and transform organization.",
+      "tags": "data management, data exchange, quality, transformation",
+      "pitch": "Within the R&D organization, as a QA Leader for Data Management & Exchanges products and Team Manager.",
+      "details": {
+        "QA Leader": [
+          {"item": "Be responsible for the quality of Data Management & Exchanges products"},
+          {"item": "Build and deploy strategies to solve critical program convergence"},
+          {"item": "Implement decision support tools to anticipate program drift"},
+          {"item": "Plan and deploy test automation strategy (DevOps)"}
+        ],
+        "Team Transformation": [
+          {"item": "Transform mission & roles inside the team (to prepare for automation)"},
+          {"item": "Career development (delegate, coach on communication)"},
+          {"item": "Turn team & network culture towards a proactive approach"}
+        ],
+        "Data Project": [
+          {"item": "Analyze root causes why objectives and expectations were not met"},
+          {"item": "Build and deploy a complete change of strategy"},
+          {"item": "Setup a communication process to build support for the project"}
+        ]
+      },
+      "frames": {
+        "specificities": [
+          {"item": "Team management"},
+          {"item": "Transformation"}
+        ],
+        "key figures": "35 people organization, 5 data products",
+        "stack & tools": "ENOVIA, BI, Python, SQL, Sikuli",
+        "deliverables": {
+          "QA Leader": [
+            {"item": "Product & data quality assessments"},
+            {"item": "GO/NOGO for product delivery"}
+          ],
+          "Team & Operations": [
+            {"item": "2 Dashboards (Testers / Managers)"},
+            {"item": "Methodology and KPIs to detect activity drift"}
+          ],
+          "Automation": [
+            {"item": "QA test automation framework"}
+          ]
+        }
+      }
+    },
+    "ds_support": {
+      "role": "Technical Support (Engineer, then Manager)",
+      "company": "Dassault Systèmes",
+      "start": "2002/01",
+      "end": "2015/12",
+      "summary": "Support Customer deployment projects<br>Converge Data Management products (as an Engineer)<br>Converge Data Transition & Exchanges products (as a Manager).",
+      "tags": "data management, data quality, data exchange, deployment",
+      "pitch": "Within the R&D Technical Customer Support, dedicated to Data Management (as an Engineer), then Data Transition & Exchanges products (as a Manager) and assigned to production deployment projects.",
+      "details": {
+        "Functional": [
+          {"item": "Create customer references"},
+          {"item": "Participate in customer workshops to collect business needs"},
+          {"item": "Manage backlog to ensure technical convergence"},
+          {"item": "Participate, then lead a transversal task force to drive product convergence efforts"}
+        ],
+        "Project & Deployment": [
+          {"item": "Participate, then lead follow-up meetings (internal and client)"},
+          {"item": "Manage customer critical situations"},
+          {"item": "Build convergence & recovery plans"},
+          {"item": "Advocate customer & user views to the development teams"}
+        ],
+        "Data Management": [
+          {"item": "Implement data extraction, preparation & processing (transfer & migration)"},
+          {"item": "Setup data processing strategies"},
+          {"item": "Ensure data quality & lifecycle"},
+          {"item": "Analyze and improve performances of the data pipelines"}
+        ]
+      },
+      "frames": {
+        "specificities": [
+          {"item": "Product convergence"},
+          {"item": "High management attention (comex)"}
+        ],
+        "key figures": "7 years as Engineer, 7 years as Manager",
+        "stack & tools": "ENOVIA, Oracle, SQL",
+        "deliverables": {
+          "Products": [
+            {"item": "Technical convergence (maturity)"},
+            {"item": "Documentation of best practices"}
+          ],
+          "Data Exchanges": [
+            {"item": "3 references (Alstom, Claas, Miele)"},
+            {"item": "Annual dashboard (areas for improvement)"}
+          ],
+          "Data Management": [
+            {"item": "1 reference customer (BMW)"},
+            {"item": "Weekly code delivery"}
+          ]
+        }
+      }
+    }
+  }
+}

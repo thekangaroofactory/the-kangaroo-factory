@@ -1,96 +1,72 @@
 
 
-key_takeaways <- function(path, printable = FALSE){
+
+key_takeaways <- function(profile, path = NULL, language = c("en", "fr"), full = FALSE, export = FALSE, printable = FALSE, DEBUG = FALSE){
+  
+  if(DEBUG)
+    cat("[key_takeaways] \n")
+  
+  # -- check argument
+  language <- match.arg(language)
   
   # -- add resource path
-  my_path <- file.path(path, "philippeperet/profile")
-  addResourcePath(prefix = "profile_media", directoryPath = my_path)
+  if(full){
+    my_path <- file.path(path, "philippeperet/profile")
+    addResourcePath(prefix = "profile_media", directoryPath = my_path)}
   
   # -- return
   card(
-    class = paste("p-3 mt-2", ifelse(printable, "", "border-radius bg-contrast")),
+    class = paste("border-radius bg-contrast", ifelse(export, ifelse(full, "mt-5", "mt-0"), "mt-5 p-3")),
     
     # -- title
     card_header(
-      class = "d-flex border-bottom-0",
-      div(
-        class = "flex-column",
-        h2("Key Takeaways"),
-        p(style ="font-style: italic; font-weight: normal;", "One-page profile summary"))),
+      class = "border-bottom-0",
+      
+      if(!export)
+        profile_title(title = profile$title)
+      
+      else
+        tagList(
+          h3(ifelse(language == "en", "Key Takeaways", "Points Clés")),
+          p(style ="font-style: italic; font-weight: normal; margin-bottom: 0rem", 
+            ifelse(language == "en", 
+                   "One-page profile summary", 
+                   "Résumé du profil en une page")))),
+    
     
     # -- content
     layout_columns(
-      col_widths = c(6, 3, 3),
       
       # -- left
       card(
-        class = ifelse(printable, "border-0", ''),
+        class = ifelse(printable, "border-0", "bg-bg"),
         
-        h4("Presentation"),
-        p("Since 2001, it has always been about data projects and technical-functional roles:", br(),
-          "From Data Management, then Data Exchanges & Transformation to Data Analysis & Visualization"),
-        p("I enjoy working with complex data pipelines & carefully designed dashboards."),
-        
-        h4("Career path (20+ XP)"),
-        card(
-          fill = FALSE,
-          img(src = paste0("profile_media/career_path_en", ifelse(printable, "_printable", ''), ".png")))),
-      
+        profile_summary(profile$summary, language = language),
+
       
       # -- middle
       tagList(
         
-        h4("Data Expertise"),
-        tags$ul(
-          tags$li("Management & Governance"),
-          tags$li("Quality"),
-          tags$li("Pipelines & Transformation"),
-          tags$li("Analysis & Visualization")),
+        if(!full && !isRunning())
+          profile_career_path(profile$experiences, language = language)
         
-        h4("Specific skills"),
-        tags$ul(
-          tags$li("Collect & advocate business needs"),
-          tags$li("Full-Stack data approach"),
-          tags$li("Speak same language as tech. teams"),
-          tags$li("Problem solver")),
+        else {
+          
+          tagList(
+            h4(ifelse(language == "en", "Career path (20+ XP)", "Parcours professionnel (20 ans d'expérience)")),  
+            card(
+              fill = FALSE,
+              img(src = paste0("profile_media/career_path_en", ifelse(printable, "_printable", ''), ".png"))
+  
+            ))}
         
-        h4("Specific domains"),
-        tags$ul(
-          tags$li("Transportation & logistic"),
-          tags$li("CSR")),
-        
-        h4("Team management"),
-        tags$ul(
-          tags$li("35 people"))),
+      )),
       
-      # -- right
-      tagList(
-        
-        h4("Key stack"),
-        tags$ul(
-          tags$li("R / Python"),
-          tags$li("SQL")),
-        
-        h4("Key tools"),
-        tags$ul(
-          tags$li("Power.BI"),
-          tags$li("Data Galaxy")),
-        
-        h4("Latest training"),
-        tags$ul(
-          tags$li("Generative AI with LLMs")),
-        
-        h4("Certifications & Degrees"),
-        tags$ul(
-          tags$li("Data Science & Machine Learning"),
-          tags$li("Automotive Engineer (ESTACA)")),
-        
-        h4("Languages"),
-        tags$ul(
-          tags$li("French (native)"),
-          tags$li("English (fluent)")))
+      if(!export && !isRunning())
+        profile_itemize(profile$takeaways)
+      else
+        layout_column_wrap(width = 1/2, !!!profile_itemize(profile$takeaways))
       
     ))
-  
   
 }

@@ -1,11 +1,7 @@
 
 
 download_ui <- function(ns){
-  
-  # -- add resource path
-  my_path <- file.path(path, "philippeperet/profile")
-  addResourcePath(prefix = "profile_media", directoryPath = my_path)
-  
+
   # -- return
   tagList(
     

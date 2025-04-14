@@ -1,0 +1,254 @@
+{
+  "person": {
+    "lastname": "peret",
+    "firstname": "philippe",
+    "location": "Paris, France",
+    "phone": "+33.6.10.48.30.14",
+    "email": "philippe.peret@hotmail.com"
+  },
+  "title": {
+    "main": "chef de projet data senior",
+    "subtitle": "expert data technico-fonctionnel"
+  },
+  "links": [
+    {"name": "linkedin", "icon": "file", "href": "https://www.linkedin.com/in/philippeperet/", "label": "Voir mon profil LinkedIn"}
+    ],
+  "summary": [
+    {"p": "Depuis 2001, j'ai bâti mon expérience sur des projets data et des rôles technico-fonctionnels autour du Data Management, de la qualité et la transformation des données ainsi que la BI."},
+    {"p": "J'apprécie les pipelines de données complexes et des tableaux de bord soigneusement conçus."}
+    ],
+  "takeaways": {
+    "Compétences spécifiques": [
+        {"item": "Collecter et représenter les besoins métiers"},
+        {"item": "Approche data Full-Stack"},
+        {"item": "Parler le même langage que les équipes techniques"},
+        {"item": "Agilité & résolution des problèmes"}
+      ],
+    "Stack & outils clés" : [
+        {"item": "R / Python, API REST"},
+        {"item": "SQL, Hive, Cloudera"},
+        {"item": "Power.BI"},
+        {"item": "Data Galaxy"},
+        {"item": "Azure, GCP"}
+      ],
+    "Domaines Spécifiques": [
+        {"item": "Transports & logistique"},
+        {"item": "RSE"},
+        {"item": "Références clients : PSA, BMW, Airbus, Alstom, Miele, Claas"}
+      ],
+    "Formation & Certifications": [
+        {"item": "La plus récente : Generative AI with LLMs"},
+        {"item": "Data Science (Université Johns Hopkins)"},
+        {"item": "Ingénieur ESTACA (Automobile)"}
+      ],
+    "Management": [
+        {"item": "35 personnes"},
+        {"item": "Contexte intl. (France, Inde, USA)"},
+        {"item": "Transition, développement de carrière"}
+      ],
+    "Langues": [
+        {"item": "Français (natif)"},
+        {"item": "Anglais (C1)"}
+      ]
+  },
+  "experiences": {
+    "geodis_csr": {
+      "role": "Chef de Projet Data / RSE",
+      "company": "GEODIS",
+      "start": "10/2022",
+      "end": "12/2023",
+      "summary": "Livraison d'un datalake RSE (~150k ingestions / jour)<br>Déploiement d'un dashboard qualité, d'une architecture API et de 2 outils data<br>Participation à l'initiative de Data Gouvernance.",
+      "tags": "AMOA, MOE, Logistique, RSE, Datalake, BI",
+      "pitch": "Mission AMOA / MOE au sein de l'organisation Corporate Digital & Technology, dédiée aux activités métiers RSE.",
+      "details": {
+        "Fonctionnel": [
+          {"item": "Supporter les équipes RSE & métiers dans l'utilisation des APIs"},
+          {"item": "Monitorer le flux data & calcul des émissions de CO2"},
+          {"item": "Récolter les besoins liés au calcul d'émission (ex: offres bas carbone)"},
+          {"item": "Assurer les opérations avec les équipes et prestataires externes"}
+        ],
+        "Projet": [
+          {"item": "Capturer le flux de calcul CO2 dans le Datalake"},
+          {"item": "Délivrer un dashboard qualité des calculs d'émission"},
+          {"item": "Définir et implémenter une architecture des services autour du calcul d'émission"},
+          {"item": "Construire roadmap & budget, gérer les priorités, organiser comités de pilotage et ateliers métiers"}
+        ],
+        "Data & Analyse": [
+          {"item": "Agir en tant que proxy Data Owner, au nom de l'organisation RSE"},
+          {"item": "Valider la complétude des ingestions dans le Datalake"},
+          {"item": "Fournir des analyses pour supporter les équipes métiers & RSE"},
+          {"item": "Participater à l'initiative Data Catalog"}
+        ]
+      },
+      "frames": {
+        "specificités": [
+          {"item": "Flux data 24 x 7 x 365"},
+          {"item": "Visibilité comex"}
+        ],
+        "chiffres clés": "56M de calculs CO2 / an, 5 lignes de métier, 4 régions, 10 systèmes connectés, 4 flux de calculs",
+        "stack & tools": "Cloudera, HIVE, SQL, Porwer.BI, Azure, API, R, Data Galaxy, EcoTransIT",
+        "livrables": {
+          "datalake & dashboard": [
+            {"item": "Datalake RSE (100k à 300k ingestions / jour)"},
+            {"item": "Dashboard Qualité RSE (erreurs & anomalies)"}
+          ],
+          "architecture & outils": [
+            {"item": "Architecture cible (Portail API REST / Azure)"},
+            {"item": "2 Outils (Monitoring, Coût de compensation carbone)"},
+            {"item": "1 API (support offres bas carbone)"}
+          ],
+          "data analyse & gouvernance": [
+            {"item": "Analyse du flux de calcul Shipments (dataset 800k lignes)"},
+            {"item": "Lignage Data dans Data Galaxy"}
+          ]
+        }
+      }
+    },
+    "freelance": {
+      "role": "Expert Data Technico-fonctionnel",
+      "company": "Freelance",
+      "start": "01/2020",
+      "end": "NA",
+      "summary": "Management de Projet Data<br>Mentorat Data Analyse @OpenClassrooms<br>Développement d'APIs, Scripts & Outils data.",
+      "tags": "automatisation, data analyse, data visualisation",
+      "pitch": "Activité freelance, pour maintenir une connaissance transversale qui peut soutenir les aspects fonctionnels et techniques de projets data.",
+      "details": {
+        "Coaching & Formation": [
+          {"item": "Mentorat @OpenClassrooms sur le parcours Data Analyste (RNCP Niveau 6)"},
+          {"item": "Promouvoir la culture des données au sein des organisations métiers"}
+        ],
+        "Flux Data": [
+          {"item": "Automatisation des flux de données (collecte, nettoyage & transformation)"},
+          {"item": "Conception et développement d'API"}
+        ],
+        "Outils & Tableaux de bord": [
+          {"item": "Produire des analyses et des visualisations de données"},
+          {"item": "Concevoir et développer des outils (tableaux de bord, cartes, applications Web)"},
+          {"item": "Developpement de package R"}
+        ]
+      },
+      "frames": {
+        "specificités": [
+          {"item": "Expert R / Shiny"},
+          {"item": "Approche data Full-Stack"}
+        ],
+        "chiffres clés": "10k visites sur data.gouv.fr, 1 étudiant diplômé",
+        "stack & outils": "R, Shiny, Python, SQL, Docker, GCP, AWS",
+        "livrables": {
+          "GEODIS": [
+            {"item": "Scripts de validation du Datalake"},
+            {"item": "Outil de Monitoring (webapp)"},
+            {"item": "Analyse des flux de calculs CO2"}
+          ],
+          "Outils & Apps": [
+            {"item": "Outil de visualisation des données électorales"},
+            {"item": "Tableau de bord monitoring IA (sélectionné pour la ShinyConf 2025)"}
+          ],
+          "Package R": [
+            {"item": "Framework de gestion des données tabulaires"},
+            {"item": "Console d'Admin, demo apps"}
+          ]
+        }
+      }
+    },
+    "ds_qa": {
+      "role": "Responsable QA & Senior Manager",
+      "company": "Dassault Systèmes",
+      "start": "01/2016",
+      "end": "12/2019",
+      "summary": "Assurance Qualité d'un portfolio Data Management & Exchanges<br>Livraison d'un framework de tests automatisés (DevOps)<br>Manager et transformer l'organisation (35 pers.).",
+      "tags": "data management, échanges de données, QA, transformation",
+      "pitch": "Au sein de l'organisation R&D, en tant que responsable QA et chef d'équipes.",
+      "details": {
+        "Responsable QA": [
+          {"item": "Assurer la qualité des produits de gestion et d'échange de données"},
+          {"item": "Assurer la convergence des programmes"},
+          {"item": "Mettre en place des outils pour anticiper les dérives"},
+          {"item": "Planifier et déployer une stratégie d'automatisation des tests (DevOps)"}
+        ],
+        "Management & Transformation": [
+          {"item": "Transformer missions et rôles au sein des équipes (preparer à l'automatisation)"},
+          {"item": "Development de carrière (déléguer, coacher sur la communication)"},
+          {"item": "Orienter la culture d'équipe et de réseau vers une approche proactive"}
+        ],
+        "Projet Data": [
+          {"item": "Analyser les causes profondes de non atteinte des objectifs"},
+          {"item": "Construire et déployer un changement complet de stratégie"},
+          {"item": "Mettre en place une communication afin d'augmenter le soutien autour du projet"}
+        ]
+      },
+      "frames": {
+        "specificités": [
+          {"item": "Management d'équipes"},
+          {"item": "Transformation"}
+        ],
+        "chiffres clés": "organisation de 35 personnes, 5 produits data",
+        "stack & outils": "ENOVIA, BI, Python, SQL, Sikuli",
+        "livrables": {
+          "Responsable QA": [
+            {"item": "Evaluations de la qualité des produits & données"},
+            {"item": "Décisions GO/NOGO pour la livraison des produits"}
+          ],
+          "Opérations": [
+            {"item": "2 tableaux de bord (Testeurs / Managers)"},
+            {"item": "Methodologie et KPIs pour détecter les dérapages"}
+          ],
+          "Automatisation": [
+            {"item": "Framework d'automation des tests"}
+          ]
+        }
+      }
+    },
+    "ds_support": {
+      "role": "Support Technique (Ingénieur, puis Manager)",
+      "company": "Dassault Systèmes",
+      "start": "01/2002",
+      "end": "01/2015",
+      "summary": "Supporter les déploiements de projets clients<br>Converger la qualité de produits Data Management (en tant qu'ingénieur)<br>Converger la qualité de produits Data Exchanges (en tant que Manager).",
+      "tags": "data management, qualité, flux de données, déploiement en production",
+      "pitch": "Au sein du Support Technique R&D, dédié aux produits de gestion des données (en tant qu'ingénieur), puis d'échange de données (en tant que manager) et affecté à des projets de déploiement en production.",
+      "details": {
+        "Fonctionnel": [
+          {"item": "Créer des références clients"},
+          {"item": "Participer aux ateliers clients et recueillir leurs besoins"},
+          {"item": "Gérer les backlogs pour assurer la convergence technique"},
+          {"item": "Participer, puis diriger un groupe de travail transversal pour organiser les efforts de convergence"}
+        ],
+        "Projets & Déploiements": [
+          {"item": "Participer, puis animer les réunions de suivi (internes et avec les clients)"},
+          {"item": "Gérer les situations clients critiques"},
+          {"item": "Élaborer des plans de convergence et de reprise"},
+          {"item": "Représenter le point de vue client et utilisateur auprès des équipes techniques"}
+        ],
+        "Data Management": [
+          {"item": "Mettre en oeuvre l'extraction, la préparation et le traitement des données (transfert et migration)"},
+          {"item": "Déploiement de stratégies de traitement des données"},
+          {"item": "Assurer la qualité et le cycle de vie des données"},
+          {"item": "Analyser et améliorer la performance des flux de données"}
+        ]
+      },
+      "frames": {
+        "specificités": [
+          {"item": "Convergence produit"},
+          {"item": "Forte attention hiérarchique (comex)"}
+        ],
+        "chiffres clés": "7 ans / Ingénieur, 7 ans / Manager",
+        "stack & outils": "ENOVIA, Oracle, SQL",
+        "livrables": {
+          "Produits": [
+            {"item": "Convergence technique (maturité)"},
+            {"item": "Documentation des bonnes pratiques"}
+          ],
+          "Echange de données": [
+            {"item": "3 références clients (Alstom, Claas, Miele)"},
+            {"item": "Tableau de bord annuel (domaines d'amélioration)"}
+          ],
+          "Data Management": [
+            {"item": "1 référence client (BMW)"},
+            {"item": "Livraison de code hebdomadaire"}
+          ]
+        }
+      }
+    }
+  }
+}

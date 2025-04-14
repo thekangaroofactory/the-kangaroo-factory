@@ -10,10 +10,14 @@ library(bslib)
 
 
 # -- Set options & privacy level
-printable <- F
 full_resume <- T
 anonymous <- F
 contact <- T
+language <- "en"
+
+# -- set output options
+export <- T
+printable <- F
 
 
 # -- Declare app theme
@@ -24,6 +28,10 @@ app_theme <- bs_theme(
   primary = ifelse(printable, "#000", "#e9dfc7"),
   secondary = ifelse(printable, "#000", "#ececec"),
   base_font = font_google("Quicksand"))
+
+
+# -- read user profile
+profile <- read_profile(path = file.path(path$data, "philippeperet", "profile"), language = language)
 
 
 # -- Build UI
@@ -37,7 +45,8 @@ ui <- page_fluid(
   
   # -- include shared css
   # because the app is not at the root level
-  includeCSS("../www/css/tkf.css"),
+  includeCSS("../www/css/base.css"),
+  includeCSS("../www/css/color_web.css"),
   
   # -- header
   layout_columns(
@@ -45,53 +54,28 @@ ui <- page_fluid(
     fillable = F,
     
     # -- title
-    profile_title(),
+    profile_title(title = profile$title),
     
     # -- identity
-    profile_identity(anonymous = anonymous, contact = contact),
+    profile_identity(person = profile$person, anonymous = anonymous, contact = contact),
     
     # -- links
     if(!anonymous)
-      profile_links()
+      profile_links(language = language)
     
   ),
   
   # -- one pager ---------------------------------------------------------------
-  key_takeaways(path = "../../data", printable),
+  key_takeaways(profile = profile, path = "../../data", language = language, full = full_resume, export = export, printable = printable),
   
   
   # -- Experiences -------------------------------------------------------------
   if(full_resume)
-    
-    tagList(
-      
-      # -- Geodis
-      div(
-        class = "pt-5",
-        style = "page-break-before: always;",
-        experience_geodis()),
-      
-      # -- Freelance
-      div(
-        class = "pt-5",
-        style = "page-break-before: always;",
-        experience_freelance()),
-      
-      # -- DS QA
-      div(
-        class = "pt-5",
-        style = "page-break-before: always;",
-        experience_ds_qa()),
-      
-      # -- DS Support
-      div(
-        class = "pt-5",
-        style = "page-break-before: always;",
-        experience_ds_support())),
+      lapply(profile$experiences, profile_experience, language),
   
   
   # -- footer ------------------------------------------------------------------
-  p(class = "footer", "© 2025 - This document has been generated with R"),
+  # p(class = "footer", "© 2025 - This document has been generated with R"),
   
 )
 

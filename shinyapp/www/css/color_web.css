@@ -7,14 +7,12 @@
 :root {
   
   /* -- colors -- */
+  --tkf-color-bg: #2d3037;
   --tkf-color-light: #d9cec2;
   --tkf-color-contrast: #726d67;
   --tkf-color-accent: #bf906c;
-  --tkf-color-tag: #2d3037;
-  --tkf-color-icon: #726d67;
   
 }
-
 
 
 /* -----------------------------------------------------------------------------
@@ -45,74 +43,43 @@ p:has(+ul) {
 }
 
 
-/* -- buttons -- */
-.btn {
-  
-  border-radius: 25px;
-  
-}
-
-
 /* -----------------------------------------------------------------------------
    Custom classes
 ------------------------------------------------------------------------------*/
 
-/* -- mostly to apply on cards */
+/* -- Background classes -- */
+.bg-bg {
+  
+  background-color: var(--tkf-color-bg);
+  
+}
+
+
 .bg-contrast {
   
   background-color: var(--tkf-color-contrast);
   
 }
 
-/* -- to add space between topics -- */
-.section {
-  
-  margin-top: 7vh;
-  margin-bottom: 5vh;
-  
-}
 
-
-/* -- to tune modal window & content -- */
-.modal-dialog {
+.bg-accent {
   
-  max-width: 90vw;
-  margin: 10vh auto 10vh auto;
-  
-}
-
-.modal-content {
-  
-  padding: 5vw;
-  
-}
-
-
-/* -- to create tags -- */
-.tag {
-  
-  border-radius: 25px;
   background-color: var(--tkf-color-accent);
-  color: var(--tkf-color-tag);
-  width: fit-content;
-  display: inline-block;
+  
+}
+
+
+/* -- Color classes -- */
+.color-bg {
+  
+  color: var(--tkf-color-bg);
   
 }
 
 
 /* -- icons -- */
-.icon {
+.color-contrast {
   
-  font-size: 36px;
-  color: var(--tkf-color-icon);
-  
-}
-
-
-/* -- footer -- */
-.footer {
-  
-  font-size:9pt;
-  margin-top:20px;  
+  color: var(--tkf-color-contrast);
   
 }
