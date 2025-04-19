@@ -77,3 +77,18 @@
   padding: 5vw;
   
 }
+
+
+
+/* -----------------------------------------------------------------------------
+   Custom classes (iframe)
+   This is to make the blog post fit in the app
+------------------------------------------------------------------------------*/
+
+iframe {
+  
+  width: 100%; /* takes precedence over the width set with the HTML width attribute */
+  height: 75vh;
+  
+}
+

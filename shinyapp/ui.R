@@ -92,6 +92,14 @@ page_navbar(
             stack_ui("stack")),
   
   
+  # -- Blog
+  nav_panel(class = "p-5",
+            value = "blog",
+            title = "Blog", 
+            
+            blog_ui()),
+  
+  
   # -- Contact
   nav_panel(class = "p-5",
             value = "contact",
@@ -102,6 +110,34 @@ page_navbar(
             
             h4(class = "section",
                "Links to other platforms"),
-            link_ui("contact"))
+            link_ui("contact")),
+  
+  # -- Spacing
+  nav_spacer(),
+  
+  # -- Links (on the right)
+  nav_item(
+    tags$a(
+      class = "external-link nav-link",
+      'data-value' = "linkedin",
+      href = "https://www.linkedin.com/in/philippeperet/",
+      target = "_blank",
+      icon("linkedin", class = "fa-xl"))),
+  
+  nav_item(
+    tags$a(
+      class = "external-link nav-link",
+      'data-value' = "github",
+      href = "https://github.com/thekangaroofactory",
+      target = "_blank",
+      icon("github", class = "fa-xl"))),
+  
+  nav_item(
+    tags$a(
+      class = "external-link nav-link",
+      'data-value' = "youtube",
+      href = "https://www.youtube.com/@TheKangarooFactory",
+      target = "_blank",
+      icon("youtube", class = "fa-xl")))
   
 ) # page_navbar
