@@ -16,21 +16,21 @@ project_modal_p4 <- function(path){
     
     # -- Project info section
     layout_column_wrap(class = "mt-5",
-                       value_box(class = "border border-light",
+                       value_box(class = "bg-tkf border border-light",
                                  showcase = icon("window-restore"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Project Type",
                                  value = "WebApp",
                                  p("Web application deployed on the cloud")),
                        
-                       value_box(class = "border border-light",
+                       value_box(class = "bg-tkf border border-light",
                                  showcase = icon("hourglass"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Workload",
                                  value = "30 days",
                                  p("Incl. UX design")),
                        
-                       value_box(class = "border border-light",
+                       value_box(class = "bg-tkf border border-light",
                                  showcase = icon("unlock"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Visibility",
@@ -56,7 +56,7 @@ project_modal_p4 <- function(path){
       card(class = "border border-light",
            fill = FALSE,
            card_header("Portfolio"),
-           p("The portfolio module helps to explore & showcase the projects with detailed descriptions.")),
+           p("The portfolio module explores & showcases the projects with detailed descriptions.")),
       
       card(class = "border border-light",
            fill = FALSE,
@@ -81,7 +81,7 @@ project_modal_p4 <- function(path){
     
     # -- Technical stack sub-section
     card(
-      class = "bg-contrast mt-5",
+      class = "bg-tkf mt-5",
       h3("Technical Stack"),
       layout_column_wrap(
         card(
@@ -108,31 +108,16 @@ project_modal_p4 <- function(path){
       card(
         class = "border border-light",
         card_header("Application"),
-        p("The web application is deployed as a Docker container on the Google cloud platform (GCP).")),
+        p("The web application is deployed as a Docker container on the Posit Connect Cloud platform.")),
       card(
         class = "border border-light",
         card_header("Domains"),
-        p("Domain names have been registered at OVH.")),
+        p("Domain names have been registered.")),
       card(
         class = "border border-light",
-        card_header("Design"),
-        p("Application look & feel documents (Graphic Charter & Mockup) have been created and are published on Bēhance."))),
-    
-    
-    # -- Links section
-    card(
-      class = "bg-contrast section",
-      h2("Links"),
-      layout_column_wrap(
-        card(
-          card_header("Bēhance"),
-          p("The project is referenced on Bēhance."),
-          tags$a(
-            'data-value' = "link_p4_behance",
-            "TheKangarooFactory",
-            target = "_blank",
-            href = "https://www.behance.net/gallery/218676055/TheKangarooFactory"))))
-    
+        card_header("Flexibility"),
+        p("The application is designed to allow multiple users/profiles in the future."))),
+
   )
   
 }
