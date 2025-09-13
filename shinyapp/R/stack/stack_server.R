@@ -47,7 +47,7 @@ stack_server <- function(id, user = NULL, path) {
         
         # -- key figures
         card(
-          class = "border-radius bg-contrast p-3 mt-5",
+          class = "border-radius bg-tkf p-3 mt-5",
           
           h3("Key figures"),
           
@@ -57,10 +57,9 @@ stack_server <- function(id, user = NULL, path) {
             # -- R
             tagList(
               p(icon("r-project"), "R"),
-              p("R defines itself as a", span(style = "font-style:italic;", "language and environment for statistical computing and graphics.")),
+              p(a(href = "https://www.r-project.org/", target = "_blank", "R"), "defines itself as a", span(style = "font-style:italic;", "language and environment for statistical computing and graphics.")),
               p("It makes it very powerful at dealing with data transformation, analysis & visualization."),
-              p("It's my first choice language because dataframes are native in R, as well as vectorized alternatives (faster compared to for loops).", br(),
-                "Also R has powerfull graphic systems for data visualization.")),
+              p("It's my first choice language.")),
             
             # -- GitHub languages
             card(
@@ -72,12 +71,12 @@ stack_server <- function(id, user = NULL, path) {
             # -- Python
             tagList(
               p(icon("python"), "Python"),
-              p("Python is the most popular language ( source:", 
+              p(a(href = "https://www.python.org/", target = "_blank", "Python"), "is the most popular language ( source:", 
                 tags$a(href = "https://www.tiobe.com/tiobe-index/", 
                        target = "_blank",
                        "tiobe-index"), ")", br(),
                 "and the default for many projets."),
-              p("I mostly use it for Machine Learning training activities", br(), "(some libraries are not direclty available in R).")))),
+              p("I mostly use it for Machine Learning training & data analysis mentoring activities")))),
         
         
         # -- R section
@@ -90,14 +89,7 @@ stack_server <- function(id, user = NULL, path) {
           
           # -- text
           tagList(
-            p("These are the packages I'm using the most from my R stack"),
-            tags$ul(
-              tags$li("App & dashboard"),
-              tags$li("Data engineering"),
-              tags$li("Data visualization (graphs & maps)"),
-              tags$li("API & database"),
-              tags$li("AI"),
-              tags$li("Test & documentation"))),
+            p("These are the packages I'm using the most from my R stack")),
           
           # -- badges
           layout_column_wrap(
@@ -110,7 +102,6 @@ stack_server <- function(id, user = NULL, path) {
               card_body(
                 tags$span(
                   div(class = "badge tag bg-accent color-bg", "Shiny"),
-                  div(class = "badge tag bg-accent color-bg", "shinydashboard"),
                   div(class = "badge tag bg-accent color-bg", "bslib"),
                   div(class = "badge tag bg-accent color-bg", "DT")))),
             
@@ -123,9 +114,6 @@ stack_server <- function(id, user = NULL, path) {
                 tags$span(
                   div(class = "badge tag bg-accent color-bg", "dplyr"),
                   div(class = "badge tag bg-accent color-bg", "data.table"),
-                  div(class = "badge tag bg-accent color-bg", "lubridate"),
-                  div(class = "badge tag bg-accent color-bg", "RCurl"),
-                  div(class = "badge tag bg-accent color-bg", "jsonlite"),
                   div(class = "badge tag bg-accent color-bg", "geojson")))),
             
             # -- badge group
@@ -146,6 +134,7 @@ stack_server <- function(id, user = NULL, path) {
               card_body(
                 tags$span(
                   div(class = "badge tag bg-accent color-bg", "plumber"),
+                  div(class = "badge tag bg-accent color-bg", "RCurl"),
                   div(class = "badge tag bg-accent color-bg", "DBI"),
                   div(class = "badge tag bg-accent color-bg", "RPostgres")))),
             
@@ -157,7 +146,6 @@ stack_server <- function(id, user = NULL, path) {
               card_body(
                 tags$span(
                   div(class = "badge tag bg-accent color-bg", "keras"),
-                  div(class = "badge tag bg-accent color-bg", "tensorflow"),
                   div(class = "badge tag bg-accent color-bg", "reticulate")))),
             
             # -- badge group
@@ -168,8 +156,7 @@ stack_server <- function(id, user = NULL, path) {
               card_body(
                 tags$span(
                   div(class = "badge tag bg-accent color-bg", "testthat"),
-                  div(class = "badge tag bg-accent color-bg", "quarto"),
-                  div(class = "badge tag bg-accent color-bg", "pkgdown"))))
+                  div(class = "badge tag bg-accent color-bg", "quarto"))))
             
           ) # layout_column_wrap
           
@@ -185,11 +172,7 @@ stack_server <- function(id, user = NULL, path) {
           col_widths = c(4, 8),
           
           # -- text
-          tagList(
-            tags$ul(
-              tags$li("Machine Learning"),
-              tags$li("Scripts & notebooks"),
-              tags$li("GitHub templates"))),
+          "",
           
           # -- badges
           layout_column_wrap(
@@ -197,18 +180,14 @@ stack_server <- function(id, user = NULL, path) {
             # -- badge group
             card(
               class = "border border-light",
-              fill = FALSE,
               card_header("Data engineering"),
               card_body(
                 tags$span(
-                  div(class = "badge tag bg-accent color-bg", "panda"),
-                  div(class = "badge tag bg-accent color-bg", "numpy"),
-                  div(class = "badge tag bg-accent color-bg", "SQLAlchemy")))),
+                  div(class = "badge tag bg-accent color-bg", "panda")))),
             
             # -- badge group
             card(
               class = "border border-light",
-              fill = FALSE,
               card_header("Machine Learning"),
               card_body(
                 tags$span(
@@ -218,7 +197,6 @@ stack_server <- function(id, user = NULL, path) {
             # -- badge group
             card(
               class = "border border-light",
-              fill = FALSE,
               card_header("App & API"),
               card_body(
                 tags$span(
@@ -233,7 +211,7 @@ stack_server <- function(id, user = NULL, path) {
         
         # -- key figures
         card(
-          class = "border-radius bg-contrast p-3 section",
+          class = "border-radius bg-tkf p-3 section",
           
           h3("Data Management"),
           
@@ -293,10 +271,8 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Integration"),
               card_body(
                 tags$span(
-                  div(class = "badge tag bg-accent color-bg", "git"),
                   div(class = "badge tag bg-accent color-bg", "GitHub"),
-                  div(class = "badge tag bg-accent color-bg", "GitLab"),
-                  div(class = "badge tag bg-accent color-bg", "GitHub actions")))),
+                  div(class = "badge tag bg-accent color-bg", "GitLab")))),
             
             # -- badge group
             card(
@@ -360,7 +336,8 @@ stack_server <- function(id, user = NULL, path) {
               card_body(
                 tags$span(
                   div(class = "badge tag bg-accent color-bg", "Render"),
-                  div(class = "badge tag bg-accent color-bg", "Shinyapps"))))
+                  div(class = "badge tag bg-accent color-bg", "Shinyapps"),
+                  div(class = "badge tag bg-accent color-bg", "Posit Connect"))))
             
           ) # layout_column_wrap
         ) # layout_columns
