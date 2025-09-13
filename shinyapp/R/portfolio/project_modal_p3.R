@@ -16,21 +16,21 @@ project_modal_p3 <- function(path){
     
     # -- Project info section
     layout_column_wrap(class = "mt-5",
-                       value_box(class = "border border-light",
+                       value_box(class = "bg-tkf border border-light",
                                  showcase = icon("window-restore"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Project Type",
                                  value = "WebApp",
                                  p("Web application deployed on the cloud")),
                        
-                       value_box(class = "border border-light",
+                       value_box(class = "bg-tkf border border-light",
                                  showcase = icon("check-to-slot"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Views",
-                                 value = "9,8k",
+                                 value = "12k",
                                  p("Source: data.gouv.fr")),
                        
-                       value_box(class = "border border-light",
+                       value_box(class = "bg-tkf border border-light",
                                  showcase = icon("unlock"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Visibility",
@@ -44,34 +44,32 @@ project_modal_p3 <- function(path){
     
     # -- text
     tagList(
-      p("The application displays the performances of a candidate / list on a map.", br(),
-        "User can select the election type, year, turn and the electoral boundaries on which the data should be projected."),
-      p("The datasets have been collected on the", 
+      p("The application features open source datasets that have been collected on the", 
         tags$a(
           "data.gouv.fr",
           target = "_blank",
           href = "https://data.gouv.fr"),
         "platform on which the official election results are published by the French Government.")),
     
-    card(
-      class = "bg-contrast mt-5",
-      h3("Screenshots"),
-      
-      layout_column_wrap(
-        
-        card(
-          fill = FALSE,
-          card_header("Election results"),
-          card_image(
-            src = "project_media/mozaique_idf.jpg",
-            alt = "Project image")),
-        
-        card(
-          fill = FALSE,
-          card_header("Data.gouv.fr Page"),
-          card_image(
-            src = "project_media/screenshot_datagouv.png",
-            alt = "Project image")))),
+    # card(
+    #   class = "bg-tkf mt-5",
+    #   h3("Screenshots"),
+    #   
+    #   layout_column_wrap(
+    #     
+    #     card(
+    #       fill = FALSE,
+    #       card_header("Election results"),
+    #       card_image(
+    #         src = "project_media/mozaique_idf.jpg",
+    #         alt = "Project image")),
+    #     
+    #     card(
+    #       fill = FALSE,
+    #       card_header("Data.gouv.fr Page"),
+    #       card_image(
+    #         src = "project_media/screenshot_datagouv.png",
+    #         alt = "Project image")))),
     
     
     # -- Features section
@@ -81,9 +79,8 @@ project_modal_p3 <- function(path){
       
       card(class = "border border-light",
            fill = FALSE,
-           card_header("Supported elections"),
-           p("The application supports different types of election & electoral boundaries.", br(),
-             "User also selects a list of departements to display for better performances."),
+           card_header("Election types"),
+           p("The application supports different types of election & electoral boundaries."),
            layout_columns(
              tagList(
                p("Election types"),
@@ -100,8 +97,8 @@ project_modal_p3 <- function(path){
       card(class = "border border-light",
            fill = FALSE,
            card_header("Data quality & transformation"),
-           p("The raw datasets are quite clean but still require some operations."),
-           p("In particular, department & city code formats are not homogenized through the different election types."),
+           p("The raw datasets require some operations."),
+           p("In particular, department & city code formats are not homogenized through the different files."),
            p("The transformation also involves matching the election results with the electoral boundaries (geographical data).")),
       
       card(class = "border border-light",
@@ -111,8 +108,8 @@ project_modal_p3 <- function(path){
              src = "project_media/opacity_animation.gif",
              alt = "Project image"),
            p("The application projects the election results for a given candidate / list on selected electoral boundaries."),
-           p("Options are available to tune the performance color and opacity."),
-           p("Also a search input is available to navigate the map (plugged on the OpenStreetMap API)"))),
+           p("Options are available to tune color and opacity."),
+           p("Also a search input is available to navigate the map (plugged on the", a(href = "https://www.openstreetmap.org/", target = "_blank", "OpenStreetMap"), "API)"))),
     
     
     # -- Background section
@@ -126,7 +123,7 @@ project_modal_p3 <- function(path){
     
     # -- Technical stack sub-section
     card(
-      class = "bg-contrast mt-5",
+      class = "bg-tkf mt-5",
       h3("Technical Stack"),
       layout_column_wrap(
         card(
@@ -158,17 +155,21 @@ project_modal_p3 <- function(path){
     layout_column_wrap(
       card(
         class = "border border-light",
+        fill = FALSE,
         card_header("Application"),
-        p("The web application is deployed on a cloud platform.")),
+        p("The web application is delivered as a Docker container.")),
       card(
         class = "border border-light",
         card_header("Visibility"),
-        p("The application is registered on the data.gouv.fr plateform, so that it can be found from the list of reuses as well as the election and boundaries datasets."))),
+        p("The application is registered on the data.gouv.fr plateform, so that it can be found from the list of reuses as well as the election and boundaries datasets."),
+        card_image(
+          src = "project_media/screenshot_datagouv.png",
+          alt = "Project image"))),
     
     
     # -- Links section
     card(
-      class = "bg-contrast section",
+      class = "bg-tkf section",
       h2("Links"),
       layout_column_wrap(
         card(
