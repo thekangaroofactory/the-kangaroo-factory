@@ -8,9 +8,9 @@ portfolio_ui <- function(id){
   # -- return ui
   tagList(
     
-    card(
-      class = "bg-contrast mt-5",
-      p("To open a project description, click the expand button (lower right corner).", br(),
+    div(
+      class = "mt-5",
+      p("To open a project description, click the expand button in the lower right corner.", br(),
         "Use the filter below to select by project type.")),
     
     uiOutput(ns("select_project")),
