@@ -7,5 +7,5 @@ source("shinyapp/ui.R")
 
 # -- create shiny app
 cat("Start app \n")
-shinyApp(ui = ui(), 
-         server = server(input, output, session))
+shinyApp(ui = ui, 
+         server = server)
