@@ -13,79 +13,19 @@ contact_server <- function(id, user = NULL, path) {
     # -- module
     MODULE <- paste0("[", id, "]")
     
-    # -- declare objects
-    path_contact <- reactiveVal(NULL)
-    
     
     # --------------------------------------------------------------------------
     # User
     # --------------------------------------------------------------------------
     
-    # -- Observe user
-    observeEvent(user(), {
-      
-      cat(MODULE, "Set user =", user(), "\n")
-      
-      # -- set path
-      path_contact(file.path(path$data, user(), "contact"))
-      
-    })
+    # -- Path to user data
+    path_contact <- reactive(file.path(path$data, user(), "contact"))
     
     
     # --------------------------------------------------------------------------
     # Outputs
     # --------------------------------------------------------------------------
-    
-    # -- Contact grid
-    output$contact_grid <- renderUI({
-      
-      # -- read user contact file
-      cat(MODULE, "Build contact grid \n")
-      contacts <- read.csv(file = file.path(path_contact(), "contacts.csv"), header = T)
-      
-      # -- helper function
-      helper <- function(x){
-        
-        # -- cast to list (to use $)
-        x <- as.list(x)
-        
-        # -- return
-        card(
-          class = "border border-light",
-          card_header(x$name),
-          x$description,
-          tags$a(
-            'data-value' = x$name,
-            href = x$link,
-            target = "_blank",
-            x$name))}
-      
-      # -- apply helper
-      cards <- apply(contacts, MARGIN = 1, helper)
-      
-      # -- wrap
-      contact_wrapper <- if(length(cards) > 1)
-        do.call(layout_column_wrap, c(list(class = "mt-5"), unname(cards)))
-      else
-        cards
-      
-      # -- return
-      card(
-        class = "border-radius bg-contrast p-3 mt-5",
-        
-        # -- layout
-        layout_columns(
-          col_widths = c(4, 8),
-          
-          # -- text
-          p("Contact me with an email or a message on LinkedIn."),
-          
-          # -- cards
-          contact_wrapper))
-      
-    })
-    
-    
+
     # -- Links grid
     output$link_grid <- renderUI({
       
