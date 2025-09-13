@@ -38,13 +38,13 @@ service_server <- function(id, user = NULL, path, parent_session) {
     
     # -- Contact button
     observeEvent(input$switch_contact, {
-                 
-                 cat("Switch to contact tab \n")
-                 
-                 # -- Switch nav panel
-                 nav_select(id = "navbar", 
-                            selected = "contact",
-                            session = parent_session)})
+      
+      cat("Switch to contact tab \n")
+      
+      # -- Switch nav panel
+      nav_select(id = "navbar", 
+                 selected = "contact",
+                 session = parent_session)})
     
     
     # --------------------------------------------------------------------------
@@ -58,8 +58,7 @@ service_server <- function(id, user = NULL, path, parent_session) {
       tagList(
         
         h1("Technical-Functional Data Services"),
-        
-        p("Based on a full-stack data approach backed by 20+ years of solid data experience."),
+        p(class="subtitle", "Backed by 24 years of data experience."),
         
         div(
           class = "mt-5",
@@ -70,17 +69,16 @@ service_server <- function(id, user = NULL, path, parent_session) {
         
         # -- section
         card(
-          class = "border-radius bg-contrast p-3 mt-5",
+          class = "border-radius bg-tkf p-3 mt-5",
           h3("Functional Services"),
           
           # -- layout
           layout_column_wrap(
             
             # -- project management
-            card(
-              fill = FALSE,
-              card_header("Data Project Management"),
-              p("Technical-functional approach"),
+            div(
+              class = "ml-5",
+              h4("Data Project Management"),
               tags$ul(
                 tags$li("Understand & advocate business needs"),
                 tags$li("Build strategy, roadmap, budget"),
@@ -91,51 +89,55 @@ service_server <- function(id, user = NULL, path, parent_session) {
             
             # -- data management & governance
             card(
-              fill = FALSE,
-              card_header("Data Management & Governance"),
-              p("Product Data / Lifecycle Management"),
+              card_header("Specificities"),
+              p("Technical-functional approach"),
               tags$ul(
-                tags$li("Data management & lifecycle"),
-                tags$li("Data exchanges"),
-                tags$li("Data flow lineage"))),
+                tags$li("Speak same language as both business & technical teams"),
+                tags$li("Perform technical tasks if/when necessary"),
+                tags$li("Team management experience"))),
             
             # -- data quality & pipelines
             card(
-              fill = FALSE,
-              card_header("Data Quality & Transformation"),
-              p("Build reliable systems"),
+              card_header("Reliable systems"),
+              p("Strong experience in"),
               tags$ul(
-                tags$li("Setup data quality strategy & indicators"),
-                tags$li("Build data pipelines (collection, cleaning, transformation)"),
-                tags$li("Setup automation strategies"))))),
+                tags$li("Data quality"),
+                tags$li("Reproducible pipelines (collection, cleaning, transformation)"))))),
+        
+        div(
+          class = "m-4",
+          h3("Mentoring Services"),
+          p(class = "mt-2",
+            "I provide mentoring services to OpenClassrooms, on the", 
+            a(href = "https://openclassrooms.com/paths/1040-data-analyst", 
+              target = "_blank",
+              "Data Analyst"), 
+            "program.")),
         
         
         card(
-          class = "border-radius bg-contrast p-3 mt-5",
+          class = "border-radius bg-tkf p-3 mt-5",
           h3("Technical Services"),
           
           # -- layout
           layout_column_wrap(
             
-            # -- analysis & visualization
-            card(
-              fill = FALSE,
-              card_header("Data Analysis & Visualizations"),
-              p("Development using the R language"),
+            # -- left
+            div(
+              h4("Development using the R language"),
               tags$ul(
-                tags$li("Produce data analysis & reports"),
-                tags$li("Data analysis mentorship"),
-                tags$li("Build reproducible data visualizations"))),
-        
+                tags$li("Data analysis & visualizations"),
+                tags$li("APIs, dashboards & web applications"),
+                tags$li("Packages & documentation"))),
+            
             # -- apps & tools
             card(
-              fill = FALSE,
-              card_header("Tools & Apps"),
-              p("Development using the R language"),
+              card_header("Best Practices"),
+              p("For better quality, focus on"),
               tags$ul(
-                tags$li("Scripts & APIs"),
-                tags$li("Dashboards & web applications"),
-                tags$li("Packages & documentation")))
+                tags$li("Architecture"),
+                tags$li("Communication workflows"),
+                tags$li("Documentations")))
             
           ))
         
