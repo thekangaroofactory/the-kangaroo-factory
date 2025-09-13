@@ -15,6 +15,7 @@ ui <- function(){
     secondary = "#ececec",
     base_font = font_google("Quicksand"))
   
+  addResourcePath(prefix = "www", directoryPath = "shinyapp/www")
   
   # -- Define application UI
   page_navbar(
@@ -42,8 +43,8 @@ ui <- function(){
       tags$link(rel="shortcut icon", href="./img/favicon_196x196.png"),
       
       # -- css
-      tags$link(rel = "stylesheet", type = "text/css", href = "./css/base.css"),
-      tags$link(rel = "stylesheet", type = "text/css", href = "./css/color_web.css"),
+      tags$link(rel = "stylesheet", type = "text/css", href = "www/css/base.css"),
+      tags$link(rel = "stylesheet", type = "text/css", href = "www/css/color_web.css"),
       
       # -- Google Analytics
       if(GTAG){
