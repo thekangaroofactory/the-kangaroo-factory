@@ -1,5 +1,5 @@
 
-source("R/global.R")
+source("shinyapp/global.R")
 
 # -- create shiny app
 shinyApp(ui = ui(), 
