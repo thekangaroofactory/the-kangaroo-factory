@@ -8,4 +8,4 @@ source("shinyapp/ui.R")
 # -- create shiny app
 cat("Start app \n")
 shinyApp(ui = ui(), 
-         server = server())
+         server = server(input, output, session))
