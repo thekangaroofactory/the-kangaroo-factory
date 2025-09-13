@@ -30,8 +30,9 @@ EXPERIMENTAL <- ifelse(Sys.getenv("EXPERIMENTAL") != "", as.logical(Sys.getenv("
 # ------------------------------------------------------------------------------
 
 # -- init & source code
-for(nm in list.files("R", pattern = "*.R", full.names = T, recursive = T))
+for(nm in list.files("shinyapp/R", pattern = "*.R", full.names = T, recursive = T))
   source(nm)
+cat("Sourced", length(nm), "R files \n")
 rm(nm)
 
 
