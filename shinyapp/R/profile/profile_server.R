@@ -13,9 +13,6 @@ profile_server <- function(id, user = NULL, path) {
     # -- module
     MODULE <- paste0("[", id, "]")
     
-    # -- declare objects
-    path_profile <- reactiveVal(NULL)
-    
     user <- list(firstname = "philippe",
                  lastname = "peret")
 
@@ -24,16 +21,8 @@ profile_server <- function(id, user = NULL, path) {
     # Observers
     # --------------------------------------------------------------------------
     
-    # -- Observe user
-    observeEvent(user(), {
-      
-      cat(MODULE, "Set user =", user(), "\n")
-      
-      # -- set path
-      path_profile(file.path(path$data, user(), "profile"))
-      
-    })
-    
+    # -- user
+    path_profile <- reactive(file.path(path$data, user(), "profile"))
     
     # -- observe accordion_panel
     observeEvent(input$experience,
@@ -168,19 +157,14 @@ profile_server <- function(id, user = NULL, path) {
       # -- read user contact file
       cat(MODULE, "Build user profile \n")
       
+      # -- add resource path
+      addResourcePath(prefix = "profile_media", directoryPath = path_profile())
+      
       # -- return
       tagList(
         
         # -- title / subtitle
-        profile_title(title = user_profile$title),
-        
-        # -- download
-        div(
-          class = "mb-5",
-          actionButton(
-            inputId = ns("download"),
-            class = "gtag",
-            label = "download")),
+        h2("Key Takeaways"),
         
         # -- one pager
         key_takeaways(profile = user_profile, path = path$data, language = "en", full = TRUE),
@@ -188,37 +172,22 @@ profile_server <- function(id, user = NULL, path) {
         
         # -- Experiences
         h2(class = "section",
-           "Experiences"),
+           "Full Resume"),
         
-        p(class = "mb-5",
-          "Click on the titles to expand / collapse experience sections."),
+        # -- download
+        div(
+          class = "mb-5 mt-3",
+          actionButton(
+            inputId = ns("download"),
+            class = "gtag",
+            label = "download")),
         
         accordion(
-          id = ns("experience"),
-          
-          # -- GEODIS
+          open = FALSE,
           accordion_panel(
-            title = "GEODIS | CSR Data Project Manager",
-            value = "exp_geodis",
-            profile_experience(user_profile$experiences$geodis_csr)),
-          
-          # -- Freelance
-          accordion_panel(
-            title = "Freelance | Technical Data Expert",
-            value = "exp_freelance",
-            profile_experience(user_profile$experiences$freelance)),
-          
-          # -- DS QA
-          accordion_panel(
-            title = "Dassault Systèmes | QA Leader, Senior Manager",
-            value = "exp_ds_qa",
-            profile_experience(user_profile$experiences$ds_qa)),
-          
-          # -- DS Support
-          accordion_panel(
-            title = "Dassault Systèmes | L2 Technical Support, Engineer & Manager",
-            value = "exp_ds_support",
-            profile_experience(user_profile$experiences$ds_support))),
+            title = "Click to expand / collapse",
+            value = "resume",
+            tags$iframe(style="height:800px; width:100%", src = "profile_media/Philippe_PERET_full.pdf"))),
         
         
         # -- Certifications & Degrees
@@ -226,7 +195,7 @@ profile_server <- function(id, user = NULL, path) {
            "Certifications & Degree"),
         
         card(
-          class = "border-radius bg-contrast p-3",
+          class = "border-radius bg-tkf p-3",
           
           layout_column_wrap(
             
