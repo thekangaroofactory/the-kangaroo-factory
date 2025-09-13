@@ -16,21 +16,21 @@ project_modal_p2 <- function(path){
     
     # -- Project info section
     layout_column_wrap(class = "mt-5",
-                       value_box(class = "border border-light",
+                       value_box(class = "bg-tkf border border-light",
                                  showcase = icon("box-archive"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Project Type",
                                  value = "Package",
                                  p("R Package available on GitHub")),
                        
-                       value_box(class = "border border-light",
+                       value_box(class = "bg-tkf border border-light",
                                  showcase = icon("file-code"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Code",
                                  value = "1,6k",
                                  p("Lines of code")),
                        
-                       value_box(class = "border border-light",
+                       value_box(class = "bg-tkf border border-light",
                                  showcase = icon("unlock"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Visibility",
@@ -40,7 +40,7 @@ project_modal_p2 <- function(path){
     
     # -- About section
     h2(class = "section",
-       "About the Project / Motivations"),
+       "Motivations"),
     p("When working on a R Shiny project that performs operations based on tabular data, whether it is for data analysis or data visualization, the first milestone in the project is to enable standard data processing.", br(),
       "In many cases, it involves to write code that allows to handle the same set of operations but for different objects, which makes this code hard to reuse in another project."),
     p("The purpose of kitems is to wrap those standard operations into a package that is not dependent on the type of item -", tags$span(style = "font-style: italic;", "something that is part of a list or group of things"), "- to manage."),
@@ -96,7 +96,7 @@ project_modal_p2 <- function(path){
     
     # -- Technical stack sub-section
     card(
-      class = "bg-contrast mt-5",
+      class = "bg-tkf mt-5",
       h3("Technical Stack"),
       layout_column_wrap(
         card(class = "border border-light",
@@ -133,20 +133,20 @@ project_modal_p2 <- function(path){
            fill = FALSE,
            card_header("Package"),
            p("The package is published on GitHub."),
-           p("It can be installed using the install_github function from devtools package.")),
+           p("It can be installed using the", a(href = "https://remotes.r-lib.org/reference/install_github.html", target = "_blank", "install_github"), "function from {remotes} package.")),
       card(class = "border border-light",
            fill = FALSE,
-           card_header("QA"),
+           card_header("Testing"),
            p("QA automation has been delivered through GitHub actions & Codecov.")),
       card(class = "border border-light",
            fill = FALSE,
            card_header("Documentation"),
-           p("Documentation & articles are delivered through the GitHub pages mechanism (with automation)."))),
+           p(a(href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "Documentation"), "& articles are delivered through the GitHub pages mechanism (with automation)."))),
     
     
     # -- Document section
     card(class = "border border-light",
-         card_header("Project documentation"),
+         card_header("Communication supports"),
          p("A set of presentations has been delivered to support the communication around the package."),
          accordion(
            open = FALSE,
@@ -158,7 +158,7 @@ project_modal_p2 <- function(path){
     
     # -- Links section
     card(
-      class = "bg-contrast section",
+      class = "bg-tkf section",
       h2("Links"),
       layout_column_wrap(
         card(fill = FALSE,
