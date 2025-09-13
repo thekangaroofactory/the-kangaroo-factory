@@ -5,7 +5,7 @@
 # ------------------------------------------------------------------------------
 
 # -- Define server logic
-function(input, output, session) {
+server <- function(input, output, session) {
   
   cat("Starting application server... \n")
   
