@@ -71,7 +71,8 @@ portfolio_server <- function(id, user = NULL, path) {
         layout_column_wrap,
         c(
           list(width = "400px",
-               fixed_width = TRUE),
+               fixed_width = TRUE,
+               heights_equal = "row"),
           lapply(idx, function(x) card_project(projects()[x, ], ns, input, path_portfolio()))))
       
     }) |> bindEvent(input$project_type, ignoreNULL = FALSE, ignoreInit = TRUE)
