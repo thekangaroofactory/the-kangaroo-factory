@@ -1,6 +1,6 @@
 
 
-project_modal_p4 <- function(path){
+project_modal_px <- function(path){
 
   # -- add resource path
   my_path <- file.path(path, "philippeperet/portfolio/px")
