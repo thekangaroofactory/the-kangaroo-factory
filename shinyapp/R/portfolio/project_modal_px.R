@@ -1,0 +1,144 @@
+
+
+project_modal_p4 <- function(path){
+
+  # -- add resource path
+  my_path <- file.path(path, "philippeperet/portfolio/px")
+  addResourcePath(prefix = "project_media", directoryPath = my_path)
+  
+  # -- return wrapper
+  tagList(
+    
+    # -- Project header section ------------------------------------------------
+    h1("xxx"),
+    p("xxx"),
+    
+    
+    # -- Project info section
+    layout_column_wrap(class = "mt-5",
+                       value_box(class = "bg-tkf border border-light",
+                                 showcase = icon("window-restore"),
+                                 theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
+                                 title = "Project Type",
+                                 value = "WebApp",
+                                 p("Web application deployed on the cloud")),
+                       
+                       value_box(class = "bg-tkf border border-light",
+                                 showcase = icon("hourglass"),
+                                 theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
+                                 title = "Workload",
+                                 value = "30 days",
+                                 p("Incl. UX design")),
+                       
+                       value_box(class = "bg-tkf border border-light",
+                                 showcase = icon("unlock"),
+                                 theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
+                                 title = "Visibility",
+                                 value = "Public",
+                                 p("The access is public"))),
+    
+    
+    # -- About section ---------------------------------------------------------
+    h2(class = "section",
+       "About the Project"),
+    
+    # -- text
+    tagList(
+      p("The website is a portfolio application to navigate projects & explore profile.", br(),
+        "It's also meant to allow several users / profiles in the future.")),
+    
+
+    # -- Features section ------------------------------------------------------
+    h2(class = "section",
+       "Features"),
+    layout_column_wrap(
+      
+      card(class = "border border-light",
+           fill = FALSE,
+           card_header("Portfolio"),
+           p("The portfolio module explores & showcases the projects with detailed descriptions.")),
+      
+      card(class = "border border-light",
+           fill = FALSE,
+           card_header("Profile & Stack"),
+           p("Dedicated modules manage user profile & technical stack.", br(),
+             "It allows to build & download different versions of resume.")),
+      
+      card(class = "border border-light",
+           fill = FALSE,
+           card_header("Services"),
+           p("The service page shows available consultant services."))),
+    
+    
+    # -- Background section ----------------------------------------------------
+    h2(class = "section",
+       "Background"),
+    
+    # -- Technical stack sub-section
+    h3(class = "mt-5 mb-3",
+       "Architecture"),
+    p("The application has a standard client / server architecture which relies on several module servers (portfolio, profile, services)."),
+    
+    # -- Technical stack sub-section
+    card(
+      class = "bg-tkf mt-5",
+      h3("Technical Stack"),
+      layout_column_wrap(
+        card(
+          card_header("Front-end"),
+          p("UI"),
+          tags$ul(
+            tags$li("R"),
+            tags$li("Shiny"),
+            tags$li("bslib"),
+            tags$li("css, javascript"))),
+        card(
+          card_header("Back-end"),
+          p("Server"),
+          tags$ul(
+            tags$li("R"),
+            tags$li("Shiny"),
+            tags$li("ggplot2"))))),
+    
+    
+    # -- Deliverable section ---------------------------------------------------
+    h2(class = "section",
+       "Deliverables"),
+    layout_column_wrap(
+      card(
+        class = "border border-light",
+        card_header("Application"),
+        p("The web application is deployed as a Docker container on the Posit Connect Cloud platform.")),
+      card(
+        class = "border border-light",
+        card_header("Domains"),
+        p("Domain names have been registered.")),
+      card(
+        class = "border border-light",
+        card_header("Flexibility"),
+        p("The application is designed to allow multiple users/profiles in the future."))),
+    
+    
+    # -- Links section ---------------------------------------------------------
+    card(
+      class = "bg-tkf section",
+      h2("Links"),
+      layout_column_wrap(
+        card(card_header("Repository"),
+             p("The GitHub", icon("github"), "repository of the API."),
+             tags$a(
+               'data-value' = "link_px_xxx",
+               "rain-forecast-data-pipeline",
+               target = "_blank",
+               href = "https://xxx")),
+        card(card_header("Repository"),
+             p("The GitHub", icon("github"), "repository of the Dashboard."),
+             tags$a(
+               'data-value' = "link_px_xxx",
+               "rain-forecast-dashboard",
+               target = "_blank",
+               href = "https://github.com/thekangaroofactory/xxx"))))
+
+  )
+  
+}
