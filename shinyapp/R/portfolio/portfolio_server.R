@@ -73,7 +73,7 @@ portfolio_server <- function(id, user = NULL, path) {
           list(width = "400px",
                fixed_width = TRUE,
                heights_equal = "row"),
-          lapply(idx, function(x) card_project(projects()[x, ], ns, input, path_portfolio()))))
+          lapply(idx, function(x) card_project(projects()[projects()$id == x, ], ns, input, path_portfolio()))))
       
     }) |> bindEvent(input$project_type, ignoreNULL = FALSE, ignoreInit = TRUE)
     

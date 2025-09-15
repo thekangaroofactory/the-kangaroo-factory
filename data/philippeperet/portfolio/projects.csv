@@ -1,12 +1,12 @@
 id,name,type,summary
+8,CSR Dashboard,Dashboard,CO₂ emission calculation quality dashboard delivered to GEODIS.
 1,Rain Forecast Dashboard,Dashboard,ML performance monitoring application.
+9,CSR Datalake,Datalake,Data layer to centralize CO₂ emission calculation data at GEODIS.
 2,Kitems,Package,R Framework to manage tabular data.
+10,CSR API & Tools,API,Set of tools to support CSR business needs at GEODIS.
 3,France Election,Web App,Dynamic election data visualization.
-4,TheKangarooFactory,Web App,Portfolio application.
-5,The Diamond Bay,Website,Photography portfolio.
+11,Data Analyst Mentor,Mentoring,As part of a certified program at OpenClassrooms.
 6,GitHub Client,Web App,Project follow-up application.
 7,Mastersing Communication between Shiny Modules,Book,The art of the communication within modular applications.
-8,CSR Dashboard,Dashboard,CO₂ emission calculation quality dashboard delivered to GEODIS.
-9,CSR Datalake,Datalake,Data layer to centralize CO₂ emission calculation data at GEODIS.
-10,CSR API & Tools,API,Set of tools to support CSR business needs at GEODIS.
-11,Data Analyst Mentor,Mentoring,As part of a certified program at OpenClassrooms.
+4,TheKangarooFactory,Web App,Portfolio application.
+5,The Diamond Bay,Website,Photography portfolio.
