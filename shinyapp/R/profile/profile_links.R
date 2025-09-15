@@ -20,7 +20,7 @@ profile_links <- function(language = c("en", "fr")){
     tooltip(
       tags$a(
         'data-value' = "link_profile_linkedin",
-        icon(class="icon color-accent", "linkedin"),
+        icon(class="icon color-light", "linkedin"),
         target = "_blank",
         href = "https://www.linkedin.com/in/philippeperet/"),
       ifelse(language == "en", "Visit my LinkedIn profile", "Voir mon profil LinkedIn")),
@@ -38,7 +38,7 @@ profile_links <- function(language = c("en", "fr")){
     tooltip(
       tags$a(
         'data-value' = "link_profile_github",
-        icon(class="icon color-accent", "github"),
+        icon(class="icon color-light", "github"),
         target = "_blank",
         href = "https://github.com/thekangaroofactory"),
       ifelse(language == "en", "Explore my GitHub repository", "Explorer mon répertoire GitHub"))
