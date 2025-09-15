@@ -85,7 +85,10 @@ service_server <- function(id, user = NULL, path, parent_session) {
                 tags$li("Converge developemnt backlog"),
                 tags$li("Manage priorities & arbitrations"),
                 tags$li("Organize operations & meetings"),
-                tags$li("Communicate with various audiences"))),
+                tags$li("Communicate with various audiences")),
+              
+              h4("Reference"),
+              p("GEODIS")),
             
             # -- data management & governance
             card(
@@ -109,10 +112,9 @@ service_server <- function(id, user = NULL, path, parent_session) {
           h3("Mentoring Services"),
           p(class = "mt-2",
             "I provide mentoring services to OpenClassrooms, on the", 
-            a(href = "https://openclassrooms.com/paths/1040-data-analyst", 
-              target = "_blank",
-              "Data Analyst"), 
-            "program.")),
+            a(href = "https://openclassrooms.com/paths/1040-data-analyst", target = "_blank", "Data Analyst"), 
+            "program.", br(),
+            "I also had apprentices in my organization at Dassault Systèmes.")),
         
         
         card(
@@ -128,7 +130,11 @@ service_server <- function(id, user = NULL, path, parent_session) {
               tags$ul(
                 tags$li("Data analysis & visualizations"),
                 tags$li("APIs, dashboards & web applications"),
-                tags$li("Packages & documentation"))),
+                tags$li("Packages & documentation")),
+              
+              h4("References"),
+              p("GEODIS, OpenClassrooms, ShinyConf2025 by Appsilon")),
+            
             
             # -- apps & tools
             card(
@@ -137,9 +143,28 @@ service_server <- function(id, user = NULL, path, parent_session) {
               tags$ul(
                 tags$li("Architecture"),
                 tags$li("Communication workflows"),
-                tags$li("Documentations")))
-            
-          ))
+                tags$li("Documentations"))))),
+        
+        div(
+          class = "m-4",
+          
+          h4("Additional References"),
+          p("As an employee of", a(href = "https://www.3ds.com", target = "_blank", "Dassault Systèmes"), "for more than 15 years,", br(),
+            "I also worked with various industries & customers, including:"),
+          tags$ul(
+            tags$li(
+              a(href = "https://www.bmwgroup.com", target = "_blank", "BMW")),
+            tags$li(
+              a(href = "https://www.stellantis.com", target = "_blank", "Stellantis")),
+            tags$li(
+              a(href = "https://www.claas.com", target = "_blank", "Claas")),
+            tags$li(
+              a(href = "https://www.alstom.com", target = "_blank", "Alstom")),
+            tags$li(
+              a(href = "https://www.airbus.com", target = "_blank", "Airbus")),
+            tags$li(
+              a(href = "https://www.miele.com", target = "_blank", "Miele"))))
+          
         
       ) # taglist / return
       
