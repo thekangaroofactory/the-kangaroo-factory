@@ -57,7 +57,7 @@ stack_server <- function(id, user = NULL, path) {
             # -- R
             tagList(
               p(icon("r-project"), "R"),
-              p(a(href = "https://www.r-project.org/", target = "_blank", "R"), "defines itself as a", span(style = "font-style:italic;", "language and environment for statistical computing and graphics.")),
+              p("R defines itself as a", span(style = "font-style:italic;", "language and environment for statistical computing and graphics.")),
               p("It makes it very powerful at dealing with data transformation, analysis & visualization."),
               p("It's my first choice language.")),
             
@@ -71,11 +71,7 @@ stack_server <- function(id, user = NULL, path) {
             # -- Python
             tagList(
               p(icon("python"), "Python"),
-              p(a(href = "https://www.python.org/", target = "_blank", "Python"), "is the most popular language ( source:", 
-                tags$a(href = "https://www.tiobe.com/tiobe-index/", 
-                       target = "_blank",
-                       "tiobe-index"), ")", br(),
-                "and the default for many projets."),
+              p("Python is the most popular general programming language and the default for many projets."),
               p("I mostly use it for Machine Learning training & data analysis mentoring activities")))),
         
         
