@@ -16,21 +16,21 @@ project_modal_p2 <- function(path){
     
     # -- Project info section
     layout_column_wrap(class = "mt-5",
-                       value_box(class = "bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border border-light",
                                  showcase = icon("box-archive"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Project Type",
                                  value = "Package",
                                  p("R Package available on GitHub")),
                        
-                       value_box(class = "bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border border-light",
                                  showcase = icon("file-code"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Code",
                                  value = "1,6k",
                                  p("Lines of code")),
                        
-                       value_box(class = "bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border border-light",
                                  showcase = icon("unlock"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Visibility",
@@ -96,7 +96,7 @@ project_modal_p2 <- function(path){
     
     # -- Technical stack sub-section
     card(
-      class = "bg-camel mt-5",
+      class = "tkf-bg-camel mt-5",
       h3("Technical Stack"),
       layout_column_wrap(
         card(class = "border border-light",
@@ -158,7 +158,7 @@ project_modal_p2 <- function(path){
     
     # -- Links section
     card(
-      class = "bg-camel section",
+      class = "tkf-bg-camel section",
       h2("Links"),
       layout_column_wrap(
         card(fill = FALSE,

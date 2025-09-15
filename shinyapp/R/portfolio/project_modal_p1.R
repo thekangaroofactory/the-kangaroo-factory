@@ -16,21 +16,21 @@ project_modal_p1 <- function(path){
     
     # -- Project info section
     layout_column_wrap(class = "mt-5",
-                       value_box(class = "bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border border-light",
                                  showcase = icon("chart-line"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Project Type",
                                  value = "Dashboard",
                                  p("Web application & API containers deployed on the cloud")),
                        
-                       value_box(class = "bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border border-light",
                                  showcase = icon("hourglass"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Workload",
                                  value = "40 days",
                                  p("Excl. AI model training")),
                        
-                       value_box(class = "bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border border-light",
                                  showcase = icon("unlock"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Visibility",
@@ -88,7 +88,7 @@ project_modal_p1 <- function(path){
     
     # -- Technical stack sub-section
     card(
-      class = "bg-camel section",
+      class = "tkf-bg-camel section",
       h3("Technical Stack"),
       layout_column_wrap(
         card(card_header("Dashboard"),
@@ -138,7 +138,7 @@ project_modal_p1 <- function(path){
     
     # -- Links section
     card(
-      class = "bg-camel section",
+      class = "tkf-bg-camel section",
       h2("Links"),
       layout_column_wrap(
         card(card_header("Repository"),

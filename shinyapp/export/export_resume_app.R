@@ -24,8 +24,8 @@ printable <- F
 app_theme <- bs_theme(
   version = 5,
   bg = ifelse(printable, "#fff", "#2d3037"),
-  fg = ifelse(printable, "#000", "#fff"),
-  primary = ifelse(printable, "#000", "#e9dfc7"),
+  fg = ifelse(printable, "#000", "#ececec"),
+  primary = ifelse(printable, "#000", "#c09f7f"),
   secondary = ifelse(printable, "#000", "#ececec"),
   base_font = font_google("Quicksand"))
 

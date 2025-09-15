@@ -7,69 +7,28 @@
 :root {
   
   /* -- colors -- */
-  --tkf-color-bg: #2d3037;
-  --tkf-color-light: #d9cec2;
-  --tkf-color-contrast: #726d67;
+  --tkf-color-dark: #2d3037;
+  --tkf-color-light: #ececec;
   --tkf-color-accent: #c09f7f;
   
 }
 
 
 /* -----------------------------------------------------------------------------
-   Rules on elements
+   Backgrounds
 ------------------------------------------------------------------------------*/
 
-/* -- specific color on p -- 
-p {
-  
-  color: var(--tkf-color-light);
-  
-} */
-
-
-/* -- specific color on li -- */
-li {
-  
-  color: var(--tkf-color-light);
-  
-}
-
-
-/* -- To select h2 elements that are directly before ul element -- */
-p:has(+ul) {
-  
-  color: var(--bs-secondary);
-  
-}
-
-
-/* -----------------------------------------------------------------------------
-   Custom classes
-------------------------------------------------------------------------------*/
-
-/* -- Background classes -- */
-.bg-bg {
-  
-  background-color: var(--tkf-color-bg);
-  
-}
-
-
-.bg-contrast {
-  
-  background-color: var(--tkf-color-contrast);
-  
+.tkf-bg-dark {
+  background-color: var(--tkf-color-dark);
 }
 
  
-.bg-accent {
-  
+.tkf-bg-accent {
   background-color: var(--tkf-color-accent);
-  
 }
 
 
-.bg-camel {
+.tkf-bg-camel {
   background: #c09f7f;
   background: linear-gradient(
     to bottom right,
@@ -78,17 +37,20 @@ p:has(+ul) {
 }
 
 
-/* -- Color classes -- */
-.color-bg {
-  
-  color: var(--tkf-color-bg);
-  
+/* -----------------------------------------------------------------------------
+   Colors
+------------------------------------------------------------------------------*/
+
+.color-dark {
+  color: var(--tkf-color-dark);
 }
 
 
-/* -- icons -- */
-.color-contrast {
-  
-  color: var(--tkf-color-contrast);
-  
+.color-light {
+  color: var(--tkf-color-light);
+}
+
+
+.color-accent {
+  color: var(--tkf-color-accent);
 }

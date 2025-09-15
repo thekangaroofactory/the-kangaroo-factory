@@ -3,7 +3,7 @@
 contact_ui <- function(id){
   
   card(
-    class = "border-radius bg-camel p-3 mt-5",
+    class = "border-radius tkf-bg-camel p-3 mt-5",
     
     # -- layout
     layout_columns(

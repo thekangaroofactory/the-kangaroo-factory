@@ -16,21 +16,21 @@ project_modal_p10 <- function(path){
     
     # -- Project info section
     layout_column_wrap(class = "mt-5",
-                       value_box(class = "bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border border-light",
                                  showcase = icon("window-restore"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Project Type",
                                  value = "Tools",
                                  p("API & Web apps")),
                        
-                       value_box(class = "bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border border-light",
                                  showcase = icon("toolbox"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Tools",
                                  value = "3",
                                  p("1 API & 2 Apps")),
                        
-                       value_box(class = "bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border border-light",
                                  showcase = icon("lock"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Visibility",
@@ -79,7 +79,7 @@ project_modal_p10 <- function(path){
     
     # -- Technical stack sub-section
     card(
-      class = "bg-camel mt-5",
+      class = "tkf-bg-camel mt-5",
       h3("Technical Stack"),
       layout_column_wrap(
         card(

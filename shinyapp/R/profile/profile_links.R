@@ -11,7 +11,7 @@ profile_links <- function(language = c("en", "fr")){
     # tooltip(
     #   tags$a(
     #     'data-value' = "link_profile_tkf",
-    #     icon(class="icon color-contrast", "file"),
+    #     icon(class="icon color-accent", "file"),
     #     target = "_blank",
     #     href = "https://www.thekangaroofactory.com/?user=philippeperet&nav=profile"),
     #   "See online version"),
@@ -20,7 +20,7 @@ profile_links <- function(language = c("en", "fr")){
     tooltip(
       tags$a(
         'data-value' = "link_profile_linkedin",
-        icon(class="icon color-contrast", "linkedin"),
+        icon(class="icon color-accent", "linkedin"),
         target = "_blank",
         href = "https://www.linkedin.com/in/philippeperet/"),
       ifelse(language == "en", "Visit my LinkedIn profile", "Voir mon profil LinkedIn")),
@@ -29,7 +29,7 @@ profile_links <- function(language = c("en", "fr")){
     # tooltip(
     #   tags$a(
     #     'data-value' = "link_portfolio_tkf",
-    #     icon(class="icon color-contrast", "briefcase"),
+    #     icon(class="icon color-accent", "briefcase"),
     #     target = "_blank",
     #     href = "https://www.thekangaroofactory.com/?user=philippeperet&nav=portfolio"),
     #   "Visit my portfolio"),
@@ -38,7 +38,7 @@ profile_links <- function(language = c("en", "fr")){
     tooltip(
       tags$a(
         'data-value' = "link_profile_github",
-        icon(class="icon color-contrast", "github"),
+        icon(class="icon color-accent", "github"),
         target = "_blank",
         href = "https://github.com/thekangaroofactory"),
       ifelse(language == "en", "Explore my GitHub repository", "Explorer mon répertoire GitHub"))

@@ -23,14 +23,14 @@ profile_experience <- function(experience, language = c("en", "fr")){
     
     # -- header section
     card(
-      class = "bg-camel",
+      class = "tkf-bg-camel",
       div(
         
         # -- header content
         h3(experience$role),
         p(class = "subtitle", experience_subtitle(experience, language)),
         p(HTML(experience$pitch)),
-        keywords(experience$tags))),
+        keywords(experience$tags, dark = TRUE))),
     
     
     # -- body section (2 columns)

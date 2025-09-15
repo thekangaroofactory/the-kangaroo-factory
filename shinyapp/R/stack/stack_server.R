@@ -47,7 +47,7 @@ stack_server <- function(id, user = NULL, path) {
         
         # -- key figures
         card(
-          class = "border-radius bg-camel p-3 mt-5",
+          class = "border-radius tkf-bg-camel p-3 mt-5",
           
           h3("Key figures"),
           
@@ -97,9 +97,9 @@ stack_server <- function(id, user = NULL, path) {
               card_header("App & dashboard"),
               card_body(
                 tags$span(
-                  div(class = "badge tag bg-accent color-bg", "Shiny"),
-                  div(class = "badge tag bg-accent color-bg", "bslib"),
-                  div(class = "badge tag bg-accent color-bg", "DT")))),
+                  div(class = "badge tag tkf-bg-accent color-dark", "Shiny"),
+                  div(class = "badge tag tkf-bg-accent color-dark", "bslib"),
+                  div(class = "badge tag tkf-bg-accent color-dark", "DT")))),
             
             # -- badge group
             card(
@@ -108,9 +108,9 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Data engineering"),
               card_body(
                 tags$span(
-                  div(class = "badge tag bg-accent color-bg", "dplyr"),
-                  div(class = "badge tag bg-accent color-bg", "data.table"),
-                  div(class = "badge tag bg-accent color-bg", "geojson")))),
+                  div(class = "badge tag tkf-bg-accent color-dark", "dplyr"),
+                  div(class = "badge tag tkf-bg-accent color-dark", "data.table"),
+                  div(class = "badge tag tkf-bg-accent color-dark", "geojson")))),
             
             # -- badge group
             card(
@@ -119,8 +119,8 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Data visualization"),
               card_body(
                 tags$span(
-                  div(class = "badge tag bg-accent color-bg", "ggplot2"),
-                  div(class = "badge tag bg-accent color-bg", "leaflet")))),
+                  div(class = "badge tag tkf-bg-accent color-dark", "ggplot2"),
+                  div(class = "badge tag tkf-bg-accent color-dark", "leaflet")))),
             
             # -- badge group
             card(
@@ -129,10 +129,10 @@ stack_server <- function(id, user = NULL, path) {
               card_header("API & database"),
               card_body(
                 tags$span(
-                  div(class = "badge tag bg-accent color-bg", "plumber"),
-                  div(class = "badge tag bg-accent color-bg", "RCurl"),
-                  div(class = "badge tag bg-accent color-bg", "DBI"),
-                  div(class = "badge tag bg-accent color-bg", "RPostgres")))),
+                  div(class = "badge tag tkf-bg-accent color-dark", "plumber"),
+                  div(class = "badge tag tkf-bg-accent color-dark", "RCurl"),
+                  div(class = "badge tag tkf-bg-accent color-dark", "DBI"),
+                  div(class = "badge tag tkf-bg-accent color-dark", "RPostgres")))),
             
             # -- badge group
             card(
@@ -141,8 +141,8 @@ stack_server <- function(id, user = NULL, path) {
               card_header("AI"),
               card_body(
                 tags$span(
-                  div(class = "badge tag bg-accent color-bg", "keras"),
-                  div(class = "badge tag bg-accent color-bg", "reticulate")))),
+                  div(class = "badge tag tkf-bg-accent color-dark", "keras"),
+                  div(class = "badge tag tkf-bg-accent color-dark", "reticulate")))),
             
             # -- badge group
             card(
@@ -151,8 +151,8 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Test & documentation"),
               card_body(
                 tags$span(
-                  div(class = "badge tag bg-accent color-bg", "testthat"),
-                  div(class = "badge tag bg-accent color-bg", "quarto"))))
+                  div(class = "badge tag tkf-bg-accent color-dark", "testthat"),
+                  div(class = "badge tag tkf-bg-accent color-dark", "quarto"))))
             
           ) # layout_column_wrap
           
@@ -179,7 +179,7 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Data engineering"),
               card_body(
                 tags$span(
-                  div(class = "badge tag bg-accent color-bg", "panda")))),
+                  div(class = "badge tag tkf-bg-accent color-dark", "panda")))),
             
             # -- badge group
             card(
@@ -187,8 +187,8 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Machine Learning"),
               card_body(
                 tags$span(
-                  div(class = "badge tag bg-accent color-bg", "tensorflow"),
-                  div(class = "badge tag bg-accent color-bg", "keras")))),
+                  div(class = "badge tag tkf-bg-accent color-dark", "tensorflow"),
+                  div(class = "badge tag tkf-bg-accent color-dark", "keras")))),
             
             # -- badge group
             card(
@@ -196,8 +196,8 @@ stack_server <- function(id, user = NULL, path) {
               card_header("App & API"),
               card_body(
                 tags$span(
-                  div(class = "badge tag bg-accent color-bg", "Flask"),
-                  div(class = "badge tag bg-accent color-bg", "FastAPI"))))
+                  div(class = "badge tag tkf-bg-accent color-dark", "Flask"),
+                  div(class = "badge tag tkf-bg-accent color-dark", "FastAPI"))))
             
           ) # layout_column_wrap
         ), # layout_columns
@@ -207,7 +207,7 @@ stack_server <- function(id, user = NULL, path) {
         
         # -- key figures
         card(
-          class = "border-radius bg-camel p-3 section",
+          class = "border-radius tkf-bg-camel p-3 section",
           
           h3("Data Management"),
           
@@ -225,8 +225,8 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Database"),
               card_body(
                 tags$span(
-                  div(class = "badge tag bg-accent color-bg", "PostgreSQL"),
-                  div(class = "badge tag bg-accent color-bg", "Oracle")))),
+                  div(class = "badge tag tkf-bg-accent color-dark", "PostgreSQL"),
+                  div(class = "badge tag tkf-bg-accent color-dark", "Oracle")))),
             
             # -- badge group
             card(
@@ -235,8 +235,8 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Data warehouse"),
               card_body(
                 tags$span(
-                  div(class = "badge tag bg-accent color-bg", "Cloudera"),
-                  div(class = "badge tag bg-accent color-bg", "Hive"))))
+                  div(class = "badge tag tkf-bg-accent color-dark", "Cloudera"),
+                  div(class = "badge tag tkf-bg-accent color-dark", "Hive"))))
             
           )
         ),
@@ -267,8 +267,8 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Integration"),
               card_body(
                 tags$span(
-                  div(class = "badge tag bg-accent color-bg", "GitHub"),
-                  div(class = "badge tag bg-accent color-bg", "GitLab")))),
+                  div(class = "badge tag tkf-bg-accent color-dark", "GitHub"),
+                  div(class = "badge tag tkf-bg-accent color-dark", "GitLab")))),
             
             # -- badge group
             card(
@@ -277,8 +277,8 @@ stack_server <- function(id, user = NULL, path) {
               card_header("QA"),
               card_body(
                 tags$span(
-                  div(class = "badge tag bg-accent color-bg", "GitHub actions"),
-                  div(class = "badge tag bg-accent color-bg", "Codecov"))))
+                  div(class = "badge tag tkf-bg-accent color-dark", "GitHub actions"),
+                  div(class = "badge tag tkf-bg-accent color-dark", "Codecov"))))
             
           ) # layout_column_wrap
         ), # layout_columns
@@ -310,7 +310,7 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Containers"),
               card_body(
                 tags$span(
-                  div(class = "badge tag bg-accent color-bg", "Docker")))),
+                  div(class = "badge tag tkf-bg-accent color-dark", "Docker")))),
             
             # -- badge group
             card(
@@ -319,10 +319,10 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Production"),
               card_body(
                 tags$span(
-                  div(class = "badge tag bg-accent color-bg", "GCP"),
-                  div(class = "badge tag bg-accent color-bg", "Azure"),
-                  div(class = "badge tag bg-accent color-bg", "AWS"),
-                  div(class = "badge tag bg-accent color-bg", "Supabase")))),
+                  div(class = "badge tag tkf-bg-accent color-dark", "GCP"),
+                  div(class = "badge tag tkf-bg-accent color-dark", "Azure"),
+                  div(class = "badge tag tkf-bg-accent color-dark", "AWS"),
+                  div(class = "badge tag tkf-bg-accent color-dark", "Supabase")))),
             
             # -- badge group
             card(
@@ -331,9 +331,9 @@ stack_server <- function(id, user = NULL, path) {
               card_header("Exploration & prototypes"),
               card_body(
                 tags$span(
-                  div(class = "badge tag bg-accent color-bg", "Render"),
-                  div(class = "badge tag bg-accent color-bg", "Shinyapps"),
-                  div(class = "badge tag bg-accent color-bg", "Posit Connect"))))
+                  div(class = "badge tag tkf-bg-accent color-dark", "Render"),
+                  div(class = "badge tag tkf-bg-accent color-dark", "Shinyapps"),
+                  div(class = "badge tag tkf-bg-accent color-dark", "Posit Connect"))))
             
           ) # layout_column_wrap
         ) # layout_columns

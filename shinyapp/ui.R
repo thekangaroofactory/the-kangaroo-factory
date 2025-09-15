@@ -10,8 +10,8 @@ ui <- function(){
   app_theme <- bs_theme(
     version = 5,
     bg = "#2d3037",
-    fg = "#fff",
-    primary = "#e9dfc7",
+    fg = "#ececec",
+    primary = "#c09f7f",
     secondary = "#ececec",
     base_font = font_google("Quicksand"))
   

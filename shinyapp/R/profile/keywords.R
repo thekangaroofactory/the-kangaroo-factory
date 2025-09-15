@@ -6,7 +6,7 @@ keywords <- function(tags, dark = FALSE){
   tags <- trimws(unlist(strsplit(tags, ",", fixed = TRUE)))
   
   # -- check param
-  class <- ifelse(dark, "badge tag bg-bg color-bg", "badge tag bg-accent color-bg")
+  class <- ifelse(dark, "badge tag tkf-bg-dark color-light fw-normal", "badge tag tkf-bg-accent color-dark")
   
   # -- return
   lapply(tags, div, class = class)
