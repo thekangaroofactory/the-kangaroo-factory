@@ -24,7 +24,7 @@ project_modal_p10 <- function(path){
                                  p("API & Web apps")),
                        
                        value_box(class = "bg-tkf border border-light",
-                                 showcase = icon("hourglass"),
+                                 showcase = icon("toolbox"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Tools",
                                  value = "3",
