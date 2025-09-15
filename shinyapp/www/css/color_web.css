@@ -10,7 +10,7 @@
   --tkf-color-bg: #2d3037;
   --tkf-color-light: #d9cec2;
   --tkf-color-contrast: #726d67;
-  --tkf-color-accent: #bf906c;
+  --tkf-color-accent: #c09f7f;
   
 }
 
@@ -19,12 +19,12 @@
    Rules on elements
 ------------------------------------------------------------------------------*/
 
-/* -- specific color on p -- */
+/* -- specific color on p -- 
 p {
   
   color: var(--tkf-color-light);
   
-}
+} */
 
 
 /* -- specific color on li -- */
@@ -61,11 +61,20 @@ p:has(+ul) {
   
 }
 
-
+ 
 .bg-accent {
   
   background-color: var(--tkf-color-accent);
   
+}
+
+
+.bg-camel {
+  background: #c09f7f;
+  background: linear-gradient(
+    to bottom right,
+    #c09f7f,#ba9677,#986e56
+  );
 }
 
 

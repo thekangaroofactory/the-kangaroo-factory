@@ -16,7 +16,7 @@ key_takeaways <- function(profile, path = NULL, language = c("en", "fr"), full =
   
   # -- return
   card(
-    class = paste("border-radius bg-tkf", ifelse(export, ifelse(full, "mt-5", "mt-0"), "mt-5 p-3")),
+    class = paste("border-radius bg-camel", ifelse(export, ifelse(full, "mt-5", "mt-0"), "mt-5 p-3")),
     
     # -- title
     card_header(

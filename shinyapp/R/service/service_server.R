@@ -69,7 +69,7 @@ service_server <- function(id, user = NULL, path, parent_session) {
         
         # -- section
         card(
-          class = "border-radius bg-tkf p-3 mt-5",
+          class = "border-radius bg-camel p-3 mt-5",
           h3("Functional Services"),
           
           # -- layout
@@ -118,7 +118,7 @@ service_server <- function(id, user = NULL, path, parent_session) {
         
         
         card(
-          class = "border-radius bg-tkf p-3 mt-5",
+          class = "border-radius bg-camel p-3 mt-5",
           h3("Technical Services"),
           
           # -- layout

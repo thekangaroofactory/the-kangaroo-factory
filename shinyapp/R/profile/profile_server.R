@@ -195,7 +195,7 @@ profile_server <- function(id, user = NULL, path) {
            "Certifications & Degree"),
         
         card(
-          class = "border-radius bg-tkf p-3",
+          class = "border-radius bg-camel p-3",
           
           layout_column_wrap(
             

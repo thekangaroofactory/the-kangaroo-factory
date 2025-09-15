@@ -16,21 +16,21 @@ project_modal_p3 <- function(path){
     
     # -- Project info section
     layout_column_wrap(class = "mt-5",
-                       value_box(class = "bg-tkf border border-light",
+                       value_box(class = "bg-camel border border-light",
                                  showcase = icon("window-restore"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Project Type",
                                  value = "WebApp",
                                  p("Web application deployed on the cloud")),
                        
-                       value_box(class = "bg-tkf border border-light",
+                       value_box(class = "bg-camel border border-light",
                                  showcase = icon("check-to-slot"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Views",
                                  value = "12k",
                                  p("Source: data.gouv.fr")),
                        
-                       value_box(class = "bg-tkf border border-light",
+                       value_box(class = "bg-camel border border-light",
                                  showcase = icon("unlock"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Visibility",
@@ -52,7 +52,7 @@ project_modal_p3 <- function(path){
         "platform on which the official election results are published by the French Government.")),
     
     # card(
-    #   class = "bg-tkf mt-5",
+    #   class = "bg-camel mt-5",
     #   h3("Screenshots"),
     #   
     #   layout_column_wrap(
@@ -123,7 +123,7 @@ project_modal_p3 <- function(path){
     
     # -- Technical stack sub-section
     card(
-      class = "bg-tkf mt-5",
+      class = "bg-camel mt-5",
       h3("Technical Stack"),
       layout_column_wrap(
         card(
@@ -169,7 +169,7 @@ project_modal_p3 <- function(path){
     
     # -- Links section
     card(
-      class = "bg-tkf section",
+      class = "bg-camel section",
       h2("Links"),
       layout_column_wrap(
         card(

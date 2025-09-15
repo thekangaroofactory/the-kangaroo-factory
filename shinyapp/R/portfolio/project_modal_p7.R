@@ -16,21 +16,21 @@ project_modal_p7 <- function(path){
     
     # -- Project info section
     layout_column_wrap(class = "mt-5",
-                       value_box(class = "bg-tkf border border-light",
+                       value_box(class = "bg-camel border border-light",
                                  showcase = icon("book"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Project Type",
                                  value = "Book",
                                  p("Available online")),
                        
-                       value_box(class = "bg-tkf border border-light",
+                       value_box(class = "bg-camel border border-light",
                                  showcase = icon("github"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Resources",
                                  value = "16",
                                  p("Code templates delivered")),
                        
-                       value_box(class = "bg-tkf border border-light",
+                       value_box(class = "bg-camel border border-light",
                                  showcase = icon("unlock"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Visibility",
@@ -82,7 +82,7 @@ project_modal_p7 <- function(path){
     
     # -- Technical stack sub-section
     card(
-      class = "bg-tkf mt-5",
+      class = "bg-camel mt-5",
       h3("Technical Stack"),
       layout_column_wrap(
         card(
@@ -120,7 +120,7 @@ project_modal_p7 <- function(path){
     
     # -- Links section ---------------------------------------------------------
     card(
-      class = "bg-tkf section",
+      class = "bg-camel section",
       h2("Links"),
       layout_column_wrap(
         card(card_header("Book"),

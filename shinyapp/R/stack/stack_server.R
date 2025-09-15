@@ -47,7 +47,7 @@ stack_server <- function(id, user = NULL, path) {
         
         # -- key figures
         card(
-          class = "border-radius bg-tkf p-3 mt-5",
+          class = "border-radius bg-camel p-3 mt-5",
           
           h3("Key figures"),
           
@@ -211,7 +211,7 @@ stack_server <- function(id, user = NULL, path) {
         
         # -- key figures
         card(
-          class = "border-radius bg-tkf p-3 section",
+          class = "border-radius bg-camel p-3 section",
           
           h3("Data Management"),
           

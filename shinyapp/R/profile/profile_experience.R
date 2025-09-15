@@ -23,7 +23,7 @@ profile_experience <- function(experience, language = c("en", "fr")){
     
     # -- header section
     card(
-      class = "bg-contrast",
+      class = "bg-camel",
       div(
         
         # -- header content
