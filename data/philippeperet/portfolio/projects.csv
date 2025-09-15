@@ -6,5 +6,6 @@ id,name,type,summary
 5,The Diamond Bay,Website,Photography portfolio.
 6,GitHub Client,Web App,Project follow-up application.
 7,Mastersing Communication between Shiny Modules,Book,The art of the communication within modular applications.
-8,CSR Dashboard, Dashboard, CO₂ emission calculation quality dashboard delivered to GEODIS.
-9,CSR Datalake, Datalake, Data layer to centralize CO₂ emission calculation data at GEODIS.
+8,CSR Dashboard, Dashboard,CO₂ emission calculation quality dashboard delivered to GEODIS.
+9,CSR Datalake, Datalake,Data layer to centralize CO₂ emission calculation data at GEODIS.
+10,CSR API & Tools, API,Set of tools to support CSR business needs at GEODIS.
