@@ -13,7 +13,6 @@ app_theme <- bs_theme(
   secondary = "#ececec",
   base_font = font_google("Quicksand"))
 
-# addResourcePath(prefix = "www", directoryPath = "shinyapp/www")
 
 # -- Define application UI
 page_navbar(

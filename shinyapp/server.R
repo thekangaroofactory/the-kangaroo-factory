@@ -57,7 +57,7 @@ function(input, output, session) {
       names(url_parameters) <- lapply(url_search, function(x) x[1])
       
       # -- user
-      if("user" %in% names(url_parameters))
+      if("portfolio" %in% names(url_parameters))
         user(url_parameters$portfolio)
       
       # -- nav
