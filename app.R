@@ -5,5 +5,4 @@ cat("Setup app environment \n")
 source("shinyapp/global.R")
 
 # -- run the app
-cat("Starting app \n")
-runApp("shinyapp")
+shinyAppDir("shinyapp")
