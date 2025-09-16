@@ -1,11 +1,9 @@
 
-# -- source app files
-cat("Source app files \n")
+# -- setup environment
+# app.R approach won't load global.R
+cat("Setup app environment \n")
 source("shinyapp/global.R")
-source("shinyapp/server.R")
-source("shinyapp/ui.R")
 
-# -- create shiny app
-cat("Start app \n")
-shinyApp(ui = ui, 
-         server = server)
+# -- run the app
+cat("Starting app \n")
+runApp("shinyapp")

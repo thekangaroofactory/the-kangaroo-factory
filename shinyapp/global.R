@@ -5,7 +5,7 @@
 # ------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------
-# Load dependencies
+# Dependencies
 # ------------------------------------------------------------------------------
 
 library(shiny)
@@ -16,7 +16,7 @@ library(bslib)
 
 
 # ------------------------------------------------------------------------------
-# Setup environment
+# Environment
 # ------------------------------------------------------------------------------
 
 # -- Debug mode
@@ -31,7 +31,6 @@ EXPERIMENTAL <- ifelse(Sys.getenv("EXPERIMENTAL") != "", as.logical(Sys.getenv("
 
 # -- init & source code
 for(nm in list.files("shinyapp/R", pattern = "*.R", full.names = T, recursive = T)){
-  cat("Sourcing", nm, "\n")
   source(nm)
 }
   
@@ -48,6 +47,3 @@ path <- list(data = file.path(Sys.getenv("PROJECT_HOME"), "data"),
              template = file.path(Sys.getenv("PROJECT_HOME"), "shinyapp/templates"),
              code = file.path(Sys.getenv("PROJECT_HOME"), "shinyapp/R"),
              www = file.path(Sys.getenv("PROJECT_HOME"), "shinyapp/www"))
-
-# -- filenames
-file <- list ()
