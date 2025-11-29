@@ -25,19 +25,16 @@
         {"item": "Agile & problem solver mindset"}
       ],
     "Key stack & tools" : [
-        {"item": "R / Python, REST API"},
-        {"item": "SQL, Hive, Cloudera"},
+        {"item": "R / Python / SQL"},
         {"item": "Power.BI"},
         {"item": "Data Galaxy"},
-        {"item": "Azure, GCP"}
+        {"item": "Azure, Cloudera, GCP"}
       ],
     "Specific domains": [
         {"item": "Transportation & logistic"},
-        {"item": "CSR"},
-        {"item": "References: PSA, BMW, Airbus, Alstom, Miele, Claas"}
+        {"item": "CSR"}
       ],
     "Education & Certifications": [
-        {"item": "Lastest: Generative AI with LLMs"},
         {"item": "Data Science (Johns Hopkins University)"},
         {"item": "Automotive Engineer (ESTACA)"}
       ],
