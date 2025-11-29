@@ -2,16 +2,8 @@
 
 contact_ui <- function(id){
   
-  div(
-    class = "section",
-    
-    # -- email
-    p("Send me an", a(href = "mailto:philippe.peret@hotmail.com", "email")), br(),
-    
-    # -- linkedin
-    actionButton(
-      inputId = "linkedin",
-      label = "linkedin",
-      onclick = paste0("window.open('", "https://www.linkedin.com/in/philippeperet/", "', '_blank')")))
+  p(class = "mt-5",
+    "Feel free to send me an", a(href = "mailto:philippe.peret@hotmail.com", "email"), br(),
+    "In case no email application is defined in your brower, right click the link and copy the email address.")
   
 }
