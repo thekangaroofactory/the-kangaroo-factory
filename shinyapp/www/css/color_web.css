@@ -1,4 +1,30 @@
 
+/* -----------------------------------------------------------------------------
+   Light / dark modes
+------------------------------------------------------------------------------*/
+
+[data-bs-theme="light"] {
+    color-scheme: light;
+    --bs-body-color: #2d3037;
+    --bs-body-bg: #FBF8F6;
+    --bs-link-color: #ba9677;
+    --bs-link-color-rgb: 186,150,119;
+    --bs-link-hover-color: #986e56;
+    --bs-link-hover-color-rgb: 152,110,86;
+    --bs-tertiary-bg: #DECAB7;
+}
+
+[data-bs-theme="dark"] {
+    color-scheme: dark;
+    --bs-body-color: #fff;
+    --bs-body-bg: #2d3037;
+    --bs-link-color: #ba9677;
+    --bs-link-color-rgb: 186,150,119;
+    --bs-link-hover-color: #986e56;
+    --bs-link-hover-color-rgb: 152,110,86;
+    --bs-tertiary-bg: #A27A64;
+}
+
 
 /* -----------------------------------------------------------------------------
    Variables

@@ -5,12 +5,13 @@
 # ------------------------------------------------------------------------------
 
 # -- Declare theme
+# Comment some properties to support dark mode #104
 app_theme <- bs_theme(
   version = 5,
-  bg = "#2d3037",
-  fg = "#ececec",
+  #bg = "#2d3037",
+  #fg = "#ececec",
   primary = "#c09f7f",
-  secondary = "#ececec",
+  #secondary = "#ececec",
   base_font = font_google("Quicksand"))
 
 
@@ -120,6 +121,10 @@ page_navbar(
             h4(class = "section",
                "Links to other platforms"),
             link_ui("contact")),
+  
+  # -- light / dark mode switch
+  nav_item(
+    input_dark_mode(id = "switch_mode", mode = "dark")),
   
   # -- Spacing
   nav_spacer(),
