@@ -12,7 +12,8 @@ app_theme <- bs_theme(
   #fg = "#ececec",
   primary = "#c09f7f",
   #secondary = "#ececec",
-  base_font = font_google("Quicksand"))
+  base_font = font_google("Quicksand"),
+  font_scale = 17/16)
 
 
 # -- Define application UI
