@@ -16,21 +16,21 @@ project_modal_p2 <- function(path){
     
     # -- Project info section
     layout_column_wrap(class = "mt-5",
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("box-archive"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Project Type",
                                  value = "Package",
                                  p("R Package available on GitHub")),
                        
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("file-code"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Code",
                                  value = "1,6k",
                                  p("Lines of code")),
                        
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("unlock"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Visibility",
@@ -49,7 +49,7 @@ project_modal_p2 <- function(path){
     h2(class = "section",
        "Features"),
     layout_column_wrap(
-      card(class = "border border-light",
+      card(class = "border",
            fill = FALSE,
            card_header("Data model"),
            p("The data model contains the specifications of the items to manage."),
@@ -61,13 +61,13 @@ project_modal_p2 <- function(path){
              tags$li("visibility"),
              tags$li("ordering"))),
       
-      card(class = "border border-light",
+      card(class = "border",
            fill = FALSE,
            card_header("Items"),
            p("Items are stored in a data frame that fits with the data model rules."),
            p("That means the data model is implemented in all functions related to item management.")),
       
-      card(class = "border border-light",
+      card(class = "border",
            fill = FALSE,
            card_header("Inputs & outputs"),
            p("A set of UI components is avaible to interact with the framework directly from an app."),
@@ -77,7 +77,7 @@ project_modal_p2 <- function(path){
              tags$li("Date range input"), 
              tags$li("Standard buttons (create, update, delete)"))),
       
-      card(class = "border border-light",
+      card(class = "border",
            fill = FALSE,
            card_header("Admin console"),
            p("An admin console is delivered as a standalone Shiny app."),
@@ -99,7 +99,7 @@ project_modal_p2 <- function(path){
       class = "tkf-bg-camel mt-5",
       h3("Technical Stack"),
       layout_column_wrap(
-        card(class = "border border-light",
+        card(class = "border",
              fill = FALSE,
              card_header("Framework"),
              p("R Package"),
@@ -108,7 +108,7 @@ project_modal_p2 <- function(path){
                tags$li("Shiny, Shinydashboard"),
                tags$li("ShinyWidgets, DT"),
                tags$li("dplyr"))),
-        card(class = "border border-light",
+        card(class = "border",
              fill = FALSE,
              card_header("Admin console"),
              p("Standelone shiny app"),
@@ -116,7 +116,7 @@ project_modal_p2 <- function(path){
                tags$li("R"),
                tags$li("Shiny"),
                tags$li("Shinydashboard, ShinyWidgets"))),
-        card(class = "border border-light",
+        card(class = "border",
              fill = FALSE,
              card_header("CI / CD"),
              p("Documentation & testing"),
@@ -129,23 +129,23 @@ project_modal_p2 <- function(path){
     h2(class = "section",
        "Deliverables"),
     layout_column_wrap(
-      card(class = "border border-light",
+      card(class = "border",
            fill = FALSE,
            card_header("Package"),
            p("The package is published on GitHub."),
            p("It can be installed using the", a(href = "https://remotes.r-lib.org/reference/install_github.html", target = "_blank", "install_github"), "function from {remotes} package.")),
-      card(class = "border border-light",
+      card(class = "border",
            fill = FALSE,
            card_header("Testing"),
            p("QA automation has been delivered through GitHub actions & Codecov.")),
-      card(class = "border border-light",
+      card(class = "border",
            fill = FALSE,
            card_header("Documentation"),
            p(a(href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "Documentation"), "& articles are delivered through the GitHub pages mechanism (with automation)."))),
     
     
     # -- Document section
-    card(class = "border border-light",
+    card(class = "border",
          card_header("Communication supports"),
          p("A set of presentations has been delivered to support the communication around the package."),
          accordion(

@@ -16,21 +16,21 @@ project_modal_p7 <- function(path){
     
     # -- Project info section
     layout_column_wrap(class = "mt-5",
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("book"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Project Type",
                                  value = "Book",
                                  p("Available online")),
                        
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("github"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Resources",
                                  value = "16",
                                  p("Code templates delivered")),
                        
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("unlock"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Visibility",
@@ -53,7 +53,7 @@ project_modal_p7 <- function(path){
        "Parts"),
     layout_column_wrap(
       
-      card(class = "border border-light",
+      card(class = "border",
            fill = FALSE,
            card_header("Communication"),
            p("The first part of the book deals with the flows of communication."),
@@ -61,7 +61,7 @@ project_modal_p7 <- function(path){
              src = "project_media/screenshot_1.jpg",
              alt = "Screenshot")),
       
-      card(class = "border border-light",
+      card(class = "border",
            fill = FALSE,
            card_header("Architecture"),
            p("The book also delivers a proposal to be used as a base architecture for data oriented applications."),
@@ -105,12 +105,12 @@ project_modal_p7 <- function(path){
        "Deliverables"),
     layout_column_wrap(
       card(
-        class = "border border-light",
+        class = "border",
         fill = FALSE,
         card_header("Book"),
         p("The book is available online.")),
       card(
-        class = "border border-light",
+        class = "border",
         card_header("Templates"),
         p("A GitHub repository is also delivered with all the code examples used in the book."),
         card_image(

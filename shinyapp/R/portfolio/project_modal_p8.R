@@ -16,21 +16,21 @@ project_modal_p8 <- function(path){
     
     # -- Project info section
     layout_column_wrap(class = "mt-5",
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("window-restore"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Project Type",
                                  value = "Dashboard",
                                  p("Power.BI dashboard deployed on Azure")),
                        
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("calculator"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Big data",
                                  value = "56 M",
                                  p("CO₂ calculation per year")),
                        
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("lock"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Visibility",
@@ -59,12 +59,12 @@ project_modal_p8 <- function(path){
     
     layout_column_wrap(
       
-      card(class = "border border-light",
+      card(class = "border",
            fill = FALSE,
            card_header("Errors"),
            p("First objective is to track calculation errors, allowing to identify areas for improvement with top errors and trends.")),
       
-      card(class = "border border-light",
+      card(class = "border",
            fill = FALSE,
            card_header("Anomalies"),
            p("A second objective is to detect anomalies, to improve the overall quality of the calculation."))),
@@ -104,11 +104,11 @@ project_modal_p8 <- function(path){
        "Deliverables"),
     layout_column_wrap(
       card(
-        class = "border border-light",
+        class = "border",
         card_header("Dashboard"),
         p("The dashboard with errors & anomalies, delivered on the Azure cloud platform.")),
       card(
-        class = "border border-light",
+        class = "border",
         card_header("Documents"),
         p("Specs, mockup and communication documents have been created with the CSR business & Power.BI teams to support the project."))),
 

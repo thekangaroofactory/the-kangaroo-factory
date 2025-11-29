@@ -16,21 +16,21 @@ project_modal_p9 <- function(path){
     
     # -- Project info section
     layout_column_wrap(class = "mt-5",
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("window-restore"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Project Type",
                                  value = "Datalake",
                                  p("Cloudera CDP")),
                        
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("database"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Big data",
                                  value = "~ 150k",
                                  p("Daily ingestions")),
                        
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("lock"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Visibility",
@@ -57,12 +57,12 @@ project_modal_p9 <- function(path){
     
     layout_column_wrap(
       
-      card(class = "border border-light",
+      card(class = "border",
            fill = FALSE,
            card_header("Ingestion"),
            p("Scheduled jobs perform the capture & ingestions as the computation flow runs 24 x 7 x 365.")),
       
-      card(class = "border border-light",
+      card(class = "border",
            fill = FALSE,
            card_header("Transformation"),
            p("The data are going through a classic set of raw / technical / functional tables."))),
@@ -102,15 +102,15 @@ project_modal_p9 <- function(path){
        "Deliverables"),
     layout_column_wrap(
       card(
-        class = "border border-light",
+        class = "border",
         card_header("CSR Dalalake"),
         p("The data layer delivered on the Cloudera CDP plateform.")),
       card(
-        class = "border border-light",
+        class = "border",
         card_header("Validation Scripts"),
         p("R scripts to run on SQL extracts as User Acceptance Tests.")),
       card(
-        class = "border border-light",
+        class = "border",
         card_header("Data Analysis"),
         p("An analysis performed with R on a 800k rows dataset."))),
     

@@ -16,21 +16,21 @@ project_modal_p5 <- function(path){
     
     # -- Project info section
     layout_column_wrap(class = "mt-5",
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("window-restore"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Project Type",
                                  value = "Website",
                                  p("Static website")),
                        
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("file"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Page",
                                  value = "1",
                                  p("Landing page")),
                        
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("unlock"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Visibility",
@@ -76,11 +76,11 @@ project_modal_p5 <- function(path){
        "Deliverables"),
     layout_column_wrap(
       card(
-        class = "border border-light",
+        class = "border",
         card_header("Website"),
         p("The website is deployed on Render cloud platform as a static website.")),
       card(
-        class = "border border-light",
+        class = "border",
         card_header("Domain"),
         p("A domain name is registered and redirects to the cloud platform."))),
     

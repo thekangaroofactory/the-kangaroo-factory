@@ -13,7 +13,7 @@ download_ui <- function(ns){
       
       # -- type
       card(
-        class = "border-light",
+        class = "border",
         fill = FALSE,
         card_header("Type"),
         p("Key takeaways will be a one-page document without detailed experiences."),
@@ -26,7 +26,7 @@ download_ui <- function(ns){
       
       # -- anonymous
       card(
-        class = "border-light",
+        class = "border",
         fill = FALSE,
         card_header("Options"),
         p("Set anonymous ON if you want to get a document without the last name, contact info & links to other plateforms."),
@@ -38,7 +38,7 @@ download_ui <- function(ns){
       
       # -- preview
       card(
-        class = "border-light",
+        class = "border",
         fill = FALSE,
         card_header("Preview"),
         uiOutput(ns("download_preview"))))

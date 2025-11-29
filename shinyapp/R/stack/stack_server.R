@@ -92,7 +92,7 @@ stack_server <- function(id, user = NULL, path) {
             
             # -- badge group
             card(
-              class = "border border-light",
+              class = "border",
               fill = FALSE,
               card_header("App & dashboard"),
               card_body(
@@ -103,7 +103,7 @@ stack_server <- function(id, user = NULL, path) {
             
             # -- badge group
             card(
-              class = "border border-light",
+              class = "border",
               fill = FALSE,
               card_header("Data engineering"),
               card_body(
@@ -114,7 +114,7 @@ stack_server <- function(id, user = NULL, path) {
             
             # -- badge group
             card(
-              class = "border border-light",
+              class = "border",
               fill = FALSE,
               card_header("Data visualization"),
               card_body(
@@ -124,7 +124,7 @@ stack_server <- function(id, user = NULL, path) {
             
             # -- badge group
             card(
-              class = "border border-light",
+              class = "border",
               fill = FALSE,
               card_header("API & database"),
               card_body(
@@ -136,7 +136,7 @@ stack_server <- function(id, user = NULL, path) {
             
             # -- badge group
             card(
-              class = "border border-light",
+              class = "border",
               fill = FALSE,
               card_header("AI"),
               card_body(
@@ -146,7 +146,7 @@ stack_server <- function(id, user = NULL, path) {
             
             # -- badge group
             card(
-              class = "border border-light",
+              class = "border",
               fill = FALSE,
               card_header("Test & documentation"),
               card_body(
@@ -175,7 +175,7 @@ stack_server <- function(id, user = NULL, path) {
             
             # -- badge group
             card(
-              class = "border border-light",
+              class = "border",
               card_header("Data engineering"),
               card_body(
                 tags$span(
@@ -183,7 +183,7 @@ stack_server <- function(id, user = NULL, path) {
             
             # -- badge group
             card(
-              class = "border border-light",
+              class = "border",
               card_header("Machine Learning"),
               card_body(
                 tags$span(
@@ -192,7 +192,7 @@ stack_server <- function(id, user = NULL, path) {
             
             # -- badge group
             card(
-              class = "border border-light",
+              class = "border",
               card_header("App & API"),
               card_body(
                 tags$span(
@@ -220,7 +220,7 @@ stack_server <- function(id, user = NULL, path) {
             
             # -- badge group
             card(
-              class = "border border-light",
+              class = "border",
               fill = FALSE,
               card_header("Database"),
               card_body(
@@ -230,7 +230,7 @@ stack_server <- function(id, user = NULL, path) {
             
             # -- badge group
             card(
-              class = "border border-light",
+              class = "border",
               fill = FALSE,
               card_header("Data warehouse"),
               card_body(
@@ -262,7 +262,7 @@ stack_server <- function(id, user = NULL, path) {
             
             # -- badge group
             card(
-              class = "border border-light",
+              class = "border",
               fill = FALSE,
               card_header("Integration"),
               card_body(
@@ -272,7 +272,7 @@ stack_server <- function(id, user = NULL, path) {
             
             # -- badge group
             card(
-              class = "border border-light",
+              class = "border",
               fill = FALSE,
               card_header("QA"),
               card_body(
@@ -305,7 +305,7 @@ stack_server <- function(id, user = NULL, path) {
 
             # -- badge group
             card(
-              class = "border border-light",
+              class = "border",
               fill = FALSE,
               card_header("Containers"),
               card_body(
@@ -314,7 +314,7 @@ stack_server <- function(id, user = NULL, path) {
             
             # -- badge group
             card(
-              class = "border border-light",
+              class = "border",
               fill = FALSE,
               card_header("Production"),
               card_body(
@@ -326,7 +326,7 @@ stack_server <- function(id, user = NULL, path) {
             
             # -- badge group
             card(
-              class = "border border-light",
+              class = "border",
               fill = FALSE,
               card_header("Exploration & prototypes"),
               card_body(

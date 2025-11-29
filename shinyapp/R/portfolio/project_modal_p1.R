@@ -16,21 +16,21 @@ project_modal_p1 <- function(path){
     
     # -- Project info section
     layout_column_wrap(class = "mt-5",
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("chart-line"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Project Type",
                                  value = "Dashboard",
                                  p("Web application & API containers deployed on the cloud")),
                        
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("hourglass"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Workload",
                                  value = "40 days",
                                  p("Excl. AI model training")),
                        
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("unlock"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Visibility",
@@ -51,11 +51,11 @@ project_modal_p1 <- function(path){
     h2(class = "section",
        "Features"),
     layout_column_wrap(
-      card(class = "border border-light",
+      card(class = "border",
            card_header("Data engineering"),
            p("Observations are collected from an external data source, cleaned, prepared and stored into a database."),
            p("The prepared data (observations & predictions) are served by an API to support the dashboard.")),
-      card(class = "border border-light",
+      card(class = "border",
            card_header("Observations"),
            card_image(
              class = "p-3",
@@ -63,7 +63,7 @@ project_modal_p1 <- function(path){
              alt = "Project image"),
            p("It's possible to explore the collected weather observations, using filters to select specific date range."),
            p("Data visualizations have been developped with a highly graphical approach (here rainfall).")),
-      card(class = "border border-light",
+      card(class = "border",
            card_header("Predictions"),
            card_image(
              class = "p-3",
@@ -115,17 +115,17 @@ project_modal_p1 <- function(path){
     h2(class = "section",
        "Deliverables"),
     layout_column_wrap(
-      card(class = "border border-light",
+      card(class = "border",
            card_header("API"),
            p("The API is delivered as a Docker container (GCP).", br(),
            "The underlying PostgreSQL database is hosted on Supabase.")),
-      card(class = "border border-light",
+      card(class = "border",
            card_header("Dashboard"),
            p("The Dashboard web application is also delivered as a Docker container (GCP)."))),
     
     
     # -- Document section
-    card(class = "border border-light",
+    card(class = "border",
          card_header("Documentation"),
          p("Communication supports have also been delivered."),
          accordion(
