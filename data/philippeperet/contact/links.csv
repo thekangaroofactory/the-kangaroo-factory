@@ -1,4 +1,5 @@
 id,name,type,description,link
-1,GitHub,website,My GitHub repository,https://github.com/thekangaroofactory
-5,Data.gouv.fr,website,My Data.gouv.fr profile,https://www.data.gouv.fr/fr/organizations/philippe-peret
-6,YouTube,website,My YouTube channel,https://www.youtube.com/@TheKangarooFactory
+1,LinkedIn,website,My LinkedIn profile,https://www.linkedin.com/in/philippeperet
+2,GitHub,website,My GitHub repository,https://github.com/thekangaroofactory
+3,Data.gouv.fr,website,My Data.gouv.fr profile,https://www.data.gouv.fr/fr/organizations/philippe-peret
+4,YouTube,website,My YouTube channel,https://www.youtube.com/@TheKangarooFactory

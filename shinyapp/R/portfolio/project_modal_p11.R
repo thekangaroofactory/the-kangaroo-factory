@@ -16,21 +16,21 @@ project_modal_p11 <- function(path){
     
     # -- Project info section
     layout_column_wrap(class = "mt-5",
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("window-restore"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Project Type",
                                  value = "Mentoring",
                                  p("Since 2022")),
                        
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("graduation-cap"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Students",
                                  value = "3",
                                  p("One-year support")),
                        
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("unlock"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Visibility",
@@ -53,12 +53,12 @@ project_modal_p11 <- function(path){
        "Activities"),
     layout_column_wrap(
       
-      card(class = "border border-light",
+      card(class = "border",
            fill = FALSE,
            card_header("Projects"),
            p("Support students in working on practical data analysis projects.")),
       
-      card(class = "border border-light",
+      card(class = "border",
            fill = FALSE,
            card_header("Exams"),
            p("Support students during the preparation phase of the exams at the end of each project."))),

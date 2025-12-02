@@ -16,21 +16,21 @@ project_modal_p10 <- function(path){
     
     # -- Project info section
     layout_column_wrap(class = "mt-5",
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("window-restore"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Project Type",
                                  value = "Tools",
                                  p("API & Web apps")),
                        
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("toolbox"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Tools",
                                  value = "3",
                                  p("1 API & 2 Apps")),
                        
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("lock"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Visibility",
@@ -53,17 +53,17 @@ project_modal_p10 <- function(path){
        "Tools"),
     layout_column_wrap(
       
-      card(class = "border border-light",
+      card(class = "border",
            fill = FALSE,
            card_header("REST API"),
            p("A REST API was delivered to support business needs around low carbon offers.")),
       
-      card(class = "border border-light",
+      card(class = "border",
            fill = FALSE,
            card_header("Carbon Compensation"),
            p("A tool requested by one of the Business Unit to compute cost from CO₂ emissions.")),
       
-      card(class = "border border-light",
+      card(class = "border",
            fill = FALSE,
            card_header("Service Monitoring"),
            p("To cover internal IT needs & help monitor the 24 x 7 x 365 service."))),
@@ -103,11 +103,11 @@ project_modal_p10 <- function(path){
     
     layout_column_wrap(
       card(
-        class = "border border-light",
+        class = "border",
         card_header("Architecture"),
         p("The API was delivered along with a target architecture to organize a portfolio of services.")),
       card(
-        class = "border border-light",
+        class = "border",
         card_header("Communication"),
         p("Workshops were organized to mutualize needs (& cost) for the carbon compensation tool.")))
     

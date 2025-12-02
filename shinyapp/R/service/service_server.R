@@ -14,7 +14,7 @@ service_server <- function(id, user = NULL, path, parent_session) {
     MODULE <- paste0("[", id, "]")
     
     # -- declare objects
-    path_stack <- reactiveVal(NULL)
+    # path_stack <- reactiveVal(NULL)
     
     
     # --------------------------------------------------------------------------
@@ -22,14 +22,14 @@ service_server <- function(id, user = NULL, path, parent_session) {
     # --------------------------------------------------------------------------
     
     # -- Observe user
-    observeEvent(user(), {
-      
-      cat(MODULE, "Set user =", user(), "\n")
-      
-      # -- set path
-      path_stack(file.path(path$data, user(), "stack"))
-      
-    })
+    # observeEvent(user(), {
+    #   
+    #   cat(MODULE, "Set user =", user(), "\n")
+    #   
+    #   # -- set path
+    #   path_stack(file.path(path$data, user(), "stack"))
+    #   
+    # })
     
     
     # --------------------------------------------------------------------------
@@ -46,6 +46,26 @@ service_server <- function(id, user = NULL, path, parent_session) {
                  selected = "contact",
                  session = parent_session)})
     
+    # -- Contact button
+    observeEvent(input$switch_project, {
+      
+      cat("Switch to project tab \n")
+      
+      # -- Switch nav panel
+      nav_select(id = "navbar", 
+                 selected = "portfolio",
+                 session = parent_session)})
+    
+    # -- Contact button
+    observeEvent(input$switch_lab, {
+      
+      cat("Switch to lab tab \n")
+      
+      # -- Switch nav panel
+      nav_select(id = "navbar", 
+                 selected = "lab",
+                 session = parent_session)})
+    
     
     # --------------------------------------------------------------------------
     # Outputs
@@ -58,7 +78,7 @@ service_server <- function(id, user = NULL, path, parent_session) {
       tagList(
         
         h1("Technical-Functional Data Services"),
-        p(class="subtitle", "Backed by 24 years of data experience."),
+        p(class="subtitle", "Backed by", as.numeric(format(Sys.Date(), "%Y")) - 2001, "years of data experience."),
         
         div(
           class = "mt-5",
@@ -67,31 +87,26 @@ service_server <- function(id, user = NULL, path, parent_session) {
             inputId = ns("switch_contact"),
             label = "Contact me")),
         
-        # -- section
-        card(
-          class = "border-radius tkf-bg-camel color-dark p-3 mt-5",
-          h3("Functional Services"),
+        
+        # -- layout
+        layout_column_wrap(
+          class = "mt-5",
           
-          # -- layout
-          layout_column_wrap(
+          # -- functional ------------------------------------------------------
+          tagList(
+            h2("Functional Services"),
             
-            # -- project management
-            div(
-              class = "ml-5",
-              h4("Data Project Management"),
-              tags$ul(
-                tags$li("Understand & advocate business needs"),
-                tags$li("Build strategy, roadmap, budget"),
-                tags$li("Converge developemnt backlog"),
-                tags$li("Manage priorities & arbitrations"),
-                tags$li("Organize operations & meetings"),
-                tags$li("Communicate with various audiences")),
-              
-              h4("Reference"),
-              p("GEODIS")),
+            tags$ul(
+              tags$li("Data Projects Management"),
+              tags$li("Transformation"),
+              tags$li("Architecture (portfolio, data flow, QA)")),
+            
+            h3("Reference"),
+            p("GEODIS"),
             
             # -- data management & governance
             card(
+              class = "border-radius tkf-bg-camel color-dark p-3",
               card_header("Specificities"),
               p("Technical-functional approach"),
               tags$ul(
@@ -101,53 +116,74 @@ service_server <- function(id, user = NULL, path, parent_session) {
             
             # -- data quality & pipelines
             card(
+              class = "border-radius tkf-bg-camel color-dark p-3",
               card_header("Reliable systems"),
               p("Strong experience in"),
               tags$ul(
                 tags$li("Data quality"),
-                tags$li("Reproducible pipelines (collection, cleaning, transformation)"))))),
-        
-        div(
-          class = "m-4",
-          h3("Mentoring Services"),
-          p(class = "mt-2",
-            "I provide mentoring services to OpenClassrooms, on the", 
-            a(href = "https://openclassrooms.com/paths/1040-data-analyst", target = "_blank", "Data Analyst"), 
-            "program.")),
-        
-        
-        card(
-          class = "border-radius tkf-bg-camel color-dark p-3 mt-5",
-          h3("Technical Services"),
+                tags$li("Reproducible pipelines (collection, cleaning, transformation)")))),
           
-          # -- layout
-          layout_column_wrap(
+          
+          # -- mentoring -------------------------------------------------------
+          tagList(
+            h2("Mentoring Services"),
             
-            # -- left
-            div(
-              h4("Development using the R language"),
-              tags$ul(
-                tags$li("Data analysis & visualizations"),
-                tags$li("APIs, dashboards & web applications"),
-                tags$li("Packages & documentation")),
-              
-              h4("References"),
-              p("GEODIS, OpenClassrooms, ShinyConf2025 by Appsilon")),
+            tags$ul(
+              tags$li("Coaching & mentoring"),
+              tags$li("Training development"),
+              tags$li("Capitalization / content creation")),
             
+            h3("References"),
+            
+            tags$ul(
+              tags$li("OpenClassrooms (Mentor)", br(),
+                      a(href = "https://openclassrooms.com/paths/1040-data-analyst", target = "_blank", "Data Analyst"), "program"),
+              tags$li(a(href = "https://www.shinyconf.com/", target = "_blank", "ShinyConf2025"), "(Speaker)", br(),
+                      "'Modern shiny dashboard with bslib' session."),
+              tags$li("eBook (Author)", br(),
+                      a(href = "https://thekangaroofactory.github.io/communication-between-shiny-modules/", target = "_blank", "Mastering Communication Between Shiny Modules")))),
+          
+          
+          # -- technical -------------------------------------------------------
+          tagList(
+            h2("Technical Services"),
+            
+            p("Development using the R language:"),
+            tags$ul(
+              tags$li("Data analysis & visualizations"),
+              tags$li("APIs, dashboards & web applications"),
+              tags$li("Packages & documentation")),
+            
+            h3("References"),
+            p("GEODIS, OpenClassrooms, ShinyConf2025 by Appsilon"),
             
             # -- apps & tools
             card(
-              card_header("Best Practices"),
-              p("For better quality, focus on"),
-              tags$ul(
-                tags$li("Architecture"),
-                tags$li("Communication workflows"),
-                tags$li("Documentations"))))),
+              class = "border-radius tkf-bg-camel color-dark p-3",
+              fill = FALSE,
+              card_header("R Package"),
+              p("The {", span(style = "font-weight: bold;", "kitems"), "} package provides a framework to manage data frame items within R / Shiny apps."),
+              p("Visit the", a(style = "color:var(--tkf-color-dark);", href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "website."))),
+            
+            # -- link to portfolio
+            div(
+              class = "mt-5",
+              style = "display: inline-block;",
+              actionButton(
+                class = "gtag",
+                inputId = ns("switch_project"),
+                label = "See projects"),
+              actionButton(
+                class = "gtag",
+                inputId = ns("switch_lab"),
+                label = "See lab")))),
         
+        
+        # -- references --------------------------------------------------------
         div(
-          class = "m-4",
+          class = "mt-5",
           
-          h4("Additional References"),
+          h2("Additional References"),
           p("As an employee of", a(href = "https://www.3ds.com", target = "_blank", "Dassault Systèmes"), "for more than 15 years,", br(),
             "I also worked with various industries & customers, including:",
             a(href = "https://www.bmwgroup.com", target = "_blank", "BMW"),
@@ -156,7 +192,7 @@ service_server <- function(id, user = NULL, path, parent_session) {
             a(href = "https://www.alstom.com", target = "_blank", "Alstom"),
             a(href = "https://www.airbus.com", target = "_blank", "Airbus"),
             a(href = "https://www.miele.com", target = "_blank", "Miele")))
-          
+        
         
       ) # taglist / return
       

@@ -25,6 +25,9 @@ function(input, output, session) {
   # -- portfolio
   portfolio_server(id = "portfolio", user, path)
   
+  # -- lab
+  lab_server(id = "lab", user, path)
+  
   # -- service
   service_server(id = "service", user, path, session)
   

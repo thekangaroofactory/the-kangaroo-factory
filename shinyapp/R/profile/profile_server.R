@@ -164,7 +164,7 @@ profile_server <- function(id, user = NULL, path) {
       tagList(
         
         # -- title / subtitle
-        h2("Key Takeaways"),
+        # h2("Key Takeaways"),
         
         # -- one pager
         key_takeaways(profile = user_profile, path = path$data, language = "en", full = TRUE),

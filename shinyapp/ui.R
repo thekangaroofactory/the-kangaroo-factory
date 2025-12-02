@@ -5,13 +5,15 @@
 # ------------------------------------------------------------------------------
 
 # -- Declare theme
+# Comment some properties to support dark mode #104
 app_theme <- bs_theme(
   version = 5,
-  bg = "#2d3037",
-  fg = "#ececec",
+  #bg = "#2d3037",
+  #fg = "#ececec",
   primary = "#c09f7f",
-  secondary = "#ececec",
-  base_font = font_google("Quicksand"))
+  #secondary = "#ececec",
+  base_font = font_google("Quicksand"),
+  font_scale = 17/16)
 
 
 # -- Define application UI
@@ -64,8 +66,16 @@ page_navbar(
             title = "Portfolio", 
             
             h1("Portfolio"),
-            
             portfolio_ui("portfolio")),
+  
+  
+  # -- Lab
+  nav_panel(class = "p-5",
+            value = "lab",
+            title = "Lab", 
+            
+            h1("The Lab"),
+            lab_ui("lab")),
   
   
   # -- Service
@@ -117,9 +127,13 @@ page_navbar(
             h1("Contacts & Links"),
             contact_ui("contact"),
             
-            h4(class = "section",
+            h2(class = "section",
                "Links to other platforms"),
             link_ui("contact")),
+  
+  # -- light / dark mode switch
+  nav_item(
+    input_dark_mode(id = "switch_mode", mode = "dark")),
   
   # -- Spacing
   nav_spacer(),

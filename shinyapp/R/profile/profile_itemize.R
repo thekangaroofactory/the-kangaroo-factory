@@ -19,7 +19,8 @@ profile_itemize <- function(content, skip = FALSE){
   helper <- function(x, title = NULL){
     
     # -- return
-    tagList(
+    card(
+      class = "border-radius tkf-bg-camel color-dark p-3",
       
       # -- title
       if(!skip)

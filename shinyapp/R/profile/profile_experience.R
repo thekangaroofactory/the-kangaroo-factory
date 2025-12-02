@@ -46,7 +46,7 @@ profile_experience <- function(experience, language = c("en", "fr")){
         
         # -- 1st row
         card(
-          class = "border border-light",
+          class = "border",
           card_header(ktools::toupperfirst(names(experience$frames[1]))),
           card_body(
             profile_itemize(experience$frames[1], skip = T))),
@@ -56,21 +56,21 @@ profile_experience <- function(experience, language = c("en", "fr")){
           
           # -- left
           card(
-            class = "border border-light",
+            class = "border",
             card_header(ktools::toupperfirst(names(experience$frames[2]))),
             card_body(
               tags$span(keywords(experience$frames[[2]])))),
           
           # -- right
           card(
-            class = "border border-light",
+            class = "border",
             card_header(ktools::toupperfirst(names(experience$frames[3]))),
             card_body(
               tags$span(keywords(experience$frames[[3]]))))),
         
         # -- 3rd row
         card(
-          class = "border border-light",
+          class = "border",
           card_header(ktools::toupperfirst(names(experience$frames[4]))),
           card_body(
             profile_itemize(experience$frames[[4]]))))))

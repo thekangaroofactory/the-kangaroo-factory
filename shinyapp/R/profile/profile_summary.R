@@ -14,7 +14,7 @@ profile_summary <- function(summary, language = c("en", "fr")){
   tagList(
     
     # -- title
-    h4(ifelse(language == "en", "Summary", "Présentation")),
+    h3(ifelse(language == "en", "Summary", "Présentation")),
     
     # -- content
     lapply(summary$p, function(x) p(HTML(x))))

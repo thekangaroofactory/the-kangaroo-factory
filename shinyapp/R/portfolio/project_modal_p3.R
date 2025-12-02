@@ -16,21 +16,21 @@ project_modal_p3 <- function(path){
     
     # -- Project info section
     layout_column_wrap(class = "mt-5",
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("window-restore"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Project Type",
                                  value = "WebApp",
                                  p("Web application deployed on the cloud")),
                        
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("check-to-slot"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Views",
                                  value = "12k",
                                  p("Source: data.gouv.fr")),
                        
-                       value_box(class = "tkf-bg-camel border border-light",
+                       value_box(class = "tkf-bg-camel border",
                                  showcase = icon("unlock"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Visibility",
@@ -77,7 +77,7 @@ project_modal_p3 <- function(path){
        "Features"),
     layout_column_wrap(
       
-      card(class = "border border-light",
+      card(class = "border",
            fill = FALSE,
            card_header("Election types"),
            p("The application supports different types of election & electoral boundaries."),
@@ -94,14 +94,14 @@ project_modal_p3 <- function(path){
                  tags$li("Municipality"),
                  tags$li("Legislative district"))))),
       
-      card(class = "border border-light",
+      card(class = "border",
            fill = FALSE,
            card_header("Data quality & transformation"),
            p("The raw datasets require some operations."),
            p("In particular, department & city code formats are not homogenized through the different files."),
            p("The transformation also involves matching the election results with the electoral boundaries (geographical data).")),
       
-      card(class = "border border-light",
+      card(class = "border",
            fill = FALSE,
            card_header("Map"),
            card_image(
@@ -154,12 +154,12 @@ project_modal_p3 <- function(path){
        "Deliverables"),
     layout_column_wrap(
       card(
-        class = "border border-light",
+        class = "border",
         fill = FALSE,
         card_header("Application"),
         p("The web application is delivered as a Docker container.")),
       card(
-        class = "border border-light",
+        class = "border",
         card_header("Visibility"),
         p("The application is registered on the data.gouv.fr plateform, so that it can be found from the list of reuses as well as the election and boundaries datasets."),
         card_image(

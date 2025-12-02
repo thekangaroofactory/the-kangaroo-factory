@@ -18,7 +18,7 @@ card_project <- function(x, ns, input, path_portfolio){
   # -- return project card
   card(
     id = ns(paste0("project_", x$id)),
-    class = "border border-light",
+    class = "border",
     fill = FALSE,
     
     # -- preview
@@ -39,7 +39,7 @@ card_project <- function(x, ns, input, path_portfolio){
         actionButton(inputId = paste0("open_p", x$id),
                      label = NULL,
                      icon = icon("up-right-and-down-left-from-center"),
-                     class = "rounded-pill btn-sm btn-outline-light float-end gtag",
+                     class = "rounded-pill btn-sm float-end gtag",
                      onclick = sprintf('Shiny.setInputValue(\"%s\", this.id, {priority: \"event\"})', 
                                        ns("open_project"))),
         "Open project",
