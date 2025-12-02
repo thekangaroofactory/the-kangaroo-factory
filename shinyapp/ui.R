@@ -66,8 +66,16 @@ page_navbar(
             title = "Portfolio", 
             
             h1("Portfolio"),
-            
             portfolio_ui("portfolio")),
+  
+  
+  # -- Lab
+  nav_panel(class = "p-5",
+            value = "lab",
+            title = "Lab", 
+            
+            h1("The Lab"),
+            lab_ui("lab")),
   
   
   # -- Service
