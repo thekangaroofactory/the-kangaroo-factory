@@ -49,11 +49,21 @@ service_server <- function(id, user = NULL, path, parent_session) {
     # -- Contact button
     observeEvent(input$switch_project, {
       
-      cat("Switch to contact tab \n")
+      cat("Switch to project tab \n")
       
       # -- Switch nav panel
       nav_select(id = "navbar", 
                  selected = "portfolio",
+                 session = parent_session)})
+    
+    # -- Contact button
+    observeEvent(input$switch_lab, {
+      
+      cat("Switch to lab tab \n")
+      
+      # -- Switch nav panel
+      nav_select(id = "navbar", 
+                 selected = "lab",
                  session = parent_session)})
     
     
@@ -87,7 +97,7 @@ service_server <- function(id, user = NULL, path, parent_session) {
             h2("Functional Services"),
             
             tags$ul(
-              tags$li("Data Project Managements"),
+              tags$li("Data Projects Management"),
               tags$li("Transformation"),
               tags$li("Architecture (portfolio, data flow, QA)")),
             
@@ -120,17 +130,17 @@ service_server <- function(id, user = NULL, path, parent_session) {
             
             tags$ul(
               tags$li("Coaching & mentoring"),
-              tags$li("Training"),
-              tags$li("Capitalization")),
+              tags$li("Training development"),
+              tags$li("Capitalization / content creation")),
             
             h3("References"),
             
             tags$ul(
-              tags$li("Mentor @OpenClassrooms", br(),
+              tags$li("OpenClassrooms (Mentor)", br(),
                       a(href = "https://openclassrooms.com/paths/1040-data-analyst", target = "_blank", "Data Analyst"), "program"),
-              tags$li("Speaker at the", a(href = "https://www.shinyconf.com/", target = "_blank", "ShinyConf2025"), br(),
+              tags$li(a(href = "https://www.shinyconf.com/", target = "_blank", "ShinyConf2025"), "(Speaker)", br(),
                       "'Modern shiny dashboard with bslib' session."),
-              tags$li("eBook writer", br(),
+              tags$li("eBook (Author)", br(),
                       a(href = "https://thekangaroofactory.github.io/communication-between-shiny-modules/", target = "_blank", "Mastering Communication Between Shiny Modules")))),
           
           
@@ -158,10 +168,15 @@ service_server <- function(id, user = NULL, path, parent_session) {
             # -- link to portfolio
             div(
               class = "mt-5",
+              style = "display: inline-block;",
               actionButton(
                 class = "gtag",
                 inputId = ns("switch_project"),
-                label = "See projects")),)),
+                label = "See projects"),
+              actionButton(
+                class = "gtag",
+                inputId = ns("switch_lab"),
+                label = "See lab")))),
         
         
         # -- references --------------------------------------------------------
