@@ -144,7 +144,7 @@ service_server <- function(id, user = NULL, path, parent_session) {
               tags$li("APIs, dashboards & web applications"),
               tags$li("Packages & documentation")),
             
-            h4("References"),
+            h3("References"),
             p("GEODIS, OpenClassrooms, ShinyConf2025 by Appsilon"),
             
             # -- apps & tools

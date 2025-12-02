@@ -127,7 +127,7 @@ page_navbar(
             h1("Contacts & Links"),
             contact_ui("contact"),
             
-            h4(class = "section",
+            h2(class = "section",
                "Links to other platforms"),
             link_ui("contact")),
   
