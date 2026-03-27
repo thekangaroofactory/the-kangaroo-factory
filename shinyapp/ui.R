@@ -26,8 +26,8 @@ page_navbar(
   theme = app_theme,
   
   # -- Title
-  title = "Philippe Peret",
-  window_title = "Philippe PERET | TheKangarooFactory",
+  title = "TKF",
+  window_title = "TheKangarooFactory",
   
   # -- header
   header = tags$head(
