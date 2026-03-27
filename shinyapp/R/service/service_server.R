@@ -53,7 +53,7 @@ service_server <- function(id, user = NULL, path, parent_session) {
       
       # -- Switch nav panel
       nav_select(id = "navbar", 
-                 selected = "portfolio",
+                 selected = "projects",
                  session = parent_session)})
     
     # -- Contact button

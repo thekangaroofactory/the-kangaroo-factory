@@ -62,10 +62,10 @@ page_navbar(
   
   # -- Portfolio
   nav_panel(class = "p-5",
-            value = "portfolio",
-            title = "Portfolio", 
+            value = "projects",
+            title = "Projects", 
             
-            h1("Portfolio"),
+            h1("Projects"),
             portfolio_ui("portfolio")),
   
   
