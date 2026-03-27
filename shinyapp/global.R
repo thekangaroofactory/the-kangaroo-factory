@@ -29,12 +29,8 @@ EXPERIMENTAL <- ifelse(Sys.getenv("EXPERIMENTAL") != "", as.logical(Sys.getenv("
 # Source code
 # ------------------------------------------------------------------------------
 
-# -- init & source code
-for(nm in list.files("shinyapp/R", pattern = "*.R", full.names = T, recursive = T)){
-  source(nm)
-}
-  
-rm(nm)
+# -- load code located in R
+ktools::source_code(path = file.path(Sys.getenv("PROJECT_HOME"), "shinyapp/R"))
 
 
 # ------------------------------------------------------------------------------
