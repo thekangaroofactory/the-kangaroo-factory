@@ -16,7 +16,7 @@ h4 { font-size: 1.4rem }
   
   margin-bottom: 10px;
   margin-top: 10px;
-  border-radius: 20px;
+  border-radius: 25px;
   
 }
 
@@ -59,6 +59,13 @@ h4 { font-size: 1.4rem }
   margin-top:20px;  
   
 }
+
+.dimmed {
+  
+  opacity: 0.35;
+  
+}
+
 
 /* -----------------------------------------------------------------------------
    Custom classes (padding)

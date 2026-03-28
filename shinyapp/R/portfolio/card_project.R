@@ -40,7 +40,7 @@ card_project <- function(x, ns, input, path_portfolio){
     card_footer(
         actionButton(inputId = paste0("open_p", x$id),
                      label = "view project",
-                     class = "rounded-pill btn-sm float-end gtag",
+                     class = "rounded-pill btn-sm dimmed float-end gtag",
                      onclick = sprintf('Shiny.setInputValue(\"%s\", this.id, {priority: \"event\"})', 
                                        ns("open_project")))))
   
