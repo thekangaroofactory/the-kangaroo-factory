@@ -44,16 +44,18 @@ page_navbar(
     # -- css
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/base.css"),
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/color_web.css"),
-    
+
     # -- Google Analytics
-    if(GTAG){
-      tagList(
-        includeHTML("./www/html/google-analytics.html"),
-        tags$script(src = "./js/google_tag.js"))}),
+    # if(GTAG){
+    #   tagList(
+    #     includeHTML("./www/html/google-analytics.html"),
+    #     tags$script(src = "./js/google_tag.js"))}
+  
+    ),
   
   # -- footer
   fillable = FALSE,
-  footer = p(class = "footer", "© 2025 TheKangarooFactory"),
+  footer = p(class = "footer", paste("©", format(Sys.Date(), "%Y"), "TheKangarooFactory"),
   
   
   # ----------------------------------------------------------------------------
