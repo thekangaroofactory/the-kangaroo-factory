@@ -37,35 +37,34 @@ portfolio_server <- function(id, user = NULL, path) {
     # --------------------------------------------------------------------------
     
     # -- project list
-    projects <- reactive({
-      
-      # -- read user file
-      cat(MODULE, "Scan user repository \n")
-      read.csv(file = file.path(path_portfolio(), "projects.csv"), header = TRUE)
-      
-    })
+    # scan user repository
+    projects <- reactive(
+      read.csv(file = file.path(path_portfolio(), "projects.csv"), header = TRUE))
+    
+    
+    # -- project cards
+    # intermediate layer to avoid multiple computations
+    c_projects <- reactive(
+      lapply(projects()$id, function(x) card_project(projects()[projects()$id == x, ], ns, input, path_portfolio())))
     
     
     # -- output: select project
     output$select_project <- renderUI(
-      
       selectInput(inputId = ns("project_type"), 
                   label = "Project type", 
-                  choices = projects()$type,
+                  choices = unique(unlist(strsplit(projects()$type, split = " "))),
                   multiple = TRUE))
     
     
     # -- output: project grid
     output$project_grid <- renderUI({
-      
-      cat(MODULE, "Build project grid \n")
-      
-      # -- apply filter
+    
+      # -- get project ids
       idx <- if(is.null(input$project_type))
         projects()$id
       else
-        projects()[projects()$type %in% input$project_type, ]$id
-      
+        projects() |> dplyr::filter(grepl(paste(input$project_type, collapse = "|"), type)) |> dplyr::pull(id)
+
       # -- build & return ui
       do.call(
         layout_column_wrap,
@@ -73,7 +72,7 @@ portfolio_server <- function(id, user = NULL, path) {
           list(width = "400px",
                fixed_width = TRUE,
                heights_equal = "row"),
-          lapply(idx, function(x) card_project(projects()[projects()$id == x, ], ns, input, path_portfolio()))))
+          c_projects()[match(idx, projects()$id)]))
       
     }) |> bindEvent(input$project_type, ignoreNULL = FALSE, ignoreInit = TRUE)
     
