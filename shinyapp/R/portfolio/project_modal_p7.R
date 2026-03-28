@@ -56,9 +56,9 @@ project_modal_p7 <- function(path){
       card(class = "border",
            fill = FALSE,
            card_header("Communication"),
-           p("The first part of the book deals with the flows of communication."),
+           p("The first part of the book deals with the flows of communication inside Shiny apps and explores all objects (input, output, parameters & return values."),
            card_image(
-             src = "project_media/screenshot_1.jpg",
+             src = "project_media/mastering_communication_1.jpg",
              alt = "Screenshot")),
       
       card(class = "border",
@@ -66,19 +66,16 @@ project_modal_p7 <- function(path){
            card_header("Architecture"),
            p("The book also delivers a proposal to be used as a base architecture for data oriented applications."),
            card_image(
-             src = "project_media/screenshot_2.jpg",
+             src = "project_media/mastering_communication_2.jpg",
              alt = "Screenshot"))),
     
     
-    # -- Background section ----------------------------------------------------
+    # -- Architecture section ----------------------------------------------------
     h2(class = "section",
-       "Background"),
-    
-    # -- Technical stack sub-section
-    h3(class = "mt-5 mb-3",
        "Architecture"),
-    p("The layout is based on Quarto and has embedded R code.", br(),
-      "It's built and published automatically based on GitHub actions."),
+    
+    p("The layout is based on Quarto book and has embedded R code.", br(),
+      "It's built (rendered) and published automatically based on GitHub actions, which is a powefull workflow for building documentations."),
     
     # -- Technical stack sub-section
     card(
@@ -114,7 +111,7 @@ project_modal_p7 <- function(path){
         card_header("Templates"),
         p("A GitHub repository is also delivered with all the code examples used in the book."),
         card_image(
-          src = "project_media/screenshot_3.jpg",
+          src = "project_media/mastering_communication_3.jpg",
           alt = "Screenshot"))),
     
     

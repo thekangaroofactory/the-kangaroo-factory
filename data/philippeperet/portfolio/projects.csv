@@ -5,7 +5,7 @@ id,name,type,summary
 2,Kitems,Package,R Framework to manage tabular data within modular apps.
 10,CSR API & Tools,API,Set of tools to support CSR business needs at GEODIS.
 3,France Election,WebApp,Dynamic election data visualization based on public open data.
-11,Data Analyst Mentor,Coaching,As part of a certified program at OpenClassrooms.
+11,Data Analyst Coaching,Coaching,As part of a certified program at OpenClassrooms.
 6,GitHub Client,WebApp,Project follow-up application across GitHub repositories.
 7,Mastersing Communication between Shiny Modules,Book,The art of the communication within modular applications.
 4,TheKangarooFactory,WebApp,Web application including project portfolio and live testing lab.

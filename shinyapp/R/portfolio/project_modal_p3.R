@@ -27,8 +27,8 @@ project_modal_p3 <- function(path){
                                  showcase = icon("check-to-slot"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Views",
-                                 value = "12k",
-                                 p("Source: data.gouv.fr")),
+                                 value = "14.73k",
+                                 p("Source: data.gouv.fr | 03-2026")),
                        
                        value_box(class = "tkf-bg-camel border",
                                  showcase = icon("unlock"),
@@ -43,34 +43,9 @@ project_modal_p3 <- function(path){
        "About the Project"),
     
     # -- text
-    tagList(
-      p("The application features open source datasets that have been collected on the", 
-        tags$a(
-          "data.gouv.fr",
-          target = "_blank",
-          href = "https://data.gouv.fr"),
-        "platform on which the official election results are published by the French Government.")),
-    
-    # card(
-    #   class = "tkf-bg-camel mt-5",
-    #   h3("Screenshots"),
-    #   
-    #   layout_column_wrap(
-    #     
-    #     card(
-    #       fill = FALSE,
-    #       card_header("Election results"),
-    #       card_image(
-    #         src = "project_media/mozaique_idf.jpg",
-    #         alt = "Project image")),
-    #     
-    #     card(
-    #       fill = FALSE,
-    #       card_header("Data.gouv.fr Page"),
-    #       card_image(
-    #         src = "project_media/screenshot_datagouv.png",
-    #         alt = "Project image")))),
-    
+    p("The application features official datasets published by the French Government on the", 
+      tags$a("data.gouv.fr", target = "_blank", href = "https://data.gouv.fr"), "platform.", br(),
+      "There are 10 elections + 2 geographical boundaries datasets behind this tool."),
     
     # -- Features section
     h2(class = "section",

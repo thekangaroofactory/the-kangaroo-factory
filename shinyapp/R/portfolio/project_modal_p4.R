@@ -11,7 +11,7 @@ project_modal_p4 <- function(path){
     
     # -- Project header section
     h1("TheKangarooFactory"),
-    p("Portfolio application"),
+    p("Portfolio & testing lab application"),
     
     
     # -- Project info section
@@ -43,9 +43,8 @@ project_modal_p4 <- function(path){
        "About the Project"),
     
     # -- text
-    tagList(
-      p("The website is a portfolio application to navigate projects & explore profile.", br(),
-        "It's also meant to allow several users / profiles in the future.")),
+    p("The web application is the engine behind thekangaroofactory.com website.", br(),
+      "This enables running R code in the testing lab section (as a server is required)."),
     
 
     # -- Features section
@@ -55,29 +54,27 @@ project_modal_p4 <- function(path){
       
       card(class = "border",
            fill = FALSE,
-           card_header("Portfolio"),
-           p("The portfolio module explores & showcases the projects with detailed descriptions.")),
+           card_header("TheLab"),
+           p("The lab offers live testing capabilities for users to try kitems package features.", br(),
+             "It is also meant to receive additional tools in the future.")),
       
       card(class = "border",
            fill = FALSE,
-           card_header("Profile & Stack"),
-           p("Dedicated modules manage user profile & technical stack.", br(),
-             "It allows to build & download different versions of resume.")),
+           card_header("Profile Builder"),
+           p("Because the app was originally meant to host profile & portfolio, it has background automated capabilities to build profile & resume.", br(),
+             "It supports multiple parameters like light/dark modes, anonymous, printable")),
       
       card(class = "border",
            fill = FALSE,
-           card_header("Services"),
-           p("The service page shows available consultant services."))),
+           card_header("Blog & Wiki"),
+           p("The website wraps access to blog and how-to articles that are automatically rendered & published using Quarto."))),
     
     
-    # -- Background section
+    # -- Architecture section
     h2(class = "section",
-       "Background"),
-    
-    # -- Technical stack sub-section
-    h3(class = "mt-5 mb-3",
        "Architecture"),
-    p("The application has a standard client / server architecture which relies on several module servers (portfolio, profile, services)."),
+    
+    p("The application has a standard client / server architecture which relies on several module servers."),
     
     # -- Technical stack sub-section
     card(
@@ -89,16 +86,14 @@ project_modal_p4 <- function(path){
           p("UI"),
           tags$ul(
             tags$li("R"),
-            tags$li("Shiny"),
-            tags$li("bslib"),
+            tags$li("Shiny + bslib"),
             tags$li("css, javascript"))),
         card(
           card_header("Back-end"),
           p("Server"),
           tags$ul(
             tags$li("R"),
-            tags$li("Shiny"),
-            tags$li("ggplot2"))))),
+            tags$li("Shiny"))))),
     
     
     # -- Deliverable section
@@ -108,11 +103,12 @@ project_modal_p4 <- function(path){
       card(
         class = "border",
         card_header("Application"),
-        p("The web application is deployed as a Docker container on the Posit Connect Cloud platform.")),
+        p("The web application is deployed as a Docker container on the Posit Connect Cloud platform.", br(),
+          "It is automatically deployed when a new version of the app is pushed to GitHub.")),
       card(
         class = "border",
         card_header("Domains"),
-        p("Domain names have been registered.")),
+        p("Domain names have been registered, with DNS configuration.")),
       card(
         class = "border",
         card_header("Flexibility"),

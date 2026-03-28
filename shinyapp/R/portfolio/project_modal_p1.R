@@ -10,7 +10,7 @@ project_modal_p1 <- function(path){
   tagList(
     
     # -- Project header section
-    h1("Rain Forecast Dashboard"),
+    h1("Monitoring Dashboard"),
     p("Data Exploration & ML Monitoring Dashboard"),
     
     
@@ -20,7 +20,7 @@ project_modal_p1 <- function(path){
                                  showcase = icon("chart-line"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Project Type",
-                                 value = "Dashboard",
+                                 value = "Dashboard & API",
                                  p("Web application & API containers deployed on the cloud")),
                        
                        value_box(class = "tkf-bg-camel border",
@@ -43,8 +43,9 @@ project_modal_p1 <- function(path){
     h2(class = "section",
        "About the Project"),
     p("This dashboard is part of a project that started in 2020.", br(),
-      "It's built around a Machine Learning model (AI) that was trained on a 140k dataset provided by the Australian Government BOM (", a(href = "https://www.bom.gov.au/", target = "_blank", "Bureau of Meteorology"), ")."),
-    p("Weather observation data have been collected continuously to keep monitoring the rain predictions."),
+      "It's built around a Machine Learning model (AI) that was trained on a 140k row dataset provided by the Australian BOM (", a(href = "https://www.bom.gov.au/", target = "_blank", "Bureau of Meteorology"), ")."),
+    p("The focus is set on the real life use case of collecting external data sources and monitoring the performance of a system", br(),
+      "This project was delivered as a resource to support a live session at the ", a(href = "https://www.shinyconf.com/", target = "_blank", "ShinyConf2025"), "."),
     
     
     # -- Features section
@@ -75,12 +76,11 @@ project_modal_p1 <- function(path){
     
     # -- Background section
     h2(class = "section",
-       "Background"),
+       "Architecture"),
     
     # -- Architecture sub-section
-    h3("Architecture"),
-    p("The project architecture has different layers to encapsulate tasks inside independant components."),
-    p("Layers"),
+    p("The project has different layers to encapsulate tasks inside independant components."),
+    p("There are three layers:"),
     tags$ul(
       tags$li("A data layer to store the database & other resources (raw files, schemas, models)"),
       tags$li("An API layer to perform data engineering operations (collect, clean, transform, predict)"),
@@ -102,26 +102,36 @@ project_modal_p1 <- function(path){
              tags$ul(
                tags$li("R, Plumber"),
                tags$li("RCurl"),
-               tags$li("Keras, Reticulate"),
                tags$li("DBI, PostgreSQL"))),
         card(card_header("Model & Predictions"),
              p("AI / Machine Learning"),
              tags$ul(
                tags$li("Python"),
-               tags$li("Tensorflow"))))),
+               tags$li("Tensorflow"),
+               tags$li("Keras, Reticulate"))))),
 
     
     # -- Deliverable section
     h2(class = "section",
        "Deliverables"),
+    
     layout_column_wrap(
       card(class = "border",
            card_header("API"),
            p("The API is delivered as a Docker container (GCP).", br(),
-           "The underlying PostgreSQL database is hosted on Supabase.")),
+             "The underlying PostgreSQL database is hosted on ", a(href = "https://supabase.com/", target = "_blank", "Supabase"), ".")),
       card(class = "border",
            card_header("Dashboard"),
-           p("The Dashboard web application is also delivered as a Docker container (GCP)."))),
+           p("The Dashboard web application is also delivered as a Docker container (GCP).")),
+      card(class = "border",
+           card_header("Live session"),
+           "A live session was delivered at the ShinyConf2025, using this project as a resource to demonstrate modern dashboarding & data pipeline.",
+           card_image(
+             class = "p-3",
+             src = "project_media/shinyconf_screenshot.jpg",
+             alt = "Project image"))
+      
+      ),
     
     
     # -- Document section
