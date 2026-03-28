@@ -24,6 +24,10 @@ lab_ui <- function(id){
     
     p("Visit the package", a(href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "website"), "to get details."),
     
+    layout_columns(
+      col_widths = 3,
+      uiOutput(ns("lab_stats"))),
+    
     # -- demo area
     div(
       class = "mt-5",

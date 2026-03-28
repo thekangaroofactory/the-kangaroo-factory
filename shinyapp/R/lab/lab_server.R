@@ -15,6 +15,7 @@ lab_server <- function(id, user = NULL, path) {
     
     # -- reactive object
     events <- reactiveVal()
+    spy <- reactiveVal()
     
     
     # --------------------------------------------------------------------------
@@ -32,6 +33,60 @@ lab_server <- function(id, user = NULL, path) {
     # -- launch module server
     # admin FALSE // see lab_ui admin console
     data <- kitems::kitems(id = "lab", path = path$data, autosave = FALSE, admin = FALSE, trigger = events)
+    
+    
+    # --------------------------------------------------------------------------
+    # Analytics
+    # --------------------------------------------------------------------------
+    # dedicated kitems server
+    
+    # -- launch analytics server
+    lab_stats <- kitems::kitems(id = "spy", path = path$data, trigger = spy)
+    
+    # -- cache
+    data_row <- reactiveVal(0)
+    
+    # -- listener
+    # because kitems buttons can't be tracked, listens to data object
+    observeEvent(data$items(), {
+      
+      # -- flush
+      spy(NULL)
+      
+      # -- cases
+      if(nrow(data$items()) == 0)
+        spy(kitems::trigger_event(workflow = "create", type = "task", values = list(session = session$token, action = "delete", parameter = "auto", quantity = data_row())))
+      else {
+        delta <- nrow(data$items()) - data_row()
+        if(delta == 0)
+          spy(kitems::trigger_event(workflow = "create", type = "task", values = list(session = session$token, action = "update", parameter = "manual", quantity = 0)))
+        else if(delta == 1)
+          spy(kitems::trigger_event(workflow = "create", type = "task", values = list(session = session$token, action = "create", parameter = "manual")))
+        else if(delta == -1)
+          spy(kitems::trigger_event(workflow = "create", type = "task", values = list(session = session$token, action = "delete", parameter = "manual", quantity = -1)))
+        else if(delta == 10)
+          spy(kitems::trigger_event(workflow = "create", type = "task", values = list(session = session$token, action = "create", parameter = "auto", quantity = 10)))
+        else if(delta == 100)
+          spy(kitems::trigger_event(workflow = "create", type = "task", values = list(session = session$token, action = "create", parameter = "auto", quantity = 100)))}
+      
+      # -- update cache
+      data_row(nrow(data$items()))
+      
+    }, ignoreInit = TRUE)
+    
+    # -- output
+    output$lab_stats <- renderUI({
+      
+      total <- sum(lab_stats$items()[lab_stats$items()$action == "create", ]$quantity)
+      start <- format(as.POSIXct(min(lab_stats$items()$id) / 1000), "%Y-%m-%d")
+      
+      card(
+        class = "mt-5 border-radius tkf-bg-camel color-dark",
+        card_header("Stats"),
+        p(total, "items have been created", if(total == 0) "." else paste("since", paste0(start, "."))),
+        card_footer("Fun fact: this count is based on a dedicated kitems instance with full back-end implementation pattern."))
+        
+    })
     
     
     # --------------------------------------------------------------------------
