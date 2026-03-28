@@ -51,7 +51,7 @@ portfolio_server <- function(id, user = NULL, path) {
     # -- output: select project
     output$select_project <- renderUI(
       selectInput(inputId = ns("project_type"), 
-                  label = "Project type", 
+                  label = "Filter by project type", 
                   choices = unique(unlist(strsplit(projects()$type, split = " "))),
                   multiple = TRUE))
     
@@ -71,6 +71,7 @@ portfolio_server <- function(id, user = NULL, path) {
         c(
           list(width = "400px",
                fixed_width = TRUE,
+               gap = "2rem",
                heights_equal = "row"),
           c_projects()[match(idx, projects()$id)]))
       
