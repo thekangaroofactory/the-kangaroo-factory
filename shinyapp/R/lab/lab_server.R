@@ -83,8 +83,8 @@ lab_server <- function(id, user = NULL, path) {
       card(
         class = "mt-5 border-radius tkf-bg-camel color-dark",
         card_header("Stats"),
-        p(total, "items have been created", if(total == 0) "." else paste("since", paste0(start, "."))),
-        card_footer("Fun fact: this count is based on a dedicated kitems instance with full back-end implementation pattern."))
+        p(total, "items have been", if(total == 0) "created." else paste("created since", paste0(start, "."))),
+        p("Fun fact: this count is based on a dedicated kitems instance with full back-end implementation pattern."))
         
     })
     
