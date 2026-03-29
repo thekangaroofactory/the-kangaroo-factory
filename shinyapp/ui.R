@@ -87,21 +87,13 @@ page_navbar(
             service_ui("service")),
   
   
-  # -- Profile
-  nav_panel(class = "p-5",
-            value = "profile",
-            title = "Profile", 
-            
-            profile_ui("profile")),
-  
-  
   # -- Stack
-  nav_panel(class = "p-5",
-            value = "stack",
-            title = "Technical Stack", 
-            
-            h1("Technical Stack"),
-            stack_ui("stack")),
+  # nav_panel(class = "p-5",
+  #           value = "stack",
+  #           title = "Technical Stack", 
+  #           
+  #           h1("Technical Stack"),
+  #           stack_ui("stack")),
   
   
   # -- Blog
@@ -131,6 +123,14 @@ page_navbar(
             h2(class = "section",
                "Links to other platforms"),
             link_ui("contact")),
+  
+  
+  # -- Profile
+  nav_panel(class = "p-5",
+            value = "about",
+            title = "About", 
+            
+            about_ui("me")),
   
   # -- light / dark mode switch
   nav_item(

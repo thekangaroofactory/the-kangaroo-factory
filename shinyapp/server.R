@@ -32,7 +32,8 @@ function(input, output, session) {
   service_server(id = "service", user, path, session)
   
   # -- profile
-  profile_server(id = "profile", user, path)
+  # profile_server(id = "profile", user, path)
+  about_server(id = "me", user, path)
   
   # -- contact
   contact_server(id = "contact", user, path)
