@@ -24,9 +24,17 @@ lab_ui <- function(id){
     
     p("Visit the package", a(href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "website"), "to get details."),
     
+    
     layout_columns(
-      col_widths = 3,
-      uiOutput(ns("lab_stats"))),
+      col_widths = c(3, 4),
+      uiOutput(ns("lab_stats")),
+      
+      card(
+        card_header("Introduction video"),
+        div(
+          id = "yt_container",
+          class = "k-preview",
+          yt_preview(id)))),
     
     # -- demo area
     div(

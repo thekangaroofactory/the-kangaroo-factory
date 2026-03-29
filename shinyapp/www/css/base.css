@@ -68,6 +68,25 @@ h4 { font-size: 1.4rem }
 
 
 /* -----------------------------------------------------------------------------
+   Custom classes (YouTube preview)
+------------------------------------------------------------------------------*/
+
+/* Container needed to position the button. Adjust the width as needed */
+.k-preview {
+  position: relative;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.k-preview .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+
+/* -----------------------------------------------------------------------------
    Custom classes (padding)
 ------------------------------------------------------------------------------*/
 
@@ -101,7 +120,7 @@ h4 { font-size: 1.4rem }
    This is to make the blog post fit in the app
 ------------------------------------------------------------------------------*/
 
-iframe {
+.blog {
   
   width: 100%; /* takes precedence over the width set with the HTML width attribute */
   height: 75vh;

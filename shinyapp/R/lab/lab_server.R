@@ -90,6 +90,37 @@ lab_server <- function(id, user = NULL, path) {
     
     
     # --------------------------------------------------------------------------
+    # Youtube
+    # --------------------------------------------------------------------------
+    
+    # -- display payer
+    observeEvent(input$yt_launch, {
+      
+      removeUI(selector = "#yt_preview")
+      insertUI(selector = "#yt_container",
+               where = "afterBegin",
+               ui = div(
+                 id = "yt_payer",
+                 tags$iframe(
+                                style = "height:400px; width:100%",
+                                src = "https://www.youtube-nocookie.com/embed/SI7gHnpgZfc?si=ypwGsTYg_vM8_QWx",
+                                title = "YouTube video player",
+                                frameborder = "0",
+                                allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
+                                referrerpolicy = "strict-origin-when-cross-origin",
+                                allowfullscreen = 1),
+                 p(actionLink(inputId = ns("yt_close"), label = "Close"), "viewer.")))
+      
+    })
+
+    # -- remove player
+    observeEvent(input$yt_close, {
+      removeUI(selector = "#yt_payer")
+      insertUI(selector = "#yt_container", where = "afterBegin", ui = yt_preview(id))
+    })
+
+    
+    # --------------------------------------------------------------------------
     # Listener
     # --------------------------------------------------------------------------
     
