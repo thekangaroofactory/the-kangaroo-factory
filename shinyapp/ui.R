@@ -82,15 +82,6 @@ page_navbar(
             service_ui("service")),
   
   
-  # -- Stack
-  # nav_panel(class = "p-5",
-  #           value = "stack",
-  #           title = "Technical Stack", 
-  #           
-  #           h1("Technical Stack"),
-  #           stack_ui("stack")),
-  
-  
   # -- Blog
   nav_panel(# class = "p-5", -- otherwise iframe have padding around
             value = "blog",
