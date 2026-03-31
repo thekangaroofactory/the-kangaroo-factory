@@ -22,7 +22,6 @@ library(bslib)
 # -- Debug mode
 DEBUG <- ifelse(Sys.getenv("DEBUG") != "", as.logical(Sys.getenv("DEBUG")), FALSE)
 GTAG <- ifelse(Sys.getenv("GTAG") != "", as.logical(Sys.getenv("GTAG")), FALSE)
-EXPERIMENTAL <- ifelse(Sys.getenv("EXPERIMENTAL") != "", as.logical(Sys.getenv("EXPERIMENTAL")), FALSE)
 
 
 # ------------------------------------------------------------------------------
