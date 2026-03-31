@@ -82,4 +82,39 @@ function(input, output, session) {
                cat("Active tab =", input$navbar, "\n"))
   
   
+  # ----------------------------------------------------------------------------
+  # Blog
+  # ----------------------------------------------------------------------------
+  
+  output$blog_ui <- renderUI({
+  
+    url_base <- "https://thekangaroofactory.github.io/the-kangaroo-factory-blog"
+    url <- paste(url_base, "posts", "package-is-project", sep = "/")
+    
+    # -- return
+    tags$iframe(
+      class = "blog",
+      src = url,
+      scrolling = 'yes')
+    
+  })
+  
+  
+  # ----------------------------------------------------------------------------
+  # Wiki
+  # ----------------------------------------------------------------------------
+  
+  output$wiki_ui <- renderUI({
+    
+    url_base <- "https://thekangaroofactory.github.io/the-kangaroo-factory-wiki"
+    url <- paste(url_base, "articles", "bslib/customize_bslib_backgrounds.html", sep = "/")
+    
+    # -- return
+    tags$iframe(
+      class = "blog",
+      src = url,
+      scrolling = 'yes')
+    
+  })
+  
 }

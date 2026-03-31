@@ -97,19 +97,19 @@ page_navbar(
   
   
   # -- Blog
-  nav_panel(class = "p-5",
+  nav_panel(# class = "p-5", -- otherwise iframe have padding around
             value = "blog",
             title = "Blog", 
             
-            blog_ui()),
+            uiOutput("blog_ui")),
   
   
   # -- Wiki
-  nav_panel(class = "p-5",
+  nav_panel(# class = "p-5",  -- otherwise iframe have padding around
             value = "wiki",
             title = "Wiki",
             
-            wiki_ui()),
+            uiOutput("wiki_ui")),
   
   
   # -- Contact
