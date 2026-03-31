@@ -21,7 +21,7 @@ contact_server <- function(id, path) {
       
       # -- read user link file
       cat(MODULE, "Build link grid \n")
-      links <- read.csv(file = file.path(path_contact, "links.csv"), header = T)
+      links <- read.csv(file = file.path(path, "links.csv"), header = T)
       
       # -- helper function
       helper <- function(x){

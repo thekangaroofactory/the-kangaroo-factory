@@ -37,9 +37,6 @@ function(input, output, session) {
   # -- contact
   contact_server(id = "contact", path = file.path(path$data, "philippeperet/contact"))
   
-  # -- stack
-  stack_server(id = "stack", user, path)
-  
   
   # ----------------------------------------------------------------------------
   # URL Query String

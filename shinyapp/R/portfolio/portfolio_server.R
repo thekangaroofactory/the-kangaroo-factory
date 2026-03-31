@@ -17,12 +17,12 @@ portfolio_server <- function(id, path) {
     # --------------------------------------------------------------------------
     
     # -- read project list
-    projects <- read.csv(file = file.path(path_portfolio, "projects.csv"), header = TRUE)
+    projects <- read.csv(file = file.path(path, "projects.csv"), header = TRUE)
     
     # -- project cards
     # intermediate layer to avoid multiple computations
     c_projects <- reactive(
-      lapply(projects$id, function(x) card_project(projects[projects$id == x, ], ns, input, path_portfolio)))
+      lapply(projects$id, function(x) card_project(projects[projects$id == x, ], ns, input, path)))
     
     
     # -- output: select project

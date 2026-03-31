@@ -3,7 +3,7 @@
 project_modal_p5 <- function(path){
 
   # -- add resource path
-  my_path <- file.path(path, "philippeperet/portfolio/p5")
+  my_path <- file.path(path, "p5")
   addResourcePath(prefix = "project_media", directoryPath = my_path)
   
   # -- return wrapper
