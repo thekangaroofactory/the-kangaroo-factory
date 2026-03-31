@@ -4,7 +4,7 @@
 # Module Server logic
 # ------------------------------------------------------------------------------
 
-lab_server <- function(id, user = NULL, path, init_lab) {
+lab_server <- function(id, path, init_lab) {
   moduleServer(id, function(input, output, session) {
     
     # -- get namespace
@@ -16,14 +16,6 @@ lab_server <- function(id, user = NULL, path, init_lab) {
     # -- reactive object
     events <- reactiveVal()
     spy <- reactiveVal()
-    
-    
-    # --------------------------------------------------------------------------
-    # User
-    # --------------------------------------------------------------------------
-    
-    # -- Path to user data
-    # path_contact <- reactive(file.path(path$data, user(), "contact"))
     
     
     # --------------------------------------------------------------------------
@@ -70,7 +62,7 @@ lab_server <- function(id, user = NULL, path, init_lab) {
       
       # -- launch module server
       # admin FALSE // see lab_ui admin console
-      data <- kitems::kitems(id = "lab", path = path$data, autosave = FALSE, admin = FALSE, trigger = events)
+      data <- kitems::kitems(id = "lab", path = path, autosave = FALSE, admin = FALSE, trigger = events)
       
       
       # ------------------------------------------------------------------------
@@ -79,7 +71,7 @@ lab_server <- function(id, user = NULL, path, init_lab) {
       # dedicated kitems instance
       
       # -- launch analytics server
-      lab_stats <- kitems::kitems(id = "spy", path = path$data, trigger = spy)
+      lab_stats <- kitems::kitems(id = "spy", path = path, trigger = spy)
       
       # -- cache
       data_row <- reactiveVal(0)

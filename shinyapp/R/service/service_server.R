@@ -4,7 +4,7 @@
 # Module Server logic
 # ------------------------------------------------------------------------------
 
-service_server <- function(id, user = NULL, path, parent_session) {
+service_server <- function(id, parent_session) {
   moduleServer(id, function(input, output, session) {
     
     # -- get namespace
@@ -12,24 +12,6 @@ service_server <- function(id, user = NULL, path, parent_session) {
     
     # -- module
     MODULE <- paste0("[", id, "]")
-    
-    # -- declare objects
-    # path_stack <- reactiveVal(NULL)
-    
-    
-    # --------------------------------------------------------------------------
-    # User
-    # --------------------------------------------------------------------------
-    
-    # -- Observe user
-    # observeEvent(user(), {
-    #   
-    #   cat(MODULE, "Set user =", user(), "\n")
-    #   
-    #   # -- set path
-    #   path_stack(file.path(path$data, user(), "stack"))
-    #   
-    # })
     
     
     # --------------------------------------------------------------------------

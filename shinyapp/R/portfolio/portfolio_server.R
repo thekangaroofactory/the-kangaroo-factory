@@ -4,55 +4,32 @@
 # Module Server logic
 # ------------------------------------------------------------------------------
 
-portfolio_server <- function(id, user = NULL, path) {
+portfolio_server <- function(id, path) {
   moduleServer(id, function(input, output, session) {
     
-    # -- get namespace
-    ns <- session$ns
-    
-    # -- module
-    MODULE <- paste0("[", id, "]")
-    
     # -- declare objects
-    path_portfolio <- reactiveVal(NULL)
-    
-    
-    # --------------------------------------------------------------------------
-    # User
-    # --------------------------------------------------------------------------
-    
-    # -- Observe user
-    observeEvent(user(), {
-      
-      cat(MODULE, "Set user =", user(), "\n")
-      
-      # -- set path
-      path_portfolio(file.path(path$data, user(), "portfolio"))
-      
-    })
-    
+    ns <- session$ns
+    MODULE <- paste0("[", id, "]")
+
     
     # --------------------------------------------------------------------------
     # Projects
     # --------------------------------------------------------------------------
     
-    # -- project list
-    # scan user repository
-    projects <- reactive(
-      read.csv(file = file.path(path_portfolio(), "projects.csv"), header = TRUE))
-    
+    # -- read project list
+    projects <- read.csv(file = file.path(path_portfolio, "projects.csv"), header = TRUE)
     
     # -- project cards
     # intermediate layer to avoid multiple computations
     c_projects <- reactive(
-      lapply(projects()$id, function(x) card_project(projects()[projects()$id == x, ], ns, input, path_portfolio())))
+      lapply(projects$id, function(x) card_project(projects[projects$id == x, ], ns, input, path_portfolio)))
     
     
     # -- output: select project
     output$select_project <- renderUI(
       selectInput(inputId = ns("project_type"), 
                   label = "Filter by project type", 
-                  choices = unique(unlist(strsplit(projects()$type, split = " "))),
+                  choices = unique(unlist(strsplit(projects$type, split = " "))),
                   multiple = TRUE))
     
     
@@ -61,9 +38,9 @@ portfolio_server <- function(id, user = NULL, path) {
     
       # -- get project ids
       idx <- if(is.null(input$project_type))
-        projects()$id
+        projects$id
       else
-        projects() |> dplyr::filter(grepl(paste(input$project_type, collapse = "|"), type)) |> dplyr::pull(id)
+        projects |> dplyr::filter(grepl(paste(input$project_type, collapse = "|"), type)) |> dplyr::pull(id)
 
       # -- build & return ui
       do.call(
@@ -73,7 +50,7 @@ portfolio_server <- function(id, user = NULL, path) {
                fixed_width = TRUE,
                gap = "2rem",
                heights_equal = "row"),
-          c_projects()[match(idx, projects()$id)]))
+          c_projects()[match(idx, projects$id)]))
       
     }) |> bindEvent(input$project_type, ignoreNULL = FALSE, ignoreInit = TRUE)
     
@@ -87,14 +64,9 @@ portfolio_server <- function(id, user = NULL, path) {
       showModal(
         modalDialog(
           easyClose = T,
-          match.fun(paste0("project_modal_", p_nb))(path$data)
-        )
-      )
-      
-      
+          match.fun(paste0("project_modal_", p_nb))(path)))
       
     })
-    
     
   })
 }

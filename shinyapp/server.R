@@ -7,15 +7,13 @@
 # -- Define server logic
 function(input, output, session) {
   
-  cat("Starting application server... \n")
+  cat("Starting main application server... \n")
   
   # -- Check DEBUG mode
   if(DEBUG)
     cat("[i] DEBUG mode is ON \n")
   
-  
   # -- Declare objects
-  user <- reactiveVal("philippeperet")
   query_string <- reactiveVal()
   init_lab <- reactiveVal()
   
@@ -25,20 +23,19 @@ function(input, output, session) {
   # ----------------------------------------------------------------------------
 
   # -- portfolio
-  portfolio_server(id = "portfolio", user, path)
+  portfolio_server(id = "portfolio", path = file.path(path$data, "philippeperet/portfolio"))
   
   # -- lab
-  lab_server(id = "lab", user, path, init_lab)
+  lab_server(id = "lab", path = path$data, init_lab)
   
   # -- service
-  service_server(id = "service", user, path, session)
+  service_server(id = "service", session)
   
-  # -- profile
-  # profile_server(id = "profile", user, path)
-  about_server(id = "me", user, path)
+  # -- about
+  about_server(id = "me", path = file.path(path$data, "philippeperet/profile"))
   
   # -- contact
-  contact_server(id = "contact", user, path)
+  contact_server(id = "contact", path = file.path(path$data, "philippeperet/contact"))
   
   # -- stack
   stack_server(id = "stack", user, path)
