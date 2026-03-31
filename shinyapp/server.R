@@ -16,6 +16,7 @@ function(input, output, session) {
   
   # -- Declare objects
   user <- reactiveVal("philippeperet")
+  query_string <- reactiveVal()
   
   
   # ----------------------------------------------------------------------------
@@ -43,43 +44,39 @@ function(input, output, session) {
   
   
   # ----------------------------------------------------------------------------
-  # Manage user
+  # URL Query String
   # ----------------------------------------------------------------------------
   
-  # -- Observe url search string (set user)
+  # -- Observe url search string (once!)
+  # because query string will be updated on tab change
   observe({
     
-    # -- Check for non empty string
-    if(session$clientData$url_search != ''){
+    url_parameters <- getQueryString()
+    
+    if(length(url_parameters)){
       
-      # -- Get url search key / value
-      cat("New url search =", session$clientData$url_search, "\n")
-      url_search <- substring(session$clientData$url_search, first = 2)
-      url_search <- unlist(strsplit(url_search, "&"))
-      url_search <- strsplit(url_search, "=")
-      url_parameters <- lapply(url_search, function(x) x[2])
-      names(url_parameters) <- lapply(url_search, function(x) x[1])
+      # -- store to pass to tab
+      query_string(url_parameters)
       
-      # -- user
-      if("portfolio" %in% names(url_parameters))
-        user(url_parameters$portfolio)
-      
-      # -- nav
       if("nav" %in% names(url_parameters))
-        nav_select(id = "navbar", selected = url_parameters$nav)}
+        nav_select(id = "navbar", selected = url_parameters$nav)
+      
+    }
     
-  }) |>
-    
-    bindEvent(session$clientData$url_search)
+  }) |> bindEvent(session$clientData$url_search, once = TRUE)
   
   
   # ----------------------------------------------------------------------------
-  # Observe
+  # Navigation
   # ----------------------------------------------------------------------------
   
-  # -- Observe active nav_panel
-  observeEvent(input$navbar,
-               cat("Active tab =", input$navbar, "\n"))
+  # -- Observe active tab
+  observeEvent(input$navbar, {
+    
+    cat("Active tab =", input$navbar, "\n")
+    updateQueryString(paste0("?nav=", input$navbar))
+
+  }, ignoreInit = TRUE)
   
   
   # ----------------------------------------------------------------------------
@@ -89,10 +86,15 @@ function(input, output, session) {
   output$blog_ui <- renderUI({
   
     url_base <- "https://thekangaroofactory.github.io/the-kangaroo-factory-blog"
-    url <- paste(url_base, "posts", "package-is-project", sep = "/")
+    
+    # -- check url query string
+    url <- if("post" %in% names(query_string()))
+        paste(url_base, "posts", query_string()$post, sep = "/")
+    else url_base
     
     # -- return
     tags$iframe(
+      id = "blog",
       class = "blog",
       src = url,
       scrolling = 'yes')
@@ -107,7 +109,11 @@ function(input, output, session) {
   output$wiki_ui <- renderUI({
     
     url_base <- "https://thekangaroofactory.github.io/the-kangaroo-factory-wiki"
-    url <- paste(url_base, "articles", "bslib/customize_bslib_backgrounds.html", sep = "/")
+    
+    # -- check url query string
+    url <- if("cat" %in% names(query_string()))
+      paste(url_base, "articles", query_string()$cat, paste0(query_string()$article, ".html"), sep = "/")
+    else url_base
     
     # -- return
     tags$iframe(
