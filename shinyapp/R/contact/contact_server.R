@@ -30,10 +30,9 @@ contact_server <- function(id, path) {
         x <- as.list(x)
         
         # -- return
-        # adding gtag class to trigger google_tag.js
         actionButton(
           inputId = x$name,
-          class = "gtag",
+          class = "ktag",
           label = x$name,
           onclick = paste0("window.open('", x$link, "', '_blank')"))}
       

@@ -15,7 +15,7 @@ service_ui <- function(id){
     div(
       class = "mt-5",
       actionButton(
-        class = "gtag",
+        class = "ktag",
         inputId = ns("switch_contact"),
         label = "Contact me")),
     
@@ -44,7 +44,7 @@ service_ui <- function(id){
           class = "mt-3",
           style = "display: inline-block;",
           actionButton(
-            class = "gtag",
+            class = "ktag",
             inputId = ns("switch_project"),
             label = "See projects")),
         
@@ -83,11 +83,11 @@ service_ui <- function(id){
           class = "mt-3",
           style = "display: inline-block;",
           actionButton(
-            class = "gtag",
+            class = "ktag",
             inputId = ns("switch_project"),
             label = "See projects"),
           actionButton(
-            class = "gtag",
+            class = "ktag",
             inputId = ns("switch_blog"),
             label = "See blog")),
         
@@ -116,11 +116,11 @@ service_ui <- function(id){
           class = "mt-5",
           style = "display: inline-block;",
           actionButton(
-            class = "gtag",
+            class = "ktag",
             inputId = ns("switch_project"),
             label = "See projects"),
           actionButton(
-            class = "gtag",
+            class = "ktag",
             inputId = ns("switch_lab"),
             label = "See lab")),
         
