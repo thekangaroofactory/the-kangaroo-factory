@@ -23,19 +23,19 @@ function(input, output, session) {
   # ----------------------------------------------------------------------------
 
   # -- portfolio
-  portfolio_server(id = "portfolio", path = file.path(path$data, "philippeperet/portfolio"))
+  portfolio_server(id = "portfolio", path = file.path(Sys.getenv("DATA_HOME"), "philippeperet/portfolio"))
   
   # -- lab
-  lab_server(id = "lab", path = path$data, init_lab)
+  lab_server(id = "lab", path = Sys.getenv("DATA_HOME"), init_lab)
   
   # -- service
   service_server(id = "service", session)
   
   # -- about
-  about_server(id = "me", path = file.path(path$data, "philippeperet/profile"))
+  about_server(id = "me", path = file.path(Sys.getenv("DATA_HOME"), "philippeperet/profile"))
   
   # -- contact
-  contact_server(id = "contact", path = file.path(path$data, "philippeperet/contact"))
+  contact_server(id = "contact", path = file.path(Sys.getenv("DATA_HOME"), "philippeperet/contact"))
   
   
   # ----------------------------------------------------------------------------

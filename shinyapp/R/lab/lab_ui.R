@@ -94,7 +94,7 @@ lab_ui <- function(id){
                         tags$li("apply filter(s) on the data")),
                       
                       p("But all it takes is... a single line!", br(),
-                        tags$code("data <- kitems::kitems(id = 'lab', path = path$data)")),
+                        tags$code("data <- kitems::kitems(id = 'lab', path = '/some/path')")),
                       
                       p("From there, you can use the", tags$code("data"), "object to navigate & use the items."),
                       
