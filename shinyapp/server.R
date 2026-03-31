@@ -9,10 +9,6 @@ function(input, output, session) {
   
   cat("Starting main application server... \n")
   
-  # -- Check DEBUG mode
-  if(DEBUG)
-    cat("[i] DEBUG mode is ON \n")
-  
   # -- Declare objects
   query_string <- reactiveVal()
   init_lab <- reactiveVal()
