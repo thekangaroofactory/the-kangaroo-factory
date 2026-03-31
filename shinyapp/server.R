@@ -17,6 +17,7 @@ function(input, output, session) {
   # -- Declare objects
   user <- reactiveVal("philippeperet")
   query_string <- reactiveVal()
+  init_lab <- reactiveVal()
   
   
   # ----------------------------------------------------------------------------
@@ -27,7 +28,7 @@ function(input, output, session) {
   portfolio_server(id = "portfolio", user, path)
   
   # -- lab
-  lab_server(id = "lab", user, path)
+  lab_server(id = "lab", user, path, init_lab)
   
   # -- service
   service_server(id = "service", user, path, session)
@@ -76,6 +77,10 @@ function(input, output, session) {
     cat("Active tab =", input$navbar, "\n")
     updateQueryString(paste0("?nav=", input$navbar))
 
+    # -- init lab (see lab_server())
+    if(input$navbar == "lab")
+      init_lab(1)
+    
   }, ignoreInit = TRUE)
   
   
