@@ -123,4 +123,34 @@ function(input, output, session) {
     
   })
   
+  
+  # ----------------------------------------------------------------------------
+  # Legal notice
+  # ----------------------------------------------------------------------------
+  
+  observeEvent(input$legal_notice,
+               
+               showModal(
+                 modalDialog(
+                   title = "Legal notice",
+                   easyClose = TRUE,
+                   
+                   tags$img(class = "mb-3", src = "./img/favicon_196x196.png", alt = "Icon"),
+                   
+                   h4("Owner"),
+                   p("This website and its domain name are the property of:"),
+                   tags$ul(
+                     tags$li("Company name: Philippe PERET EI"),
+                     tags$li("SIREN: 909 200 925"),
+                     tags$li("Email: philippe.peret@hotmail.com")),
+                   
+                   h4("Editorial Manager"),
+                   p("Philippe PERET EI"),
+                   
+                   h4("Host"),
+                   p("This website is hosted by Posit Software, PBC |", tags$a(href = "https://connect.posit.cloud/", target = "_blank", "https://connect.posit.cloud/")),
+                   
+                   h4("Development"),
+                   p("Philippe PERET EI"))))
+  
 }

@@ -54,7 +54,9 @@ page_navbar(
   
   # -- footer
   fillable = FALSE,
-  footer = p(class = "footer", paste("©", format(Sys.Date(), "%Y"), "TheKangarooFactory")),
+  footer = p(class = "footer", 
+             paste("©", format(Sys.Date(), "%Y"), "TheKangarooFactory"), "|",
+             actionLink(inputId = "legal_notice", label = "legal notice")),
   
   
   # ----------------------------------------------------------------------------
