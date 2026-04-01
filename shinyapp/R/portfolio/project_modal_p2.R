@@ -149,7 +149,7 @@ project_modal_p2 <- function(path){
            fill = FALSE,
            card_header("Package"),
            p("The package is published on GitHub."),
-           p("It can be installed using the", a(href = "https://remotes.r-lib.org/reference/install_github.html", target = "_blank", "install_github"), "function from {remotes} package.")),
+           p("It can be installed using the", tags$a(href = "https://remotes.r-lib.org/reference/install_github.html", target = "_blank", "install_github"), "function from {remotes} package.")),
       card(class = "border",
            fill = FALSE,
            card_header("Testing"),
@@ -157,14 +157,16 @@ project_modal_p2 <- function(path){
       card(class = "border",
            fill = FALSE,
            card_header("Documentation"),
-           p(a(href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "Documentation"), "& articles are delivered through the GitHub pages mechanism (with automation)."))),
+           p(tags$a(id = "portoflio-p2_link_kitems_doc", class = "ktag", href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "Documentation"), 
+             "& articles are delivered through the GitHub pages mechanism (with automation)."))),
     
     
     # -- Document section
     card(class = "border",
          card_header("Communication supports"),
          p("Multiple presentations have been delivered to support the communication around the package.", br(),
-           "As an example, the roadmap is included in the documentation", a(href = "https://thekangaroofactory.github.io/kitems/articles/roadmap.html", target = "_blank", "page."))),
+           "As an example, the roadmap is included in the documentation", 
+           tags$a(id = "portfolio-p2_link_kitems_roadmap", class = "ktag", href = "https://thekangaroofactory.github.io/kitems/articles/roadmap.html", target = "_blank", "page."))),
     
     
     # -- Links section
@@ -175,8 +177,8 @@ project_modal_p2 <- function(path){
         card(fill = FALSE,
              card_header("Repository"),
              p("The GitHub", icon("github"), "repository of the project"),
-             tags$a(
-               'data-value' = "link_p2_github",
+             tags$a(id = "portfolio-p2-link_github_repo",
+                    class = "ktag",
                "kitems",
                target = "_blank",
                href = "https://github.com/thekangaroofactory/kitems")),
@@ -184,11 +186,11 @@ project_modal_p2 <- function(path){
         card(fill = FALSE,
              card_header("Documentation & articles"),
              p("The GitHub page of the package"),
-             tags$a(
-               'data-value' = "link_p2_github_page",
-               "kitems",
-               target = "_blank",
-               href = "https://thekangaroofactory.github.io/kitems/"))))
+             tags$a(id = "portfolio-p2-link_github_page",
+                    class = "ktag",
+                    href = "https://thekangaroofactory.github.io/kitems/",
+                    target = "_blank",
+                    "kitems"))))
     
   )
   

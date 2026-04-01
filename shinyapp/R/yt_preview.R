@@ -7,6 +7,6 @@ yt_preview <- function(id){
   div(
     id = "yt_preview",
     card_image(src = "./img/lab_video_preview.png", alt = "Video preview"),
-    actionButton(inputId = ns("yt_launch"), label = icon("play")))
+    actionButton(class = "ktag", inputId = ns("yt_launch"), label = icon("play")))
 
 }

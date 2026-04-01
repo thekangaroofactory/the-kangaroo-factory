@@ -36,6 +36,10 @@ portfolio_server <- function(id, path) {
     # -- output: project grid
     output$project_grid <- renderUI({
     
+      # -- log
+      if(!is.null(input$project_type))
+        ktag(who = session$token, where = id, what = "filter_type", how = paste(input$project_type, collapse = "+"))
+      
       # -- get project ids
       idx <- if(is.null(input$project_type))
         projects$id

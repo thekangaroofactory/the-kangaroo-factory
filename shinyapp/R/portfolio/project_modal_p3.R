@@ -150,27 +150,27 @@ project_modal_p3 <- function(path){
         card(
           card_header("Page"),
           p("The page of the application on the data.gouv.fr platform."),
-          tags$a(
-            'data-value' = "link_p3_data_gouv_page",
-            "carte-interactive-des-resultats-des-elections",
-            target = "_blank",
-            href = "https://www.data.gouv.fr/fr/reuses/carte-interactive-des-resultats-des-elections/")),
+          tags$a(id = "portfolio-p3-link_data_gouv_page",
+                 class = "ktag",
+                 href = "https://www.data.gouv.fr/fr/reuses/carte-interactive-des-resultats-des-elections/",
+                 target = "_blank",
+                 "carte-interactive-des-resultats-des-elections")),
         card(
           card_header("Application"),
           p("A public instance of the application (cold start may create a delay at startup)."),
-          tags$a(
-            'data-value' = "link_p3_app_shinyio",
-            "election-map",
-            target = "_blank",
-            href = "https://kangaroo-ai.shinyapps.io/election-map/")),
+          tags$a(id = "portfolio-p3-link_app_shinyio",
+                 class = "ktag",
+                 href = "https://kangaroo-ai.shinyapps.io/election-map/",
+                 target = "_blank",
+                 "election-map")),
         card(
           card_header("Repository"),
           p("The GitHub", icon("github"), "repository of the Application."),
-          tags$a(
-            'data-value' = "link_p3_github",
-            "france-elections",
-            target = "_blank",
-            href = "https://github.com/thekangaroofactory/france-elections"))))
+          tags$a(id = "portfolio-p3-link_github_repo",
+                 class = "ktag",
+                 href = "https://github.com/thekangaroofactory/france-elections",
+                 target = "_blank",
+                 "france-elections"))))
     
   )
   

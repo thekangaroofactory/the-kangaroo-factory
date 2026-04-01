@@ -31,7 +31,7 @@ contact_server <- function(id, path) {
         
         # -- return
         actionButton(
-          inputId = x$name,
+          inputId = ns(paste0("btn_", x$name)),
           class = "ktag",
           label = x$name,
           onclick = paste0("window.open('", x$link, "', '_blank')"))}

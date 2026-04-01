@@ -44,7 +44,7 @@ project_modal_p11 <- function(path){
     
     # -- text
     p("The mentoring activity is performed as part of the Data Analyst program delivered by", 
-      tags$a(target = "_blank", href = "https://openclassrooms.com/fr/", "OpenClassrooms."), br(),
+      tags$a(id = "portfolio-p11_link_oc", class = "ktag", target = "_blank", href = "https://openclassrooms.com/fr/", "OpenClassrooms."), br(),
       "It's a one-year (~800h) certified program (RNCP level 6)."),
     
 
@@ -97,18 +97,18 @@ project_modal_p11 <- function(path){
       layout_column_wrap(
         card(card_header("Program"),
              p("The page of the program on OpenClassrooms."),
-             tags$a(
-               'data-value' = "link_p11_oc",
-               "Data Analyst",
-               target = "_blank",
-               href = "https://openclassrooms.com/paths/1040-data-analyst")),
+             tags$a(id = "portfolio-p11-link_oc_data_analyst",
+                    class = "ktag",
+                    href = "https://openclassrooms.com/paths/1040-data-analyst",
+                    target = "_blank",
+                    "Data Analyst")),
         card(card_header("Certification"),
              p("The official RNCP certification."),
-             tags$a(
-               'data-value' = "link_p11_rncp",
-               "RNCP Certification",
-               target = "_blank",
-               href = "https://www.francecompetences.fr/recherche/rncp/37837/"))))
+             tags$a(id = "portfolio-p11-link_oc_rncp",
+                    class = "ktag",
+                    href = "https://www.francecompetences.fr/recherche/rncp/37837/",
+                    target = "_blank",
+                    "RNCP Certification"))))
 
   )
   

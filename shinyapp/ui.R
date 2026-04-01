@@ -43,13 +43,28 @@ page_navbar(
     
     # -- css
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/base.css"),
-    tags$link(rel = "stylesheet", type = "text/css", href = "./css/color_web.css")),
+    tags$link(rel = "stylesheet", type = "text/css", href = "./css/color_web.css"),
+    
+    # -- js
+    tags$script(
+      
+      "// -- button with class ktag
+      $(document).on('click', '.ktag', function(event) {
+        
+        console.log(event.currentTarget.id);
+        Shiny.setInputValue('ktag_event', {when: Date.now(), what: event.currentTarget.id});
+        
+      });"
+      
+    )
+    
+    ),
 
   # -- footer
   fillable = FALSE,
   footer = p(class = "footer", 
              paste("©", format(Sys.Date(), "%Y"), "TheKangarooFactory"), "|",
-             actionLink(inputId = "legal_notice", label = "legal notice")),
+             actionLink(inputId = "legal_notice", label = "legal notice", class = "ktag")),
   
   
   # ----------------------------------------------------------------------------
@@ -127,27 +142,24 @@ page_navbar(
   
   # -- Links (on the right)
   nav_item(
-    tags$a(
-      class = "external-link nav-link",
-      'data-value' = "linkedin",
-      href = "https://www.linkedin.com/in/philippeperet/",
-      target = "_blank",
-      icon("linkedin", class = "fa-xl"))),
+    tags$a(id = "linkedin",
+           class = "external-link nav-link ktag",
+           href = "https://www.linkedin.com/in/philippeperet/",
+           target = "_blank",
+           icon("linkedin", class = "fa-xl"))),
   
   nav_item(
-    tags$a(
-      class = "external-link nav-link",
-      'data-value' = "github",
-      href = "https://github.com/thekangaroofactory",
-      target = "_blank",
-      icon("github", class = "fa-xl"))),
+    tags$a(id = "github",
+           class = "external-link nav-link ktag",
+           href = "https://github.com/thekangaroofactory",
+           target = "_blank",
+           icon("github", class = "fa-xl"))),
   
   nav_item(
-    tags$a(
-      class = "external-link nav-link",
-      'data-value' = "youtube",
-      href = "https://www.youtube.com/@TheKangarooFactory",
-      target = "_blank",
-      icon("youtube", class = "fa-xl")))
+    tags$a(id = "youtube",
+           class = "external-link nav-link",
+           href = "https://www.youtube.com/@TheKangarooFactory",
+           target = "_blank",
+           icon("youtube", class = "fa-xl")))
   
 ) # page_navbar

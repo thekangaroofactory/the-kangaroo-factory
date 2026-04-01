@@ -43,9 +43,9 @@ project_modal_p1 <- function(path){
     h2(class = "section",
        "About the Project"),
     p("This dashboard is part of a project that started in 2020.", br(),
-      "It's built around a Machine Learning model (AI) that was trained on a 140k row dataset provided by the Australian BOM (", a(href = "https://www.bom.gov.au/", target = "_blank", "Bureau of Meteorology"), ")."),
+      "It's built around a Machine Learning model (AI) that was trained on a 140k row dataset provided by the Australian BOM (", tags$a(href = "https://www.bom.gov.au/", target = "_blank", "Bureau of Meteorology"), ")."),
     p("The focus is set on the real life use case of collecting external data sources and monitoring the performance of a system", br(),
-      "This project was delivered as a resource to support a live session at the ", a(href = "https://www.shinyconf.com/", target = "_blank", "ShinyConf2025"), "."),
+      "This project was delivered as a resource to support a live session at the ", tags$a(id = "portfolio-p1-link_shinyconf", class = "ktag", href = "https://www.shinyconf.com/", target = "_blank", "ShinyConf2025"), "."),
     
     
     # -- Features section
@@ -139,6 +139,8 @@ project_modal_p1 <- function(path){
          card_header("Documentation"),
          p("Communication supports have also been delivered."),
          accordion(
+           class = "ktag",
+           id = "portfolio-open_accordion_p1",
            open = FALSE,
            accordion_panel(
              title = "Click to expand / collapse",
@@ -153,18 +155,18 @@ project_modal_p1 <- function(path){
       layout_column_wrap(
         card(card_header("Repository"),
              p("The GitHub", icon("github"), "repository of the API."),
-             tags$a(
-               'data-value' = "link_p1_github_api",
-               "rain-forecast-data-pipeline",
-               target = "_blank",
-               href = "https://github.com/thekangaroofactory/rain-forecast-data-pipeline")),
+             tags$a(id = "portfolio-p1-link_github_api",
+                    class = "ktag",
+                    href = "https://github.com/thekangaroofactory/rain-forecast-data-pipeline",
+                    target = "_blank",
+                    "rain-forecast-data-pipeline")),
         card(card_header("Repository"),
              p("The GitHub", icon("github"), "repository of the Dashboard."),
-             tags$a(
-               'data-value' = "link_p1_github_dashboard",
-               "rain-forecast-dashboard",
-               target = "_blank",
-               href = "https://github.com/thekangaroofactory/rain-forecast-dashboard"))))
+             tags$a(id = "portfolio-p1-link_github_dashboard",
+                    class = "ktag",
+                    href = "https://github.com/thekangaroofactory/rain-forecast-dashboard",
+                    target = "_blank",
+                    "rain-forecast-dashboard"))))
     
   )
   

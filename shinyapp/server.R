@@ -12,6 +12,11 @@ function(input, output, session) {
   # -- Declare objects
   query_string <- reactiveVal()
   init_lab <- reactiveVal()
+
+  # -- log session end
+  session$onSessionEnded(function(){
+    ktag(who = session$token, what = "close_session")
+  })
   
   
   # ----------------------------------------------------------------------------
@@ -35,24 +40,32 @@ function(input, output, session) {
   
   
   # ----------------------------------------------------------------------------
+  # Analytics
+  # ----------------------------------------------------------------------------
+
+  observeEvent(input$ktag_event, 
+               ktag(when = input$ktag_event$when, what = input$ktag_event$what, who = session$token))
+  
+  
+  # ----------------------------------------------------------------------------
   # URL Query String
   # ----------------------------------------------------------------------------
   
   # -- Observe url search string (once!)
   # because query string will be updated on tab change
   observe({
-    
+
+    # -- log session
+    ktag(who = session$token, what = "init_session", how = session$clientData$url_search)
     url_parameters <- getQueryString()
-    
+        
     if(length(url_parameters)){
       
       # -- store to pass to tab
       query_string(url_parameters)
       
       if("nav" %in% names(url_parameters))
-        nav_select(id = "navbar", selected = url_parameters$nav)
-      
-    }
+        nav_select(id = "navbar", selected = url_parameters$nav)}
     
   }) |> bindEvent(session$clientData$url_search, once = TRUE)
   
@@ -64,7 +77,7 @@ function(input, output, session) {
   # -- Observe active tab
   observeEvent(input$navbar, {
     
-    cat("Active tab =", input$navbar, "\n")
+    ktag(who = session$token, what = "select_tab", how = input$navbar)
     updateQueryString(paste0("?nav=", input$navbar))
 
     # -- init lab (see lab_server())

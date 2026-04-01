@@ -38,7 +38,7 @@ lab_server <- function(id, path, init_lab) {
                    allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
                    referrerpolicy = "strict-origin-when-cross-origin",
                    allowfullscreen = 1),
-                 p(actionLink(inputId = ns("yt_close"), label = "Close"), "viewer.")))
+                 p(actionLink(class = "ktag", inputId = ns("yt_close"), label = "Close"), "viewer.")))
       
     })
     

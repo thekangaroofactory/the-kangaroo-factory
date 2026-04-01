@@ -84,7 +84,7 @@ project_modal_p6 <- function(path){
 
     p("For performance reason, a smart cache system has been developped based on scheduled calls to the GitHub API.", br(),
       "The frequency of the calls depends on parameters like project status."),
-    p("The application smart cache system relies on the back-end capabilities of the {", a(href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "kitems"), "} package."),
+    p("The application smart cache system relies on the back-end capabilities of the {", tags$a(id = "portfolio-p6-link_kitems_doc", class = "ktag", href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "kitems"), "} package."),
     
     # -- Technical stack sub-section
     card(

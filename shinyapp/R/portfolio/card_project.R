@@ -37,7 +37,7 @@ card_project <- function(x, ns, input, path_portfolio){
     
     # -- expand
     card_footer(
-        actionButton(inputId = paste0("open_p", x$id),
+        actionButton(inputId = ns(paste0("open_p", x$id)),
                      label = "view project",
                      class = "rounded-pill btn-sm dimmed float-end ktag",
                      onclick = sprintf('Shiny.setInputValue(\"%s\", this.id, {priority: \"event\"})', 

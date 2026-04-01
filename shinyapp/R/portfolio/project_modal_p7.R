@@ -45,7 +45,7 @@ project_modal_p7 <- function(path){
     # -- text
     tagList(
       p("This book was written based on research work around the communication between R / Shiny modules.", br(),
-        "It has built the foundation architecture used in the {", a(href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "kitems"), "} package.")),
+        "It has built the foundation architecture used in the {", tags$a(id = "portfolio-p7-link_kitems_doc", class = "ktag", href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "kitems"), "} package.")),
     
 
     # -- Features section ------------------------------------------------------
@@ -122,18 +122,18 @@ project_modal_p7 <- function(path){
       layout_column_wrap(
         card(card_header("Book"),
              p("Online version of the book."),
-             tags$a(
-               'data-value' = "link_p7_book",
-               "Mastering Communication between Shiny Modules",
-               target = "_blank",
-               href = "https://thekangaroofactory.github.io/communication-between-shiny-modules/")),
+             tags$a(id = "portfolio-p7-link_book",
+                    class = "ktag",
+                    href = "https://thekangaroofactory.github.io/communication-between-shiny-modules/",
+                    target = "_blank",
+                    "Mastering Communication between Shiny Modules")),
         card(card_header("Templates"),
              p("The code examples used in the book."),
-             tags$a(
-               'data-value' = "link_p7_templates",
-               "Code templates",
-               target = "_blank",
-               href = "https://github.com/thekangaroofactory/template-r-shiny-communication"))))
+             tags$a(id = "portfolio-p7-link_templates",
+                    class = "ktag",
+                    href = "https://github.com/thekangaroofactory/template-r-shiny-communication",
+                    target = "_blank",
+                    "Code templates"))))
 
   )
   

@@ -84,20 +84,20 @@ service_ui <- function(id){
           style = "display: inline-block;",
           actionButton(
             class = "ktag",
-            inputId = ns("switch_project"),
-            label = "See projects"),
+            inputId = ns("switch_blog"),
+            label = "See blog"),
           actionButton(
             class = "ktag",
-            inputId = ns("switch_blog"),
-            label = "See blog")),
+            inputId = ns("switch_wiki"),
+            label = "See wiki")),
         
         # -- camel card
         h4("References"),
         tags$ul(
           tags$li("OpenClassrooms", 
-                  a(href = "https://openclassrooms.com/paths/1040-data-analyst", target = "_blank", "Data Analyst"), "program (Mentor)"),
-          tags$li(a(href = "https://www.shinyconf.com/", target = "_blank", "ShinyConf2025"), "(Speaker)"),
-          tags$li(a(href = "https://thekangaroofactory.github.io/communication-between-shiny-modules/", target = "_blank", "Mastering Communication Between Shiny Modules"),
+                  tags$a(href = "https://openclassrooms.com/paths/1040-data-analyst", target = "_blank", "Data Analyst"), "program (Mentor)"),
+          tags$li(tags$a(id = "services-link_shinyconf", class = "ktag", href = "https://www.shinyconf.com/", target = "_blank", "ShinyConf2025"), "(Speaker)"),
+          tags$li(tags$a(id = "services-link_ebook", class = "ktag", href = "https://thekangaroofactory.github.io/communication-between-shiny-modules/", target = "_blank", "Mastering Communication Between Shiny Modules"),
                   "eBook (Author)"))),
       
       
@@ -117,10 +117,6 @@ service_ui <- function(id){
           style = "display: inline-block;",
           actionButton(
             class = "ktag",
-            inputId = ns("switch_project"),
-            label = "See projects"),
-          actionButton(
-            class = "ktag",
             inputId = ns("switch_lab"),
             label = "See lab")),
         
@@ -130,7 +126,7 @@ service_ui <- function(id){
           fill = FALSE,
           card_header("R Package"),
           p("The {", span(style = "font-weight: bold;", "kitems"), "} package provides a framework to manage data frame items within R / Shiny apps."),
-          p("Visit the", a(style = "color:var(--tkf-color-dark);", href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "website.")))))
+          p("Visit the", tags$a(id = "services-link_kitems_doc", class = "ktag", style = "color:var(--tkf-color-dark);", href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "website.")))))
     
   )
   

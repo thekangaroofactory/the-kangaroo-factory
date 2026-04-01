@@ -20,7 +20,7 @@ about_server <- function(id, path) {
 
     # -- observe accordion_panel
     observeEvent(input$acc_resume,
-                 cat("Accordion =", input$acc_resume, "\n"))
+                 ktag(who = session$token, what = "about-expand_resume"))
     
     
     # --------------------------------------------------------------------------

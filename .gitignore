@@ -36,3 +36,5 @@ rsconnect/
 
 # -- data folder (needed for deploy)
 # data
+ktag.csv
+

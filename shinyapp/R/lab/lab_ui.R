@@ -10,7 +10,7 @@ lab_ui <- function(id){
     
     # -- intro
     p(class = "mt-5",
-      "The lab offers an opportunity to test the {", a(href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "kitems"), "} framework."),
+      "The lab offers an opportunity to test the {", tags$a(id = "lab-link_kitems_doc_1", class = "ktag", href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "kitems"), "} framework."),
     
     p("The package defines itself as a framework because it comes with a flexible mindset & many features:"),
     tags$ul(
@@ -22,7 +22,7 @@ lab_ui <- function(id){
     p("For the sake of the example, a very basic data model is defined in this example with date, name, value and checked attributes.", br(),
       "This was done through the admin console that can't be accessed by users for security reasons (see data model tab)."),
     
-    p("Visit the package", a(href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "website"), "to get details."),
+    p("Visit the package", a(id = "lab-link_kitems_doc_2", class = "ktag", href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "website"), "to get details."),
     
     
     # -- stats & video
@@ -41,9 +41,8 @@ lab_ui <- function(id){
       class = "mt-5",
       navset_card_pill(
         
-        
         # -- items tab
-        nav_panel("Items", 
+        nav_panel("Items",
                   
                   p(class = "mt-2", "For demonstration purpose, autosave is turned OFF", br(),
                     "(data will be lost if you refresh the page)"),
