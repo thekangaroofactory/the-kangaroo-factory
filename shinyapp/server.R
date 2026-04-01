@@ -46,6 +46,27 @@ function(input, output, session) {
   observeEvent(input$ktag_event, 
                ktag(when = input$ktag_event$when, what = input$ktag_event$what, who = session$token))
   
+  # -- download
+  output$download_ktag <- downloadHandler(
+    filename = function() {
+      paste("ktag-", Sys.Date(), ".csv", sep = "")
+    },
+    content = function(file) {
+      write.csv(read.csv(file.path(Sys.getenv("DATA_HOME"), "ktag.csv"), row.names = NULL), file)
+    }
+  )
+  
+  
+  # -- download lab stats
+  output$download_lab <- downloadHandler(
+    filename = function() {
+      paste("lab-", Sys.Date(), ".csv", sep = "")
+    },
+    content = function(file) {
+      write.csv(read.csv(file.path(Sys.getenv("DATA_HOME"), "/spy/spy_items.csv"), row.names = NULL), file)
+    }
+  )
+  
   
   # ----------------------------------------------------------------------------
   # URL Query String
@@ -63,6 +84,22 @@ function(input, output, session) {
       
       # -- store to pass to tab
       query_string(url_parameters)
+      
+      # -- admin hack
+      if("admin" %in% names(url_parameters))
+          nav_insert(
+            id = "navbar",
+            nav = nav_panel(class = "p-5",
+                            value = "admin",
+                            title = "Admin",
+                            p("This is the admin tab."),
+                            downloadButton("download_ktag", "Download ktag"),
+                            downloadButton("download_lab", "Download lab")),
+            target = "about",
+            position = "after",
+            select = FALSE,
+            session = session)
+          
       
       if("nav" %in% names(url_parameters))
         nav_select(id = "navbar", selected = url_parameters$nav)}
