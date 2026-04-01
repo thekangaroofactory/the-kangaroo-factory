@@ -30,13 +30,3 @@ EXPOSE 3838
 
 # -- Run the Shiny app
 CMD ["R", "-e", "shiny::runApp('/home/shinyapp', host = '0.0.0.0', port = 3838)"]
-
-
-# -- build docker image:
-# docker build -t the-kangaroo-factory .
-
-# -- run docker image:
-# docker run -p ****:3838 the-kangaroo-factory
-
-# -- access application
-# http://localhost:****/
