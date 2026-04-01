@@ -3,14 +3,14 @@
 project_modal_p11 <- function(path){
 
   # -- add resource path
-  my_path <- file.path(path, "philippeperet/portfolio/p11")
+  my_path <- file.path(path, "p11")
   addResourcePath(prefix = "project_media", directoryPath = my_path)
   
   # -- return wrapper
   tagList(
     
     # -- Project header section ------------------------------------------------
-    h1("Data Analyst Mentor"),
+    h1("Data Analyst Coaching"),
     p("As part of a certified program at OpenClassrooms"),
     
     
@@ -20,15 +20,15 @@ project_modal_p11 <- function(path){
                                  showcase = icon("window-restore"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Project Type",
-                                 value = "Mentoring",
+                                 value = "Coaching",
                                  p("Since 2022")),
                        
                        value_box(class = "tkf-bg-camel border",
                                  showcase = icon("graduation-cap"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Students",
-                                 value = "3",
-                                 p("One-year support")),
+                                 value = "5",
+                                 p("One-year follow-up")),
                        
                        value_box(class = "tkf-bg-camel border",
                                  showcase = icon("unlock"),
@@ -40,12 +40,12 @@ project_modal_p11 <- function(path){
     
     # -- About section ---------------------------------------------------------
     h2(class = "section",
-       "About the Project"),
+       "About the program"),
     
     # -- text
-    tagList(
-      p("The mentoring activity is performed as part of the Data Analyst program delivered by OpenClassrooms.", br(),
-        "It's a one-year (~800h) certified program (RNCP level 6).")),
+    p("The mentoring activity is performed as part of the Data Analyst program delivered by", 
+      tags$a(id = "portfolio-p11_link_oc", class = "ktag", target = "_blank", href = "https://openclassrooms.com/fr/", "OpenClassrooms."), br(),
+      "It's a one-year (~800h) certified program (RNCP level 6)."),
     
 
     # -- Features section ------------------------------------------------------
@@ -56,19 +56,20 @@ project_modal_p11 <- function(path){
       card(class = "border",
            fill = FALSE,
            card_header("Projects"),
-           p("Support students in working on practical data analysis projects.")),
+           p("Support students in working on practical data analysis projects. Provide them with context, knowledge about data tools, real life use cases and experiences.")),
       
       card(class = "border",
            fill = FALSE,
            card_header("Exams"),
-           p("Support students during the preparation phase of the exams at the end of each project."))),
+           p("Advise students during the preparation phase of the exams at the end of each project. Evaluations are performed by professionals."))),
     
     
     # -- Background section ----------------------------------------------------
     h2(class = "section",
        "Background"),
     
-    p("The program involves working with various tools to cover popular skills required by companies."),
+    p("The program involves working with various tools to cover popular skills required by companies.", br(),
+      "There is strong focus on data quality, preparation, exploration & of course analysis."),
     
     # -- Technical stack sub-section
     card(
@@ -78,7 +79,7 @@ project_modal_p11 <- function(path){
         card(
           card_header("Languages"),
           tags$ul(
-            tags$li("Python"),
+            tags$li("Python (student's favorite pick)"),
             tags$li("R"),
             tags$li("SQL"))),
         card(
@@ -86,7 +87,7 @@ project_modal_p11 <- function(path){
           tags$ul(
             tags$li("Power.BI"),
             tags$li("Tableau"),
-            tags$li("KNIME"))))),
+            tags$li("DBT"))))),
     
     
     # -- Links section ---------------------------------------------------------
@@ -96,18 +97,18 @@ project_modal_p11 <- function(path){
       layout_column_wrap(
         card(card_header("Program"),
              p("The page of the program on OpenClassrooms."),
-             tags$a(
-               'data-value' = "link_p11_oc",
-               "Data Analyst",
-               target = "_blank",
-               href = "https://openclassrooms.com/paths/1040-data-analyst")),
+             tags$a(id = "portfolio-p11-link_oc_data_analyst",
+                    class = "ktag",
+                    href = "https://openclassrooms.com/paths/1040-data-analyst",
+                    target = "_blank",
+                    "Data Analyst")),
         card(card_header("Certification"),
              p("The official RNCP certification."),
-             tags$a(
-               'data-value' = "link_p11_rncp",
-               "RNCP Certification",
-               target = "_blank",
-               href = "https://www.francecompetences.fr/recherche/rncp/37837/"))))
+             tags$a(id = "portfolio-p11-link_oc_rncp",
+                    class = "ktag",
+                    href = "https://www.francecompetences.fr/recherche/rncp/37837/",
+                    target = "_blank",
+                    "RNCP Certification"))))
 
   )
   

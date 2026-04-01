@@ -7,15 +7,16 @@
 # -- Define server logic
 function(input, output, session) {
   
-  cat("Starting application server... \n")
-  
-  # -- Check DEBUG mode
-  if(DEBUG)
-    cat("[i] DEBUG mode is ON \n")
-  
+  cat("Starting main application server... \n")
   
   # -- Declare objects
-  user <- reactiveVal("philippeperet")
+  query_string <- reactiveVal()
+  init_lab <- reactiveVal()
+
+  # -- log session end
+  session$onSessionEnded(function(){
+    ktag(who = session$token, what = "close_session")
+  })
   
   
   # ----------------------------------------------------------------------------
@@ -23,62 +24,178 @@ function(input, output, session) {
   # ----------------------------------------------------------------------------
 
   # -- portfolio
-  portfolio_server(id = "portfolio", user, path)
+  portfolio_server(id = "portfolio", path = file.path(Sys.getenv("DATA_HOME"), "philippeperet/portfolio"))
   
   # -- lab
-  lab_server(id = "lab", user, path)
+  lab_server(id = "lab", path = Sys.getenv("DATA_HOME"), init_lab)
   
   # -- service
-  service_server(id = "service", user, path, session)
+  service_server(id = "service", session)
   
-  # -- profile
-  profile_server(id = "profile", user, path)
+  # -- about
+  about_server(id = "me", path = file.path(Sys.getenv("DATA_HOME"), "philippeperet/profile"))
   
   # -- contact
-  contact_server(id = "contact", user, path)
-  
-  # -- stack
-  stack_server(id = "stack", user, path)
+  contact_server(id = "contact", path = file.path(Sys.getenv("DATA_HOME"), "philippeperet/contact"))
   
   
   # ----------------------------------------------------------------------------
-  # Manage user
+  # Analytics
+  # ----------------------------------------------------------------------------
+
+  observeEvent(input$ktag_event, 
+               ktag(when = input$ktag_event$when, what = input$ktag_event$what, who = session$token))
+  
+  # -- download
+  output$download_ktag <- downloadHandler(
+    filename = function() {
+      paste("ktag-", Sys.Date(), ".csv", sep = "")
+    },
+    content = function(file) {
+      write.csv(read.csv(file.path(Sys.getenv("DATA_HOME"), "ktag.csv"), row.names = NULL), file)
+    }
+  )
+  
+  
+  # -- download lab stats
+  output$download_lab <- downloadHandler(
+    filename = function() {
+      paste("lab-", Sys.Date(), ".csv", sep = "")
+    },
+    content = function(file) {
+      write.csv(read.csv(file.path(Sys.getenv("DATA_HOME"), "/spy/spy_items.csv"), row.names = NULL), file)
+    }
+  )
+  
+  
+  # ----------------------------------------------------------------------------
+  # URL Query String
   # ----------------------------------------------------------------------------
   
-  # -- Observe url search string (set user)
+  # -- Observe url search string (once!)
+  # because query string will be updated on tab change
   observe({
-    
-    # -- Check for non empty string
-    if(session$clientData$url_search != ''){
+
+    # -- log session
+    ktag(who = session$token, what = "init_session", how = session$clientData$url_search)
+    url_parameters <- getQueryString()
+        
+    if(length(url_parameters)){
       
-      # -- Get url search key / value
-      cat("New url search =", session$clientData$url_search, "\n")
-      url_search <- substring(session$clientData$url_search, first = 2)
-      url_search <- unlist(strsplit(url_search, "&"))
-      url_search <- strsplit(url_search, "=")
-      url_parameters <- lapply(url_search, function(x) x[2])
-      names(url_parameters) <- lapply(url_search, function(x) x[1])
+      # -- store to pass to tab
+      query_string(url_parameters)
       
-      # -- user
-      if("portfolio" %in% names(url_parameters))
-        user(url_parameters$portfolio)
+      # -- admin hack
+      if("admin" %in% names(url_parameters))
+          nav_insert(
+            id = "navbar",
+            nav = nav_panel(class = "p-5",
+                            value = "admin",
+                            title = "Admin",
+                            p("This is the admin tab."),
+                            downloadButton("download_ktag", "Download ktag"),
+                            downloadButton("download_lab", "Download lab")),
+            target = "about",
+            position = "after",
+            select = FALSE,
+            session = session)
+          
       
-      # -- nav
       if("nav" %in% names(url_parameters))
         nav_select(id = "navbar", selected = url_parameters$nav)}
     
-  }) |>
+  }) |> bindEvent(session$clientData$url_search, once = TRUE)
+  
+  
+  # ----------------------------------------------------------------------------
+  # Navigation
+  # ----------------------------------------------------------------------------
+  
+  # -- Observe active tab
+  observeEvent(input$navbar, {
     
-    bindEvent(session$clientData$url_search)
+    ktag(who = session$token, what = "select_tab", how = input$navbar)
+    updateQueryString(paste0("?nav=", input$navbar))
+
+    # -- init lab (see lab_server())
+    if(input$navbar == "lab")
+      init_lab(1)
+    
+  }, ignoreInit = TRUE)
   
   
   # ----------------------------------------------------------------------------
-  # Observe
+  # Blog
   # ----------------------------------------------------------------------------
   
-  # -- Observe active nav_panel
-  observeEvent(input$navbar,
-               cat("Active tab =", input$navbar, "\n"))
+  output$blog_ui <- renderUI({
   
+    url_base <- "https://thekangaroofactory.github.io/the-kangaroo-factory-blog"
+    
+    # -- check url query string
+    url <- if("post" %in% names(query_string()))
+        paste(url_base, "posts", query_string()$post, sep = "/")
+    else url_base
+    
+    # -- return
+    tags$iframe(
+      id = "blog",
+      class = "blog",
+      src = url,
+      scrolling = 'yes')
+    
+  })
+  
+  
+  # ----------------------------------------------------------------------------
+  # Wiki
+  # ----------------------------------------------------------------------------
+  
+  output$wiki_ui <- renderUI({
+    
+    url_base <- "https://thekangaroofactory.github.io/the-kangaroo-factory-wiki"
+    
+    # -- check url query string
+    url <- if("cat" %in% names(query_string()))
+      paste(url_base, "articles", query_string()$cat, paste0(query_string()$article, ".html"), sep = "/")
+    else url_base
+    
+    # -- return
+    tags$iframe(
+      class = "blog",
+      src = url,
+      scrolling = 'yes')
+    
+  })
+  
+  
+  # ----------------------------------------------------------------------------
+  # Legal notice
+  # ----------------------------------------------------------------------------
+  
+  observeEvent(input$legal_notice,
+               
+               showModal(
+                 modalDialog(
+                   title = "Legal notice",
+                   easyClose = TRUE,
+                   
+                   tags$img(class = "mb-3", src = "./img/favicon_196x196.png", alt = "Icon"),
+                   
+                   h4("Owner"),
+                   p("This website and its domain name are the property of:"),
+                   tags$ul(
+                     tags$li("Company name: Philippe PERET EI"),
+                     tags$li("SIREN: 909 200 925"),
+                     tags$li("Email: philippe.peret@hotmail.com")),
+                   
+                   h4("Editorial Manager"),
+                   p("Philippe PERET EI"),
+                   
+                   h4("Host"),
+                   p("This website is hosted by Posit Software, PBC |", tags$a(href = "https://connect.posit.cloud/", target = "_blank", "https://connect.posit.cloud/")),
+                   
+                   h4("Development"),
+                   p("Philippe PERET EI"))))
   
 }

@@ -26,8 +26,8 @@ page_navbar(
   theme = app_theme,
   
   # -- Title
-  title = "Philippe Peret",
-  window_title = "Philippe PERET | TheKangarooFactory",
+  title = "TKF",
+  window_title = "TheKangarooFactory",
   
   # -- header
   header = tags$head(
@@ -45,15 +45,26 @@ page_navbar(
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/base.css"),
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/color_web.css"),
     
-    # -- Google Analytics
-    if(GTAG){
-      tagList(
-        includeHTML("./www/html/google-analytics.html"),
-        tags$script(src = "./js/google_tag.js"))}),
-  
+    # -- js
+    tags$script(
+      
+      "// -- button with class ktag
+      $(document).on('click', '.ktag', function(event) {
+        
+        console.log(event.currentTarget.id);
+        Shiny.setInputValue('ktag_event', {when: Date.now(), what: event.currentTarget.id});
+        
+      });"
+      
+    )
+    
+    ),
+
   # -- footer
   fillable = FALSE,
-  footer = p(class = "footer", "© 2025 TheKangarooFactory"),
+  footer = p(class = "footer", 
+             paste("©", format(Sys.Date(), "%Y"), "TheKangarooFactory"), "|",
+             actionLink(inputId = "legal_notice", label = "legal notice", class = "ktag")),
   
   
   # ----------------------------------------------------------------------------
@@ -62,10 +73,10 @@ page_navbar(
   
   # -- Portfolio
   nav_panel(class = "p-5",
-            value = "portfolio",
-            title = "Portfolio", 
+            value = "projects",
+            title = "Projects", 
             
-            h1("Portfolio"),
+            h1("Projects"),
             portfolio_ui("portfolio")),
   
   
@@ -86,37 +97,20 @@ page_navbar(
             service_ui("service")),
   
   
-  # -- Profile
-  nav_panel(class = "p-5",
-            value = "profile",
-            title = "Profile", 
-            
-            profile_ui("profile")),
-  
-  
-  # -- Stack
-  nav_panel(class = "p-5",
-            value = "stack",
-            title = "Technical Stack", 
-            
-            h1("Technical Stack"),
-            stack_ui("stack")),
-  
-  
   # -- Blog
-  nav_panel(class = "p-5",
+  nav_panel(# class = "p-5", -- otherwise iframe have padding around
             value = "blog",
             title = "Blog", 
             
-            blog_ui()),
+            uiOutput("blog_ui")),
   
   
   # -- Wiki
-  nav_panel(class = "p-5",
+  nav_panel(# class = "p-5",  -- otherwise iframe have padding around
             value = "wiki",
             title = "Wiki",
             
-            wiki_ui()),
+            uiOutput("wiki_ui")),
   
   
   # -- Contact
@@ -131,6 +125,14 @@ page_navbar(
                "Links to other platforms"),
             link_ui("contact")),
   
+  
+  # -- Profile
+  nav_panel(class = "p-5",
+            value = "about",
+            title = "About", 
+            
+            about_ui("me")),
+  
   # -- light / dark mode switch
   nav_item(
     input_dark_mode(id = "switch_mode", mode = "dark")),
@@ -140,27 +142,24 @@ page_navbar(
   
   # -- Links (on the right)
   nav_item(
-    tags$a(
-      class = "external-link nav-link",
-      'data-value' = "linkedin",
-      href = "https://www.linkedin.com/in/philippeperet/",
-      target = "_blank",
-      icon("linkedin", class = "fa-xl"))),
+    tags$a(id = "linkedin",
+           class = "external-link nav-link ktag",
+           href = "https://www.linkedin.com/in/philippeperet/",
+           target = "_blank",
+           icon("linkedin", class = "fa-xl"))),
   
   nav_item(
-    tags$a(
-      class = "external-link nav-link",
-      'data-value' = "github",
-      href = "https://github.com/thekangaroofactory",
-      target = "_blank",
-      icon("github", class = "fa-xl"))),
+    tags$a(id = "github",
+           class = "external-link nav-link ktag",
+           href = "https://github.com/thekangaroofactory",
+           target = "_blank",
+           icon("github", class = "fa-xl"))),
   
   nav_item(
-    tags$a(
-      class = "external-link nav-link",
-      'data-value' = "youtube",
-      href = "https://www.youtube.com/@TheKangarooFactory",
-      target = "_blank",
-      icon("youtube", class = "fa-xl")))
+    tags$a(id = "youtube",
+           class = "external-link nav-link",
+           href = "https://www.youtube.com/@TheKangarooFactory",
+           target = "_blank",
+           icon("youtube", class = "fa-xl")))
   
 ) # page_navbar

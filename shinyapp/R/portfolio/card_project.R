@@ -29,20 +29,18 @@ card_project <- function(x, ns, input, path_portfolio){
     # -- summary
     card_body(
       card_title(x$name),
-      p(x$type, br(), x$summary)),
+      
+      span(
+        lapply(unlist(strsplit(x$type, split = " ")), div, class = "badge tag tkf-bg-accent color-dark")),
+      
+      p(x$summary)),
     
     # -- expand
     card_footer(
-      tooltip(
-        # -- button
-        # add gtag to trigger google analytics js
-        actionButton(inputId = paste0("open_p", x$id),
-                     label = NULL,
-                     icon = icon("up-right-and-down-left-from-center"),
-                     class = "rounded-pill btn-sm float-end gtag",
+        actionButton(inputId = ns(paste0("open_p", x$id)),
+                     label = "view project",
+                     class = "rounded-pill btn-sm dimmed float-end ktag",
                      onclick = sprintf('Shiny.setInputValue(\"%s\", this.id, {priority: \"event\"})', 
-                                       ns("open_project"))),
-        "Open project",
-        placement = "left")))
+                                       ns("open_project")))))
   
 }

@@ -3,7 +3,7 @@
 project_modal_p6 <- function(path){
 
   # -- add resource path
-  my_path <- file.path(path, "philippeperet/portfolio/p6")
+  my_path <- file.path(path, "p6")
   addResourcePath(prefix = "project_media", directoryPath = my_path)
   
   # -- return wrapper
@@ -26,9 +26,9 @@ project_modal_p6 <- function(path){
                        value_box(class = "tkf-bg-camel border",
                                  showcase = icon("file"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
-                                 title = "Cache",
+                                 title = "Challenge",
                                  value = "Performance",
-                                 p("GitHub cache sync")),
+                                 p("GitHub cache synchronization")),
                        
                        value_box(class = "tkf-bg-camel border",
                                  showcase = icon("lock"),
@@ -43,10 +43,12 @@ project_modal_p6 <- function(path){
        "About the Project"),
 
     # -- text
-    tagList(
-      p("The application gathers GitHub resources (repos, milestones & issues) into projects.", br(),
-        "It also offers a global view over all the repositories to organize & prioritorize actions.")),
-        
+    p("GitHub is widely used by developers & companies as a software development platform.", br(),
+      "While it offers some project management capabilities, it's difficult to organize & follow them across repositories."),
+    p("This application gathers GitHub resources (repos, milestones & issues) into projects.", br(),
+      "It offers a global view over all the repositories to organize & prioritorize actions.", br(),
+      "It also enables mixed resources as some tasks do not require code delivery."),
+  
     card(
       card_image(
         class = "p-3",
@@ -58,6 +60,11 @@ project_modal_p6 <- function(path){
     h2(class = "section",
        "Features"),
 
+    p("The focus is defined by two main axis:"),
+    tags$ul(
+      tags$li("Automate priority management, project status, roadmap follow-up"),
+      tags$li("Reduce backlog debt")),
+    
     layout_column_wrap(
       card(
         card_header("Roadmap"),
@@ -75,7 +82,9 @@ project_modal_p6 <- function(path){
     h2(class = "section",
        "Background"),
 
-    p("For performance reason, a smart cache system has been developped based on scheduled calls to the GitHub API."),
+    p("For performance reason, a smart cache system has been developped based on scheduled calls to the GitHub API.", br(),
+      "The frequency of the calls depends on parameters like project status."),
+    p("The application smart cache system relies on the back-end capabilities of the {", tags$a(id = "portfolio-p6-link_kitems_doc", class = "ktag", href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "kitems"), "} package."),
     
     # -- Technical stack sub-section
     card(

@@ -4,7 +4,7 @@
 # Module Server logic
 # ------------------------------------------------------------------------------
 
-lab_server <- function(id, user = NULL, path) {
+lab_server <- function(id, path, init_lab) {
   moduleServer(id, function(input, output, session) {
     
     # -- get namespace
@@ -15,30 +15,116 @@ lab_server <- function(id, user = NULL, path) {
     
     # -- reactive object
     events <- reactiveVal()
+    spy <- reactiveVal()
     
     
     # --------------------------------------------------------------------------
-    # User
+    # Youtube
     # --------------------------------------------------------------------------
     
-    # -- Path to user data
-    # path_contact <- reactive(file.path(path$data, user(), "contact"))
+    # -- display payer
+    observeEvent(input$yt_launch, {
+      
+      removeUI(selector = "#yt_preview")
+      insertUI(selector = "#yt_container",
+               where = "afterBegin",
+               ui = div(
+                 id = "yt_payer",
+                 tags$iframe(
+                   style = "height:400px; width:100%",
+                   src = "https://www.youtube-nocookie.com/embed/SI7gHnpgZfc?si=ypwGsTYg_vM8_QWx",
+                   title = "YouTube video player",
+                   frameborder = "0",
+                   allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
+                   referrerpolicy = "strict-origin-when-cross-origin",
+                   allowfullscreen = 1),
+                 p(actionLink(class = "ktag", inputId = ns("yt_close"), label = "Close"), "viewer.")))
+      
+    })
+    
+    # -- remove player
+    observeEvent(input$yt_close, {
+      removeUI(selector = "#yt_payer")
+      insertUI(selector = "#yt_container", where = "afterBegin", ui = yt_preview(id))
+    })
     
     
     # --------------------------------------------------------------------------
-    # Kitems
+    # Wrapper
     # --------------------------------------------------------------------------
     
-    # -- launch module server
-    # admin FALSE // see lab_ui admin console
-    data <- kitems::kitems(id = "lab", path = path$data, autosave = FALSE, admin = FALSE, trigger = events)
-    
+    # -- listener
+    # note: so that module servers are launched only when user come visit 
+    # this tab (once!)
+    observeEvent(init_lab(), {
+      
+      cat(MODULE, "Init lab \n")
+      
+      # -- launch module server
+      # admin FALSE // see lab_ui admin console
+      data <- kitems::kitems(id = "lab", path = path, autosave = FALSE, admin = FALSE, trigger = events)
+      
+      
+      # ------------------------------------------------------------------------
+      # Analytics
+      # ------------------------------------------------------------------------
+      # dedicated kitems instance
+      
+      # -- launch analytics server
+      lab_stats <- kitems::kitems(id = "spy", path = path, trigger = spy)
+      
+      # -- cache
+      data_row <- reactiveVal(0)
+      
+      # -- listener
+      # because kitems buttons can't be tracked, listens to data object
+      observeEvent(data$items(), {
+        
+        # -- flush
+        spy(NULL)
+        
+        # -- cases
+        if(nrow(data$items()) == 0)
+          spy(kitems::trigger_event(workflow = "create", type = "task", values = list(session = session$token, action = "delete", parameter = "auto", quantity = data_row())))
+        else {
+          delta <- nrow(data$items()) - data_row()
+          if(delta == 0)
+            spy(kitems::trigger_event(workflow = "create", type = "task", values = list(session = session$token, action = "update", parameter = "manual", quantity = 0)))
+          else if(delta == 1)
+            spy(kitems::trigger_event(workflow = "create", type = "task", values = list(session = session$token, action = "create", parameter = "manual")))
+          else if(delta == -1)
+            spy(kitems::trigger_event(workflow = "create", type = "task", values = list(session = session$token, action = "delete", parameter = "manual", quantity = -1)))
+          else if(delta == 10)
+            spy(kitems::trigger_event(workflow = "create", type = "task", values = list(session = session$token, action = "create", parameter = "auto", quantity = 10)))
+          else if(delta == 100)
+            spy(kitems::trigger_event(workflow = "create", type = "task", values = list(session = session$token, action = "create", parameter = "auto", quantity = 100)))}
+        
+        # -- update cache
+        data_row(nrow(data$items()))
+        
+      }, ignoreInit = TRUE)
+      
+      
+      # -- stats UI
+      output$lab_stats <- renderUI({
+        
+        total <- sum(lab_stats$items()[lab_stats$items()$action == "create", ]$quantity)
+        start <- format(as.POSIXct(min(lab_stats$items()$id) / 1000), "%Y-%m-%d")
+        
+        card(
+          class = "mt-5 border-radius tkf-bg-camel color-dark",
+          card_header("Stats"),
+          p(total, "items have been", if(total == 0) "created." else paste("created since", paste0(start, "."))),
+          p("Fun fact: this count is based on a dedicated kitems instance with full back-end implementation pattern."))
+        
+      })
+   
     
     # --------------------------------------------------------------------------
-    # Listener
+    # Generate items (programmatically)
     # --------------------------------------------------------------------------
     
-    # -- helper function (generate items)
+    # -- helper function
     generate_items <- function(n = 1){
       
       list(date = sample(seq(as.Date("2024-01-01"), Sys.Date(), by="day"), n),
@@ -50,7 +136,7 @@ lab_server <- function(id, user = NULL, path) {
     
     # -- generate items
     observeEvent(input$generate_10, {
-    
+      
       cat("[lab] Fire generate x10 \n")
       
       # -- fire event
@@ -90,10 +176,10 @@ lab_server <- function(id, user = NULL, path) {
     
     
     # --------------------------------------------------------------------------
-    # Outputs
+    # Plots
     # --------------------------------------------------------------------------
     
-    # -- plot theme
+    # -- helper
     plot_theme <- function()
       ggplot2::theme(plot.background = ggplot2::element_blank(),
                      panel.background = ggplot2::element_blank(),
@@ -101,7 +187,7 @@ lab_server <- function(id, user = NULL, path) {
                      axis.title = ggplot2::element_blank(),
                      axis.text = ggplot2::element_text(colour = "#2d3037", size = ggplot2::rel(1.25)),
                      plot.title = ggplot2::element_text(colour = "#2d3037", size = ggplot2::rel(1.5)))
-
+    
     # -- value
     output$plot_value <- renderPlot({
       
@@ -144,12 +230,18 @@ lab_server <- function(id, user = NULL, path) {
     }, bg = "transparent")
     
     
+    # --------------------------------------------------------------------------
+    # UI
+    # --------------------------------------------------------------------------
+    
     # -- layout
-    output$layout <- renderUI(
+    output$layout <- renderUI({
       layout_column_wrap(
         plotOutput(ns("plot_value"), height = if(nrow(data$filtered_items()) > 0) 200 else 1),
-        plotOutput(ns("plot_name"), height = if(nrow(data$filtered_items()) > 0) 200 else 1)))
+        plotOutput(ns("plot_name"), height = if(nrow(data$filtered_items()) > 0) 200 else 1))})
     
+    
+    }, ignoreInit = TRUE, once = TRUE) # -- END wrapper!
     
   })
 }

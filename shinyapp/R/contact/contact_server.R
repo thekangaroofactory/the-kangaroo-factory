@@ -4,22 +4,12 @@
 # Module Server logic
 # ------------------------------------------------------------------------------
 
-contact_server <- function(id, user = NULL, path) {
+contact_server <- function(id, path) {
   moduleServer(id, function(input, output, session) {
     
-    # -- get namespace
+    # -- init
     ns <- session$ns
-    
-    # -- module
     MODULE <- paste0("[", id, "]")
-    
-    
-    # --------------------------------------------------------------------------
-    # User
-    # --------------------------------------------------------------------------
-    
-    # -- Path to user data
-    path_contact <- reactive(file.path(path$data, user(), "contact"))
     
     
     # --------------------------------------------------------------------------
@@ -31,7 +21,7 @@ contact_server <- function(id, user = NULL, path) {
       
       # -- read user link file
       cat(MODULE, "Build link grid \n")
-      links <- read.csv(file = file.path(path_contact(), "links.csv"), header = T)
+      links <- read.csv(file = file.path(path, "links.csv"), header = T)
       
       # -- helper function
       helper <- function(x){
@@ -40,10 +30,9 @@ contact_server <- function(id, user = NULL, path) {
         x <- as.list(x)
         
         # -- return
-        # adding gtag class to trigger google_tag.js
         actionButton(
-          inputId = x$name,
-          class = "gtag",
+          inputId = ns(paste0("btn_", x$name)),
+          class = "ktag",
           label = x$name,
           onclick = paste0("window.open('", x$link, "', '_blank')"))}
       

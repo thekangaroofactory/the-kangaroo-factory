@@ -3,7 +3,7 @@
 project_modal_p2 <- function(path){
   
   # -- add resource path
-  my_path <- file.path(path, "philippeperet/portfolio/p2")
+  my_path <- file.path(path, "p2")
   addResourcePath(prefix = "project_media", directoryPath = my_path)
   
   # -- return wrapper
@@ -27,7 +27,7 @@ project_modal_p2 <- function(path){
                                  showcase = icon("file-code"),
                                  theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
                                  title = "Code",
-                                 value = "1,6k",
+                                 value = "2,6k",
                                  p("Lines of code")),
                        
                        value_box(class = "tkf-bg-camel border",
@@ -41,7 +41,7 @@ project_modal_p2 <- function(path){
     # -- About section
     h2(class = "section",
        "Motivations"),
-    p("When working on a R Shiny project that performs operations based on tabular data, whether it is for data analysis or data visualization, the first milestone in the project is to enable standard data processing.", br(),
+    p("When working on a tool that performs operations based on tabular data, the first milestone in the project is to enable standard data processing.", br(),
       "In many cases, it involves to write code that allows to handle the same set of operations but for different objects, which makes this code hard to reuse in another project."),
     p("The purpose of kitems is to wrap those standard operations into a package that is not dependent on the type of item -", tags$span(style = "font-style: italic;", "something that is part of a list or group of things"), "- to manage."),
     
@@ -49,6 +49,8 @@ project_modal_p2 <- function(path){
     h2(class = "section",
        "Features"),
     layout_column_wrap(
+      width = "300px",
+      
       card(class = "border",
            fill = FALSE,
            card_header("Data model"),
@@ -64,8 +66,24 @@ project_modal_p2 <- function(path){
       card(class = "border",
            fill = FALSE,
            card_header("Items"),
-           p("Items are stored in a data frame that fits with the data model rules."),
-           p("That means the data model is implemented in all functions related to item management.")),
+           p("Items are stored in a table that fits with the data model rules."),
+           p("All functions related to item management are performing their task in the context of the data model.")),
+      
+      card(class = "border",
+           fill = FALSE,
+           card_header("Filtering"),
+           p("The module server has smart filtering capabilities that enable different layers (saving computation time):"),
+           tags$ul(
+             tags$li("pre-filtering layer dedicated to high level filters"),
+             tags$li("main layer dedicated to user filters"))),
+      
+      card(class = "border",
+           fill = FALSE,
+           card_header("Workflows"),
+           p("To support multiple implementation patterns, the module server implements back-end workflows that can be called programmatically."),
+           tags$ul(
+             tags$li("CRUD operations"),
+             tags$li("Filtering operations"))),
       
       card(class = "border",
            fill = FALSE,
@@ -80,16 +98,14 @@ project_modal_p2 <- function(path){
       card(class = "border",
            fill = FALSE,
            card_header("Admin console"),
-           p("An admin console is delivered as a standalone Shiny app."),
+           p("An admin console is delivered as a standalone app."),
            p("The reason is that in most cases, it’s not recommended to have the data model(s) management accessible from within an application."))),
     
     
-    # -- Background section
+    # -- Architecture section
     h2(class = "section",
-       "Background"),
+       "Architecture"),
     
-    # -- Architecture sub-section
-    h3("Architecture"),
     p("The framework is delivered as a Shiny module that can be instanciated inside a Shiny server (or even a module server).", br(),
     "It makes it very flexible to use & allows multiple implementations."),
   
@@ -133,7 +149,7 @@ project_modal_p2 <- function(path){
            fill = FALSE,
            card_header("Package"),
            p("The package is published on GitHub."),
-           p("It can be installed using the", a(href = "https://remotes.r-lib.org/reference/install_github.html", target = "_blank", "install_github"), "function from {remotes} package.")),
+           p("It can be installed using the", tags$a(href = "https://remotes.r-lib.org/reference/install_github.html", target = "_blank", "install_github"), "function from {remotes} package.")),
       card(class = "border",
            fill = FALSE,
            card_header("Testing"),
@@ -141,19 +157,16 @@ project_modal_p2 <- function(path){
       card(class = "border",
            fill = FALSE,
            card_header("Documentation"),
-           p(a(href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "Documentation"), "& articles are delivered through the GitHub pages mechanism (with automation)."))),
+           p(tags$a(id = "portoflio-p2_link_kitems_doc", class = "ktag", href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "Documentation"), 
+             "& articles are delivered through the GitHub pages mechanism (with automation)."))),
     
     
     # -- Document section
     card(class = "border",
          card_header("Communication supports"),
-         p("A set of presentations has been delivered to support the communication around the package."),
-         accordion(
-           open = FALSE,
-           accordion_panel(
-             title = "Click to expand / collapse",
-             value = "p2_documentation",
-             tags$iframe(style="height:600px; width:100%", src = "project_media/motivations.pdf")))),
+         p("Multiple presentations have been delivered to support the communication around the package.", br(),
+           "As an example, the roadmap is included in the documentation", 
+           tags$a(id = "portfolio-p2_link_kitems_roadmap", class = "ktag", href = "https://thekangaroofactory.github.io/kitems/articles/roadmap.html", target = "_blank", "page."))),
     
     
     # -- Links section
@@ -164,8 +177,8 @@ project_modal_p2 <- function(path){
         card(fill = FALSE,
              card_header("Repository"),
              p("The GitHub", icon("github"), "repository of the project"),
-             tags$a(
-               'data-value' = "link_p2_github",
+             tags$a(id = "portfolio-p2-link_github_repo",
+                    class = "ktag",
                "kitems",
                target = "_blank",
                href = "https://github.com/thekangaroofactory/kitems")),
@@ -173,11 +186,11 @@ project_modal_p2 <- function(path){
         card(fill = FALSE,
              card_header("Documentation & articles"),
              p("The GitHub page of the package"),
-             tags$a(
-               'data-value' = "link_p2_github_page",
-               "kitems",
-               target = "_blank",
-               href = "https://thekangaroofactory.github.io/kitems/"))))
+             tags$a(id = "portfolio-p2-link_github_page",
+                    class = "ktag",
+                    href = "https://thekangaroofactory.github.io/kitems/",
+                    target = "_blank",
+                    "kitems"))))
     
   )
   
