@@ -29,10 +29,9 @@ card_project <- function(x, ns, input, path_portfolio){
     # -- summary
     card_body(
       card_title(x$name),
-      # div(class = "badge tag tkf-bg-accent color-dark", x$type),
       
       span(
-      lapply(unlist(strsplit(x$type, split = " ")), div, class = "badge tag tkf-bg-accent color-dark")),
+        lapply(unlist(strsplit(x$type, split = " ")), div, class = "badge tag tkf-bg-accent color-dark")),
       
       p(x$summary)),
     
