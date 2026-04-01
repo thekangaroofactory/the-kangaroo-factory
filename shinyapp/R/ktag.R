@@ -21,7 +21,10 @@
 ktag <- function(..., path = Sys.getenv("DATA_HOME")){
 
   stopifnot("DATA_HOME environment variable is not set or path is NULL" = !is.null(path))
-
+  
+  if(Sys.getenv("KTAG") == "OFF")
+    return()
+  
   arg_list <- list(...)
   x <- data.frame(who = arg_list$who,
                   when = if("when" %in% names(arg_list)) arg_list$when else round(as.numeric(Sys.time()) * 1000, digits = 0),
