@@ -9,3 +9,4 @@ id,name,type,summary
 6,GitHub Client,WebApp,Project follow-up application across GitHub repositories.
 7,Mastersing Communication between Shiny Modules,Book,The art of the communication within modular applications.
 4,TheKangarooFactory,WebApp,Web application including project portfolio and live testing lab.
+12,Ktools,Package,R package wrapping various utility tools.
