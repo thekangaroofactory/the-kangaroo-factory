@@ -12,3 +12,4 @@ id,name,type,summary
 12,Ktools,Package,R package wrapping various utility tools.
 13,Iker,Package,Iker is your data scribe.
 14,Kwidgets,Package,HTML Widgets for R Shiny.
+15,GPX-Tracker,WebApp,Exploration project around GPX files.
