@@ -160,6 +160,13 @@ page_navbar(
            class = "external-link nav-link",
            href = "https://www.youtube.com/@TheKangarooFactory",
            target = "_blank",
-           icon("youtube", class = "fa-xl")))
+           icon("youtube", class = "fa-xl"))),
+  
+  nav_item(
+    tags$a(id = "mastodon",
+           class = "external-link nav-link",
+           href = "https://mastodon.social/@thekangaroofactory",
+           target = "_blank",
+           icon("mastodon", class = "fa-xl")))
   
 ) # page_navbar
