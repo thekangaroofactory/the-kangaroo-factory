@@ -62,7 +62,7 @@ lab_server <- function(id, path, init_lab) {
       
       # -- launch module server
       # admin FALSE // see lab_ui admin console
-      data <- kitems::kitems(id = "lab", path = path, autosave = FALSE, admin = FALSE, trigger = events)
+      data <- kitems::kitems(id = "lab", path = path, trigger = events, options = list(autosave = FALSE))
       
       
       # ------------------------------------------------------------------------

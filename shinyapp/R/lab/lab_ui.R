@@ -72,7 +72,7 @@ lab_ui <- function(id){
                           kitems::date_slider_widget(ns(id)))),
                       
                       # -- item table
-                      kitems::filtered_view_widget(ns(id))),
+                      kitems::item_widget(ns(id))),
                     
                     # -- side card
                     card(
