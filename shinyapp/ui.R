@@ -44,6 +44,10 @@ page_navbar(
     # -- css
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/base.css"),
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/color_web.css"),
+    tags$link(rel = "stylesheet", type = "text/css", href = "./css/stats.css"),
+    tags$link(rel = "stylesheet", type = "text/css", href = "./css/next_steps.css"),
+    tags$link(rel = "stylesheet", type = "text/css", href = "./css/hero.css"),
+    tags$link(rel = "stylesheet", type = "text/css", href = "./css/loader.css"),
     
     # -- js
     tags$script(
@@ -70,6 +74,21 @@ page_navbar(
   # ----------------------------------------------------------------------------
   # Tabs (nav_panel)
   # ----------------------------------------------------------------------------
+
+  # -- Home
+  nav_panel(class = "p-5",
+            value = "home",
+            title = "Home", 
+            
+            hero_section(title = "Welcome!", description = "Jump back in, or explore something new."),
+            
+            tags$div(id = "stats-placeholder",
+                     class = "container",
+                     loader(id = "loader", label = "Fetching external data...")),
+            
+            next_steps()
+            
+            ),
   
   # -- Portfolio
   nav_panel(class = "p-5",

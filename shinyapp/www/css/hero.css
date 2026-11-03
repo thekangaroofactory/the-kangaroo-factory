@@ -1,0 +1,109 @@
+
+.custom-hero-block {
+  max-width: 1100px;
+  display: flex;
+  background: #c09f7f;
+  background: linear-gradient(
+    to bottom right,
+    #c09f7f,#ba9677 30%,#986e56 50%
+  );
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 0 auto 75px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.hero-content {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #111111;
+  margin-bottom: 15px;
+}
+
+.hero-description {
+  font-size: 1rem;
+  color: #555555;
+  line-height: 1.5;
+  margin-bottom: 25px;
+  max-width: 500px;
+}
+
+.hero-description a {
+  color: #111111;
+  text-decoration: underline;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+/* Style du bouton noir fendu (Split button) */
+.btn-split-container {
+  display: inline-flex;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.btn-main {
+  background-color: #111111 !important;
+  color: white !important;
+  border: none !important;
+  padding: 10px 20px !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+}
+
+.btn-arrow {
+  background-color: #111111 !important;
+  color: white !important;
+  border: none !important;
+  border-left: 1px solid #333333 !important;
+  padding: 10px 12px !important;
+}
+
+/* Style du bouton blanc 'Your Work' */
+.btn-secondary-custom {
+  background-color: transparent !important;
+  color: #111111 !important;
+  border: 1px solid #CCCCCC !important;
+  border-radius: 30px !important;
+  padding: 10px 24px !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+}
+
+.btn-main:hover, .btn-arrow:hover { 
+  background-color: #222222 !important; 
+}
+
+.btn-secondary-custom:hover { 
+  background-color: #EEEEEE !important; 
+}
+
+
+/* Partie Image de droite */
+.hero-image {
+  flex: 1;
+  background-image: url('https://picsum.photos/520/270?grayscale&blur'); /* Remplacez par votre image abstraite */
+  background-size: cover;
+  background-position: center;
+  min-height: 220px;
+}
+
+
+/* Adaptabilité mobile */
+@media (max-width: 768px) {
+  .custom-hero-block { flex-direction: column; }
+
+  .hero-image { min-height: 150px; }
+
+}

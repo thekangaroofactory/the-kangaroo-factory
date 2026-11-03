@@ -68,6 +68,33 @@ h4 { font-size: 1.4rem }
 
 
 /* -----------------------------------------------------------------------------
+   Custom classes (general layout)
+------------------------------------------------------------------------------*/
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 40px auto;
+}
+
+
+/* -----------------------------------------------------------------------------
+   Custom classes (animation)
+------------------------------------------------------------------------------*/
+
+/* Define the fade-in keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Apply the animation class */
+.animated-ui {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+
+/* -----------------------------------------------------------------------------
    Custom classes (YouTube preview)
 ------------------------------------------------------------------------------*/
 
