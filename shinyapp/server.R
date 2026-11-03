@@ -23,6 +23,9 @@ function(input, output, session) {
   # Call modules
   # ----------------------------------------------------------------------------
 
+  # home
+  home_server(id = "home", session)
+  
   # -- portfolio
   portfolio_server(id = "portfolio", path = file.path(Sys.getenv("DATA_HOME"), "philippeperet/portfolio"))
   
