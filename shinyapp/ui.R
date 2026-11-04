@@ -48,6 +48,7 @@ page_navbar(
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/next_steps.css"),
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/hero.css"),
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/loader.css"),
+    tags$link(rel = "stylesheet", type = "text/css", href = "./css/pack.css"),
     
     # -- js
     tags$script(
@@ -90,6 +91,21 @@ page_navbar(
             
             ),
   
+  
+  # -- Open source
+  nav_panel(class = "p-5",
+            value = "open-source",
+            title = "Open source", 
+
+            hero_section(title = "Open Source", description = "Some cool stuff about my work goes here."),
+            
+            package_ui(),
+            
+            guide_ui(),
+            
+            ),
+
+      
   # -- Portfolio
   nav_panel(class = "p-5",
             value = "projects",

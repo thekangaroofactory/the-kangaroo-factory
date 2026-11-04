@@ -25,6 +25,7 @@ function(input, output, session) {
 
   # home
   home_server(id = "home", session)
+  opensource_server(id = "opensource", session)
   
   # -- portfolio
   portfolio_server(id = "portfolio", path = file.path(Sys.getenv("DATA_HOME"), "philippeperet/portfolio"))

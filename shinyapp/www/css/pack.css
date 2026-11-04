@@ -1,0 +1,129 @@
+/* Conteneur principal limité à 1100px */
+.cards-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colonnes égales */
+  gap: 20px; /* Espace entre les cartes */
+}
+
+/* Style de la carte principale */
+.custom-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  height: 240px; /* Hauteur fixe adaptable */
+}
+
+/* Section Image de gauche */
+.card-image-section {
+  width: 40%;
+  background: linear-gradient(135deg, #ffde7d 0%, #ffb84d 100%); /* Exemple de dégradé */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Illustration centrale (simulée ici par du texte/emoji pour l'exemple) */
+.card-illustration {
+  font-size: 3rem;
+  filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.15));
+}
+
+/* Section Contenu de droite */
+.card-content-section {
+  width: 70%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* En-tête (Source / Auteur) */
+.card-header-meta {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #718096;
+  gap: 8px;
+}
+
+.card-icon {
+  border: 1px solid #e2e8f0;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+/* Titre et Description */
+.card-body h3 {
+  margin: 20px 0 10px 0;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #1a202c;
+}
+
+.card-description {
+  color: #4a5568;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+/* Tag de classement (#1 Gemini...) */
+.card-ranking-tag {
+  background-color: #f7fafc;
+  border-radius: 10px;
+  padding: 0px 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #2d3748;
+  display: inline-block;
+}
+
+.card-ranking-tag strong {
+  color: #718096;
+  margin-right: 6px;
+}
+
+/* Pied de page de la carte */
+.card-footer-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #718096;
+  padding-top: 12px;
+}
+
+.card-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Version responsive : bascule sur 1 colonne sur petits écrans */
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+  .custom-card {
+    height: auto;
+    flex-direction: column;
+  }
+  .card-image-section, .card-content-section {
+    width: 100%;
+  }
+  .card-image-section {
+    height: 150px;
+  }
+}
