@@ -4,7 +4,10 @@ about_ui <- function(){
   
   div(
     
-    hero_section(title = "About", description = "A few words about me."),
+    hero_section(title = "About", 
+                 description = "A few words about me.",
+                 actions = list(primary = list(id = "about-btn-linkedin", label = "LinkedIn", icon = icon("angle-right")),
+                                secondary = list(id = "about-btn-contact", label = "Contact me"))),
     
     div(
       class = "section-container",
