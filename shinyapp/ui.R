@@ -153,7 +153,7 @@ page_navbar(
             value = "about",
             title = "About", 
             
-            about_ui("me")),
+            about_ui()),
   
   # -- light / dark mode switch
   nav_item(
