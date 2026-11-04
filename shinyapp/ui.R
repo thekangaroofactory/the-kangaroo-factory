@@ -148,19 +148,6 @@ page_navbar(
             uiOutput("wiki_ui")),
   
   
-  # -- Contact
-  nav_panel(class = "p-5",
-            value = "contact",
-            title = "Contacts & Links", 
-            
-            h1("Contacts & Links"),
-            contact_ui("contact"),
-            
-            h2(class = "section",
-               "Links to other platforms"),
-            link_ui("contact")),
-  
-  
   # -- Profile
   nav_panel(class = "p-5",
             value = "about",

@@ -36,12 +36,6 @@ function(input, output, session) {
   # -- service
   service_server(id = "service", session)
   
-  # -- about
-  about_server(id = "me", path = file.path(Sys.getenv("DATA_HOME"), "philippeperet/profile"))
-  
-  # -- contact
-  contact_server(id = "contact", path = file.path(Sys.getenv("DATA_HOME"), "philippeperet/contact"))
-  
   
   # ----------------------------------------------------------------------------
   # Analytics
