@@ -83,7 +83,7 @@ page_navbar(
             hero_section(title = "Welcome!", description = "Jump back in, or explore something new."),
             
             tags$div(id = "stats-placeholder",
-                     class = "container",
+                     class = "section-container",
                      loader(id = "loader", label = "Fetching external data...")),
             
             next_steps()
