@@ -97,7 +97,9 @@ page_navbar(
             value = "open-source",
             title = "Open source", 
 
-            hero_section(title = "Open Source", description = "Some cool stuff about my work goes here."),
+            hero_section(title = "Open Source", 
+                         description = "Some cool stuff about my work goes here.",
+                         actions = list(primary = list(id = "os-github", label = "GitHub", icon = icon("github")))),
             
             package_ui(),
             
