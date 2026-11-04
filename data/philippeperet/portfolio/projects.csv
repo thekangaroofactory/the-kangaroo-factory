@@ -1,8 +1,5 @@
 id,name,type,summary
-8,CSR Dashboard,Dashboard,CO₂ emission calculation quality dashboard delivered to GEODIS.
 1,Monitoring Dashboard,Dashboard API,Data pipeline API & AI performance monitoring web application.
-9,CSR Datalake,Datalake,Data layer to centralize CO₂ emission calculation data at GEODIS.
-10,CSR API & Tools,API,Set of tools to support CSR business needs at GEODIS.
 3,France Election,WebApp,Dynamic election data visualization based on public open data.
 6,GitHub Client,WebApp,Project follow-up application across GitHub repositories.
 4,TheKangarooFactory,WebApp,Web application including project portfolio and live testing lab.
