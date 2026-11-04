@@ -24,7 +24,7 @@
 .hero-title {
   font-size: 2.5rem;
   font-weight: 600;
-  color: #111111;
+  color: var(--tkf-color-dark);
   margin-bottom: 15px;
 }
 
@@ -54,7 +54,7 @@
 }
 
 .btn-main {
-  background-color: #111111 !important;
+  background-color: var(--tkf-color-dark) !important;
   color: white !important;
   border: none !important;
   padding: 10px 20px !important;
@@ -93,7 +93,7 @@
 /* Partie Image de droite */
 .hero-image {
   flex: 1;
-  background-image: url('https://picsum.photos/520/270?grayscale&blur'); /* Remplacez par votre image abstraite */
+  background-image: url('https://picsum.photos/520/270?grayscale&blur');
   background-size: cover;
   background-position: center;
   min-height: 220px;

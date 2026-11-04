@@ -1,26 +1,29 @@
 
-hero_section <- function(title, description){
+
+hero_section <- function(title, description, actions = NULL){
   
   div(class = "custom-hero-block",
       
-      # Côté gauche : Textes et Boutons
+      # left
       div(class = "hero-content",
+          
+          # text
           div(class = "hero-title", title),
           div(class = "hero-description", description),
-      
+          
           # buttons
-          div(class = "hero-buttons",
-              # Bouton principal avec flèche dropdown
-              div(class = "btn-split-container dropdown",
-                  tags$button(class = "btn btn-main", type = "button", id = "new_notebook",
-                              icon("plus"), " New Notebook")),
-              # Bouton secondaire
-              actionButton("your_work", "Your Work", class = "btn-secondary-custom")
-          )
-      ),
+          if(!is.null(actions))
+            div(class = "hero-buttons",
+                actionButton(inputId = actions$primary$id, 
+                             label = actions$primary$label,
+                             icon = actions$primary$icon, 
+                             class = "btn btn-main"),
+                if(!is.null(actions$secondary))
+                  actionButton(inputId = actions$secondary$id, 
+                               label = actions$secondary$label, 
+                               class = "btn-secondary-custom"))),
       
-      # Côté droit : Image d'illustration
-      div(class = "hero-image")
-  )
+      # right (image)
+      div(class = "hero-image"))
   
 }
