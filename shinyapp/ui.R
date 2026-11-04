@@ -87,7 +87,9 @@ page_navbar(
                      class = "section-container",
                      loader(id = "loader", label = "Fetching external data...")),
             
-            next_steps()
+            next_steps(),
+            
+            service_ui()
             
             ),
   
@@ -124,14 +126,6 @@ page_navbar(
             
             h1("The Lab"),
             lab_ui("lab")),
-  
-  
-  # -- Service
-  nav_panel(class = "p-5",
-            value = "services",
-            title = "Services", 
-            
-            service_ui("service")),
   
   
   # -- Blog

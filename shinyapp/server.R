@@ -37,9 +37,6 @@ function(input, output, session) {
   # -- lab
   lab_server(id = "lab", path = Sys.getenv("DATA_HOME"), init_lab)
   
-  # -- service
-  service_server(id = "service", session)
-  
   
   # ----------------------------------------------------------------------------
   # Analytics
@@ -102,6 +99,21 @@ function(input, output, session) {
             select = FALSE,
             session = session)
           
+      if(url_parameters$nav == "oc"){
+        
+        # -- start server
+        oc_server("oc")
+        
+        nav_insert(
+          id = "navbar",
+          nav = nav_panel(class = "p-5",
+                          value = "oc",
+                          title = "OpenClassrooms",
+                          oc_ui("oc")),
+          target = "wiki",
+          position = "after",
+          select = FALSE,
+          session = session)}
       
       if("nav" %in% names(url_parameters))
         nav_select(id = "navbar", selected = url_parameters$nav)}
