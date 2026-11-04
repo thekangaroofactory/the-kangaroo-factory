@@ -98,23 +98,7 @@ function(input, output, session) {
             position = "after",
             select = FALSE,
             session = session)
-          
-      if(url_parameters$nav == "oc"){
-        
-        # -- start server
-        oc_server("oc")
-        
-        nav_insert(
-          id = "navbar",
-          nav = nav_panel(class = "p-5",
-                          value = "oc",
-                          title = "OpenClassrooms",
-                          oc_ui("oc")),
-          target = "wiki",
-          position = "after",
-          select = FALSE,
-          session = session)}
-      
+
       if("nav" %in% names(url_parameters))
         nav_select(id = "navbar", selected = url_parameters$nav)}
     
