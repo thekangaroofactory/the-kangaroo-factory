@@ -1,0 +1,11 @@
+
+linkedin: https://www.linkedin.com/in/philippeperet
+github: https://github.com/thekangaroofactory
+runiverse: https://thekangaroofactory.r-universe.dev
+
+opensource:
+  guides:
+  - title: Mastering Communication Between Shiny Modules
+    description: A study of the communication within modular web applications.
+    url: https://thekangaroofactory.github.io/communication-between-shiny-modules/
+    version: "1.0"

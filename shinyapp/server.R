@@ -19,13 +19,17 @@ function(input, output, session) {
   })
   
   
+  # read YAML config
+  config <- yaml::read_yaml(file = file.path(Sys.getenv("DATA_HOME"), "_tkf.yml"))
+  
+  
   # ----------------------------------------------------------------------------
   # Call modules
   # ----------------------------------------------------------------------------
 
   # home
   home_server(id = "home", session)
-  opensource_server(id = "opensource", session)
+  opensource_server(id = "opensource", config)
   
   # -- portfolio
   portfolio_server(id = "portfolio", path = file.path(Sys.getenv("DATA_HOME"), "philippeperet/portfolio"))
