@@ -15,14 +15,14 @@ projects:
     description: Data pipeline API & AI performance monitoring web application.
     tags: dashboard, API
   - title: France Election
-    description: Dynamic election data visualization based on public open data.
+    description: Dynamic data visualization based on election open data.
     tags: WebApp
   - title: GitHub Client
-    description: Project follow-up application across GitHub repositories.
+    description: Building a cross repository follow-up application relying on the GitHub API.
     tags: WebApp
   - title: TheKangarooFactory
-    description: Web application including project portfolio and live testing lab.
+    description: Web application including a live testing lab.
     tags: WebApp
   - title: GPX-Tracker
-    description: Exploration project around GPX files.
+    description: Compute analysis based on GPX files.
     tags: WebApp
