@@ -1,13 +1,15 @@
 
 
-asset_card <- function(title, description, type, icon, footer, tag){
+asset_card <- function(title, description, type, icon, img = NULL, footer, tag){
   
   div(
     class = "custom-card",
     
     # left (image)
     div(
-      class = "hero-image"),
+      class = "hero-image",
+      if(!is.null(img))
+        style = sprintf("background-image: url('%s');", img)),
     
     # right (content)
     div(
