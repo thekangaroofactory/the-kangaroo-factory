@@ -16,6 +16,15 @@
     --bs-link-hover-color: #986e56;
     --bs-link-hover-color-rgb: 152,110,86;
     
+    /* -- border -- */
+    --tkf-border-color: #e2e8f0;
+    
+    /* -- text -- */
+    --tkf-dimmed-color: #777;
+    
+    /* -- background -- */
+    --tkf-dimmed-bg: #f1f3f4;
+    
     /* -- selectize input item background -- */
     --bs-tertiary-bg: #DECAB7;
 }
@@ -32,6 +41,15 @@
     --bs-link-color-rgb: 186,150,119;
     --bs-link-hover-color: #986e56;
     --bs-link-hover-color-rgb: 152,110,86;
+    
+    /* -- border -- */
+    --tkf-border-color: #262930;
+    
+    /* -- text -- */
+    --tkf-dimmed-color: #dadada;
+    
+    /* -- background -- */
+    --tkf-dimmed-bg: #484a4e;
     
     /* -- selectize input item background -- */
     --bs-tertiary-bg: #A27A64;
