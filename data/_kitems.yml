@@ -1,0 +1,49 @@
+version: 0.8.1
+project: data
+items:
+-   id: lab
+    source:
+        type: file
+        path: lab
+        filename: lab_items.csv
+    data.model:
+        attributes:
+        -   name: id
+            type: numeric
+            default: ktools::uuid()
+        -   name: date
+            type: Date
+            default: Sys.Date()
+        -   name: name
+            type: character
+            default: xxx
+        -   name: value
+            type: numeric
+            default: '5'
+        -   name: checked
+            type: logical
+            default: 'FALSE'
+        hide: id
+        skip: id
+        sort: desc(date)
+-   id: spy
+    source:
+        type: file
+        path: spy
+        filename: spy_items.csv
+    data.model:
+        attributes:
+        -   name: id
+            type: numeric
+            default: ktools::uuid()
+        -   name: session
+            type: character
+        -   name: action
+            type: character
+        -   name: parameter
+            type: character
+        -   name: quantity
+            type: integer
+            default: '1'
+        hide: id
+        skip: id
