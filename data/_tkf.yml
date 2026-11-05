@@ -9,3 +9,20 @@ opensource:
     description: A study of the communication within modular web applications.
     url: https://thekangaroofactory.github.io/communication-between-shiny-modules/
     version: "1.0"
+
+projects:
+  - title: Monitoring Dashboard
+    description: Data pipeline API & AI performance monitoring web application.
+    tags: dashboard, API
+  - title: France Election
+    description: Dynamic election data visualization based on public open data.
+    tags: WebApp
+  - title: GitHub Client
+    description: Project follow-up application across GitHub repositories.
+    tags: WebApp
+  - title: TheKangarooFactory
+    description: Web application including project portfolio and live testing lab.
+    tags: WebApp
+  - title: GPX-Tracker
+    description: Exploration project around GPX files.
+    tags: WebApp
