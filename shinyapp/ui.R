@@ -93,7 +93,6 @@ page_navbar(
             
             ),
   
-  
   # -- Open source
   nav_panel(class = "p-5",
             value = "open-source",
@@ -137,22 +136,22 @@ page_navbar(
   
   
   # -- Blog
-  nav_panel(# class = "p-5", -- otherwise iframe have padding around
+  nav_panel(class = "p-5",
             value = "blog",
-            title = "Blog", 
+            title = "Blog2", 
             
-            uiOutput("blog_ui")),
-  
-  
-  # -- Wiki
-  nav_panel(# class = "p-5",  -- otherwise iframe have padding around
-            value = "wiki",
-            title = "Wiki",
+            hero_section(title = "Blog", description = "Take it from the RSS feed."),
             
-            uiOutput("wiki_ui")),
+            div(class = "section-container",
+                h1("Articles"),
+                p("The Quarto version is available", 
+                  tags$a(href = "https://thekangaroofactory.github.io/the-kangaroo-factory-blog/", target = "_blank", "here."))),
+            
+            div(id = "blog-placeholder",
+                class="cards-container")),
   
   
-  # -- Profile
+  # -- About
   nav_panel(class = "p-5",
             value = "about",
             title = "About", 

@@ -31,6 +31,8 @@ function(input, output, session) {
   home_server(id = "home", session)
   opensource_server(id = "opensource", config)
   
+  rss_server(id = "blog", session)
+  
   # -- portfolio
   portfolio_server(id = "portfolio", path = file.path(Sys.getenv("DATA_HOME"), "philippeperet/portfolio"), config)
   
@@ -120,51 +122,6 @@ function(input, output, session) {
       init_lab(1)
     
   }, ignoreInit = TRUE)
-  
-  
-  # ----------------------------------------------------------------------------
-  # Blog
-  # ----------------------------------------------------------------------------
-  
-  output$blog_ui <- renderUI({
-  
-    url_base <- "https://thekangaroofactory.github.io/the-kangaroo-factory-blog"
-    
-    # -- check url query string
-    url <- if("post" %in% names(query_string()))
-        paste(url_base, "posts", query_string()$post, sep = "/")
-    else url_base
-    
-    # -- return
-    tags$iframe(
-      id = "blog",
-      class = "blog",
-      src = url,
-      scrolling = 'yes')
-    
-  })
-  
-  
-  # ----------------------------------------------------------------------------
-  # Wiki
-  # ----------------------------------------------------------------------------
-  
-  output$wiki_ui <- renderUI({
-    
-    url_base <- "https://thekangaroofactory.github.io/the-kangaroo-factory-wiki"
-    
-    # -- check url query string
-    url <- if("cat" %in% names(query_string()))
-      paste(url_base, "articles", query_string()$cat, paste0(query_string()$article, ".html"), sep = "/")
-    else url_base
-    
-    # -- return
-    tags$iframe(
-      class = "blog",
-      src = url,
-      scrolling = 'yes')
-    
-  })
   
   
   # ----------------------------------------------------------------------------
