@@ -31,7 +31,8 @@ function(input, output, session) {
   home_server(id = "home", session)
   opensource_server(id = "opensource", config)
   
-  rss_server(id = "blog", session)
+  rss_server(id = "blog", feed = "https://thekangaroofactory.github.io/the-kangaroo-factory-blog/index.xml", session)
+  rss_server(id = "wiki", feed = "https://thekangaroofactory.github.io/the-kangaroo-factory-wiki/index.xml", session)
   
   # -- portfolio
   portfolio_server(id = "portfolio", path = file.path(Sys.getenv("DATA_HOME"), "philippeperet/portfolio"), config)

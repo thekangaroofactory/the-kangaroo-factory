@@ -138,16 +138,32 @@ page_navbar(
   # -- Blog
   nav_panel(class = "p-5",
             value = "blog",
-            title = "Blog2", 
+            title = "Blog", 
             
             hero_section(title = "Blog", description = "Take it from the RSS feed."),
             
             div(class = "section-container",
-                h1("Articles"),
+                h1("Posts"),
                 p("The Quarto version is available", 
                   tags$a(href = "https://thekangaroofactory.github.io/the-kangaroo-factory-blog/", target = "_blank", "here."))),
             
             div(id = "blog-placeholder",
+                class="cards-container")),
+  
+  
+  # -- Wiki
+  nav_panel(class = "p-5",
+            value = "wiki",
+            title = "Wiki", 
+            
+            hero_section(title = "Wiki", description = "Take it from the RSS feed."),
+            
+            div(class = "section-container",
+                h1("Articles"),
+                p("The Quarto version is available", 
+                  tags$a(href = "https://thekangaroofactory.github.io/the-kangaroo-factory-wiki/", target = "_blank", "here."))),
+            
+            div(id = "wiki-placeholder",
                 class="cards-container")),
   
   

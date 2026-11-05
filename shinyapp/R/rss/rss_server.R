@@ -4,7 +4,7 @@
 # Module Server logic
 # ------------------------------------------------------------------------------
 
-rss_server <- function(id, parent_session) {
+rss_server <- function(id, feed, parent_session) {
   moduleServer(id, function(input, output, session) {
     
     # -- get namespace
@@ -19,11 +19,11 @@ rss_server <- function(id, parent_session) {
     # --------------------------------------------------------------------------
 
     # retrieve RSS feed
-    blog_mart <- tidyRSS::tidyfeed(feed = "https://thekangaroofactory.github.io/the-kangaroo-factory-blog/index.xml", 
-                                   list = TRUE, 
-                                   clean_tags = FALSE)
+    mart <- tidyRSS::tidyfeed(feed = feed, 
+                              list = TRUE, 
+                              clean_tags = FALSE)
     
-    
+    # generate & insert UI
     helper <- function(x){
 
       # generate card
@@ -31,18 +31,19 @@ rss_server <- function(id, parent_session) {
                        description = paste(x$item_category, collapse = " | "),
                        type = "Post",
                        icon = icon("angle-right"),
+                       img = sprintf("%s/%s", x$item_link, "thumbnail.jpg"),
                        footer = tagList(span(icon("laptop")), a(href = "", target = "_blank", "Page")),
                        tag = as.POSIXct(x$item_pub_date))
       
       # insert UI
-      insertUI(selector = "#blog-placeholder",
+      insertUI(selector = paste0("#", id, "-placeholder"),
                where = "beforeEnd",
                ui = ui)
       
     }
     
-    apply(blog_mart$entries, MARGIN = 1, helper)
-    
+    # apply helper
+    apply(mart$entries, MARGIN = 1, helper)
     
   })
 }
