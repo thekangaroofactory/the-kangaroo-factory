@@ -83,7 +83,7 @@ page_navbar(
             
             hero_section(title = "Welcome!", description = "Jump back in, or explore something new."),
             
-            tags$div(id = "stats-placeholder",
+            div(id = "stats-placeholder",
                      class = "section-container",
                      loader(id = "loader", label = "Fetching external data...")),
             
@@ -117,6 +117,12 @@ page_navbar(
             
             hero_section(title = "Projects", 
                          description = "Data-driven projects that showcase the power and flexibility of open source approaches."),
+            
+            div(class = "section-container",
+                     h2("Featured")),
+            
+            div(id = "project-placeholder",
+                     class="cards-container"),
             
             portfolio_ui("portfolio")),
   

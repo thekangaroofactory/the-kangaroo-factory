@@ -32,7 +32,7 @@ function(input, output, session) {
   opensource_server(id = "opensource", config)
   
   # -- portfolio
-  portfolio_server(id = "portfolio", path = file.path(Sys.getenv("DATA_HOME"), "philippeperet/portfolio"))
+  portfolio_server(id = "portfolio", path = file.path(Sys.getenv("DATA_HOME"), "philippeperet/portfolio"), config)
   
   # -- lab
   lab_server(id = "lab", path = Sys.getenv("DATA_HOME"), init_lab)
