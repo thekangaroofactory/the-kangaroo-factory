@@ -89,7 +89,7 @@ page_navbar(
             
             next_steps(),
             
-            service_ui()
+            # service_ui()
             
             ),
   
@@ -115,7 +115,9 @@ page_navbar(
             value = "projects",
             title = "Projects", 
             
-            h1("Projects"),
+            hero_section(title = "Projects", 
+                         description = "Data-driven projects that showcase the power and flexibility of open source approaches."),
+            
             portfolio_ui("portfolio")),
   
   
