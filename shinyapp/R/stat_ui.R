@@ -3,8 +3,8 @@
 stat_ui <- function(stats){
   
   # the component
-  tags$div(class = "stats-container",
-           tags$div(class = "stats-grid",
+  div(class = "stats-container",
+           div(class = "stats-grid",
                     
                     # loop over input
                     lapply(stats, \(x) do.call(stat_card, x))
@@ -12,7 +12,7 @@ stat_ui <- function(stats){
            ),
            
            # footer
-           tags$div(class = "stats-footer",
+           div(class = "stats-footer",
                     actionLink("hide_stats", "Hide stats", class = "btn-hide")))
   
 }

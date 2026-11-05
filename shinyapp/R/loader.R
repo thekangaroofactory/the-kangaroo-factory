@@ -2,8 +2,8 @@
 
 loader <- function(id, label){
 
-  tags$div(id = id,
+  div(id = id,
     p(label),
-    tags$span(class = "loader"))
+    span(class = "loader"))
     
 }

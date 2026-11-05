@@ -20,20 +20,20 @@
 stat_card <- function(title, icon, value = 0, trend = NULL, label, target = NULL){
   
   # the component
-  tags$div(class = "stat-card",
-           onclick = if(!is.null(target)) paste0("Shiny.setInputValue('", target, "', '", title, "', {priority: 'event'});"),
-           style = if(!is.null(target)) "cursor: pointer;",
-           
-           # header (icon + title)
-           tags$div(class = "stat-header",
-                    tags$div(class = "icon-wrapper", tags$i(class = icon)),
-                    tags$span(class = "stat-title", title)),
-           
-           # body (value + label)
-           tags$div(class = "stat-body",
-                    tags$div(class = "stat-value", value,
-                             if(!is.null(trend))
-                               tags$span(class = "trend-up", tags$i(class = "fa-solid fa-arrow-trend-up"), trend)),
-                    tags$div(class = "stat-label", label))) 
+  div(class = "stat-card",
+      onclick = if(!is.null(target)) paste0("Shiny.setInputValue('", target, "', '", title, "', {priority: 'event'});"),
+      style = if(!is.null(target)) "cursor: pointer;",
+      
+      # header (icon + title)
+      div(class = "stat-header",
+          div(class = "icon-wrapper", tags$i(class = icon)),
+          span(class = "stat-title", title)),
+      
+      # body (value + label)
+      div(class = "stat-body",
+          div(class = "stat-value", value,
+              if(!is.null(trend))
+                span(class = "trend-up", tags$i(class = "fa-solid fa-arrow-trend-up"), trend)),
+          div(class = "stat-label", label))) 
   
 }

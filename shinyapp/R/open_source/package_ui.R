@@ -2,11 +2,11 @@
 
 package_ui <- function(){
   
-  tags$div(class = "section-container",
+  div(class = "section-container",
     
     h2("Packages"),
 
-    tags$div(
+    div(
       id = "package-placeholder",
       class = "cards-container"))
   
