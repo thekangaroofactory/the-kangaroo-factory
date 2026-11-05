@@ -8,8 +8,7 @@ asset_card <- function(title, description, type, icon, img = NULL, footer, tag){
     # left (image)
     div(
       class = "hero-image",
-      if(!is.null(img))
-        style = sprintf("background-image: url('%s');", img)),
+      style = if(!is.null(img)) sprintf("background-image: url('%s');", img)),
     
     # right (content)
     div(
