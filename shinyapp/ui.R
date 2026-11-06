@@ -123,7 +123,8 @@ page_navbar(
             div(id = "project-placeholder",
                      class="cards-container"),
             
-            portfolio_ui("portfolio")),
+            # portfolio_ui("portfolio")
+            ),
   
   
   # -- Lab
