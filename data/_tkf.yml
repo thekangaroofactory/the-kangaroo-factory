@@ -13,16 +13,21 @@ opensource:
 projects:
   - title: Monitoring Dashboard
     description: Data pipeline API & AI performance monitoring web application.
+    image: preview_1.jpg
     tags: dashboard, API
   - title: France Election
     description: Dynamic data visualization based on election open data.
+    image: preview_2.jpg
     tags: WebApp
   - title: GitHub Client
     description: Building a cross repository follow-up application relying on the GitHub API.
+    image: preview_3.jpg
     tags: WebApp
   - title: TheKangarooFactory
     description: Web application including a live testing lab.
+    image: preview_4.jpg
     tags: WebApp
   - title: GPX-Tracker
     description: Compute analysis based on GPX files.
+    image: preview_5.jpg
     tags: WebApp
