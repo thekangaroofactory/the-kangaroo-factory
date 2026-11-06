@@ -12,6 +12,6 @@ stat_ui <- function(stats){
       # footer
       div(class = "stats-footer",
           # actionLink("hide_stats", "Hide stats", class = "btn-hide")
-          ))
+      ))
   
 }

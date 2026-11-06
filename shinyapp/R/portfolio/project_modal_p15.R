@@ -89,7 +89,7 @@ project_modal_p15 <- function(path){
         card(fill = FALSE,
              card_header("Repository"),
              p("The GitHub", icon("github"), "repository of the project"),
-             tags$a(id = "portfolio-p15-link_github_repo",
+             a(id = "portfolio-p15-link_github_repo",
                     class = "ktag",
                "GPX-Tracker",
                target = "_blank",

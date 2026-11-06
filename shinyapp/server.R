@@ -172,7 +172,7 @@ function(input, output, session) {
                    p("Philippe PERET EI"),
                    
                    h4("Host"),
-                   p("This website is hosted by Posit Software, PBC |", tags$a(href = "https://connect.posit.cloud/", target = "_blank", "https://connect.posit.cloud/")),
+                   p("This website is hosted by Posit Software, PBC |", a(href = "https://connect.posit.cloud/", target = "_blank", "https://connect.posit.cloud/")),
                    
                    h4("Development"),
                    p("Philippe PERET EI"))))

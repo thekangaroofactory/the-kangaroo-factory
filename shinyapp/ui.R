@@ -149,7 +149,7 @@ page_navbar(
             div(class = "section-container",
                 h1("Posts"),
                 p("The Quarto version is available", 
-                  tags$a(href = "https://thekangaroofactory.github.io/the-kangaroo-factory-blog/", target = "_blank", "here."))),
+                  a(href = "https://thekangaroofactory.github.io/the-kangaroo-factory-blog/", target = "_blank", "here."))),
             
             div(id = "blog-placeholder",
                 class="cards-container")),
@@ -165,7 +165,7 @@ page_navbar(
             div(class = "section-container",
                 h1("Articles"),
                 p("The Quarto version is available", 
-                  tags$a(href = "https://thekangaroofactory.github.io/the-kangaroo-factory-wiki/", target = "_blank", "here."))),
+                  a(href = "https://thekangaroofactory.github.io/the-kangaroo-factory-wiki/", target = "_blank", "here."))),
             
             div(id = "wiki-placeholder",
                 class="cards-container")),
@@ -187,28 +187,28 @@ page_navbar(
   
   # -- Links (on the right)
   nav_item(
-    tags$a(id = "linkedin",
+    a(id = "linkedin",
            class = "external-link nav-link ktag",
            href = "https://www.linkedin.com/in/philippeperet/",
            target = "_blank",
            icon("linkedin", class = "fa-xl"))),
   
   nav_item(
-    tags$a(id = "github",
+    a(id = "github",
            class = "external-link nav-link ktag",
            href = "https://github.com/thekangaroofactory",
            target = "_blank",
            icon("github", class = "fa-xl"))),
   
   nav_item(
-    tags$a(id = "youtube",
+    a(id = "youtube",
            class = "external-link nav-link",
            href = "https://www.youtube.com/@TheKangarooFactory",
            target = "_blank",
            icon("youtube", class = "fa-xl"))),
   
   nav_item(
-    tags$a(id = "mastodon",
+    a(id = "mastodon",
            class = "external-link nav-link",
            href = "https://mastodon.social/@thekangaroofactory",
            target = "_blank",

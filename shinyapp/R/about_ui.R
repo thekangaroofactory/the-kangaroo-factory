@@ -20,9 +20,9 @@ about_ui <- function(){
           p("Since 2001, it has always been about data projects and technical-functional roles:", br(),
             "From Data Management & Exchanges to Data Analysis & Visualization."),
           p("I enjoy working with complex data pipelines & carefully designed dashboards."),
-          p("I do photography as a hobby —", tags$a(id = "about-link_thediamondbay", class = "ktag", href = "https://www.thediamondbay.fr/", target = "_blank", "www.thediamondbay.fr"))),
+          p("I do photography as a hobby —", a(id = "about-link_thediamondbay", class = "ktag", href = "https://www.thediamondbay.fr/", target = "_blank", "www.thediamondbay.fr"))),
         
         # right
-        tags$image(width = "200px", src = "./img/profile.png", alt = "Avatar"))))
+        img(width = "200px", src = "./img/profile.png", alt = "Avatar"))))
   
 }

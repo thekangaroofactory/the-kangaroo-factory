@@ -12,7 +12,7 @@ next_steps <- function(){
           
           # left
           div(class = "steps-column",
-              tags$h3("Jump in"),
+              h3("Jump in"),
               div(class = "steps-list",
                   
                   # Item 1 : Benchmark Draft
@@ -68,7 +68,7 @@ next_steps <- function(){
           
           # COLONNE DROITE : More things to do
           div(class = "steps-column",
-              tags$h3("More things to do"),
+              h3("More things to do"),
               div(class = "steps-list",
                   
                   # Item 1 : Join conversation

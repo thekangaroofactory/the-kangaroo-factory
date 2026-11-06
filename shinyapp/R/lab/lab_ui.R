@@ -10,7 +10,7 @@ lab_ui <- function(id){
     
     # -- intro
     p(class = "mt-5",
-      "The lab offers an opportunity to test the {", tags$a(id = "lab-link_kitems_doc_1", class = "ktag", href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "kitems"), "} framework."),
+      "The lab offers an opportunity to test the {", a(id = "lab-link_kitems_doc_1", class = "ktag", href = "https://thekangaroofactory.github.io/kitems/", target = "_blank", "kitems"), "} framework."),
     
     p("The package defines itself as a framework because it comes with a flexible mindset & many features:"),
     tags$ul(
