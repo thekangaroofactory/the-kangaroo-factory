@@ -3,7 +3,7 @@
 loader <- function(id, label){
 
   div(id = id,
-    p(label),
+    p(id = paste(id, "label", sep = "-"), label),
     span(class = "loader"))
     
 }

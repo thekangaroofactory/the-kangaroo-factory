@@ -4,7 +4,7 @@
 # Module Server logic
 # ------------------------------------------------------------------------------
 
-opensource_server <- function(id, config) {
+opensource_server <- function(id, config, mart) {
   moduleServer(id, function(input, output, session) {
     
     # -- get namespace
@@ -18,8 +18,7 @@ opensource_server <- function(id, config) {
     # Packages
     # --------------------------------------------------------------------------
 
-    # get package info from r-universe API
-    package_mart <- universe::universe_all_packages(universe = "thekangaroofactory")
+
 
     # build & insert card
     helper <- function(package){
@@ -45,7 +44,7 @@ opensource_server <- function(id, config) {
     insertUI(selector = "#package-placeholder",
              where = "beforeBegin",
              ui = p("Packages published to ", a(href = config$runiverse, target = "_blank", "R-universe")))
-    lapply(package_mart, helper)
+    lapply(mart, helper)
     
     
     # --------------------------------------------------------------------------

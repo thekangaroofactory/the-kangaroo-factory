@@ -32,6 +32,9 @@ page_navbar(
   # -- header
   header = tags$head(
     
+    # -- JavaScript
+    shinyjs::useShinyjs(),
+    
     # -- meta tags
     tags$meta(charset="UTF-8"),
     tags$meta(name="description", content="Data project portfolio and data science services. 

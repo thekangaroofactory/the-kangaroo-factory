@@ -19,8 +19,22 @@ function(input, output, session) {
   })
   
   
+  # ----------------------------------------------------------------------------
+  # Get data
+  # ----------------------------------------------------------------------------
+  
   # read YAML config
   config <- yaml::read_yaml(file = file.path(Sys.getenv("DATA_HOME"), "_tkf.yml"))
+  
+  # get packages from R-universe API
+  shinyjs::html(id = "loader-label", html = "Fetching external data from R-universe API")
+  package_mart <- universe::universe_all_packages(universe = "thekangaroofactory")
+  
+  # get RSS feeds
+  shinyjs::html(id = "loader-label", html = "Fetching external data from blog RSS feed")
+  blog_mart <- tidyRSS::tidyfeed(feed = "https://thekangaroofactory.github.io/the-kangaroo-factory-blog/index.xml", list = TRUE, clean_tags = FALSE)
+  shinyjs::html(id = "loader-label", html = "Fetching external data from wiki RSS feed")
+  wiki_mart <- tidyRSS::tidyfeed(feed = "https://thekangaroofactory.github.io/the-kangaroo-factory-wiki/index.xml", list = TRUE, clean_tags = FALSE)
   
   
   # ----------------------------------------------------------------------------
@@ -29,16 +43,19 @@ function(input, output, session) {
 
   # home
   home_server(id = "home", session)
-  opensource_server(id = "opensource", config)
   
-  rss_server(id = "blog", feed = "https://thekangaroofactory.github.io/the-kangaroo-factory-blog/index.xml", session)
-  rss_server(id = "wiki", feed = "https://thekangaroofactory.github.io/the-kangaroo-factory-wiki/index.xml", session)
+  # open source
+  opensource_server(id = "opensource", config, mart = package_mart)
   
   # -- portfolio
   portfolio_server(id = "portfolio", path = file.path(Sys.getenv("DATA_HOME"), "philippeperet/portfolio"), config)
   
   # -- lab
   lab_server(id = "lab", path = Sys.getenv("DATA_HOME"), init_lab)
+  
+  # blog & wiki
+  rss_server(id = "blog", mart = blog_mart, session)
+  rss_server(id = "wiki", mart = wiki_mart , session)
   
   
   # ----------------------------------------------------------------------------

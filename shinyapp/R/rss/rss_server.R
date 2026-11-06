@@ -4,7 +4,7 @@
 # Module Server logic
 # ------------------------------------------------------------------------------
 
-rss_server <- function(id, feed, parent_session) {
+rss_server <- function(id, mart, parent_session) {
   moduleServer(id, function(input, output, session) {
     
     # -- get namespace
@@ -17,11 +17,6 @@ rss_server <- function(id, feed, parent_session) {
     # --------------------------------------------------------------------------
     # Observers
     # --------------------------------------------------------------------------
-
-    # retrieve RSS feed
-    mart <- tidyRSS::tidyfeed(feed = feed, 
-                              list = TRUE, 
-                              clean_tags = FALSE)
     
     # generate & insert UI
     helper <- function(x){
