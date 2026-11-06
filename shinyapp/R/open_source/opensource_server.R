@@ -29,6 +29,7 @@ opensource_server <- function(id, config) {
                        description = package$Title,
                        type = "Package",
                        icon = icon("code"),
+                       img = "https://picsum.photos/520/270?random=1&grayscale&blur",
                        footer = tagList(span(icon("laptop")), a(href = package$`_pkgdown`, target = "_blank", "Page"),
                                         span(icon("rocket")), a(href = paste0(package$Repository, "/", package$Package), target = "_blank", "Repository")),
                        tag = package$Version)
