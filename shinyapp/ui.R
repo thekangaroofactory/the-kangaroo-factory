@@ -87,8 +87,8 @@ page_navbar(
             hero_section(title = "Welcome!", description = "Jump back in, or explore something new."),
             
             div(id = "stats-placeholder",
-                     class = "section-container",
-                     loader(id = "loader", label = "Fetching external data...")),
+                class = "section-container",
+                loader(id = "loader", label = "Fetching external data...")),
             
             next_steps(),
             

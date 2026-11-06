@@ -4,7 +4,7 @@
 # Module Server logic
 # ------------------------------------------------------------------------------
 
-home_server <- function(id, parent_session) {
+home_server <- function(id, counts, parent_session) {
   moduleServer(id, function(input, output, session) {
     
     # -- get namespace
@@ -15,19 +15,18 @@ home_server <- function(id, parent_session) {
     
     
     # --------------------------------------------------------------------------
-    # Observers
+    # Stats
     # --------------------------------------------------------------------------
-
-    # just get package count
-    nb_package <- universe::universe_ls(universe = "thekangaroofactory")
     
-    stats <- list(list(title = "Packages", icon = "fa-solid fa-code", value = 4, label = "on r-universe", target = ns("stat_select")),
-                  list(title = "Models", icon = "fa-solid fa-code", value = 2, label = "on kaggle"))
+    # get stats
+    # package, project, guide, post, article
+    stats <- list(list(title = "Packages", icon = "fa-solid fa-code", value = counts$package, label = "on r-universe", target = ns("stat_select")),
+                  list(title = "Guides", icon = "fa-solid fa-book", value = counts$guide, label = "eBooks", target = ns("stat_select")),
+                  list(title = "Projects", icon = "fa-solid fa-code", value = counts$project, label = "featured", target = ns("stat_select")),
+                  list(title = "Posts", icon = "fa-solid fa-pen-to-square", value = counts$post, label = "on the blog", target = ns("stat_select")),
+                  list(title = "Articles", icon = "fa-solid fa-file-lines", value = counts$article, label = "in the wiki", target = ns("stat_select")))
     
-    # >> build the ui before
-    
-    Sys.sleep(2)
-    
+    # replace loader
     removeUI(selector = "#stats-placeholder > *")
     
     insertUI(
@@ -44,17 +43,27 @@ home_server <- function(id, parent_session) {
     
     observeEvent(input$stat_select, {
       
-      str(input$stat_select)
-      
-      if(input$stat_select == "Packages")
+      if(input$stat_select %in% c("Packages", "Guides"))
         nav_select(id = "navbar", 
                    selected = "open-source",
                    session = parent_session)
       
+      if(input$stat_select == "Projects")
+        nav_select(id = "navbar", 
+                   selected = "projects",
+                   session = parent_session)
+      
+      if(input$stat_select == "Posts")
+        nav_select(id = "navbar", 
+                   selected = "blog",
+                   session = parent_session)
+      
+      if(input$stat_select == "Articles")
+        nav_select(id = "navbar", 
+                   selected = "wiki",
+                   session = parent_session)
+      
     })
-    
-    
-    
     
   })
 }

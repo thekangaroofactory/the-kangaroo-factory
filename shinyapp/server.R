@@ -36,13 +36,19 @@ function(input, output, session) {
   shinyjs::html(id = "loader-label", html = "Fetching external data from wiki RSS feed")
   wiki_mart <- tidyRSS::tidyfeed(feed = "https://thekangaroofactory.github.io/the-kangaroo-factory-wiki/index.xml", list = TRUE, clean_tags = FALSE)
   
+  # compute counts
+  counts <- list(package = length(package_mart), 
+                 project = length(config$projects), 
+                 guide = length(config$opensource$guides), 
+                 post = nrow(blog_mart$entries), 
+                 article = nrow(wiki_mart$entries))
   
   # ----------------------------------------------------------------------------
   # Call modules
   # ----------------------------------------------------------------------------
 
   # home
-  home_server(id = "home", session)
+  home_server(id = "home", counts, session)
   
   # open source
   opensource_server(id = "opensource", config, mart = package_mart)
