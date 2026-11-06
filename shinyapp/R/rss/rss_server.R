@@ -29,7 +29,7 @@ rss_server <- function(id, feed, parent_session) {
       # generate card
       ui <- asset_card(title = x$item_title,
                        description = paste(x$item_category, collapse = " | "),
-                       type = "Post",
+                       type = ifelse(id == "blog", "Post", "Article"),
                        icon = icon("angle-right"),
                        img = sprintf("%s/%s", x$item_link, "thumbnail.jpg"),
                        footer = tagList(span(icon("laptop")), a(href = "", target = "_blank", "Page")),
