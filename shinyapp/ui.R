@@ -113,7 +113,10 @@ page_navbar(
 
             hero_section(title = "Open Source", 
                          description = "Some cool stuff about my work goes here.",
-                         actions = list(primary = list(id = "os-github", label = "GitHub", icon = icon("github")))),
+                         actions = list(primary = list(id = "os-github", 
+                                                       label = "GitHub", 
+                                                       icon = icon("github"),
+                                                       link = "https://github.com/thekangaroofactory"))),
             
             package_ui(),
             
