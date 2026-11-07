@@ -1,4 +1,5 @@
 
+
 next_steps <- function(){
   
   div(class = "next-steps-container",
@@ -7,107 +8,82 @@ next_steps <- function(){
       div(class = "section-main-title", 
           tags$i(class = "fa-solid fa-chart-line"), "Latest trend"),
       
-      # grid
+      # grid (2 columns)
       div(class = "next-steps-grid",
           
           # left
           div(class = "steps-column",
+              
               h3("Jump in"),
               div(class = "steps-list",
                   
-                  # Item 1 : Benchmark Draft
+                  # Item 1 :
                   div(class = "step-item clickable",
                       onclick = "Shiny.setInputValue('jump_action', 'benchmark', {priority: 'event'});",
                       div(class = "step-avatar-wrapper",
-                          div(class = "step-avatar", tags$i(class = "fa-solid fa-kiwi-bird")), # Remplacement de l'icône kangourou
-                          div(class = "step-badge", tags$i(class = "fa-solid fa-code"))
-                      ),
+                          div(class = "step-avatar", tags$i(class = "fa-solid fa-kiwi-bird"))),
                       div(class = "step-content",
-                          div(class = "step-title", "Benchmark Draft Task"),
-                          div(class = "step-subtitle", "Your notebook has been viewed 21 times")
-                      ),
+                          div(class = "step-title", "Kitems"),
+                          div(class = "step-subtitle", "A new version is available!")),
                       div(class = "step-action-zone",
-                          span(class = "fork-badge", tags$i(class = "fa-solid fa-caret-up"), "1 forks this week")
-                      )
-                  ),
+                          span(class = "step-action", tags$i(class = "fa-solid fa-arrow-right"), "Go to package"))),
                   
-                  # Item 2 : Transfer Learning
+                  # Item 2 :
                   div(class = "step-item clickable",
                       onclick = "Shiny.setInputValue('jump_action', 'transfer_learning', {priority: 'event'});",
                       div(class = "step-avatar-wrapper",
-                          div(class = "step-avatar", tags$i(class = "fa-solid fa-images")),
-                          div(class = "step-badge", tags$i(class = "fa-solid fa-code"))
-                      ),
+                          div(class = "step-avatar", tags$i(class = "fa-solid fa-images"))),
                       div(class = "step-content",
-                          div(class = "step-title", "Transfer Learning Image Classification"),
-                          div(class = "step-subtitle", "Your notebook has been viewed 145 times")
-                      ),
+                          div(class = "step-title", "Octobre newsletter"),
+                          div(class = "step-subtitle", "A new blog post is available.")),
                       div(class = "step-action-zone",
-                          div(class = "resume-link", tags$i(class = "fa-solid fa-arrow-right"), "Resume editing")
-                      )
-                  ),
+                          div(class = "step-action", tags$i(class = "fa-solid fa-arrow-right"), "Read post"))),
                   
-                  # Item 3 : Coffee Images
+                  # Item 3 :
                   div(class = "step-item clickable",
                       onclick = "Shiny.setInputValue('jump_action', 'coffee_images', {priority: 'event'});",
                       div(class = "step-avatar-wrapper",
-                          div(class = "step-avatar", tags$i(class = "fa-solid fa-kiwi-bird")),
-                          div(class = "step-badge", tags$i(class = "fa-solid fa-table-cells"))
-                      ),
+                          div(class = "step-avatar", tags$i(class = "fa-solid fa-kiwi-bird"))),
                       div(class = "step-content",
-                          div(class = "step-title", "coffee-images-test"),
-                          div(class = "step-subtitle", "Usability Rating: 1.88 • Last Updated 3 years ago")
-                      ),
+                          div(class = "step-title", "AI Benchmark"),
+                          div(class = "step-subtitle", "Updated yesterday • 2/3 tasks OK")),
                       div(class = "step-action-zone",
-                          div(class = "resume-link", tags$i(class = "fa-solid fa-arrow-right"), "Resume editing")
-                      )
-                  )
+                          div(class = "step-action", tags$i(class = "fa-solid fa-arrow-right"), "See leaderboard")))
                   
               )
           ),
           
           # COLONNE DROITE : More things to do
           div(class = "steps-column",
+              
               h3("More things to do"),
               div(class = "steps-list",
                   
                   # Item 1 : Join conversation
                   div(class = "step-item",
                       div(class = "step-avatar-wrapper",
-                          div(class = "step-avatar", tags$i(class = "fa-regular fa-comment-dots"))
-                      ),
+                          div(class = "step-avatar", tags$i(class = "fa-regular fa-comment-dots"))),
                       div(class = "step-content",
                           div(class = "step-title", "Join a conversation"),
                           div(class = "step-subtitle", 
-                              HTML("Make your first comment! Visit the <a href='#'>forums</a> or explore discussions on <a href='#'>datasets</a>.")
-                          )
-                      ),
+                              HTML("Make your first comment! Visit the <a href='#'>forums</a> or explore discussions on <a href='#'>datasets</a>."))),
                       div(class = "step-action-zone",
                           tags$button(class = "btn-close-item", 
                                       onclick = "Shiny.setInputValue('todo_close', 'join_conversation', {priority: 'event'}); window.event.stopPropagation();",
-                                      tags$i(class = "fa-solid fa-xmark")
-                          )
-                      )
-                  ),
+                                      tags$i(class = "fa-solid fa-xmark")))),
                   
                   # Item 2 : Competition submission
                   div(class = "step-item",
                       div(class = "step-avatar-wrapper",
-                          div(class = "step-avatar", tags$i(class = "fa-solid fa-trophy"))
-                      ),
+                          div(class = "step-avatar", tags$i(class = "fa-solid fa-trophy"))),
                       div(class = "step-content",
                           div(class = "step-title", "Make a competition submission"),
                           div(class = "step-subtitle", 
-                              HTML("Follow our guide to make your first submission to the <a href='#'>Titanic competition</a>.")
-                          )
-                      ),
+                              HTML("Follow our guide to make your first submission to the <a href='#'>Titanic competition</a>."))),
                       div(class = "step-action-zone",
                           tags$button(class = "btn-close-item", 
                                       onclick = "Shiny.setInputValue('todo_close', 'competition_submission', {priority: 'event'}); window.event.stopPropagation();",
-                                      tags$i(class = "fa-solid fa-xmark")
-                          )
-                      )
-                  )
+                                      tags$i(class = "fa-solid fa-xmark"))))
                   
               )
           )

@@ -1,13 +1,11 @@
 
-/* Conteneur de la section globale */
+/* Global container */
 .next-steps-container {
   max-width: 1100px;
   margin: 40px auto;
-  /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;*/
-  /*color: #202124;*/
 }
-      
-/* Titre principal */
+
+/* Section title */
 .section-main-title {
   font-size: 18px;
   font-weight: 500;
@@ -16,55 +14,56 @@
   align-items: center;
   gap: 10px;
 }
-      
-/* Grille à 2 colonnes */
+
+/* 2-column grid */
 .next-steps-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
 }
-      
-/* Colonne */
+
+/* Column */
 .steps-column h3 {
   font-size: 14px;
   font-weight: 500;
-  /*color: #202124;*/
   margin-bottom: 16px;
 }
-      
-/* Liste d'éléments */
+
+/* Element list */
 .steps-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
-      
-/* Un élément de la liste (Item) */
+
+/* Element */
 .step-item {
   display: flex;
   align-items: center;
   padding: 12px;
+  border: 1px solid var(--tkf-border-color);
   border-radius: 8px;
-  background-color: transparent;
-  transition: background-color 0.2s ease;
+  background-color: var(--bs-body-bg);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  transition: background-color 0.25s ease;
   position: relative;
 }
+
 .step-item.clickable {
   cursor: pointer;
 }
+
 .step-item.clickable:hover {
-  background-color: #f8f9fa;
+  background-color: var(--bs-tertiary-bg);
 }
-.step-item.active-style {
-  background-color: #f4f5f7; /* Fond grisé pour mettre en avant un item */
-}
-      
-/* Avatar / Icône à gauche */
+
+/* Avatar (left) */
 .step-avatar-wrapper {
   position: relative;
   margin-right: 14px;
   flex-shrink: 0;
 }
+
 .step-avatar {
   width: 40px;
   height: 40px;
@@ -77,63 +76,46 @@
   font-size: 16px;
   color: #5f6368;
 }
+
 .step-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.step-badge {
-  position: absolute;
-  bottom: -4px;
-  right: -4px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background-color: #ffffff;
-  border: 1px solid #dadce0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 9px;
-  color: #5f6368;
-}
-      
+
 /* Contenu textuel */
 .step-content {
   flex-grow: 1;
   padding-right: 10px;
 }
+
 .step-title {
-  font-size: 14px;
+  font-size: 0.9rem;
   font-weight: 500;
   margin-bottom: 2px;
-  /*color: #202124;*/
 }
+
 .step-subtitle {
-  font-size: 11px;
-  color: #70757a;
+  font-size: 0.85rem;
+  color: var(--tkf-dimmed-color);
 }
-      
-/* Actions / Badges à droite */
+
+/* Action (right) */
 .step-action-zone {
   display: flex;
   align-items: center;
   gap: 12px;
   flex-shrink: 0;
 }
-.fork-badge {
-  font-size: 11px;
-  color: #1e8e3e;
-  font-weight: 500;
-}
-.resume-link {
+
+.step-action {
   font-size: 12px;
-  /*color: #202124;*/
   font-weight: 500;
   display: flex;
   align-items: center;
   gap: 6px;
 }
+
 .btn-close-item {
   background: none;
   border: none;
@@ -143,15 +125,15 @@
   padding: 4px;
   border-radius: 4px;
 }
+
 .btn-close-item:hover {
   background-color: #e8eaed;
-  /*color: #202124;*/
 }
-      
+
 /* Responsive */
-      @media (max-width: 768px) {
+@media (max-width: 768px) {
   .next-steps-grid {
-      grid-template-columns: 1fr;
-      gap: 30px;
+grid-template-columns: 1fr;
+gap: 30px;
   }
 }
