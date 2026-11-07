@@ -159,7 +159,7 @@ function(input, output, session) {
       div(
         class = "legal-notice",
         
-        tags$img(class = "mb-3", src = "./img/favicon_196x196.png", alt = "Icon"),
+        tags$img(src = "./img/favicon_196x196.png", alt = "Icon"),
         
         h4("Owner"),
         p("This website and its domain name are the property of:"),
