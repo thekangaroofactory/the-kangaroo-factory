@@ -43,7 +43,7 @@ opensource_server <- function(id, config, mart) {
     # apply helper
     insertUI(selector = "#package-placeholder",
              where = "beforeBegin",
-             ui = p("Packages published to ", a(href = config$runiverse, target = "_blank", "R-universe")))
+             ui = p("Packages published to ", popover(a(href = config$runiverse, target = "_blank", "R-universe"), "Go to the universe"), icon("rocket")))
     lapply(mart, helper)
     
     
