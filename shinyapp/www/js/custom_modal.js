@@ -7,6 +7,12 @@ $(document).on('click', '#open_modal', function() {
 // close button
 $(document).on('click', '#close_modal', function() {
   $('#modal-overlay').removeClass('active');
+  
+  const element = document.getElementById("custom-modal-placeholder");
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+  
 });
 
 // close on click on overlay area

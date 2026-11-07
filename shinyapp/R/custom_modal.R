@@ -13,7 +13,8 @@ custom_modal <- function(content = NULL){
       # Close
       tags$button("×", id = "close_modal", class = "custom-close-btn"),
       
-      # Content
-      div(id = "modal-content", content)))
+      # Placeholder
+      div(id = "custom-modal-placeholder", content)
+      ))
   
 }
