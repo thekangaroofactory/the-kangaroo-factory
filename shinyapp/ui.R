@@ -52,6 +52,10 @@ page_navbar(
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/hero.css"),
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/loader.css"),
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/pack.css"),
+    tags$link(rel = "stylesheet", type = "text/css", href = "./css/custom_modal.css"),
+    
+    # -- js
+    tags$script(src = "./js/custom_modal.js"),
     
     # -- js
     tags$script(
@@ -64,7 +68,11 @@ page_navbar(
         
       });"
       
-    )
+    ),
+    
+    # -- implement modal window
+    # so that it's available across the app
+    custom_modal()
     
     ),
 
@@ -74,7 +82,7 @@ page_navbar(
              paste("©", format(Sys.Date(), "%Y"), "TheKangarooFactory"), "|",
              actionLink(inputId = "legal_notice", label = "legal notice", class = "ktag")),
   
-  
+
   # ----------------------------------------------------------------------------
   # Tabs (nav_panel)
   # ----------------------------------------------------------------------------
@@ -91,6 +99,8 @@ page_navbar(
                 loader(id = "loader", label = "Fetching external data...")),
             
             next_steps(),
+            
+            # actionButton("open_modal", "Ouvrir les options", class = "btn-primary")
             
             # service_ui()
             
