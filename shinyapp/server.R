@@ -147,6 +147,23 @@ function(input, output, session) {
     
   }, ignoreInit = TRUE)
   
+
+  # -- close tab
+  observeEvent(input$close_tab, {
+    
+    cat("Closing tab \n")
+
+    # select tab
+    # when pattern is foo-viewer, foo will be selected
+    target <- unlist(strsplit(input$close_tab, split = "-"))
+    if(length(target) == 2 && target[[2]] == "viewer")
+      nav_select(id = "navbar", selected = target[[1]])
+    
+    # close tab
+    nav_remove(id = "navbar", target = input$close_tab)
+    
+  })
+  
   
   # ----------------------------------------------------------------------------
   # Legal notice
