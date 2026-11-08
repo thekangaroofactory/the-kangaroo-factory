@@ -58,8 +58,6 @@ lab_server <- function(id, path, init_lab) {
     # this tab (once!)
     observeEvent(init_lab(), {
       
-      cat(MODULE, "Init lab \n")
-      
       # -- launch module server
       # admin FALSE // see lab_ui admin console
       data <- kitems::kitems(id = "lab", path = path, trigger = events, options = list(autosave = FALSE))
@@ -137,8 +135,6 @@ lab_server <- function(id, path, init_lab) {
     # -- generate items
     observeEvent(input$generate_10, {
       
-      cat("[lab] Fire generate x10 \n")
-      
       # -- fire event
       events(
         kitems::trigger_event(workflow = "create",
@@ -149,8 +145,6 @@ lab_server <- function(id, path, init_lab) {
     
     # -- generate items
     observeEvent(input$generate_100, {
-      
-      cat("[lab] Fire generate x100 \n")
       
       # -- fire event
       events(
@@ -236,6 +230,7 @@ lab_server <- function(id, path, init_lab) {
     
     # -- layout
     output$layout <- renderUI({
+      
       layout_column_wrap(
         plotOutput(ns("plot_value"), height = if(nrow(data$filtered_items()) > 0) 200 else 1),
         plotOutput(ns("plot_name"), height = if(nrow(data$filtered_items()) > 0) 200 else 1))})

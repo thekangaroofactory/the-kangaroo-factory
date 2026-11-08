@@ -164,7 +164,6 @@ page_navbar(
             value = "lab",
             title = "Lab", 
             
-            h1("The Lab"),
             lab_ui("lab")),
   
   
