@@ -173,11 +173,11 @@ page_navbar(
             value = "blog",
             title = "Blog", 
             
-            hero_section(title = "Blog", description = "Take it from the RSS feed."),
+            hero_section(title = "Blog", description = "Yet another blog about data science."),
             
             div(class = "section-container",
                 h1("Posts"),
-                p("The Quarto version is available", 
+                p("In case you need full text search or tag selection, see the quarto version", 
                   a(href = "https://thekangaroofactory.github.io/the-kangaroo-factory-blog/", target = "_blank", "here."))),
             
             div(id = "blog-placeholder",
@@ -189,11 +189,11 @@ page_navbar(
             value = "wiki",
             title = "Wiki", 
             
-            hero_section(title = "Wiki", description = "Take it from the RSS feed."),
+            hero_section(title = "Wiki", description = "Yet another wiki about data science."),
             
             div(class = "section-container",
                 h1("Articles"),
-                p("The Quarto version is available", 
+                p("In case you need full text search or tag selection, see the quarto version", 
                   a(href = "https://thekangaroofactory.github.io/the-kangaroo-factory-wiki/", target = "_blank", "here."))),
             
             div(id = "wiki-placeholder",
