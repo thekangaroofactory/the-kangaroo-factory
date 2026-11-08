@@ -33,6 +33,8 @@ projects:
     description: Web application including a live testing lab.
     image: preview_4.jpg
     tags: WebApp
+    actions:
+      - open: p4
   - title: GPX-Tracker
     description: Compute analysis based on GPX files.
     image: preview_5.jpg
