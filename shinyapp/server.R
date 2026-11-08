@@ -54,7 +54,7 @@ function(input, output, session) {
   opensource_server(id = "opensource", config, mart = package_mart)
   
   # -- portfolio
-  portfolio_server(id = "portfolio", path = file.path(Sys.getenv("DATA_HOME"), "philippeperet/portfolio"), config)
+  portfolio_server(id = "portfolio", config, session)
   
   # -- lab
   lab_server(id = "lab", path = Sys.getenv("DATA_HOME"), init_lab)
@@ -151,8 +151,6 @@ function(input, output, session) {
   # -- close tab
   observeEvent(input$close_tab, {
     
-    cat("Closing tab \n")
-
     # select tab
     # when pattern is foo-viewer, foo will be selected
     target <- unlist(strsplit(input$close_tab, split = "-"))

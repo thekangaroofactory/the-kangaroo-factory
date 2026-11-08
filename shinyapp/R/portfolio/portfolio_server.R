@@ -4,7 +4,7 @@
 # Module Server logic
 # ------------------------------------------------------------------------------
 
-portfolio_server <- function(id, path, config) {
+portfolio_server <- function(id, config, parentsession) {
   moduleServer(id, function(input, output, session) {
     
     # -- declare objects
@@ -20,6 +20,35 @@ portfolio_server <- function(id, path, config) {
 
     # build & insert card
     helper <- function(project){
+
+      # prepare footer actions
+      # from YAML, open project details or external link
+      footer_actions <- if(!is.null(project$actions)){
+        
+        # define helper
+        build_action <- function(action){
+          
+          if("open" %in% names(action))
+            
+            # open project details
+            actionLink(inputId = ns(action$open),
+                       label = "open",
+                       icon = icon("up-right-and-down-left-from-center"),
+                       onclick = sprintf("Shiny.setInputValue('%s', '%s', {priority: 'event'})",
+                                         ns("open_project"), action$open))
+          
+          else
+            
+            # external link
+            div(span(icon(action$icon)), a(href = action$href, target = "_blank", action$label))
+          
+        }
+        
+        # apply helper
+        lapply(project$actions, build_action)
+        
+      } else NULL
+        
       
       # generate card
       ui <- asset_card(title = project$title,
@@ -27,8 +56,7 @@ portfolio_server <- function(id, path, config) {
                        type = project$tags,
                        icon = icon("angle-right"),
                        img = paste0("img/projects/", project$image),
-                       footer = tagList(span(icon("laptop")), a(href = project$`_pkgdown`, target = "_blank", "Page"),
-                                        span(icon("github")), a(href = project$repository, target = "_blank", "Repository")),
+                       footer = footer_actions,
                        tag = project$version)
       
       # insert UI
@@ -41,8 +69,28 @@ portfolio_server <- function(id, path, config) {
     lapply(project_mart, helper)
     
     
-
-  
+    # --------------------------------------------------------------------------
+    # Actions
+    # --------------------------------------------------------------------------
+    
+    observeEvent(input$open_project, {
+      
+      # prepare ui
+      nav <- nav_panel(class = "p-5",
+                       value = "projects-viewer",
+                       title = "Project details", 
+                       
+                       do.call(paste0("project_modal_", input$open_project), list()))
+      
+      # insert tab
+      nav_insert(id = "navbar", 
+                 nav = nav, 
+                 target = "projects", 
+                 position = "after", 
+                 select = TRUE, 
+                 session = parentsession)
+      
+    })
     
   })
 }
