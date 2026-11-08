@@ -141,7 +141,7 @@ page_navbar(
                 p("Get the benchmark from Kaggle API."))
             
   ),
-      
+  
   # -- Portfolio
   nav_panel(class = "p-5",
             value = "projects",
@@ -151,14 +151,13 @@ page_navbar(
                          description = "Data-driven projects that showcase the power and flexibility of open source approaches."),
             
             div(class = "section-container",
-                     h2("Featured")),
+                h2("Featured"),
+                p("These are key projects, either used to valide the packages or work on specific domain of interest.")),
             
             div(id = "project-placeholder",
-                     class="cards-container"),
+                class="cards-container")
             
-            # portfolio_ui("portfolio")
-            ),
-  
+  ),
   
   # -- Lab
   nav_panel(class = "p-5",
