@@ -21,6 +21,8 @@ projects:
     description: Dynamic data visualization based on election open data.
     image: preview_2.jpg
     tags: WebApp
+    actions:
+      - open: p2
   - title: GitHub Client
     description: Building a cross repository follow-up application relying on the GitHub API.
     image: preview_3.jpg
