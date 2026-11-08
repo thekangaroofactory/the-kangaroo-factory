@@ -12,7 +12,7 @@ project_modal_p2 <- function(){
     # page content
     div(
       class = "section-container",
-
+      
       # ------------------------------------------------------------------------      
       # About section
       
@@ -20,7 +20,7 @@ project_modal_p2 <- function(){
           h2(class = "section", "About the Project"),
           actionLink(inputId = "project-close-btn", label = "close tab", icon = icon("close"), class = "project-close",
                      onclick = "Shiny.setInputValue('close_tab', 'projects-viewer', {priority: \"event\"})")),
-
+      
       p("The application features official election datasets published by the French Government on the", 
         a("data.gouv.fr", target = "_blank", href = "https://www.data.gouv.fr/datasets/search?q=elections"), "platform.", br(),
         "There are 10 elections + 2 geographical boundaries datasets behind this tool, making these multiple big data sources a challenge to manipulate."),
@@ -65,7 +65,7 @@ project_modal_p2 <- function(){
              p("Also a search input is available to navigate the map using the", 
                a(href = "https://www.openstreetmap.org/", target = "_blank", "OpenStreetMap"), "API."))),
       
-
+      
       # -- image
       div(class = "project-image",
           img(src = "./img/projects/p2/election_map.jpg"),
@@ -126,30 +126,14 @@ project_modal_p2 <- function(){
             href = "https://www.data.gouv.fr/fr/reuses/carte-interactive-des-resultats-des-elections/",
             target = "_blank",
             "reuse page"))),
-     
+      
       # -- image
       div(class = "project-image",
           img(src = "./img/projects/p2/datagouv.png"),
           div(class = "project-image-caption", "Reuse page | data.gouv.fr")),
-     
       
-      
-      
-      
-        
-    ),
+    )
     
-    # ///////////////////////////////////////////////////////////////////////////////////////////
-    # BEFORE REVIEW
-    
-    
-
-    
-    
-    
-    
-    
-  
   )
   
 }
