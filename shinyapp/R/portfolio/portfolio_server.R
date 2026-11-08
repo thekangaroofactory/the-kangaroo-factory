@@ -4,7 +4,7 @@
 # Module Server logic
 # ------------------------------------------------------------------------------
 
-portfolio_server <- function(id, config, parentsession) {
+portfolio_server <- function(id, config, parent_session) {
   moduleServer(id, function(input, output, session) {
     
     # -- declare objects
@@ -75,6 +75,9 @@ portfolio_server <- function(id, config, parentsession) {
     
     observeEvent(input$open_project, {
       
+      # drop tab (no matter if it already exits)
+      nav_remove(id = "navbar", target = "projects-viewer", session = parent_session)
+      
       # prepare ui
       nav <- nav_panel(class = "p-5",
                        value = "projects-viewer",
@@ -88,7 +91,7 @@ portfolio_server <- function(id, config, parentsession) {
                  target = "projects", 
                  position = "after", 
                  select = TRUE, 
-                 session = parentsession)
+                 session = parent_session)
       
     })
     
