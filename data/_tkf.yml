@@ -27,6 +27,8 @@ projects:
     description: Building a cross repository follow-up application relying on the GitHub API.
     image: preview_3.jpg
     tags: WebApp
+    actions:
+      - open: p3
   - title: TheKangarooFactory
     description: Web application including a live testing lab.
     image: preview_4.jpg
