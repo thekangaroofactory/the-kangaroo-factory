@@ -43,6 +43,12 @@ function(input, output, session) {
                  post = nrow(blog_mart$entries), 
                  article = nrow(wiki_mart$entries))
   
+  
+  session$sendCustomMessage(
+    type = "type_bot_message", 
+    message = list(text = "Computing things to do."))
+ 
+  
   # ----------------------------------------------------------------------------
   # Call modules
   # ----------------------------------------------------------------------------

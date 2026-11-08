@@ -53,9 +53,11 @@ page_navbar(
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/loader.css"),
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/pack.css"),
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/custom_modal.css"),
+    tags$link(rel = "stylesheet", type = "text/css", href = "./css/bot.css"),
     
     # -- js
     tags$script(src = "./js/custom_modal.js"),
+    tags$script(src = "./js/bot.js"),
     
     # -- js
     tags$script(
@@ -97,12 +99,17 @@ page_navbar(
             div(id = "stats-placeholder",
                 class = "section-container",
                 loader(id = "loader", label = "Fetching external data...")),
+        
+            # the bot    
+            div(
+              class = "section-container",
+              div(class = "chat-container",
+                  div(class = "message bot-message",
+                      tags$span(id = "bot-text", "Waiting for the data..."),
+                      tags$span(class = "cursor", HTML("&nbsp;"))
+                  ))),
             
             next_steps(),
-            
-            # actionButton("open_modal", "Ouvrir les options", class = "btn-primary")
-            
-            # service_ui()
             
             ),
   
