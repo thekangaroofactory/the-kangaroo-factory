@@ -6,8 +6,16 @@ about_ui <- function(){
     
     hero_section(title = "About", 
                  description = "A few words about me.",
-                 actions = list(primary = list(id = "about-btn-linkedin", label = "LinkedIn", icon = icon("angle-right")),
-                                secondary = list(id = "about-btn-contact", label = "Contact me"))),
+                 actions = list(primary = list(id = "about-btn-linkedin", 
+                                               label = "LinkedIn", 
+                                               icon = icon("angle-right"),
+                                               link = "https://www.linkedin.com/in/philippeperet")
+                                               
+                                # secondary = list(id = "about-btn-contact", 
+                                #                  label = "Contact me",
+                                #                  link = "mailto:philippe.peret@hotmail.fr")
+                                
+                                )),
     
     div(
       class = "section-container",
