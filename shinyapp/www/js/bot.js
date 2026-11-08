@@ -1,18 +1,18 @@
 
 $(document).ready(function() {
   
-  // Enregistrement du gestionnaire de message personnalisé
+  // register custom handler
   Shiny.addCustomMessageHandler('type_bot_message', function(message) {
     
     const textElement = document.getElementById('bot-text');
     const cursorElement = document.querySelector('.cursor');
     
-    // Réinitialisation du conteneur
+    // re-init content
     textElement.textContent = '';
     cursorElement.style.display = 'inline-block';
     
     let index = 0;
-    const speed = 15; // Vitesse de frappe (ms)
+    const speed = 15; // delay (ms)
 
     function type() {
       
@@ -23,14 +23,14 @@ $(document).ready(function() {
         
       } else {
         
-        // Cache le curseur à la fin de la frappe
+        // hide cursor after typing
         cursorElement.style.display = 'none';
         
       }
       
     }
     
-    // Lancement de l'effet de frappe
+    // start typing
     type();
     
   });
