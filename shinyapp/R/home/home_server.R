@@ -4,7 +4,7 @@
 # Module Server logic
 # ------------------------------------------------------------------------------
 
-home_server <- function(id, counts, parent_session) {
+home_server <- function(id, content, parent_session) {
   moduleServer(id, function(input, output, session) {
     
     # -- get namespace
@@ -15,10 +15,13 @@ home_server <- function(id, counts, parent_session) {
     
     
     # --------------------------------------------------------------------------
-    # Stats
+    # Data engineering
     # --------------------------------------------------------------------------
     
-    # get stats
+    # get counts
+    counts <- as.list(table(content$type))
+    
+    # prepare stats
     # package, project, guide, post, article
     stats <- list(list(title = "Packages", icon = "fa-solid fa-code", value = counts$package, label = "on r-universe", target = ns("stat_select")),
                   list(title = "Guides", icon = "fa-solid fa-book", value = counts$guide, label = "eBooks", target = ns("stat_select")),
@@ -26,15 +29,28 @@ home_server <- function(id, counts, parent_session) {
                   list(title = "Posts", icon = "fa-solid fa-pen-to-square", value = counts$post, label = "on the blog", target = ns("stat_select")),
                   list(title = "Articles", icon = "fa-solid fa-file-lines", value = counts$article, label = "in the wiki", target = ns("stat_select")))
     
-    # replace loader
-    removeUI(selector = "#stats-placeholder > *")
+    # prepare steps
+    content <- content[order(content$date, decreasing = T), ]
+    steps <- build_steps(trend = head(content, 3))
+
+    
+    # --------------------------------------------------------------------------
+    # Insert UI
+    # --------------------------------------------------------------------------
     
     insertUI(
       selector = "#stats-placeholder",
       where = "beforeEnd",
       ui = div(
-        class = "animated-ui",
+        class = "animated-fade",
         stat_ui(stats)))
+    
+    insertUI(
+      selector = "#next-steps-placeholder",
+      where = "beforeEnd",
+      ui = div(
+        class = "animated-fade",
+        next_steps(steps)))
     
     
     # --------------------------------------------------------------------------

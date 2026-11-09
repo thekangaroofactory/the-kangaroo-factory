@@ -98,7 +98,7 @@ page_navbar(
             
             div(id = "stats-placeholder",
                 class = "section-container",
-                loader(id = "loader", label = "Fetching external data...")),
+                loader(id = "loader", label = "Fetching data...")),
         
             # the bot    
             div(
@@ -106,10 +106,10 @@ page_navbar(
               div(class = "chat-container",
                   div(class = "message bot-message",
                       tags$span(id = "bot-text", "Waiting for the data..."),
-                      tags$span(class = "cursor", HTML("&nbsp;"))
-                  ))),
+                      tags$span(class = "cursor", HTML("&nbsp;"))))),
             
-            next_steps(),
+            # placeholder
+            div(id = "next-steps-placeholder")
             
             ),
   
@@ -127,9 +127,7 @@ page_navbar(
             
             package_ui(),
             
-            guide_ui(),
-            
-  ),
+            guide_ui()),
   
   # -- AI
   # nav_panel(class = "p-5",
@@ -162,9 +160,7 @@ page_navbar(
                 p("These are key projects, either used to valide the packages or work on specific domain of interest.")),
             
             div(id = "project-placeholder",
-                class="cards-container")
-            
-  ),
+                class="cards-container")),
   
   # -- Lab
   nav_panel(class = "p-5",
