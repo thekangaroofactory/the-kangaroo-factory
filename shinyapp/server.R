@@ -27,34 +27,47 @@ function(input, output, session) {
   config <- yaml::read_yaml(file = file.path(Sys.getenv("DATA_HOME"), "_tkf.yml"))
   
   # get packages from R-universe API
-  shinyjs::html(id = "loader-label", html = "Fetching external data from R-universe API")
+  shinyjs::html(id = "loader-label", html = "Fetching data from R-universe API")
   package_mart <- universe::universe_all_packages(universe = "thekangaroofactory")
   
   # get RSS feeds
-  shinyjs::html(id = "loader-label", html = "Fetching external data from blog RSS feed")
+  shinyjs::html(id = "loader-label", html = "Fetching data from blog RSS feed")
   blog_mart <- tidyRSS::tidyfeed(feed = "https://thekangaroofactory.github.io/the-kangaroo-factory-blog/index.xml", list = TRUE, clean_tags = FALSE)
-  shinyjs::html(id = "loader-label", html = "Fetching external data from wiki RSS feed")
+  
+  shinyjs::html(id = "loader-label", html = "Fetching data from wiki RSS feed")
   wiki_mart <- tidyRSS::tidyfeed(feed = "https://thekangaroofactory.github.io/the-kangaroo-factory-wiki/index.xml", list = TRUE, clean_tags = FALSE)
   
-  # compute counts
-  counts <- list(package = length(package_mart), 
-                 project = length(config$projects), 
-                 guide = length(config$opensource$guides), 
-                 post = nrow(blog_mart$entries), 
-                 article = nrow(wiki_mart$entries))
+  # drop loader
+  removeUI(selector = "#stats-placeholder > *", immediate = TRUE)
   
   
+  # ----------------------------------------------------------------------------
+  # Compute stats
+  # ----------------------------------------------------------------------------
+  
+  # update bot message
   session$sendCustomMessage(
     type = "type_bot_message", 
     message = list(text = "Computing things to do."))
- 
+  
+  # compute things to do
+  # debug_pkg <<- package_mart
+  # debug_blg <<- blog_mart
+  # debug_wik <<- wiki_mart
+  # debug_cfg <<- config
+  
+  # build content df
+  content <- build_content(config, package_mart, blog_mart, wiki_mart)
+  
+  # update bot message
+  session$sendCustomMessage(
+    type = "type_bot_message", 
+    message = list(text = "Let's jump in!"))
+  
   
   # ----------------------------------------------------------------------------
   # Call modules
   # ----------------------------------------------------------------------------
-
-  # home
-  home_server(id = "home", counts, session)
   
   # open source
   opensource_server(id = "opensource", config, mart = package_mart)
@@ -68,6 +81,10 @@ function(input, output, session) {
   # blog & wiki
   rss_server(id = "blog", mart = blog_mart, session)
   rss_server(id = "wiki", mart = wiki_mart , session)
+  
+  # home
+  # keep last once everything is loaded
+  home_server(id = "home", content, session)
   
   
   # ----------------------------------------------------------------------------
