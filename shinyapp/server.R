@@ -169,6 +169,24 @@ function(input, output, session) {
   })
   
   
+  # -- jump from next step item
+  observeEvent(input$jump_action, {
+  
+    str(input$jump_action)
+    
+    target <- switch(input$jump_action,
+           "package" = "open-source",
+           "guide" = "open-source",
+           "project" = "projects",
+           "blog" =  "blog",
+           "wiki" = "wiki")
+    
+    
+    nav_select(id = "navbar", selected = target)
+    
+  })
+  
+  
   # ----------------------------------------------------------------------------
   # Legal notice
   # ----------------------------------------------------------------------------

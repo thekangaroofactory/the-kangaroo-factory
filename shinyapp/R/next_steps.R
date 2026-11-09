@@ -20,7 +20,7 @@ next_steps <- function(steps){
                   apply(steps, MARGIN = 1, \(x) step_item(title = x[['title']], 
                                                           subtitle = x[['subtitle']],
                                                           action = x[['action']],
-                                                          keyword = "foo"))
+                                                          keyword = x[['type']]))
                   
                   
                   
