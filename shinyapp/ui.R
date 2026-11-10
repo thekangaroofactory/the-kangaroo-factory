@@ -53,14 +53,13 @@ page_navbar(
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/loader.css"),
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/pack.css"),
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/custom_modal.css"),
-    tags$link(rel = "stylesheet", type = "text/css", href = "./css/bot.css"),
     
     # -- js
     tags$script(src = "./js/custom_modal.js"),
-    tags$script(src = "./js/bot.js"),
     tags$script(src = "./js/scroll.js"),
     
     # -- js
+    # >> to be reviewed when integrating ktag package
     tags$script(
       
       "// -- button with class ktag
@@ -96,20 +95,13 @@ page_navbar(
             title = "Home", 
             
             hero_section(title = "Welcome!", description = "Jump back in, or explore something new."),
-            
+
+            # stat placeholder
             div(id = "stats-placeholder",
                 class = "section-container",
                 loader(id = "loader", label = "Fetching data...")),
-        
-            # the bot    
-            div(
-              class = "section-container",
-              div(class = "chat-container",
-                  div(class = "message bot-message",
-                      tags$span(id = "bot-text", "Waiting for the data..."),
-                      tags$span(class = "cursor", HTML("&nbsp;"))))),
-            
-            # placeholder
+                        
+            # step placeholder
             div(id = "next-steps-placeholder")
             
             ),

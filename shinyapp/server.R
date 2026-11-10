@@ -41,26 +41,15 @@ function(input, output, session) {
   wiki_mart <- tidyRSS::tidyfeed(feed = "https://thekangaroofactory.github.io/the-kangaroo-factory-wiki/index.xml", list = TRUE, clean_tags = FALSE)
   wiki_mart$entries$id <- paste("article", 1:nrow(wiki_mart$entries), sep = "-")
   
-  # drop loader
-  removeUI(selector = "#stats-placeholder > *", immediate = TRUE)
-  
-  
   # ----------------------------------------------------------------------------
   # Compute stats
   # ----------------------------------------------------------------------------
-  
-  # update bot message
-  session$sendCustomMessage(
-    type = "type_bot_message", 
-    message = list(text = "Computing things to do."))
 
+  # update loader
+  shinyjs::html(id = "loader-label", html = "Computing things to do...")
+  
   # build content df
   content <- build_content(config, package_mart, blog_mart, wiki_mart)
-  
-  # update bot message
-  session$sendCustomMessage(
-    type = "type_bot_message", 
-    message = list(text = "Let's jump in!"))
   
   
   # ----------------------------------------------------------------------------
@@ -129,7 +118,6 @@ function(input, output, session) {
         href = config$mastodon,
         target = "_blank",
         icon("mastodon", class = "fa-xl"))))
-  
   
   # ----------------------------------------------------------------------------
   # Analytics
@@ -281,5 +269,14 @@ function(input, output, session) {
         p("Philippe PERET EI")))
     
   })
+  
+  
+  # ----------------------------------------------------------------------------
+  # Finish init
+  # ----------------------------------------------------------------------------
+
+  # drop loader
+  # In last otherwise it's too quick
+  removeUI(selector = "#stats-placeholder > *", immediate = TRUE)
   
 }
