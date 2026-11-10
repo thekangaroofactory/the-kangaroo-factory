@@ -198,8 +198,9 @@ function(input, output, session) {
                                  input$jump_action$nav))
     
     # wait 100ms for the tab to be displayed, then scroll to the #
-    session$sendCustomMessage(type = "scroll_to_tag",
-                              list(id = input$jump_action$id, delay = 100))
+    if(input$jump_action$id != "#")
+      session$sendCustomMessage(type = "scroll_to_tag",
+                                list(id = input$jump_action$id, delay = 100))
     
   })
   
