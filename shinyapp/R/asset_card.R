@@ -1,8 +1,9 @@
 
 
-asset_card <- function(title, description, type, icon, img = NULL, footer, tag){
+asset_card <- function(id, title, description, type, icon, img = NULL, footer, tag){
   
   div(
+    id = id,
     class = "custom-card",
     
     # left (image)

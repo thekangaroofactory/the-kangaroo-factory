@@ -18,13 +18,12 @@ opensource_server <- function(id, config, mart) {
     # Packages
     # --------------------------------------------------------------------------
 
-
-
     # build & insert card
     helper <- function(package){
       
       # generate card
-      ui <- asset_card(title = package$Package,
+      ui <- asset_card(id = package$id,
+                       title = package$Package,
                        description = package$Title,
                        type = "Package",
                        icon = icon("code"),
@@ -52,13 +51,14 @@ opensource_server <- function(id, config, mart) {
     # --------------------------------------------------------------------------
     
     # get info from config
-    guides_mart <- config$opensource$guides
+    guides_mart <- config$guides
     
     # build & insert card
     helper <- function(guide){
       
       # generate card
-      ui <- asset_card(title = guide$title,
+      ui <- asset_card(id = guide$id,
+                       title = guide$title,
                        description = guide$description,
                        type = "Guide",
                        icon = icon("book"),

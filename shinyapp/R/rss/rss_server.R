@@ -18,14 +18,12 @@ rss_server <- function(id, mart, parent_session) {
     # Init
     # --------------------------------------------------------------------------
     
-    # add unique ids
-    mart$entries$id <- 1:nrow(mart$entries)
-    
     # generate & insert UI
     helper <- function(x){
       
       # generate card
-      ui <- asset_card(title = x$item_title,
+      ui <- asset_card(id = x$id,
+                       title = x$item_title,
                        description = paste(x$item_category, collapse = " | "),
                        type = ifelse(id == "blog", "Post", "Article"),
                        icon = icon("angle-right"),

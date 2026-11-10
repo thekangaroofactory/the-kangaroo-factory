@@ -149,7 +149,7 @@ page_navbar(
   
   # -- Portfolio
   nav_panel(class = "p-5",
-            value = "projects",
+            value = "project",
             title = "Projects", 
             
             hero_section(title = "Projects", 

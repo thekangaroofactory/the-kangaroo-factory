@@ -3,7 +3,7 @@
 build_steps <- function(trend){
   
   trend |>
-    dplyr::select(type, title) |>
+    dplyr::select(id, type, title) |>
     dplyr::mutate(subtitle = dplyr::case_when(type == "project" ~ "The project description has been updated.",
                                              type == "package" ~ "A new version of the package is available!",
                                              type == "guide" ~ "The book has been updated.",

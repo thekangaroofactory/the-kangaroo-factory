@@ -20,22 +20,26 @@ function(input, output, session) {
   
   
   # ----------------------------------------------------------------------------
-  # Get data
+  # Get data & compute id (for html)
   # ----------------------------------------------------------------------------
   
   # read YAML config
   config <- yaml::read_yaml(file = file.path(Sys.getenv("DATA_HOME"), "_tkf.yml"))
+  config <- asset_ids(config)
   
   # get packages from R-universe API
   shinyjs::html(id = "loader-label", html = "Fetching data from R-universe API")
   package_mart <- universe::universe_all_packages(universe = "thekangaroofactory")
+  package_mart <- lapply(seq_along(package_mart), \(idx) c(package_mart[[idx]], list(id = paste("package", idx, sep = "-"))))
   
   # get RSS feeds
   shinyjs::html(id = "loader-label", html = "Fetching data from blog RSS feed")
   blog_mart <- tidyRSS::tidyfeed(feed = "https://thekangaroofactory.github.io/the-kangaroo-factory-blog/index.xml", list = TRUE, clean_tags = FALSE)
+  blog_mart$entries$id <- paste("post", 1:nrow(blog_mart$entries), sep = "-")
   
   shinyjs::html(id = "loader-label", html = "Fetching data from wiki RSS feed")
   wiki_mart <- tidyRSS::tidyfeed(feed = "https://thekangaroofactory.github.io/the-kangaroo-factory-wiki/index.xml", list = TRUE, clean_tags = FALSE)
+  wiki_mart$entries$id <- paste("article", 1:nrow(wiki_mart$entries), sep = "-")
   
   # drop loader
   removeUI(selector = "#stats-placeholder > *", immediate = TRUE)
@@ -49,13 +53,7 @@ function(input, output, session) {
   session$sendCustomMessage(
     type = "type_bot_message", 
     message = list(text = "Computing things to do."))
-  
-  # compute things to do
-  # debug_pkg <<- package_mart
-  # debug_blg <<- blog_mart
-  # debug_wik <<- wiki_mart
-  # debug_cfg <<- config
-  
+
   # build content df
   content <- build_content(config, package_mart, blog_mart, wiki_mart)
   
@@ -188,18 +186,29 @@ function(input, output, session) {
   
   # -- jump from next step item
   observeEvent(input$jump_action, {
-  
-    str(input$jump_action)
     
-    target <- switch(input$jump_action,
-           "package" = "open-source",
-           "guide" = "open-source",
-           "project" = "projects",
-           "blog" =  "blog",
-           "wiki" = "wiki")
+    # input is expecting list(nav = "foo", id = "bar")
+    if(!is.list(input$jump_action))
+      warning("Input jump_action is expecting a list(nav = 'foo', id = 'bar')", call. = F)
     
+    str(input$jump_action$nav)
     
-    nav_select(id = "navbar", selected = target)
+    # activate tab
+    nav_select(id = "navbar", 
+               selected = ifelse(input$jump_action$nav %in% c("package", "guide"), 
+                                 "open-source", 
+                                 input$jump_action$nav))
+    
+    # wait 100ms for the tab to be displayed, then scroll to the #
+    warning("warp this into a scroll function (delay, id)")
+    shinyjs::runjs(sprintf("
+      setTimeout(function() {
+        var el = document.getElementById('%s');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    ", input$jump_action$id))
     
   })
   

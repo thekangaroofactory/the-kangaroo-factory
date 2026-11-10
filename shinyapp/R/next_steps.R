@@ -17,10 +17,11 @@ next_steps <- function(steps){
               h3("Jump in"),
               div(class = "steps-list",
                   
-                  apply(steps, MARGIN = 1, \(x) step_item(title = x[['title']], 
+                  apply(steps, MARGIN = 1, \(x) step_item(id = x[['id']],
+                                                          title = x[['title']], 
                                                           subtitle = x[['subtitle']],
                                                           action = x[['action']],
-                                                          keyword = x[['type']]))
+                                                          nav = x[['type']]))
                   
                   
                   

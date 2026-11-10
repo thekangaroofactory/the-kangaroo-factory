@@ -51,7 +51,8 @@ portfolio_server <- function(id, config, parent_session) {
         
       
       # generate card
-      ui <- asset_card(title = project$title,
+      ui <- asset_card(id = project$id,
+                       title = project$title,
                        description = project$description,
                        type = project$tags,
                        icon = icon("angle-right"),
@@ -88,7 +89,7 @@ portfolio_server <- function(id, config, parent_session) {
       # insert tab
       nav_insert(id = "navbar", 
                  nav = nav, 
-                 target = "projects", 
+                 target = "project", 
                  position = "after", 
                  select = TRUE, 
                  session = parent_session)
