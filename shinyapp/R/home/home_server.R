@@ -53,33 +53,5 @@ home_server <- function(id, content, parent_session) {
         next_steps(steps)))
     
     
-    # --------------------------------------------------------------------------
-    # Observers
-    # --------------------------------------------------------------------------
-    
-    # observeEvent(input$stat_select, {
-    #   
-    #   if(input$stat_select %in% c("Packages", "Guides"))
-    #     nav_select(id = "navbar", 
-    #                selected = "open-source",
-    #                session = parent_session)
-    #   
-    #   if(input$stat_select == "Projects")
-    #     nav_select(id = "navbar", 
-    #                selected = "projects",
-    #                session = parent_session)
-    #   
-    #   if(input$stat_select == "Posts")
-    #     nav_select(id = "navbar", 
-    #                selected = "blog",
-    #                session = parent_session)
-    #   
-    #   if(input$stat_select == "Articles")
-    #     nav_select(id = "navbar", 
-    #                selected = "wiki",
-    #                session = parent_session)
-    #   
-    # })
-    
   })
 }
