@@ -11,7 +11,7 @@ next_steps <- function(steps){
       # grid (2 columns)
       div(class = "next-steps-grid",
           
-          # left
+          # left : trend
           div(class = "steps-column",
               
               h3("Jump in"),
@@ -21,79 +21,60 @@ next_steps <- function(steps){
                                                           title = x[['title']], 
                                                           subtitle = x[['subtitle']],
                                                           action = x[['action']],
-                                                          nav = x[['type']]))
-                  
-                  
-                  
-                  
-                  
-                  # # Item 1 :
-                  # div(class = "step-item clickable",
-                  #     onclick = "Shiny.setInputValue('jump_action', 'benchmark', {priority: 'event'});",
-                  #     div(class = "step-avatar-wrapper",
-                  #         div(class = "step-avatar", tags$i(class = "fa-solid fa-kiwi-bird"))),
-                  #     div(class = "step-content",
-                  #         div(class = "step-title", "Kitems"),
-                  #         div(class = "step-subtitle", "A new version is available!")),
-                  #     div(class = "step-action-zone",
-                  #         span(class = "step-action", tags$i(class = "fa-solid fa-arrow-right"), "Go to package"))),
-                  # 
-                  # # Item 2 :
-                  # div(class = "step-item clickable",
-                  #     onclick = "Shiny.setInputValue('jump_action', 'transfer_learning', {priority: 'event'});",
-                  #     div(class = "step-avatar-wrapper",
-                  #         div(class = "step-avatar", tags$i(class = "fa-solid fa-images"))),
-                  #     div(class = "step-content",
-                  #         div(class = "step-title", "Octobre newsletter"),
-                  #         div(class = "step-subtitle", "A new blog post is available.")),
-                  #     div(class = "step-action-zone",
-                  #         div(class = "step-action", tags$i(class = "fa-solid fa-arrow-right"), "Read post"))),
-                  # 
-                  # # Item 3 :
-                  # div(class = "step-item clickable",
-                  #     onclick = "Shiny.setInputValue('jump_action', 'coffee_images', {priority: 'event'});",
-                  #     div(class = "step-avatar-wrapper",
-                  #         div(class = "step-avatar", tags$i(class = "fa-solid fa-kiwi-bird"))),
-                  #     div(class = "step-content",
-                  #         div(class = "step-title", "AI Benchmark"),
-                  #         div(class = "step-subtitle", "Updated yesterday • 2/3 tasks OK")),
-                  #     div(class = "step-action-zone",
-                  #         div(class = "step-action", tags$i(class = "fa-solid fa-arrow-right"), "See leaderboard")))
-                  
-              )
-          ),
+                                                          nav = x[['type']])))),
           
-          # COLONNE DROITE : More things to do
+          # right : more things to do
           div(class = "steps-column",
               
               h3("More things to do"),
               div(class = "steps-list",
                   
-                  # Item 1 : Join conversation
+                  # Item 1 :
+                  # >> it will require an id to be able to drop it from the action button
                   div(class = "step-item",
                       div(class = "step-avatar-wrapper",
-                          div(class = "step-avatar", tags$i(class = "fa-regular fa-comment-dots"))),
+                          div(class = "step-avatar", tags$i(class = "fa-brands fa-youtube"))),
                       div(class = "step-content",
-                          div(class = "step-title", "Join a conversation"),
+                          
+                          # >> same here as below
+                          div(class = "step-title", "Not yet familiar with {kitems}?"),
+                          
+                          # >> needs to be improved
+                          # the function should take the description as an argument (most probably a df)
                           div(class = "step-subtitle", 
-                              HTML("Make your first comment! Visit the <a href='#'>forums</a> or explore discussions on <a href='#'>datasets</a>."))),
-                      div(class = "step-action-zone",
-                          tags$button(class = "btn-close-item", 
-                                      onclick = "Shiny.setInputValue('todo_close', 'join_conversation', {priority: 'event'}); window.event.stopPropagation();",
-                                      tags$i(class = "fa-solid fa-xmark")))),
+                              "Watch the", 
+                              actionLink("things-1", "package", 
+                                         onclick = sprintf("Shiny.setInputValue('jump_action', {nav: '%s', id: '%s'}, {priority: 'event'});",
+                                                           "package", "package-2")), 
+                              HTML("introduction <a href='https://youtu.be/8cHWTo-a63c' target='_blank'>video</a> on YouTube."))),
+                      
+                      # >> action is commented as not implemented yet!
+                      # div(class = "step-action-zone",
+                      #     tags$button(class = "btn-close-item", 
+                      #                 onclick = "Shiny.setInputValue('todo_close', 'join_conversation', {priority: 'event'}); window.event.stopPropagation();",
+                      #                 tags$i(class = "fa-solid fa-xmark")))
+                      
+                  ),
                   
-                  # Item 2 : Competition submission
+                  # Item 2 :
                   div(class = "step-item",
                       div(class = "step-avatar-wrapper",
                           div(class = "step-avatar", tags$i(class = "fa-solid fa-trophy"))),
                       div(class = "step-content",
-                          div(class = "step-title", "Make a competition submission"),
+                          div(class = "step-title", "Master modular apps"),
                           div(class = "step-subtitle", 
-                              HTML("Follow our guide to make your first submission to the <a href='#'>Titanic competition</a>."))),
-                      div(class = "step-action-zone",
-                          tags$button(class = "btn-close-item", 
-                                      onclick = "Shiny.setInputValue('todo_close', 'competition_submission', {priority: 'event'}); window.event.stopPropagation();",
-                                      tags$i(class = "fa-solid fa-xmark"))))
+                              "Follow the",
+                              actionLink("things-2", "guide", 
+                                         onclick = sprintf("Shiny.setInputValue('jump_action', {nav: '%s', id: '%s'}, {priority: 'event'});",
+                                                           "guide", "guides-1")), 
+                              "about communication between modules.")),
+                      
+                      # div(class = "step-action-zone",
+                      #     tags$button(class = "btn-close-item", 
+                      #                 onclick = "Shiny.setInputValue('todo_close', 'competition_submission', {priority: 'event'}); window.event.stopPropagation();",
+                      #                 tags$i(class = "fa-solid fa-xmark")))
+                      
+                  )
                   
               )
           )
