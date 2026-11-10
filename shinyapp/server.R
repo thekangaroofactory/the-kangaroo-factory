@@ -68,13 +68,13 @@ function(input, output, session) {
   # ----------------------------------------------------------------------------
   
   # open source
-  opensource_server(id = "opensource", config, mart = package_mart)
+  opensource_server(id = "opensource", config, package_mart, session)
   
-  # -- portfolio
+  # portfolio / projects
   portfolio_server(id = "portfolio", config, session)
   
   # -- lab
-  lab_server(id = "lab", path = Sys.getenv("DATA_HOME"), init_lab)
+  lab_server(id = "lab", path = Sys.getenv("DATA_HOME"), init_lab, session)
   
   # blog & wiki
   rss_server(id = "blog", mart = blog_mart, session)
@@ -83,6 +83,52 @@ function(input, output, session) {
   # home
   # keep last once everything is loaded
   home_server(id = "home", content, session)
+  
+  
+  # ----------------------------------------------------------------------------
+  # Insert links
+  # ----------------------------------------------------------------------------
+  
+  # linkedin
+  nav_insert(
+    id = "navbar",
+    nav = nav_item(
+      a(id = "linkedin",
+        class = "external-link nav-link ktag",
+        href = config$linkedin,
+        target = "_blank",
+        icon("linkedin", class = "fa-xl"))),
+    position = "after")
+  
+  # github
+  nav_insert(
+    id = "navbar",
+    nav = nav_item(
+      a(id = "github",
+        class = "external-link nav-link ktag",
+        href = config$github,
+        target = "_blank",
+        icon("github", class = "fa-xl"))))
+  
+  # youtube
+  nav_insert(
+    id = "navbar",
+    nav = nav_item(
+      a(id = "youtube",
+        class = "external-link nav-link",
+        href = config$youtube,
+        target = "_blank",
+        icon("youtube", class = "fa-xl"))))
+  
+  # mastodon
+  nav_insert(
+    id = "navbar",
+    nav = nav_item(
+      a(id = "mastodon",
+        class = "external-link nav-link",
+        href = config$mastodon,
+        target = "_blank",
+        icon("mastodon", class = "fa-xl"))))
   
   
   # ----------------------------------------------------------------------------

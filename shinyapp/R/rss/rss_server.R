@@ -15,6 +15,27 @@ rss_server <- function(id, mart, parent_session) {
     
     
     # --------------------------------------------------------------------------
+    # Insert tab
+    # --------------------------------------------------------------------------
+    
+    # define ui
+    nav <- nav_panel(class = "p-5",
+              value = id,
+              title = ktools::toupperfirst(id), 
+              
+              rss_ui(id, 
+                     description = mart$meta$feed_description, 
+                     url = mart$meta$feed_link))
+    
+    # insert
+    nav_insert(id = "navbar", 
+               nav = nav, 
+               target = "about", 
+               position = "before", 
+               session = parent_session)
+    
+    
+    # --------------------------------------------------------------------------
     # Init
     # --------------------------------------------------------------------------
     

@@ -114,95 +114,6 @@ page_navbar(
             
             ),
   
-  # -- Open source
-  nav_panel(class = "p-5",
-            value = "open-source",
-            title = "Open source", 
-            
-            hero_section(title = "Open Source", 
-                         description = "Featured work.",
-                         actions = list(primary = list(id = "os-github", 
-                                                       label = "GitHub", 
-                                                       icon = icon("github"),
-                                                       link = "https://github.com/thekangaroofactory"))),
-            
-            package_ui(),
-            
-            guide_ui()),
-  
-  # -- AI
-  # nav_panel(class = "p-5",
-  #           value = "ai",
-  #           title = "AI", 
-  #           
-  #           hero_section(title = "AI", 
-  #                        description = "Model, performance & benchmark."),
-  #           
-  #           div(class = "section-container",
-  #               h2("Models"),
-  #               p("Get the metrics from Supabase Cloud.")),
-  #           
-  #           div(class = "section-container",
-  #               h2("Benchmark"),
-  #               p("Get the benchmark from Kaggle API."))
-  #           
-  # ),
-  
-  # -- Portfolio
-  nav_panel(class = "p-5",
-            value = "project",
-            title = "Projects", 
-            
-            hero_section(title = "Projects", 
-                         description = "Data-driven projects that showcase the power and flexibility of open source approaches."),
-            
-            div(class = "section-container",
-                h2("Featured"),
-                p("These are key projects, either used to valide the packages or work on specific domain of interest.")),
-            
-            div(id = "project-placeholder",
-                class="cards-container")),
-  
-  # -- Lab
-  nav_panel(class = "p-5",
-            value = "lab",
-            title = "Lab", 
-            
-            lab_ui("lab")),
-  
-  
-  # -- Blog
-  nav_panel(class = "p-5",
-            value = "blog",
-            title = "Blog", 
-            
-            hero_section(title = "Blog", description = "Yet another blog about data science."),
-            
-            div(class = "section-container",
-                h1("Posts"),
-                p("In case you need full text search or tag selection, see the quarto version", 
-                  a(href = "https://thekangaroofactory.github.io/the-kangaroo-factory-blog/", target = "_blank", "here."))),
-            
-            div(id = "blog-placeholder",
-                class="cards-container")),
-  
-  
-  # -- Wiki
-  nav_panel(class = "p-5",
-            value = "wiki",
-            title = "Wiki", 
-            
-            hero_section(title = "Wiki", description = "Yet another wiki about data science."),
-            
-            div(class = "section-container",
-                h1("Articles"),
-                p("In case you need full text search or tag selection, see the quarto version", 
-                  a(href = "https://thekangaroofactory.github.io/the-kangaroo-factory-wiki/", target = "_blank", "here."))),
-            
-            div(id = "wiki-placeholder",
-                class="cards-container")),
-  
-  
   # -- About
   nav_panel(class = "p-5",
             value = "about",
@@ -215,35 +126,6 @@ page_navbar(
     input_dark_mode(id = "switch_mode", mode = "dark")),
   
   # -- Spacing
-  nav_spacer(),
-  
-  # -- Links (on the right)
-  nav_item(
-    a(id = "linkedin",
-           class = "external-link nav-link ktag",
-           href = "https://www.linkedin.com/in/philippeperet/",
-           target = "_blank",
-           icon("linkedin", class = "fa-xl"))),
-  
-  nav_item(
-    a(id = "github",
-           class = "external-link nav-link ktag",
-           href = "https://github.com/thekangaroofactory",
-           target = "_blank",
-           icon("github", class = "fa-xl"))),
-  
-  nav_item(
-    a(id = "youtube",
-           class = "external-link nav-link",
-           href = "https://www.youtube.com/@TheKangarooFactory",
-           target = "_blank",
-           icon("youtube", class = "fa-xl"))),
-  
-  nav_item(
-    a(id = "mastodon",
-           class = "external-link nav-link",
-           href = "https://mastodon.social/@thekangaroofactory",
-           target = "_blank",
-           icon("mastodon", class = "fa-xl")))
-  
-) # page_navbar
+  nav_spacer()
+
+)

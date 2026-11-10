@@ -4,7 +4,7 @@
 # Module Server logic
 # ------------------------------------------------------------------------------
 
-opensource_server <- function(id, config, mart) {
+opensource_server <- function(id, config, package_mart, parent_session) {
   moduleServer(id, function(input, output, session) {
     
     # -- get namespace
@@ -12,6 +12,35 @@ opensource_server <- function(id, config, mart) {
     
     # -- module
     MODULE <- paste0("[", id, "]")
+    
+    
+    # --------------------------------------------------------------------------
+    # Insert tab
+    # --------------------------------------------------------------------------
+    
+    # define UI
+    nav <- nav_panel(class = "p-5",
+                     value = "open-source",
+                     title = "Open source", 
+                     
+                     # title section
+                     hero_section(title = "Open Source", 
+                                  description = "Featured work.",
+                                  actions = list(primary = list(id = "os-github", 
+                                                                label = "GitHub", 
+                                                                icon = icon("github"),
+                                                                link = config$github))),
+                     
+                     # templates (where to insert cards)
+                     package_ui(),
+                     guide_ui())
+    
+    # insert
+    nav_insert(id = "navbar", 
+               nav = nav, 
+               target = "home", 
+               position = "after", 
+               session = parent_session)
     
     
     # --------------------------------------------------------------------------
@@ -43,7 +72,7 @@ opensource_server <- function(id, config, mart) {
     insertUI(selector = "#package-placeholder",
              where = "beforeBegin",
              ui = p("Packages published to ", popover(a(href = config$runiverse, target = "_blank", "R-universe"), "Go to the universe"), icon("rocket")))
-    lapply(mart, helper)
+    lapply(package_mart, helper)
     
     
     # --------------------------------------------------------------------------

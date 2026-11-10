@@ -4,7 +4,7 @@
 # Module Server logic
 # ------------------------------------------------------------------------------
 
-lab_server <- function(id, path, init_lab) {
+lab_server <- function(id, path, init_lab, parent_session) {
   moduleServer(id, function(input, output, session) {
     
     # -- get namespace
@@ -18,6 +18,25 @@ lab_server <- function(id, path, init_lab) {
     spy <- reactiveVal()
     
     
+    # --------------------------------------------------------------------------
+    # Insert tab
+    # --------------------------------------------------------------------------
+    
+    # define UI
+    nav <- nav_panel(class = "p-5",
+              value = "lab",
+              title = "Lab", 
+              
+              lab_ui("lab"))
+    
+    # insert
+    nav_insert(id = "navbar", 
+               nav = nav, 
+               target = "project", 
+               position = "after", 
+               session = parent_session)
+
+        
     # --------------------------------------------------------------------------
     # Youtube
     # --------------------------------------------------------------------------

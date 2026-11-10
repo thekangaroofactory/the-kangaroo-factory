@@ -10,7 +10,27 @@ portfolio_server <- function(id, config, parent_session) {
     # -- declare objects
     ns <- session$ns
     MODULE <- paste0("[", id, "]")
-
+    
+    
+    # --------------------------------------------------------------------------
+    # Insert tab
+    # --------------------------------------------------------------------------
+    
+    # define UI
+    nav <- nav_panel(class = "p-5",
+                     value = "project",
+                     title = "Projects", 
+                     
+                     portfolio_ui())
+    
+    # insert
+    nav_insert(id = "navbar", 
+               nav = nav, 
+               target = "open-source",
+               position = "after",
+               session = parent_session)
+    
+    
     # --------------------------------------------------------------------------
     # Projects
     # --------------------------------------------------------------------------
