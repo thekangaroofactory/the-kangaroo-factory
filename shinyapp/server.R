@@ -191,8 +191,6 @@ function(input, output, session) {
     if(!is.list(input$jump_action))
       warning("Input jump_action is expecting a list(nav = 'foo', id = 'bar')", call. = F)
     
-    str(input$jump_action$nav)
-    
     # activate tab
     nav_select(id = "navbar", 
                selected = ifelse(input$jump_action$nav %in% c("package", "guide"), 
@@ -200,15 +198,8 @@ function(input, output, session) {
                                  input$jump_action$nav))
     
     # wait 100ms for the tab to be displayed, then scroll to the #
-    warning("warp this into a scroll function (delay, id)")
-    shinyjs::runjs(sprintf("
-      setTimeout(function() {
-        var el = document.getElementById('%s');
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 100);
-    ", input$jump_action$id))
+    session$sendCustomMessage(type = "scroll_to_tag",
+                              list(id = input$jump_action$id, delay = 100))
     
   })
   

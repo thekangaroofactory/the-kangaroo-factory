@@ -58,6 +58,7 @@ page_navbar(
     # -- js
     tags$script(src = "./js/custom_modal.js"),
     tags$script(src = "./js/bot.js"),
+    tags$script(src = "./js/scroll.js"),
     
     # -- js
     tags$script(
