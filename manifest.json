@@ -1790,7 +1790,7 @@
         "Package": "openssl",
         "Type": "Package",
         "Title": "Toolkit for Encryption, Signatures and Certificates Based on\nOpenSSL",
-        "Version": "2.3.5",
+        "Version": "2.5.0",
         "Authors@R": "c(person(\"Jeroen\", \"Ooms\", role = c(\"aut\", \"cre\"), email = \"jeroenooms@gmail.com\",\n    comment = c(ORCID = \"0000-0002-4035-0289\")),\n    person(\"Oliver\", \"Keyes\", role = \"ctb\"))",
         "Description": "Bindings to OpenSSL libssl and libcrypto, plus custom SSH key parsers.\n    Supports RSA, DSA and EC curves P-256, P-384, P-521, and curve25519. Cryptographic\n    signatures can either be created and verified manually or via x509 certificates. \n    AES can be used in cbc, ctr or gcm mode for symmetric encryption; RSA for asymmetric\n    (public key) encryption or EC for Diffie Hellman. High-level envelope functions \n    combine RSA and AES for encrypting arbitrary sized data. Other utilities include key\n    generators, hash functions (md5, sha1, sha256, etc), base64 encoder, a secure random\n    number generator, and 'bignum' math methods for manually performing crypto \n    calculations on large multibyte integers.",
         "License": "MIT + file LICENSE",
@@ -1800,21 +1800,16 @@
         "VignetteBuilder": "knitr",
         "Imports": "askpass",
         "Suggests": "curl, testthat (>= 2.1.0), digest, knitr, rmarkdown,\njsonlite, jose, sodium",
-        "RoxygenNote": "7.3.2",
         "Encoding": "UTF-8",
+        "Config/roxygen2/version": "8.0.0",
         "NeedsCompilation": "yes",
-        "Packaged": "2026-02-26 12:59:14 UTC; jeroen",
+        "Packaged": "2026-11-01 10:34:10 UTC; jeroen",
         "Author": "Jeroen Ooms [aut, cre] (ORCID: <https://orcid.org/0000-0002-4035-0289>),\n  Oliver Keyes [ctb]",
         "Maintainer": "Jeroen Ooms <jeroenooms@gmail.com>",
         "Repository": "CRAN",
-        "Date/Publication": "2026-02-26 13:50:09 UTC",
-        "Built": "R 4.5.2; x86_64-w64-mingw32; 2026-02-27 00:51:15 UTC; windows",
-        "Archs": "x64",
-        "RemoteType": "standard",
-        "RemotePkgRef": "openssl",
-        "RemoteRef": "openssl",
-        "RemoteRepos": "https://cran.rstudio.com",
-        "RemoteSha": "2.3.5"
+        "Date/Publication": "2026-11-02 17:20:02 UTC",
+        "Built": "R 4.5.3; x86_64-w64-mingw32; 2026-11-06 19:36:17 UTC; windows",
+        "Archs": "x64"
       }
     },
     "otel": {
@@ -2697,7 +2692,7 @@
       }
     },
     "universe": {
-      "Source": "https://ropensci.r-universe.dev",
+      "Source": "github",
       "Repository": null,
       "description": {
         "Type": "Package",
@@ -2705,7 +2700,7 @@
         "Title": "Tools for Working with R-universe <https://r-universe.dev>",
         "Version": "1.0.0.9000",
         "Authors@R": "c(\n    person(\"Jeroen\", \"Ooms\", , \"jeroenooms@gmail.com\", role = c(\"aut\", \"cre\"),\n           comment = c(ORCID = \"0000-0002-4035-0289\")),\n    person(\"Maëlle\", \"Salmon\", , \"maelle.salmon@yahoo.se\", role = \"aut\",\n           comment = c(ORCID = \"0000-0002-2815-0399\"))\n  )",
-        "Description": "Utilities to interact with the R-universe platform.\n        Includes functions to manage local package repositories, as\n        well as API wrappers for retrieving data and metadata about\n        packages in r-universe.",
+        "Description": "Utilities to interact with the R-universe platform. Includes\n    functions to manage local package repositories, as well as API\n    wrappers for retrieving data and metadata about packages in\n    r-universe.",
         "License": "Apache License (>= 2)",
         "URL": "https://docs.ropensci.org/universe/,\nhttps://github.com/ropensci/universe",
         "BugReports": "https://github.com/ropensci/universe/issues",
@@ -2718,17 +2713,21 @@
         "Encoding": "UTF-8",
         "Roxygen": "list(markdown = TRUE, roclets = c(\"collate\", \"rd\",\n\"namespace\", \"devtag::dev_roclet\"))",
         "RoxygenNote": "7.3.3.9000",
-        "Config/pak/sysreqs": "cmake make libuv1-dev libssl-dev",
-        "Repository": "https://ropensci.r-universe.dev",
-        "Date/Publication": "2026-02-02 14:54:53 UTC",
-        "RemoteUrl": "https://github.com/ropensci/universe",
-        "RemoteRef": "main",
+        "RemoteType": "github",
+        "RemoteHost": "api.github.com",
+        "RemoteRepo": "universe",
+        "RemoteUsername": "ropensci",
+        "RemoteRef": "HEAD",
         "RemoteSha": "5174f6f780ebb36c7bb1f1786079170d3db178e6",
+        "GithubRepo": "universe",
+        "GithubUsername": "ropensci",
+        "GithubRef": "HEAD",
+        "GithubSHA1": "5174f6f780ebb36c7bb1f1786079170d3db178e6",
         "NeedsCompilation": "no",
-        "Packaged": "2026-10-20 09:39:08 UTC; root",
+        "Packaged": "2026-11-11 14:31:35 UTC; Kangaroo.AI",
         "Author": "Jeroen Ooms [aut, cre] (ORCID: <https://orcid.org/0000-0002-4035-0289>),\n  Maëlle Salmon [aut] (ORCID: <https://orcid.org/0000-0002-2815-0399>)",
         "Maintainer": "Jeroen Ooms <jeroenooms@gmail.com>",
-        "Built": "R 4.5.3; ; 2026-10-20 09:40:16 UTC; windows"
+        "Built": "R 4.5.3; ; 2026-11-11 14:31:36 UTC; windows"
       }
     },
     "utf8": {
@@ -2876,7 +2875,7 @@
       "description": {
         "Package": "withr",
         "Title": "Run Code 'With' Temporarily Modified Global State",
-        "Version": "3.0.2",
+        "Version": "3.0.3",
         "Authors@R": "c(\n    person(\"Jim\", \"Hester\", role = \"aut\"),\n    person(\"Lionel\", \"Henry\", , \"lionel@posit.co\", role = c(\"aut\", \"cre\")),\n    person(\"Kirill\", \"Müller\", , \"krlmlr+r@mailbox.org\", role = \"aut\"),\n    person(\"Kevin\", \"Ushey\", , \"kevinushey@gmail.com\", role = \"aut\"),\n    person(\"Hadley\", \"Wickham\", , \"hadley@posit.co\", role = \"aut\"),\n    person(\"Winston\", \"Chang\", role = \"aut\"),\n    person(\"Jennifer\", \"Bryan\", role = \"ctb\"),\n    person(\"Richard\", \"Cotton\", role = \"ctb\"),\n    person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\"))\n  )",
         "Description": "A set of functions to run code 'with' safely and temporarily\n    modified global state. Many of these functions were originally a part\n    of the 'devtools' package, this provides a simple package with limited\n    dependencies to provide access to these functions.",
         "License": "MIT + file LICENSE",
@@ -2892,17 +2891,12 @@
         "RoxygenNote": "7.3.2",
         "Collate": "'aaa.R' 'collate.R' 'connection.R' 'db.R' 'defer-exit.R'\n'standalone-defer.R' 'defer.R' 'devices.R' 'local_.R' 'with_.R'\n'dir.R' 'env.R' 'file.R' 'language.R' 'libpaths.R' 'locale.R'\n'makevars.R' 'namespace.R' 'options.R' 'par.R' 'path.R' 'rng.R'\n'seed.R' 'wrap.R' 'sink.R' 'tempfile.R' 'timezone.R'\n'torture.R' 'utils.R' 'with.R'",
         "NeedsCompilation": "no",
-        "Packaged": "2024-10-28 10:58:18 UTC; lionel",
+        "Packaged": "2026-06-17 11:51:00 UTC; lionel",
         "Author": "Jim Hester [aut],\n  Lionel Henry [aut, cre],\n  Kirill Müller [aut],\n  Kevin Ushey [aut],\n  Hadley Wickham [aut],\n  Winston Chang [aut],\n  Jennifer Bryan [ctb],\n  Richard Cotton [ctb],\n  Posit Software, PBC [cph, fnd]",
         "Maintainer": "Lionel Henry <lionel@posit.co>",
         "Repository": "CRAN",
-        "Date/Publication": "2024-10-28 13:30:02 UTC",
-        "Built": "R 4.5.2; ; 2026-02-25 01:54:07 UTC; windows",
-        "RemoteType": "standard",
-        "RemotePkgRef": "withr",
-        "RemoteRef": "withr",
-        "RemoteRepos": "https://cran.rstudio.com",
-        "RemoteSha": "3.0.2"
+        "Date/Publication": "2026-06-19 05:30:02 UTC",
+        "Built": "R 4.5.3; ; 2026-11-06 18:02:39 UTC; windows"
       }
     },
     "xfun": {
