@@ -17,7 +17,7 @@ function emptyCustomModal() {
 $(document).on('click', '#close_modal', function() {
   $('#modal-overlay').removeClass('active');
   
-  emptyCustomModal()
+  emptyCustomModal();
   
 });
 
@@ -25,6 +25,6 @@ $(document).on('click', '#close_modal', function() {
 $(document).on('click', '#modal-overlay', function(e) {
   if (e.target === this) {
     $('#modal-overlay').removeClass('active');
+    emptyCustomModal();
   }
-  emptyCustomModal()
 });
