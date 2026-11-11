@@ -8,8 +8,9 @@ rss_reader <- function(id, entry){
                  description = entry$item_pub_date),
     
     div(class = "section-container rss-entry",
-        actionLink(inputId = paste0(id, "-close-btn"), label = "close tab", icon = icon("close"),
-                   onclick = sprintf("Shiny.setInputValue('close_tab', '%s-viewer', {priority: \"event\"})", id)),
+        div(style = "margin-bottom: 20px;",
+            actionLink(inputId = paste0(id, "-close-btn"), label = "close tab", icon = icon("close"),
+                       onclick = sprintf("Shiny.setInputValue('close_tab', '%s-viewer', {priority: \"event\"})", id))),
         HTML(entry$item_description))
     
   )
