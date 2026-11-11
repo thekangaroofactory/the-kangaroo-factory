@@ -17,7 +17,7 @@ project_modal_p1 <- function(){
       div(style = "position:relative;",
         h2(class = "section", "About the Project"),
         actionLink(inputId = "project-close-btn", label = "close tab", icon = icon("close"), class = "project-close",
-                   onclick = "Shiny.setInputValue('close_tab', 'projects-viewer', {priority: \"event\"})")),
+                   onclick = "Shiny.setInputValue('close_tab', 'project-viewer', {priority: \"event\"})")),
       
       
       p("This project was delivered as a resource to support a live session at the ", 

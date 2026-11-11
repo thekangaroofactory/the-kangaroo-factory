@@ -18,7 +18,7 @@ project_modal_p3 <- function(){
       div(style = "position:relative;",
           h2(class = "section", "About the Project"),
           actionLink(inputId = "project-close-btn", label = "close tab", icon = icon("close"), class = "project-close",
-                     onclick = "Shiny.setInputValue('close_tab', 'projects-viewer', {priority: \"event\"})")),
+                     onclick = "Shiny.setInputValue('close_tab', 'project-viewer', {priority: \"event\"})")),
       
       p("GitHub is widely used by developers & companies as a software development platform.", br(),
         "While it offers some project management capabilities, it is difficult to organize & follow them across repositories."),

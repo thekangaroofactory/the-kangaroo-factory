@@ -97,11 +97,11 @@ portfolio_server <- function(id, config, parent_session) {
     observeEvent(input$open_project, {
       
       # drop tab (no matter if it already exits)
-      nav_remove(id = "navbar", target = "projects-viewer", session = parent_session)
+      nav_remove(id = "navbar", target = "project-viewer", session = parent_session)
       
       # prepare ui
       nav <- nav_panel(class = "p-5",
-                       value = "projects-viewer",
+                       value = "project-viewer",
                        title = "Project details", 
                        
                        do.call(paste0("project_modal_", input$open_project), list()))

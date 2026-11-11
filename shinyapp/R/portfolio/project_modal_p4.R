@@ -18,7 +18,7 @@ project_modal_p4 <- function(path){
       div(style = "position:relative;",
           h2(class = "section", "About the Project"),
           actionLink(inputId = "project-close-btn", label = "close tab", icon = icon("close"), class = "project-close",
-                     onclick = "Shiny.setInputValue('close_tab', 'projects-viewer', {priority: \"event\"})")),
+                     onclick = "Shiny.setInputValue('close_tab', 'project-viewer', {priority: \"event\"})")),
       
       p("The web application is the engine behind thekangaroofactory.com website.", br(),
         "It enables running R code in the testing lab and fetching information from various data sources."),

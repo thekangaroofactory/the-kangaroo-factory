@@ -18,7 +18,7 @@ project_modal_p5 <- function(path){
       div(style = "position:relative;",
           h2(class = "section", "About the Project"),
           actionLink(inputId = "project-close-btn", label = "close tab", icon = icon("close"), class = "project-close",
-                     onclick = "Shiny.setInputValue('close_tab', 'projects-viewer', {priority: \"event\"})")),
+                     onclick = "Shiny.setInputValue('close_tab', 'project-viewer', {priority: \"event\"})")),
       
       p("GPX tracks are (JSON) lists of GPS coordinates & elevation captured along with their timestamp — and that's it!", br(),
         "From this sometimes huge list of points, you can recreate the path, compute distances, times, speed 

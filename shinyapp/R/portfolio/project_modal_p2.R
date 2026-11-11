@@ -19,7 +19,7 @@ project_modal_p2 <- function(){
       div(style = "position:relative;",
           h2(class = "section", "About the Project"),
           actionLink(inputId = "project-close-btn", label = "close tab", icon = icon("close"), class = "project-close",
-                     onclick = "Shiny.setInputValue('close_tab', 'projects-viewer', {priority: \"event\"})")),
+                     onclick = "Shiny.setInputValue('close_tab', 'project-viewer', {priority: \"event\"})")),
       
       p("The application features official election datasets published by the French Government on the", 
         a("data.gouv.fr", target = "_blank", href = "https://www.data.gouv.fr/datasets/search?q=elections"), "platform.", br(),
