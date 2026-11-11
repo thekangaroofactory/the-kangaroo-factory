@@ -9,7 +9,6 @@ portfolio_server <- function(id, config, parent_session) {
     
     # -- declare objects
     ns <- session$ns
-    MODULE <- paste0("[", id, "]")
     
     
     # --------------------------------------------------------------------------
@@ -32,7 +31,7 @@ portfolio_server <- function(id, config, parent_session) {
     
     
     # --------------------------------------------------------------------------
-    # Projects
+    # Feed Projects
     # --------------------------------------------------------------------------
     
     # extract from config
@@ -87,6 +86,7 @@ portfolio_server <- function(id, config, parent_session) {
       
     }
     
+    # apply helper
     lapply(project_mart, helper)
     
     
@@ -94,6 +94,7 @@ portfolio_server <- function(id, config, parent_session) {
     # Actions
     # --------------------------------------------------------------------------
     
+    # open project from card
     observeEvent(input$open_project, {
       
       # drop tab (no matter if it already exits)

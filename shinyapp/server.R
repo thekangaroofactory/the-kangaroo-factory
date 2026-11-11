@@ -7,8 +7,6 @@
 # -- Define server logic
 function(input, output, session) {
   
-  cat("Starting main application server... \n")
-  
   # -- Declare objects
   query_string <- reactiveVal()
   init_lab <- reactiveVal()
@@ -40,7 +38,8 @@ function(input, output, session) {
   shinyjs::html(id = "loader-label", html = "Fetching data from wiki RSS feed")
   wiki_mart <- tidyRSS::tidyfeed(feed = "https://thekangaroofactory.github.io/the-kangaroo-factory-wiki/index.xml", list = TRUE, clean_tags = FALSE)
   wiki_mart$entries$id <- paste("article", 1:nrow(wiki_mart$entries), sep = "-")
-  
+
+    
   # ----------------------------------------------------------------------------
   # Compute stats
   # ----------------------------------------------------------------------------
@@ -86,8 +85,7 @@ function(input, output, session) {
         class = "external-link nav-link ktag",
         href = config$linkedin,
         target = "_blank",
-        icon("linkedin", class = "fa-xl"))),
-    position = "after")
+        icon("linkedin", class = "fa-xl"))))
   
   # github
   nav_insert(
@@ -218,7 +216,7 @@ function(input, output, session) {
   })
   
   
-  # -- jump from next step item
+  # -- jump to tab / tag #
   observeEvent(input$jump_action, {
     
     # input is expecting list(nav = "foo", id = "bar")
@@ -269,14 +267,5 @@ function(input, output, session) {
         p("Philippe PERET EI")))
     
   })
-  
-  
-  # ----------------------------------------------------------------------------
-  # Finish init
-  # ----------------------------------------------------------------------------
-
-  # drop loader
-  # In last otherwise it's too quick
-  removeUI(selector = "#stats-placeholder > *", immediate = TRUE)
   
 }

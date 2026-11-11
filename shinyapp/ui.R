@@ -32,13 +32,10 @@ page_navbar(
   # -- header
   header = tags$head(
     
-    # -- JavaScript
-    shinyjs::useShinyjs(),
-    
     # -- meta tags
     tags$meta(charset="UTF-8"),
-    tags$meta(name="description", content="Data project portfolio and data science services. 
-              Power your business with automated data pipelines and carefully designed dashboards & apps."),
+    tags$meta(name="description", content="Building open-source data science ecosystem. 
+              Power your business with automated data pipelines and carefully designed apps."),
     tags$meta(name="robots", content="all"),
     
     # -- favicon
@@ -55,56 +52,40 @@ page_navbar(
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/custom_modal.css"),
     
     # -- js
+    shinyjs::useShinyjs(),
     tags$script(src = "./js/custom_modal.js"),
     tags$script(src = "./js/scroll.js"),
-    
-    # -- js
-    # >> to be reviewed when integrating ktag package
-    tags$script(
-      
-      "// -- button with class ktag
-      $(document).on('click', '.ktag', function(event) {
-        
-        console.log(event.currentTarget.id);
-        Shiny.setInputValue('ktag_event', {when: Date.now(), what: event.currentTarget.id});
-        
-      });"
-      
-    ),
+    tags$script(src = "./js/ktag.js"),
     
     # -- implement modal window
     # so that it's available across the app
-    custom_modal()
-    
-    ),
-
+    custom_modal()),
+  
   # -- footer
   fillable = FALSE,
   footer = p(class = "footer", 
              paste("©", format(Sys.Date(), "%Y"), "TheKangarooFactory"), "|",
              actionLink(inputId = "legal_notice", label = "legal notice", class = "ktag")),
   
-
+  
   # ----------------------------------------------------------------------------
   # Tabs (nav_panel)
   # ----------------------------------------------------------------------------
-
+  
   # -- Home
   nav_panel(class = "p-5",
             value = "home",
             title = "Home", 
             
             hero_section(title = "Welcome!", description = "Jump back in, or explore something new."),
-
+            
             # stat placeholder
             div(id = "stats-placeholder",
                 class = "section-container",
                 loader(id = "loader", label = "Fetching data...")),
-                        
-            # step placeholder
-            div(id = "next-steps-placeholder")
             
-            ),
+            # step placeholder
+            div(id = "next-steps-placeholder")),
   
   # -- About
   nav_panel(class = "p-5",
@@ -119,5 +100,5 @@ page_navbar(
   
   # -- Spacing
   nav_spacer()
-
+  
 )

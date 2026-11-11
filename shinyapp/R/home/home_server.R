@@ -10,10 +10,6 @@ home_server <- function(id, content, parent_session) {
     # -- get namespace
     ns <- session$ns
     
-    # -- module
-    MODULE <- paste0("[", id, "]")
-    
-    
     # --------------------------------------------------------------------------
     # Data engineering
     # --------------------------------------------------------------------------
@@ -35,9 +31,14 @@ home_server <- function(id, content, parent_session) {
 
     
     # --------------------------------------------------------------------------
-    # Insert UI
+    # Update UI
     # --------------------------------------------------------------------------
     
+    # drop loader
+    # In last otherwise it's too quick
+    removeUI(selector = "#stats-placeholder > *", immediate = TRUE)
+    
+    # add stats
     insertUI(
       selector = "#stats-placeholder",
       where = "beforeEnd",
@@ -45,6 +46,7 @@ home_server <- function(id, content, parent_session) {
         class = "animated-fade",
         stat_ui(stats)))
     
+    # add next steps
     insertUI(
       selector = "#next-steps-placeholder",
       where = "beforeEnd",

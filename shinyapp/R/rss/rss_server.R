@@ -10,9 +10,6 @@ rss_server <- function(id, mart, parent_session) {
     # -- get namespace
     ns <- session$ns
     
-    # -- module
-    MODULE <- paste0("[", id, "]")
-    
     
     # --------------------------------------------------------------------------
     # Insert tab
@@ -36,7 +33,7 @@ rss_server <- function(id, mart, parent_session) {
     
     
     # --------------------------------------------------------------------------
-    # Init
+    # Feed Placeholder
     # --------------------------------------------------------------------------
     
     # generate & insert UI

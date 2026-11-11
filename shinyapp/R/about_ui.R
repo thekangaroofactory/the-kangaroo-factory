@@ -4,6 +4,7 @@ about_ui <- function(){
   
   div(
     
+    # title
     hero_section(title = "About", 
                  description = "A few words about me.",
                  actions = list(primary = list(id = "about-btn-linkedin", 
@@ -11,6 +12,7 @@ about_ui <- function(){
                                                icon = icon("angle-right"),
                                                link = "https://www.linkedin.com/in/philippeperet"))),
     
+    # content
     div(
       class = "section-container",
       layout_columns(

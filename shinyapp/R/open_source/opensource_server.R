@@ -10,9 +10,6 @@ opensource_server <- function(id, config, package_mart, parent_session) {
     # -- get namespace
     ns <- session$ns
     
-    # -- module
-    MODULE <- paste0("[", id, "]")
-    
     
     # --------------------------------------------------------------------------
     # Insert tab
@@ -35,7 +32,7 @@ opensource_server <- function(id, config, package_mart, parent_session) {
                      package_ui(),
                      guide_ui())
     
-    # insert
+    # insert UI
     nav_insert(id = "navbar", 
                nav = nav, 
                target = "home", 
@@ -44,10 +41,10 @@ opensource_server <- function(id, config, package_mart, parent_session) {
     
     
     # --------------------------------------------------------------------------
-    # Packages
+    # Feed Package Placeholder
     # --------------------------------------------------------------------------
 
-    # build & insert card
+    # helper: build & insert card
     helper <- function(package){
       
       # generate card
@@ -68,21 +65,23 @@ opensource_server <- function(id, config, package_mart, parent_session) {
       
     }
     
-    # apply helper
+    # intro
     insertUI(selector = "#package-placeholder",
              where = "beforeBegin",
              ui = p("Packages published to ", popover(a(href = config$runiverse, target = "_blank", "R-universe"), "Go to the universe"), icon("rocket")))
+    
+    # apply helper
     lapply(package_mart, helper)
     
     
     # --------------------------------------------------------------------------
-    # Guides
+    # Feed Guides Placeholder
     # --------------------------------------------------------------------------
     
     # get info from config
     guides_mart <- config$guides
     
-    # build & insert card
+    # helper: build & insert card
     helper <- function(guide){
       
       # generate card
