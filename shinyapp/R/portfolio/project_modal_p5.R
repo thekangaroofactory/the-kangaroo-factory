@@ -1,104 +1,86 @@
 
 
 project_modal_p5 <- function(path){
-
-  # -- add resource path
-  my_path <- file.path(path, "p5")
-  addResourcePath(prefix = "project_media", directoryPath = my_path)
   
   # -- return wrapper
   tagList(
     
-    # -- Project header section
-    h1("The Diamond Bay"),
-    p("Photography portfolio"),
+    # hero section
+    hero_section(title = "GPX-Tracker",
+                 description = "Connect the dots and compute analysis based on GPX files."),
     
-    
-    # -- Project info section
-    layout_column_wrap(class = "mt-5",
-                       value_box(class = "tkf-bg-camel border",
-                                 showcase = icon("window-restore"),
-                                 theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
-                                 title = "Project Type",
-                                 value = "Website",
-                                 p("Static website")),
-                       
-                       value_box(class = "tkf-bg-camel border",
-                                 showcase = icon("file"),
-                                 theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
-                                 title = "Page",
-                                 value = "1",
-                                 p("Landing page")),
-                       
-                       value_box(class = "tkf-bg-camel border",
-                                 showcase = icon("unlock"),
-                                 theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
-                                 title = "Visibility",
-                                 value = "Public",
-                                 p("The website is public"))),
-    
-    
-    # -- About section
-    h2(class = "section",
-       "About the Project"),
+    # page content
+    div(
+      class = "section-container",
+      
+      # ------------------------------------------------------------------------
+      # About section
+      div(style = "position:relative;",
+          h2(class = "section", "About the Project"),
+          actionLink(inputId = "project-close-btn", label = "close tab", icon = icon("close"), class = "project-close",
+                     onclick = "Shiny.setInputValue('close_tab', 'project-viewer', {priority: \"event\"})")),
+      
+      p("GPX tracks are (JSON) lists of GPS coordinates & elevation captured along with their timestamp — and that's it!", br(),
+        "From this sometimes huge list of points, you can recreate the path, compute distances, times, speed 
+        but also detect breaks or even recording anomalies."),
 
-    # -- text
-    tagList(
-      p("The project is a photography portfolio.", br(),
-        "It's made of a unique landing page (static website), but is meant to become a web application in a future version.")),
+            
+      # ------------------------------------------------------------------------
+      # Features section
+      h2(class = "section", "Features"),
+      
+      layout_column_wrap(
         
-    card(
-      card_image(
-        class = "p-3",
-        src = "project_media/screenshot.jpg",
-        alt = "Project image")),
-    
-
-    # -- Background section
-    h2(class = "section",
-       "Background"),
-
-    # -- Technical stack sub-section
-    card(
-      class = "tkf-bg-camel mt-5",
-      h3("Technical Stack"),
-      layout_column_wrap(
-        card(
-          card_header("Website"),
-          tags$ul(
-            tags$li("HTML"),
-            tags$li("css"),
-            tags$li("Javascript"))))),
-    
-    
-    # -- Deliverable section
-    h2(class = "section",
-       "Deliverables"),
-    layout_column_wrap(
+        card(class = "border",
+             fill = FALSE,
+             card_header("Map"),
+             p("GPX tracks are projected on a map to show the itinary.")),
+        
+        card(class = "border",
+             fill = FALSE,
+             card_header("Stats & Profiles"),
+             p("Key figures are computed from the raw data, and displayed as KPIs or graphical profiles (speed, elevation).")),
+        
+        card(class = "border",
+             fill = FALSE,
+             card_header("Detection"),
+             p("In order to compute accurate stats, it is necessary to look for recording anomalies as well as breaks and
+               potential overnight stops."))),
+      
+      
+      # -- image
+      div(class = "project-image",
+          img(src = "./img/projects/p5/screenshot.png"),
+          div(class = "project-image-caption", "Screenshot | track analysis")),
+      
+      
+      # ------------------------------------------------------------------------
+      # Architecture section
+      h2(class = "section", "Architecture"),
+      
+      p("The tool is a modular client / server web application, also using the Nominatim OpenStreetMap API 
+        to retrieve addresses and cities from the GPS coordinates."),
+      
+      # -- stack
       card(
-        class = "border",
-        card_header("Website"),
-        p("The website is deployed on Render cloud platform as a static website.")),
-      card(
-        class = "border",
-        card_header("Domain"),
-        p("A domain name is registered and redirects to the cloud platform."))),
-    
-    
-    # -- Links section
-    card(
-      class = "tkf-bg-camel section",
-      h2("Links"),
-      layout_column_wrap(
-        card(
-          card_header("Website"),
-          p("Link to the website"),
-          tags$a(
-            'data-value' = "link_p5_website",
-            "www.thediamondbay.fr",
-            target = "_blank",
-            href = "https://www.thediamondbay.fr/"))))
-    
+        class = "tkf-bg-camel mt-5",
+        h3("Technical Stack"),
+        layout_column_wrap(
+          card(class = "border",
+               fill = FALSE,
+               card_header("Dashboard"),
+               tags$ul(
+                 tags$li("R"),
+                 tags$li("Leaflet"))),
+          
+          card(class = "border",
+               fill = FALSE,
+               card_header("Geocoding"),
+               tags$ul(
+                 tags$li("R"),
+                 tags$li("OpenStreeMap API")))))
+      
+    )
   )
   
 }

@@ -1,176 +1,82 @@
 
 
-project_modal_p3 <- function(path){
-  
-  # -- add resource path
-  my_path <- file.path(path, "p3")
-  addResourcePath(prefix = "project_media", directoryPath = my_path)
+project_modal_p3 <- function(){
   
   # -- return wrapper
   tagList(
     
-    # -- Project header section
-    h1("France Election"),
-    p("Dynamic Election Data Visualization"),
+    # hero section
+    hero_section(title = "GitHub Client",
+                 description = "Building a cross repository follow-up application relying on the GitHub API."),
     
-    
-    # -- Project info section
-    layout_column_wrap(class = "mt-5",
-                       value_box(class = "tkf-bg-camel border",
-                                 showcase = icon("window-restore"),
-                                 theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
-                                 title = "Project Type",
-                                 value = "WebApp",
-                                 p("Web application deployed on the cloud")),
-                       
-                       value_box(class = "tkf-bg-camel border",
-                                 showcase = icon("check-to-slot"),
-                                 theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
-                                 title = "Views",
-                                 value = "14.73k",
-                                 p("Source: data.gouv.fr | 03-2026")),
-                       
-                       value_box(class = "tkf-bg-camel border",
-                                 showcase = icon("unlock"),
-                                 theme = value_box_theme(bg = "#726d67", fg = "#d9cec2"),
-                                 title = "Visibility",
-                                 value = "Public",
-                                 p("Application & repository are open"))),
-    
-    
-    # -- About section
-    h2(class = "section",
-       "About the Project"),
-    
-    # -- text
-    p("The application features official datasets published by the French Government on the", 
-      tags$a("data.gouv.fr", target = "_blank", href = "https://data.gouv.fr"), "platform.", br(),
-      "There are 10 elections + 2 geographical boundaries datasets behind this tool."),
-    
-    # -- Features section
-    h2(class = "section",
-       "Features"),
-    layout_column_wrap(
+    # page content
+    div(
+      class = "section-container",
       
-      card(class = "border",
-           fill = FALSE,
-           card_header("Election types"),
-           p("The application supports different types of election & electoral boundaries."),
-           layout_columns(
-             tagList(
-               p("Election types"),
-               tags$ul(
-                 tags$li("Presidential"),
-                 tags$li("Legislative"),
-                 tags$li("Municipal"))),
-             tagList(
-               p("Boundary types"),
-               tags$ul(
-                 tags$li("Municipality"),
-                 tags$li("Legislative district"))))),
+      # ------------------------------------------------------------------------
+      # About section
+      div(style = "position:relative;",
+          h2(class = "section", "About the Project"),
+          actionLink(inputId = "project-close-btn", label = "close tab", icon = icon("close"), class = "project-close",
+                     onclick = "Shiny.setInputValue('close_tab', 'project-viewer', {priority: \"event\"})")),
       
-      card(class = "border",
-           fill = FALSE,
-           card_header("Data quality & transformation"),
-           p("The raw datasets require some operations."),
-           p("In particular, department & city code formats are not homogenized through the different files."),
-           p("The transformation also involves matching the election results with the electoral boundaries (geographical data).")),
+      p("GitHub is widely used by developers & companies as a software development platform.", br(),
+        "While it offers some project management capabilities, it is difficult to organize & follow them across repositories."),
+      p("This application gathers GitHub resources (repos, milestones & issues) into projects.", br(),
+        "It offers a global view over all the repositories to organize & prioritorize actions."),
       
-      card(class = "border",
-           fill = FALSE,
-           card_header("Map"),
-           card_image(
-             src = "project_media/opacity_animation.gif",
-             alt = "Project image"),
-           p("The application projects the election results for a given candidate / list on selected electoral boundaries."),
-           p("Options are available to tune color and opacity."),
-           p("Also a search input is available to navigate the map (plugged on the", a(href = "https://www.openstreetmap.org/", target = "_blank", "OpenStreetMap"), "API)"))),
-    
-    
-    # -- Background section
-    h2(class = "section",
-       "Background"),
-    
-    # -- Technical stack sub-section
-    h3(class = "mt-5 mb-3",
-       "Architecture"),
-    p("The application has a standard client / server architecture which relies on several module servers (map, elections, boundaries)."),
-    
-    # -- Technical stack sub-section
-    card(
-      class = "tkf-bg-camel mt-5",
-      h3("Technical Stack"),
+      
+      # ------------------------------------------------------------------------
+      # Features section
+      h2(class = "section", "Features"),
+      
       layout_column_wrap(
         card(
-          card_header("Data Engineering"),
-          p("Cleaning & transformation"),
-          tags$ul(
-            tags$li("R"),
-            tags$li("dplyr"),
-            tags$li("geojsonio"))),
+          fill = FALSE,
+          card_header("Smart cache"),
+          p("For performance reason, a cache system has been developped based on scheduled calls to the GitHub API. 
+          The frequency of the calls depends on the project status.")),
+        
         card(
-          card_header("Web application"),
-          p("Client & server"),
-          tags$ul(
-            tags$li("R"),
-            tags$li("Shiny"),
-            tags$li("Shinydashboard & ShinyWidgets"))),
+          fill = FALSE,
+          card_header("Roadmap"),
+          p("A roadmap is automatically built based on GitHub milestone's target date.")),
+        
         card(
-          card_header("Map"),
-          p("Display & search"),
-          tags$ul(
-            tags$li("R"),
-            tags$li("Leaflet"),
-            tags$li("Openstreetmap API"))))),
-    
-    
-    # -- Deliverable section
-    h2(class = "section",
-       "Deliverables"),
-    layout_column_wrap(
+          fill = FALSE,
+          card_header("Backlog"),
+          p("Focus is set on reducing the backlog debt, thanks to dedicated KPIs."))),
+      
+      # -- image
+      div(class = "project-image",
+          img(src = "./img/projects/p3/screenshot_1.jpg"),
+          div(class = "project-image-caption", "Dashboard | overview")),
+      
+      
+      # ------------------------------------------------------------------------
+      # Architecture section
+      h2(class = "section", "Architecture"),
+      
+      p("The app is a client / server web applications served by a Docker container.", br(),
+        "It connects to the GitHub API to sync the local cache."),
+      
+      # stack
       card(
-        class = "border",
-        fill = FALSE,
-        card_header("Application"),
-        p("The web application is delivered as a Docker container.")),
-      card(
-        class = "border",
-        card_header("Visibility"),
-        p("The application is registered on the data.gouv.fr plateform, so that it can be found from the list of reuses as well as the election and boundaries datasets."),
-        card_image(
-          src = "project_media/screenshot_datagouv.png",
-          alt = "Project image"))),
-    
-    
-    # -- Links section
-    card(
-      class = "tkf-bg-camel section",
-      h2("Links"),
-      layout_column_wrap(
-        card(
-          card_header("Page"),
-          p("The page of the application on the data.gouv.fr platform."),
-          tags$a(id = "portfolio-p3-link_data_gouv_page",
-                 class = "ktag",
-                 href = "https://www.data.gouv.fr/fr/reuses/carte-interactive-des-resultats-des-elections/",
-                 target = "_blank",
-                 "carte-interactive-des-resultats-des-elections")),
-        card(
-          card_header("Application"),
-          p("A public instance of the application (cold start may create a delay at startup)."),
-          tags$a(id = "portfolio-p3-link_app_shinyio",
-                 class = "ktag",
-                 href = "https://kangaroo-ai.shinyapps.io/election-map/",
-                 target = "_blank",
-                 "election-map")),
-        card(
-          card_header("Repository"),
-          p("The GitHub", icon("github"), "repository of the Application."),
-          tags$a(id = "portfolio-p3-link_github_repo",
-                 class = "ktag",
-                 href = "https://github.com/thekangaroofactory/france-elections",
-                 target = "_blank",
-                 "france-elections"))))
+        class = "tkf-bg-camel mt-5",
+        h3("Technical Stack"),
+        layout_column_wrap(
+          card(
+            card_header("App"),
+            tags$ul(
+              tags$li("R"),
+              tags$li("Shiny"))),
+          card(
+            card_header("GitHub Sync"),
+            tags$ul(
+              tags$li("R"),
+              tags$li("kitems, iker")))))
+        
+    )
     
   )
   

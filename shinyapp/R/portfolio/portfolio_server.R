@@ -4,71 +4,116 @@
 # Module Server logic
 # ------------------------------------------------------------------------------
 
-portfolio_server <- function(id, path) {
+portfolio_server <- function(id, config, parent_session) {
   moduleServer(id, function(input, output, session) {
     
     # -- declare objects
     ns <- session$ns
-    MODULE <- paste0("[", id, "]")
-
+    
     
     # --------------------------------------------------------------------------
-    # Projects
+    # Insert tab
     # --------------------------------------------------------------------------
     
-    # -- read project list
-    projects <- read.csv(file = file.path(path, "projects.csv"), header = TRUE)
+    # define UI
+    nav <- nav_panel(class = "p-5",
+                     value = "project",
+                     title = "Projects", 
+                     
+                     portfolio_ui())
     
-    # -- project cards
-    # intermediate layer to avoid multiple computations
-    c_projects <- reactive(
-      lapply(projects$id, function(x) card_project(projects[projects$id == x, ], ns, input, path)))
-    
-    
-    # -- output: select project
-    output$select_project <- renderUI(
-      selectInput(inputId = ns("project_type"), 
-                  label = "Filter by project type", 
-                  choices = unique(unlist(strsplit(projects$type, split = " "))),
-                  multiple = TRUE))
+    # insert
+    nav_insert(id = "navbar", 
+               nav = nav, 
+               target = "open-source",
+               position = "after",
+               session = parent_session)
     
     
-    # -- output: project grid
-    output$project_grid <- renderUI({
+    # --------------------------------------------------------------------------
+    # Feed Projects
+    # --------------------------------------------------------------------------
     
-      # -- log
-      if(!is.null(input$project_type))
-        ktag(who = session$token, where = id, what = "filter_type", how = paste(input$project_type, collapse = "+"))
-      
-      # -- get project ids
-      idx <- if(is.null(input$project_type))
-        projects$id
-      else
-        projects |> dplyr::filter(grepl(paste(input$project_type, collapse = "|"), type)) |> dplyr::pull(id)
+    # extract from config
+    project_mart <- config$projects
 
-      # -- build & return ui
-      do.call(
-        layout_column_wrap,
-        c(
-          list(width = "400px",
-               fixed_width = TRUE,
-               gap = "2rem",
-               heights_equal = "row"),
-          c_projects()[match(idx, projects$id)]))
+    # build & insert card
+    helper <- function(project){
+
+      # prepare footer actions
+      # from YAML, open project details or external link
+      footer_actions <- if(!is.null(project$actions)){
+        
+        # define helper
+        build_action <- function(action){
+          
+          if("open" %in% names(action))
+            
+            # open project details
+            actionLink(inputId = ns(action$open),
+                       label = "open",
+                       icon = icon("up-right-and-down-left-from-center"),
+                       onclick = sprintf("Shiny.setInputValue('%s', '%s', {priority: 'event'})",
+                                         ns("open_project"), action$open))
+          
+          else
+            
+            # external link
+            div(span(icon(action$icon)), a(href = action$href, target = "_blank", action$label))
+          
+        }
+        
+        # apply helper
+        lapply(project$actions, build_action)
+        
+      } else NULL
+        
       
-    }) |> bindEvent(input$project_type, ignoreNULL = FALSE, ignoreInit = TRUE)
+      # generate card
+      ui <- asset_card(id = project$id,
+                       title = project$title,
+                       description = project$description,
+                       type = project$tags,
+                       icon = icon("angle-right"),
+                       img = paste0("img/projects/", project$image),
+                       footer = footer_actions,
+                       tag = project$version)
+      
+      # insert UI
+      insertUI(selector = "#project-placeholder",
+               where = "beforeEnd",
+               ui = ui)
+      
+    }
+    
+    # apply helper
+    lapply(project_mart, helper)
     
     
-    # -- observe: open project
+    # --------------------------------------------------------------------------
+    # Actions
+    # --------------------------------------------------------------------------
+    
+    # open project from card
     observeEvent(input$open_project, {
-     
-      # -- get project [p*]
-      p_nb <- unlist(strsplit(input$open_project, "_"))[2]
       
-      showModal(
-        modalDialog(
-          easyClose = T,
-          match.fun(paste0("project_modal_", p_nb))(path)))
+      # drop tab (no matter if it already exits)
+      nav_remove(id = "navbar", target = "project-viewer", session = parent_session)
+      
+      # prepare ui
+      nav <- nav_panel(class = "p-5",
+                       value = "project-viewer",
+                       title = "Project details", 
+                       
+                       do.call(paste0("project_modal_", input$open_project), list()))
+      
+      # insert tab
+      nav_insert(id = "navbar", 
+                 nav = nav, 
+                 target = "project", 
+                 position = "after", 
+                 select = TRUE, 
+                 session = parent_session)
       
     })
     

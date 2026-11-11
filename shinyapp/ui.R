@@ -34,8 +34,8 @@ page_navbar(
     
     # -- meta tags
     tags$meta(charset="UTF-8"),
-    tags$meta(name="description", content="Data project portfolio and data science services. 
-              Power your business with automated data pipelines and carefully designed dashboards & apps."),
+    tags$meta(name="description", content="Building open-source data science ecosystem. 
+              Power your business with automated data pipelines and carefully designed apps."),
     tags$meta(name="robots", content="all"),
     
     # -- favicon
@@ -44,22 +44,23 @@ page_navbar(
     # -- css
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/base.css"),
     tags$link(rel = "stylesheet", type = "text/css", href = "./css/color_web.css"),
+    tags$link(rel = "stylesheet", type = "text/css", href = "./css/stats.css"),
+    tags$link(rel = "stylesheet", type = "text/css", href = "./css/next_steps.css"),
+    tags$link(rel = "stylesheet", type = "text/css", href = "./css/hero.css"),
+    tags$link(rel = "stylesheet", type = "text/css", href = "./css/loader.css"),
+    tags$link(rel = "stylesheet", type = "text/css", href = "./css/pack.css"),
+    tags$link(rel = "stylesheet", type = "text/css", href = "./css/custom_modal.css"),
     
     # -- js
-    tags$script(
-      
-      "// -- button with class ktag
-      $(document).on('click', '.ktag', function(event) {
-        
-        console.log(event.currentTarget.id);
-        Shiny.setInputValue('ktag_event', {when: Date.now(), what: event.currentTarget.id});
-        
-      });"
-      
-    )
+    shinyjs::useShinyjs(),
+    tags$script(src = "./js/custom_modal.js"),
+    tags$script(src = "./js/scroll.js"),
+    tags$script(src = "./js/ktag.js"),
     
-    ),
-
+    # -- implement modal window
+    # so that it's available across the app
+    custom_modal()),
+  
   # -- footer
   fillable = FALSE,
   footer = p(class = "footer", 
@@ -71,95 +72,33 @@ page_navbar(
   # Tabs (nav_panel)
   # ----------------------------------------------------------------------------
   
-  # -- Portfolio
+  # -- Home
   nav_panel(class = "p-5",
-            value = "projects",
-            title = "Projects", 
+            value = "home",
+            title = "Home", 
             
-            h1("Projects"),
-            portfolio_ui("portfolio")),
-  
-  
-  # -- Lab
-  nav_panel(class = "p-5",
-            value = "lab",
-            title = "Lab", 
+            hero_section(title = "Welcome!", description = "Jump back in, or explore something new."),
             
-            h1("The Lab"),
-            lab_ui("lab")),
-  
-  
-  # -- Service
-  nav_panel(class = "p-5",
-            value = "services",
-            title = "Services", 
+            # stat placeholder
+            div(id = "stats-placeholder",
+                class = "section-container",
+                loader(id = "loader", label = "Fetching data...")),
             
-            service_ui("service")),
+            # step placeholder
+            div(id = "next-steps-placeholder")),
   
-  
-  # -- Blog
-  nav_panel(# class = "p-5", -- otherwise iframe have padding around
-            value = "blog",
-            title = "Blog", 
-            
-            uiOutput("blog_ui")),
-  
-  
-  # -- Wiki
-  nav_panel(# class = "p-5",  -- otherwise iframe have padding around
-            value = "wiki",
-            title = "Wiki",
-            
-            uiOutput("wiki_ui")),
-  
-  
-  # -- Contact
-  nav_panel(class = "p-5",
-            value = "contact",
-            title = "Contacts & Links", 
-            
-            h1("Contacts & Links"),
-            contact_ui("contact"),
-            
-            h2(class = "section",
-               "Links to other platforms"),
-            link_ui("contact")),
-  
-  
-  # -- Profile
+  # -- About
   nav_panel(class = "p-5",
             value = "about",
             title = "About", 
             
-            about_ui("me")),
+            about_ui()),
   
   # -- light / dark mode switch
   nav_item(
     input_dark_mode(id = "switch_mode", mode = "dark")),
   
   # -- Spacing
-  nav_spacer(),
+  nav_spacer()
   
-  # -- Links (on the right)
-  nav_item(
-    tags$a(id = "linkedin",
-           class = "external-link nav-link ktag",
-           href = "https://www.linkedin.com/in/philippeperet/",
-           target = "_blank",
-           icon("linkedin", class = "fa-xl"))),
-  
-  nav_item(
-    tags$a(id = "github",
-           class = "external-link nav-link ktag",
-           href = "https://github.com/thekangaroofactory",
-           target = "_blank",
-           icon("github", class = "fa-xl"))),
-  
-  nav_item(
-    tags$a(id = "youtube",
-           class = "external-link nav-link",
-           href = "https://www.youtube.com/@TheKangarooFactory",
-           target = "_blank",
-           icon("youtube", class = "fa-xl")))
-  
-) # page_navbar
+)

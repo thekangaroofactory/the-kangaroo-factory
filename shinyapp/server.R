@@ -7,8 +7,6 @@
 # -- Define server logic
 function(input, output, session) {
   
-  cat("Starting main application server... \n")
-  
   # -- Declare objects
   query_string <- reactiveVal()
   init_lab <- reactiveVal()
@@ -20,24 +18,104 @@ function(input, output, session) {
   
   
   # ----------------------------------------------------------------------------
-  # Call modules
+  # Get data & compute id (for html)
+  # ----------------------------------------------------------------------------
+  
+  # read YAML config
+  config <- yaml::read_yaml(file = file.path(Sys.getenv("DATA_HOME"), "_tkf.yml"))
+  config <- asset_ids(config)
+  
+  # get packages from R-universe API
+  shinyjs::html(id = "loader-label", html = "Fetching data from R-universe API")
+  package_mart <- universe::universe_all_packages(universe = "thekangaroofactory")
+  package_mart <- lapply(seq_along(package_mart), \(idx) c(package_mart[[idx]], list(id = paste("package", idx, sep = "-"))))
+  
+  # get RSS feeds
+  shinyjs::html(id = "loader-label", html = "Fetching data from blog RSS feed")
+  blog_mart <- tidyRSS::tidyfeed(feed = "https://thekangaroofactory.github.io/the-kangaroo-factory-blog/index.xml", list = TRUE, clean_tags = FALSE)
+  blog_mart$entries$id <- paste("post", 1:nrow(blog_mart$entries), sep = "-")
+  
+  shinyjs::html(id = "loader-label", html = "Fetching data from wiki RSS feed")
+  wiki_mart <- tidyRSS::tidyfeed(feed = "https://thekangaroofactory.github.io/the-kangaroo-factory-wiki/index.xml", list = TRUE, clean_tags = FALSE)
+  wiki_mart$entries$id <- paste("article", 1:nrow(wiki_mart$entries), sep = "-")
+
+    
+  # ----------------------------------------------------------------------------
+  # Compute stats
   # ----------------------------------------------------------------------------
 
-  # -- portfolio
-  portfolio_server(id = "portfolio", path = file.path(Sys.getenv("DATA_HOME"), "philippeperet/portfolio"))
+  # update loader
+  shinyjs::html(id = "loader-label", html = "Computing things to do...")
+  
+  # build content df
+  content <- build_content(config, package_mart, blog_mart, wiki_mart)
+  
+  
+  # ----------------------------------------------------------------------------
+  # Call modules
+  # ----------------------------------------------------------------------------
+  
+  # open source
+  opensource_server(id = "opensource", config, package_mart, session)
+  
+  # portfolio / projects
+  portfolio_server(id = "portfolio", config, session)
   
   # -- lab
-  lab_server(id = "lab", path = Sys.getenv("DATA_HOME"), init_lab)
+  lab_server(id = "lab", path = Sys.getenv("DATA_HOME"), init_lab, session)
   
-  # -- service
-  service_server(id = "service", session)
+  # blog & wiki
+  rss_server(id = "blog", mart = blog_mart, session)
+  rss_server(id = "wiki", mart = wiki_mart , session)
   
-  # -- about
-  about_server(id = "me", path = file.path(Sys.getenv("DATA_HOME"), "philippeperet/profile"))
+  # home
+  # keep last once everything is loaded
+  home_server(id = "home", content, session)
   
-  # -- contact
-  contact_server(id = "contact", path = file.path(Sys.getenv("DATA_HOME"), "philippeperet/contact"))
   
+  # ----------------------------------------------------------------------------
+  # Insert links
+  # ----------------------------------------------------------------------------
+  
+  # linkedin
+  nav_insert(
+    id = "navbar",
+    nav = nav_item(
+      a(id = "linkedin",
+        class = "external-link nav-link ktag",
+        href = config$linkedin,
+        target = "_blank",
+        icon("linkedin", class = "fa-xl"))))
+  
+  # github
+  nav_insert(
+    id = "navbar",
+    nav = nav_item(
+      a(id = "github",
+        class = "external-link nav-link ktag",
+        href = config$github,
+        target = "_blank",
+        icon("github", class = "fa-xl"))))
+  
+  # youtube
+  nav_insert(
+    id = "navbar",
+    nav = nav_item(
+      a(id = "youtube",
+        class = "external-link nav-link",
+        href = config$youtube,
+        target = "_blank",
+        icon("youtube", class = "fa-xl"))))
+  
+  # mastodon
+  nav_insert(
+    id = "navbar",
+    nav = nav_item(
+      a(id = "mastodon",
+        class = "external-link nav-link",
+        href = config$mastodon,
+        target = "_blank",
+        icon("mastodon", class = "fa-xl"))))
   
   # ----------------------------------------------------------------------------
   # Analytics
@@ -99,8 +177,7 @@ function(input, output, session) {
             position = "after",
             select = FALSE,
             session = session)
-          
-      
+
       if("nav" %in% names(url_parameters))
         nav_select(id = "navbar", selected = url_parameters$nav)}
     
@@ -123,48 +200,39 @@ function(input, output, session) {
     
   }, ignoreInit = TRUE)
   
-  
-  # ----------------------------------------------------------------------------
-  # Blog
-  # ----------------------------------------------------------------------------
-  
-  output$blog_ui <- renderUI({
-  
-    url_base <- "https://thekangaroofactory.github.io/the-kangaroo-factory-blog"
+
+  # -- close tab
+  observeEvent(input$close_tab, {
     
-    # -- check url query string
-    url <- if("post" %in% names(query_string()))
-        paste(url_base, "posts", query_string()$post, sep = "/")
-    else url_base
+    # select tab
+    # when pattern is foo-viewer, foo will be selected
+    target <- unlist(strsplit(input$close_tab, split = "-"))
+    if(length(target) == 2 && target[[2]] == "viewer")
+      nav_select(id = "navbar", selected = target[[1]])
     
-    # -- return
-    tags$iframe(
-      id = "blog",
-      class = "blog",
-      src = url,
-      scrolling = 'yes')
+    # close tab
+    nav_remove(id = "navbar", target = input$close_tab)
     
   })
   
   
-  # ----------------------------------------------------------------------------
-  # Wiki
-  # ----------------------------------------------------------------------------
-  
-  output$wiki_ui <- renderUI({
+  # -- jump to tab / tag #
+  observeEvent(input$jump_action, {
     
-    url_base <- "https://thekangaroofactory.github.io/the-kangaroo-factory-wiki"
+    # input is expecting list(nav = "foo", id = "bar")
+    if(!is.list(input$jump_action))
+      warning("Input jump_action is expecting a list(nav = 'foo', id = 'bar')", call. = F)
     
-    # -- check url query string
-    url <- if("cat" %in% names(query_string()))
-      paste(url_base, "articles", query_string()$cat, paste0(query_string()$article, ".html"), sep = "/")
-    else url_base
+    # activate tab
+    nav_select(id = "navbar", 
+               selected = ifelse(input$jump_action$nav %in% c("package", "guide"), 
+                                 "open-source", 
+                                 input$jump_action$nav))
     
-    # -- return
-    tags$iframe(
-      class = "blog",
-      src = url,
-      scrolling = 'yes')
+    # wait 100ms for the tab to be displayed, then scroll to the #
+    if(input$jump_action$id != "#")
+      session$sendCustomMessage(type = "scroll_to_tag",
+                                list(id = input$jump_action$id, delay = 100))
     
   })
   
@@ -173,29 +241,31 @@ function(input, output, session) {
   # Legal notice
   # ----------------------------------------------------------------------------
   
-  observeEvent(input$legal_notice,
-               
-               showModal(
-                 modalDialog(
-                   title = "Legal notice",
-                   easyClose = TRUE,
-                   
-                   tags$img(class = "mb-3", src = "./img/favicon_196x196.png", alt = "Icon"),
-                   
-                   h4("Owner"),
-                   p("This website and its domain name are the property of:"),
-                   tags$ul(
-                     tags$li("Company name: Philippe PERET EI"),
-                     tags$li("SIREN: 909 200 925"),
-                     tags$li("Email: philippe.peret@hotmail.com")),
-                   
-                   h4("Editorial Manager"),
-                   p("Philippe PERET EI"),
-                   
-                   h4("Host"),
-                   p("This website is hosted by Posit Software, PBC |", tags$a(href = "https://connect.posit.cloud/", target = "_blank", "https://connect.posit.cloud/")),
-                   
-                   h4("Development"),
-                   p("Philippe PERET EI"))))
+  observeEvent(input$legal_notice, {
+    
+    # display modal
+    custom_modal_show(
+      div(
+        class = "legal-notice",
+        
+        tags$img(src = "./img/favicon_196x196.png", alt = "Icon"),
+        
+        h4("Owner"),
+        p("This website and its domain name are the property of:"),
+        tags$ul(
+          tags$li("Company name: Philippe PERET EI"),
+          tags$li("SIREN: 909 200 925"),
+          tags$li("Email: philippe.peret@hotmail.com")),
+        
+        h4("Editorial Manager"),
+        p("Philippe PERET EI"),
+        
+        h4("Host"),
+        p("This website is hosted by Posit Software, PBC |", a(href = "https://connect.posit.cloud/", target = "_blank", "https://connect.posit.cloud/")),
+        
+        h4("Development"),
+        p("Philippe PERET EI")))
+    
+  })
   
 }

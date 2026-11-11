@@ -68,6 +68,108 @@ h4 { font-size: 1.4rem }
 
 
 /* -----------------------------------------------------------------------------
+   Custom classes (general layout)
+------------------------------------------------------------------------------*/
+
+.section-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 40px auto;
+}
+
+
+/* -----------------------------------------------------------------------------
+   Custom classes (animation)
+------------------------------------------------------------------------------*/
+
+/* Define the fade-in keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Apply the animation class */
+.animated-ui {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Define the fade keyframes */
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animated-fade {
+  animation: fade 0.5s ease-out forwards;
+}
+
+
+/* -----------------------------------------------------------------------------
+   Custom classes (Legal notice)
+------------------------------------------------------------------------------*/
+
+.legal-notice h4 {
+  font-size: 1.1rem;
+  margin-top: 15px;
+}
+
+.legal-notice p,
+.legal-notice ul {
+  font-size: 0.9rem;
+}
+
+.legal-notice img {
+  border-radius: 8px;
+  margin: 30px 0;
+}
+
+
+/* -----------------------------------------------------------------------------
+   Custom classes (Project page)
+------------------------------------------------------------------------------*/
+
+.project-image img {
+  display: block;
+  margin: 7vh auto 0;
+  width: 60%;
+}
+
+.project-image-caption {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--tkf-dimmed-color);
+}
+
+.project-close {
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
+
+
+/* -----------------------------------------------------------------------------
+   Custom classes (RSS feeds)
+------------------------------------------------------------------------------*/
+
+.rss-entry h1 {
+  margin-bottom: 5vh;
+}
+
+.rss-entry h2 {
+  margin-top: 7vh;
+  margin-bottom: 5vh;
+}
+
+.rss-entry img {
+  display: block;
+  margin: 0 auto 50px;
+  border-radius: 16px;
+  max-height: 360px;
+}
+
+
+/* -----------------------------------------------------------------------------
    Custom classes (YouTube preview)
 ------------------------------------------------------------------------------*/
 

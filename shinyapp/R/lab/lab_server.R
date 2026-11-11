@@ -4,7 +4,7 @@
 # Module Server logic
 # ------------------------------------------------------------------------------
 
-lab_server <- function(id, path, init_lab) {
+lab_server <- function(id, path, init_lab, parent_session) {
   moduleServer(id, function(input, output, session) {
     
     # -- get namespace
@@ -18,6 +18,25 @@ lab_server <- function(id, path, init_lab) {
     spy <- reactiveVal()
     
     
+    # --------------------------------------------------------------------------
+    # Insert tab
+    # --------------------------------------------------------------------------
+    
+    # define UI
+    nav <- nav_panel(class = "p-5",
+              value = "lab",
+              title = "Lab", 
+              
+              lab_ui("lab"))
+    
+    # insert
+    nav_insert(id = "navbar", 
+               nav = nav, 
+               target = "project", 
+               position = "after", 
+               session = parent_session)
+
+        
     # --------------------------------------------------------------------------
     # Youtube
     # --------------------------------------------------------------------------
@@ -58,11 +77,9 @@ lab_server <- function(id, path, init_lab) {
     # this tab (once!)
     observeEvent(init_lab(), {
       
-      cat(MODULE, "Init lab \n")
-      
       # -- launch module server
       # admin FALSE // see lab_ui admin console
-      data <- kitems::kitems(id = "lab", path = path, autosave = FALSE, admin = FALSE, trigger = events)
+      data <- kitems::kitems(id = "lab", path = path, trigger = events, options = list(autosave = FALSE))
       
       
       # ------------------------------------------------------------------------
@@ -137,8 +154,6 @@ lab_server <- function(id, path, init_lab) {
     # -- generate items
     observeEvent(input$generate_10, {
       
-      cat("[lab] Fire generate x10 \n")
-      
       # -- fire event
       events(
         kitems::trigger_event(workflow = "create",
@@ -149,8 +164,6 @@ lab_server <- function(id, path, init_lab) {
     
     # -- generate items
     observeEvent(input$generate_100, {
-      
-      cat("[lab] Fire generate x100 \n")
       
       # -- fire event
       events(
@@ -236,6 +249,7 @@ lab_server <- function(id, path, init_lab) {
     
     # -- layout
     output$layout <- renderUI({
+      
       layout_column_wrap(
         plotOutput(ns("plot_value"), height = if(nrow(data$filtered_items()) > 0) 200 else 1),
         plotOutput(ns("plot_name"), height = if(nrow(data$filtered_items()) > 0) 200 else 1))})

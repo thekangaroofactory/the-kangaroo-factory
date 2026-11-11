@@ -1,0 +1,131 @@
+
+/* Main container (1100px max) */
+.cards-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px; /* space between cards */
+}
+
+/* Card */
+.custom-card {
+  background: var(--bs-body-bg);
+  border: 1px solid var(--tkf-border-color);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  /*height: 240px; << fixed height */
+}
+
+/* Section Image de gauche 
+.card-image-section {
+  width: 40%;
+  background: linear-gradient(135deg, #ffde7d 0%, #ffb84d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+} 
+*/
+
+/* Card content */
+.card-content-section {
+  width: 70%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Header icon */
+.card-icon {
+  border: 1px solid var(--tkf-dimmed-color);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+/* Header */
+.card-header-meta {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--tkf-dimmed-color);
+  gap: 8px;
+}
+
+/* Title */
+.card-body h3 {
+  margin: 20px 0 10px 0;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--bs-body-color);
+}
+
+/* Description */
+.card-description {
+  color: var(--tkf-dimmed-color);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+/* Footer */
+.card-footer-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--tkf-dimmed-color);
+  padding-top: 12px;
+}
+
+.card-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Tag */
+.card-ranking-tag {
+  background-color: var(--tkf-dimmed-bg);
+  border-radius: 10px;
+  padding: 0px 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--bs-body-color);
+  display: inline-block;
+}
+
+/*
+.card-ranking-tag strong {
+  color: #718096;
+  margin-right: 6px;
+}
+*/
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+  .custom-card {
+    height: auto;
+    flex-direction: column;
+  }
+  /*.card-image-section, */
+  .card-content-section {
+    width: 100%;
+  }
+  /*
+  .card-image-section {
+    height: 150px;
+  }*/
+}
