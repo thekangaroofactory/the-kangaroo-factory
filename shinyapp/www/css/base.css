@@ -113,7 +113,8 @@ h4 { font-size: 1.4rem }
   margin-top: 15px;
 }
 
-.legal-notice p, ul {
+.legal-notice p,
+.legal-notice ul {
   font-size: 0.9rem;
 }
 
